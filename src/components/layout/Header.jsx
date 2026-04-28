@@ -72,11 +72,11 @@ export default function Header() {
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-9">
-            <p className="text-[11px] font-mono tracking-wide" style={{ color: '#97A0BC' }}>
+          <div className="flex items-center justify-between h-7">
+            <p className="text-[10px] font-mono tracking-wide opacity-70" style={{ color: '#97A0BC' }}>
               UAE Building Contracting — Civil · Masonry · Plastering · Finishing
             </p>
-            <div className="flex items-center gap-1.5 text-[11px]" style={{ color: '#97A0BC' }}>
+            <div className="flex items-center gap-1.5 text-[10px] opacity-70" style={{ color: '#97A0BC' }}>
               <Phone className="w-3 h-3" style={{ color: '#6E85E8' }} />
               <span>+971 54 217 1502</span>
             </div>
@@ -96,7 +96,7 @@ export default function Header() {
         }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-[66px]">
+          <div className="flex items-center justify-between h-[54px]">
 
             {/* Logo */}
             <Link to="/" className="flex items-center gap-0 shrink-0 group">
