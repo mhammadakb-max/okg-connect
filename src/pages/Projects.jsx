@@ -114,9 +114,9 @@ export default function Projects() {
             <motion.div {...fu} transition={{ delay: 0.2 }} className="space-y-4">
               {/* Construction image placeholder cards */}
               {[
-                { label: 'Civil Works Package', img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1000&q=75', alt: 'Civil construction works concrete frame active building site' },
-                { label: 'Masonry & Plastering Package', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1000&q=75', alt: 'Blockwork masonry wall construction site package' },
-                { label: 'Fit-Out & Finishing Package', img: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1000&q=75', alt: 'Construction interior fit-out and finishing works supervisor site' },
+                { label: 'Civil Works Package', img: 'https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/b7de27fed_generated_image.png', alt: 'Active UAE construction site concrete frame workers PPE' },
+                { label: 'Masonry & Plastering Package', img: 'https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/438493dda_generated_image.png', alt: 'Construction workers blockwork masonry wall UAE site PPE' },
+                { label: 'Fit-Out & Finishing Package', img: 'https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/428f82baa_generated_image.png', alt: 'Interior fit-out finishing gypsum ceiling construction UAE' },
               ].map((card, i) => (
                 <div key={i} className="relative rounded-2xl overflow-hidden" style={{ height: 130 }}>
                   <img src={card.img} alt={card.alt} className="w-full h-full object-cover" loading="lazy" />
