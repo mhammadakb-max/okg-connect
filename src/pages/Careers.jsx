@@ -10,7 +10,7 @@ import { Textarea } from '@/components/ui/textarea';
 import { toast } from 'sonner';
 import { base44 } from '@/api/base44Client';
 
-const C = { ivory: '#F7F4EE', stone: '#F1ECE4', warmWhite: '#FBF9F5', charcoal: '#1F1F1B', charcoalDk: '#2E2B27', taupe: '#67635C', border: '#DDD6CB', bronze: '#B58A57' };
+const P = { white: '#FFFFFF', bg: '#F7F9FF', tint: '#EAF0FF', blue: '#6E85E8', blueL: '#8FA2F2', head: '#5F6D9A', head2: '#3D4A73', body: '#7C86A8', muted: '#97A0BC', border: '#E6EBF5' };
 
 const roles = [
   { icon: ClipboardCheck, title: 'Site Supervisors', text: 'For daily control, reporting, worker coordination, site instructions and progress follow-up.' },
@@ -19,9 +19,9 @@ const roles = [
   { icon: FileText, title: 'Admin Support', text: 'Quotation, document control, worker records, attendance and client coordination.' },
 ];
 
+const labelCls = { fontSize: 12, fontWeight: 600, color: '#5F6D9A', display: 'block', marginBottom: 6 };
+const inputStyle = { background: '#FCFDFF', borderColor: '#E6EBF5', color: '#5F6D9A' };
 const fu = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
-const labelStyle = { fontSize: 12, fontWeight: 600, color: '#1F1F1B', display: 'block', marginBottom: 6 };
-const inputStyle = { background: '#FBF9F5', borderColor: '#DDD6CB' };
 
 export default function Careers() {
   const [form, setForm] = useState({ name: '', phone: '', email: '', position: '', details: '' });
@@ -30,28 +30,8 @@ export default function Careers() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSending(true);
-    const body = `
-New job application received from OKG website — okgcontracting.com/careers
-
-Name: ${form.name}
-Phone / WhatsApp: ${form.phone || 'Not provided'}
-Email: ${form.email}
-Position / Trade: ${form.position || 'Not specified'}
-
-Experience & Details:
-${form.details || 'Not provided'}
-
----
-Submitted: ${new Date().toLocaleString('en-GB', { timeZone: 'Asia/Dubai' })} (UAE time)
-    `.trim();
-
-    await base44.integrations.Core.SendEmail({
-      to: 'omerkhalfangc@gmail.com',
-      from_name: 'OKG Website — Careers',
-      subject: `New Job Application — ${form.name}${form.position ? ' / ' + form.position : ''}`,
-      body,
-    });
-
+    const body = `New job application from OKG website — okgcontracting.com/careers\n\nName: ${form.name}\nPhone: ${form.phone || 'Not provided'}\nEmail: ${form.email}\nPosition: ${form.position || 'Not specified'}\n\nDetails:\n${form.details || 'Not provided'}\n\n---\n${new Date().toLocaleString('en-GB', { timeZone: 'Asia/Dubai' })} (UAE time)`;
+    await base44.integrations.Core.SendEmail({ to: 'omerkhalfangc@gmail.com', from_name: 'OKG Website — Careers', subject: `New Job Application — ${form.name}${form.position ? ' / ' + form.position : ''}`, body });
     toast.success('Application submitted. We will be in touch.');
     setForm({ name: '', phone: '', email: '', position: '', details: '' });
     setSending(false);
@@ -67,24 +47,24 @@ Submitted: ${new Date().toLocaleString('en-GB', { timeZone: 'Asia/Dubai' })} (UA
       />
 
       {/* Hero image band */}
-      <div className="relative h-48 sm:h-60 md:h-72 overflow-hidden" style={{ borderBottom: `1px solid ${C.border}` }}>
+      <div className="relative h-48 sm:h-60 md:h-64 overflow-hidden" style={{ borderBottom: `1px solid ${P.border}` }}>
         <img
           src="https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/2f6870904_generated_image.png"
           alt="Construction workers in PPE and hard hats at UAE building site"
           className="w-full h-full object-cover object-center"
           loading="lazy"
         />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(247,244,238,0) 0%, rgba(46,43,39,0.5) 100%)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(247,249,255,0.3) 0%, rgba(61,74,115,0.4) 100%)' }} />
       </div>
 
       {/* Roles */}
-      <section className="py-20 md:py-28" style={{ background: C.warmWhite }}>
+      <section className="py-20 md:py-28" style={{ background: P.white }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionEyebrow label="Careers" />
-          <motion.h2 {...fu} className="font-display text-[28px] md:text-[38px] font-extrabold leading-[1.12] tracking-[-0.018em] mb-4" style={{ color: C.charcoal }}>
+          <motion.h2 {...fu} className="font-display text-[28px] md:text-[38px] font-extrabold leading-[1.12] tracking-[-0.018em] mb-4" style={{ color: P.head2 }}>
             We value reliability, skill and site discipline.
           </motion.h2>
-          <motion.p {...fu} transition={{ delay: 0.1 }} className="text-[15px] leading-[1.85] mb-12 max-w-2xl" style={{ color: C.taupe }}>
+          <motion.p {...fu} transition={{ delay: 0.1 }} className="text-[15px] leading-[1.85] mb-12 max-w-2xl" style={{ color: P.body }}>
             OKG looks for people who respect attendance, safety, workmanship and clear communication. Construction teams are judged by output and behaviour on site.
           </motion.p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
@@ -94,56 +74,48 @@ Submitted: ${new Date().toLocaleString('en-GB', { timeZone: 'Asia/Dubai' })} (UA
       </section>
 
       {/* Application Form */}
-      <section className="py-20 md:py-28" style={{ background: C.stone, borderTop: `1px solid ${C.border}` }}>
+      <section className="py-20 md:py-28" style={{ background: P.bg, borderTop: `1px solid ${P.border}` }}>
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionEyebrow label="Apply" />
-          <motion.h2 {...fu} className="font-display text-[26px] md:text-[34px] font-extrabold leading-[1.15] tracking-[-0.015em] mb-3" style={{ color: C.charcoal }}>
+          <motion.h2 {...fu} className="font-display text-[26px] md:text-[34px] font-extrabold leading-[1.15] tracking-[-0.015em] mb-3" style={{ color: P.head2 }}>
             Send your details.
           </motion.h2>
-          <motion.p {...fu} transition={{ delay: 0.1 }} className="text-[14px] leading-[1.85] mb-8" style={{ color: C.taupe }}>
-            Include your trade, years of experience, current visa status and location. OKG will review your details and be in touch.
+          <motion.p {...fu} transition={{ delay: 0.1 }} className="text-[14px] leading-[1.85] mb-8" style={{ color: P.body }}>
+            Include your trade, years of experience, current visa status and location. OKG will review and be in touch.
           </motion.p>
 
           <motion.form
-            {...fu}
-            transition={{ delay: 0.2 }}
+            {...fu} transition={{ delay: 0.2 }}
             onSubmit={handleSubmit}
-            className="rounded-xl p-7 md:p-9 border bg-white space-y-5"
-            style={{ borderColor: C.border, boxShadow: '0 4px 20px rgba(31,31,27,0.06)' }}
+            className="rounded-2xl p-7 md:p-9 space-y-5"
+            style={{ background: 'rgba(255,255,255,0.85)', backdropFilter: 'blur(16px)', border: `1px solid ${P.border}`, boxShadow: '0 8px 32px rgba(110,133,232,0.1)' }}
           >
             <div>
-              <label style={labelStyle}>Full Name</label>
+              <label style={labelCls}>Full Name</label>
               <Input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} required placeholder="Your full name" style={inputStyle} />
             </div>
             <div className="grid md:grid-cols-2 gap-5">
               <div>
-                <label style={labelStyle}>Phone / WhatsApp</label>
+                <label style={labelCls}>Phone / WhatsApp</label>
                 <Input value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="+971 54 217 1502" style={inputStyle} />
               </div>
               <div>
-                <label style={labelStyle}>Email Address</label>
+                <label style={labelCls}>Email Address</label>
                 <Input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} required placeholder="email@example.com" style={inputStyle} />
               </div>
             </div>
             <div>
-              <label style={labelStyle}>Position / Trade</label>
+              <label style={labelCls}>Position / Trade</label>
               <Input value={form.position} onChange={(e) => setForm({ ...form, position: e.target.value })} placeholder="e.g. Mason, Site Supervisor, Plasterer" style={inputStyle} />
             </div>
             <div>
-              <label style={labelStyle}>Experience, visa status, location and availability</label>
-              <Textarea
-                value={form.details}
-                onChange={(e) => setForm({ ...form, details: e.target.value })}
-                rows={4}
-                placeholder="Briefly describe your experience, current visa status, location and availability..."
-                style={inputStyle}
-              />
+              <label style={labelCls}>Experience, visa status, location and availability</label>
+              <Textarea value={form.details} onChange={(e) => setForm({ ...form, details: e.target.value })} rows={4} placeholder="Briefly describe your experience, current visa status, location and availability..." style={inputStyle} />
             </div>
             <button
-              type="submit"
-              disabled={sending}
-              className="w-full flex items-center justify-center gap-2.5 py-3.5 rounded-lg text-[13.5px] font-semibold transition-all hover:opacity-85 disabled:opacity-60"
-              style={{ background: C.charcoalDk, color: '#FBF9F5' }}
+              type="submit" disabled={sending}
+              className="w-full flex items-center justify-center gap-2.5 py-3.5 rounded-xl text-[13.5px] font-semibold transition-all hover:opacity-88 disabled:opacity-60"
+              style={{ background: 'linear-gradient(135deg, #6E85E8 0%, #8FA2F2 100%)', color: '#fff', boxShadow: '0 4px 20px rgba(110,133,232,0.25)' }}
             >
               {sending ? 'Sending…' : 'Submit Application'}
               {!sending && <ArrowRight className="w-4 h-4" />}

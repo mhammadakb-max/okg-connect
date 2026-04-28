@@ -4,7 +4,7 @@ import PageHero from '../components/shared/PageHero';
 import SectionEyebrow from '../components/shared/SectionEyebrow';
 import CTABand from '../components/shared/CTABand';
 
-const C = { ivory: '#F7F4EE', stone: '#F1ECE4', warmWhite: '#FBF9F5', charcoal: '#1F1F1B', charcoalDk: '#2E2B27', taupe: '#67635C', border: '#DDD6CB', bronze: '#B58A57', tan: '#C8A97E' };
+const P = { white: '#FFFFFF', bg: '#F7F9FF', bg2: '#F2F6FF', tint: '#EAF0FF', blue: '#6E85E8', blueL: '#8FA2F2', head: '#5F6D9A', head2: '#3D4A73', body: '#7C86A8', muted: '#97A0BC', border: '#E6EBF5' };
 
 const services = [
   { num: '01', title: 'Building Contracting Works', text: 'Support for villas, commercial units, small developments, extensions, renovations and subcontract packages across the UAE.', img: 'https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/b7de27fed_generated_image.png', alt: 'Active building construction site UAE' },
@@ -37,15 +37,15 @@ export default function Services() {
         intro="OKG provides practical contracting support across civil, masonry, plastering, concrete, steel fixing, shuttering, fit-out, finishing and subcontract packages."
       />
 
-      {/* ─── Service grid ─────────────────────────────────────────── */}
-      <section className="py-20 md:py-28" style={{ background: C.warmWhite }}>
+      {/* Service grid */}
+      <section className="py-20 md:py-28" style={{ background: P.white }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionEyebrow label="Work packages" />
-          <motion.h2 {...fu} className="font-display text-[28px] md:text-[38px] font-extrabold leading-[1.12] tracking-[-0.018em] mb-12" style={{ color: C.charcoal }}>
+          <motion.h2 {...fu} className="font-display text-[28px] md:text-[38px] font-extrabold leading-[1.12] tracking-[-0.018em] mb-12" style={{ color: P.head2 }}>
             What OKG can deliver on site.
           </motion.h2>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {services.map((s, i) => (
               <motion.div
                 key={i}
@@ -53,24 +53,20 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
-                className="group relative rounded-xl border overflow-hidden bg-white hover:shadow-lg transition-all duration-300"
-                style={{ borderColor: C.border }}
+                className="group relative rounded-2xl overflow-hidden transition-all duration-300 hover:shadow-xl"
+                style={{ background: 'rgba(255,255,255,0.85)', border: `1px solid ${P.border}`, boxShadow: '0 2px 12px rgba(110,133,232,0.06)' }}
               >
                 <div className="relative h-44 overflow-hidden">
-                  <img
-                    src={s.img} alt={s.alt}
-                    className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: 'rgba(46,43,39,0.25)' }} />
-                  <div className="absolute top-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity" style={{ background: C.bronze }} />
-                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded" style={{ background: 'rgba(30,27,23,0.68)' }}>
-                    <span className="text-[10px] font-mono font-bold" style={{ color: C.tan }}>{s.num}</span>
+                  <img src={s.img} alt={s.alt} className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105" loading="lazy" />
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: 'rgba(110,133,232,0.1)' }} />
+                  <div className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity" style={{ background: 'linear-gradient(to right, transparent, #6E85E8, transparent)' }} />
+                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded-lg" style={{ background: 'rgba(255,255,255,0.82)', backdropFilter: 'blur(8px)', border: '1px solid rgba(230,235,245,0.9)' }}>
+                    <span className="text-[10px] font-mono font-bold" style={{ color: P.blue }}>{s.num}</span>
                   </div>
                 </div>
                 <div className="p-6">
-                  <h3 className="text-[14.5px] font-bold mb-2 leading-snug" style={{ color: C.charcoal }}>{s.title}</h3>
-                  <p className="text-[13px] leading-relaxed" style={{ color: C.taupe }}>{s.text}</p>
+                  <h3 className="text-[14.5px] font-bold mb-2 leading-snug" style={{ color: P.head2 }}>{s.title}</h3>
+                  <p className="text-[13px] leading-relaxed" style={{ color: P.body }}>{s.text}</p>
                 </div>
               </motion.div>
             ))}
@@ -78,54 +74,54 @@ export default function Services() {
         </div>
       </section>
 
-      {/* ─── Scope Control ────────────────────────────────────────── */}
-      <section className="py-20 md:py-28" style={{ background: C.stone, borderTop: `1px solid ${C.border}` }}>
+      {/* Scope Control table */}
+      <section className="py-20 md:py-28" style={{ background: P.bg, borderTop: `1px solid ${P.border}` }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionEyebrow label="Scope Control" />
-          <motion.h2 {...fu} className="font-display text-[28px] md:text-[38px] font-extrabold leading-[1.12] tracking-[-0.018em] mb-4" style={{ color: C.charcoal }}>
+          <motion.h2 {...fu} className="font-display text-[28px] md:text-[38px] font-extrabold leading-[1.12] tracking-[-0.018em] mb-4" style={{ color: P.head2 }}>
             How OKG defines work before pricing.
           </motion.h2>
-          <motion.p {...fu} transition={{ delay: 0.1 }} className="text-[15px] leading-[1.8] mb-12 max-w-2xl" style={{ color: C.taupe }}>
+          <motion.p {...fu} transition={{ delay: 0.1 }} className="text-[15px] leading-[1.8] mb-12 max-w-2xl" style={{ color: P.body }}>
             Good construction starts before mobilisation. A clear scope reduces disputes, delay and cost leakage.
           </motion.p>
 
-          <motion.div {...fu} transition={{ delay: 0.15 }} className="bg-white rounded-xl border overflow-hidden" style={{ borderColor: C.border, boxShadow: '0 2px 12px rgba(31,31,27,0.06)' }}>
+          <motion.div {...fu} transition={{ delay: 0.15 }} className="rounded-2xl overflow-hidden" style={{ border: `1px solid ${P.border}`, boxShadow: '0 4px 20px rgba(110,133,232,0.07)' }}>
             {/* Desktop */}
             <div className="hidden md:block">
               <table className="w-full text-sm">
                 <thead>
-                  <tr style={{ background: C.charcoalDk }}>
-                    <th className="text-left px-7 py-5 text-[11px] font-mono font-semibold tracking-widest uppercase w-40" style={{ color: 'rgba(251,249,245,0.5)' }}>Item</th>
-                    <th className="text-left px-7 py-5 text-[11px] font-mono font-semibold tracking-widest uppercase" style={{ color: 'rgba(251,249,245,0.5)' }}>What OKG Clarifies</th>
-                    <th className="text-left px-7 py-5 text-[11px] font-mono font-semibold tracking-widest uppercase" style={{ color: 'rgba(251,249,245,0.5)' }}>Why It Matters</th>
+                  <tr style={{ background: 'linear-gradient(135deg, #EAF0FF 0%, #E3EBFF 100%)' }}>
+                    <th className="text-left px-7 py-5 text-[11px] font-mono font-semibold tracking-widest uppercase w-40" style={{ color: P.head }}>Item</th>
+                    <th className="text-left px-7 py-5 text-[11px] font-mono font-semibold tracking-widest uppercase" style={{ color: P.head }}>What OKG Clarifies</th>
+                    <th className="text-left px-7 py-5 text-[11px] font-mono font-semibold tracking-widest uppercase" style={{ color: P.head }}>Why It Matters</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody style={{ background: P.white }}>
                   {scopeRows.map((row, i) => (
-                    <tr key={i} className="hover:bg-stone transition-colors" style={{ borderTop: `1px solid ${C.border}` }}>
-                      <td className="px-7 py-5 font-bold text-[13px] whitespace-nowrap" style={{ color: C.charcoal }}>
+                    <tr key={i} className="hover:bg-ok-tint transition-colors" style={{ borderTop: `1px solid ${P.border}` }}>
+                      <td className="px-7 py-5 font-bold text-[13px] whitespace-nowrap" style={{ color: P.head2 }}>
                         <div className="flex items-center gap-2.5">
-                          <span className="w-1 h-1 rounded-full shrink-0" style={{ background: C.bronze }} />
+                          <span className="w-1 h-1 rounded-full shrink-0" style={{ background: P.blue }} />
                           {row.item}
                         </div>
                       </td>
-                      <td className="px-7 py-5 text-[13.5px] leading-relaxed" style={{ color: C.charcoal }}>{row.clarifies}</td>
-                      <td className="px-7 py-5 text-[13px] leading-relaxed" style={{ color: C.taupe }}>{row.matters}</td>
+                      <td className="px-7 py-5 text-[13.5px] leading-relaxed" style={{ color: P.body }}>{row.clarifies}</td>
+                      <td className="px-7 py-5 text-[13px] leading-relaxed" style={{ color: P.muted }}>{row.matters}</td>
                     </tr>
                   ))}
                 </tbody>
               </table>
             </div>
             {/* Mobile */}
-            <div className="md:hidden divide-y" style={{ borderColor: C.border }}>
+            <div className="md:hidden divide-y" style={{ background: P.white, borderColor: P.border }}>
               {scopeRows.map((row, i) => (
                 <div key={i} className="p-6">
                   <div className="flex items-center gap-2 mb-3">
-                    <span className="w-1 h-1 rounded-full" style={{ background: C.bronze }} />
-                    <h4 className="font-bold text-[14px]" style={{ color: C.charcoal }}>{row.item}</h4>
+                    <span className="w-1 h-1 rounded-full" style={{ background: P.blue }} />
+                    <h4 className="font-bold text-[14px]" style={{ color: P.head2 }}>{row.item}</h4>
                   </div>
-                  <p className="text-[13px] leading-relaxed mb-2" style={{ color: C.charcoal }}><span className="font-semibold">Clarifies:</span> {row.clarifies}</p>
-                  <p className="text-[13px] leading-relaxed" style={{ color: C.taupe }}><span className="font-semibold">Why:</span> {row.matters}</p>
+                  <p className="text-[13px] leading-relaxed mb-2" style={{ color: P.body }}><span className="font-semibold">Clarifies:</span> {row.clarifies}</p>
+                  <p className="text-[13px] leading-relaxed" style={{ color: P.muted }}><span className="font-semibold">Why:</span> {row.matters}</p>
                 </div>
               ))}
             </div>

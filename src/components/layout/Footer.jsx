@@ -34,12 +34,23 @@ const serviceList = [
 
 export default function Footer() {
   return (
-    <footer style={{ background: '#2E2B27' }} className="relative overflow-hidden">
-
-      {/* Subtle top divider */}
-      <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'rgba(221,214,203,0.15)' }} />
-      {/* Bronze accent line */}
-      <div className="absolute top-0 left-0 w-24 h-[2px]" style={{ background: '#B58A57' }} />
+    <footer
+      className="relative overflow-hidden"
+      style={{
+        background: 'linear-gradient(160deg, #F7F9FF 0%, #EAF0FF 50%, #F2F6FF 100%)',
+        borderTop: '1px solid #E6EBF5',
+      }}
+    >
+      {/* Subtle radial glow */}
+      <div
+        className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[700px] h-64 pointer-events-none"
+        style={{ background: 'radial-gradient(ellipse, rgba(110,133,232,0.05) 0%, transparent 70%)' }}
+      />
+      {/* Blue top accent */}
+      <div
+        className="absolute top-0 left-0 w-28 h-[2px]"
+        style={{ background: 'linear-gradient(to right, #6E85E8, transparent)' }}
+      />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
@@ -47,29 +58,32 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-4">
             <Link to="/" className="inline-flex items-baseline gap-0 mb-5 group">
-              <span className="text-[28px] font-extrabold tracking-[-0.03em] leading-none" style={{ color: '#FBF9F5' }}>OKG</span>
-              <span className="w-[6px] h-[6px] rounded-full ml-[2px] mb-[2px] group-hover:scale-110 transition-transform" style={{ background: '#B58A57' }} />
+              <span className="text-[28px] font-extrabold tracking-[-0.03em] leading-none" style={{ color: '#3D4A73' }}>OKG</span>
+              <span className="w-[5px] h-[5px] rounded-full ml-[2px] mb-[2px] group-hover:scale-110 transition-transform" style={{ background: '#6E85E8' }} />
             </Link>
 
-            <p className="text-[13px] leading-[1.85] mb-6 max-w-xs" style={{ color: 'rgba(251,249,245,0.45)' }}>
+            <p className="text-[13px] leading-[1.85] mb-6 max-w-xs" style={{ color: '#97A0BC' }}>
               OKG Building Contracting is a UAE-based contractor focused on disciplined construction support, site supervision, documentation, QHSE and transparent project delivery.
             </p>
 
-            <div className="inline-flex items-center gap-2 rounded px-3.5 py-2 mb-7" style={{ border: '1px solid rgba(221,214,203,0.15)', background: 'rgba(255,255,255,0.03)' }}>
-              <span className="w-1 h-1 rounded-full" style={{ background: '#B58A57' }} />
-              <span className="text-[10px] font-mono tracking-[0.18em] uppercase" style={{ color: 'rgba(251,249,245,0.35)' }}>
+            <div
+              className="inline-flex items-center gap-2 rounded-lg px-3.5 py-2 mb-7"
+              style={{ border: '1px solid #E6EBF5', background: 'rgba(255,255,255,0.6)' }}
+            >
+              <span className="w-1 h-1 rounded-full" style={{ background: '#6E85E8' }} />
+              <span className="text-[10px] font-mono tracking-[0.18em] uppercase" style={{ color: '#97A0BC' }}>
                 Discipline · Clarity · Accountability
               </span>
             </div>
 
             <ul className="space-y-3">
               {[
-                { icon: MapPin, val: 'United Arab Emirates' },
-                { icon: Phone, val: '+971 54 217 1502' },
-                { icon: Mail, val: 'info@okgcontracting.com' },
-              ].map(({ icon: Icon, val }) => (
-                <li key={val} className="flex items-center gap-3 text-[13px]" style={{ color: 'rgba(251,249,245,0.4)' }}>
-                  <Icon className="w-3.5 h-3.5 shrink-0" style={{ color: '#B58A57', opacity: 0.7 }} />
+                { Icon: MapPin, val: 'United Arab Emirates' },
+                { Icon: Phone, val: '+971 54 217 1502' },
+                { Icon: Mail, val: 'info@okgcontracting.com' },
+              ].map(({ Icon, val }) => (
+                <li key={val} className="flex items-center gap-3 text-[13px]" style={{ color: '#97A0BC' }}>
+                  <Icon className="w-3.5 h-3.5 shrink-0" style={{ color: '#6E85E8', opacity: 0.7 }} />
                   {val}
                 </li>
               ))}
@@ -78,16 +92,16 @@ export default function Footer() {
 
           {/* Navigation */}
           <div className="lg:col-span-2">
-            <h4 className="text-[10px] font-mono font-bold tracking-[0.22em] uppercase mb-5" style={{ color: 'rgba(251,249,245,0.25)' }}>Navigation</h4>
+            <h4 className="text-[10px] font-mono font-bold tracking-[0.22em] uppercase mb-5" style={{ color: '#C5CBE0' }}>Navigation</h4>
             <ul className="space-y-2.5">
               {quickLinks.map((link) => (
                 <li key={link.path}>
                   <Link
                     to={link.path}
                     className="text-[13px] transition-colors flex items-center gap-1.5 group"
-                    style={{ color: 'rgba(251,249,245,0.45)' }}
-                    onMouseEnter={(e) => e.currentTarget.style.color = 'rgba(251,249,245,0.85)'}
-                    onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(251,249,245,0.45)'}
+                    style={{ color: '#97A0BC' }}
+                    onMouseEnter={(e) => e.currentTarget.style.color = '#5F6D9A'}
+                    onMouseLeave={(e) => e.currentTarget.style.color = '#97A0BC'}
                   >
                     {link.label}
                   </Link>
@@ -98,16 +112,16 @@ export default function Footer() {
 
           {/* Policies */}
           <div className="lg:col-span-3">
-            <h4 className="text-[10px] font-mono font-bold tracking-[0.22em] uppercase mb-5" style={{ color: 'rgba(251,249,245,0.25)' }}>Policies</h4>
+            <h4 className="text-[10px] font-mono font-bold tracking-[0.22em] uppercase mb-5" style={{ color: '#C5CBE0' }}>Policies</h4>
             <ul className="space-y-2.5">
               {policyLinks.map((link) => (
                 <li key={link.path}>
                   <Link
                     to={link.path}
                     className="text-[13px] transition-colors flex items-center gap-1.5"
-                    style={{ color: 'rgba(251,249,245,0.45)' }}
-                    onMouseEnter={(e) => e.currentTarget.style.color = 'rgba(251,249,245,0.85)'}
-                    onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(251,249,245,0.45)'}
+                    style={{ color: '#97A0BC' }}
+                    onMouseEnter={(e) => e.currentTarget.style.color = '#5F6D9A'}
+                    onMouseLeave={(e) => e.currentTarget.style.color = '#97A0BC'}
                   >
                     {link.label}
                   </Link>
@@ -118,11 +132,11 @@ export default function Footer() {
 
           {/* Services */}
           <div className="lg:col-span-3">
-            <h4 className="text-[10px] font-mono font-bold tracking-[0.22em] uppercase mb-5" style={{ color: 'rgba(251,249,245,0.25)' }}>Services</h4>
+            <h4 className="text-[10px] font-mono font-bold tracking-[0.22em] uppercase mb-5" style={{ color: '#C5CBE0' }}>Services</h4>
             <ul className="space-y-2.5">
               {serviceList.map((s) => (
-                <li key={s} className="text-[13px] flex items-center gap-2.5" style={{ color: 'rgba(251,249,245,0.4)' }}>
-                  <span className="w-1 h-1 rounded-full shrink-0" style={{ background: '#B58A57', opacity: 0.5 }} />
+                <li key={s} className="text-[13px] flex items-center gap-2.5" style={{ color: '#97A0BC' }}>
+                  <span className="w-1 h-1 rounded-full shrink-0" style={{ background: '#6E85E8', opacity: 0.5 }} />
                   {s}
                 </li>
               ))}
@@ -131,8 +145,12 @@ export default function Footer() {
             <div className="mt-8">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-lg text-[13px] font-semibold transition-all hover:opacity-85"
-                style={{ background: '#B58A57', color: '#FBF9F5' }}
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-[13px] font-semibold transition-all hover:opacity-88"
+                style={{
+                  background: 'linear-gradient(135deg, #6E85E8 0%, #8FA2F2 100%)',
+                  color: '#fff',
+                  boxShadow: '0 4px 16px rgba(110,133,232,0.22)',
+                }}
               >
                 Request Quotation
                 <ArrowUpRight className="w-3.5 h-3.5" />
@@ -143,18 +161,17 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom */}
-      <div className="relative z-10" style={{ borderTop: '1px solid rgba(221,214,203,0.1)' }}>
+      {/* Bottom bar */}
+      <div style={{ borderTop: '1px solid #E6EBF5' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p className="text-[12px]" style={{ color: 'rgba(251,249,245,0.22)' }}>
+          <p className="text-[12px]" style={{ color: '#C5CBE0' }}>
             © {new Date().getFullYear()} OKG Building Contracting LLC. All rights reserved. United Arab Emirates.
           </p>
-          <p className="text-[11px] font-mono tracking-wide" style={{ color: 'rgba(251,249,245,0.18)' }}>
+          <p className="text-[11px] font-mono tracking-wide" style={{ color: '#C5CBE0' }}>
             Constructing with clarity, discipline and accountability.
           </p>
         </div>
       </div>
-
     </footer>
   );
 }

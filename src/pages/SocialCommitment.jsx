@@ -6,7 +6,7 @@ import SectionEyebrow from '../components/shared/SectionEyebrow';
 import ValueCard from '../components/shared/ValueCard';
 import CTABand from '../components/shared/CTABand';
 
-const C = { stone: '#F1ECE4', warmWhite: '#FBF9F5', charcoal: '#1F1F1B', border: '#DDD6CB' };
+const P = { white: '#FFFFFF', bg: '#F7F9FF', head2: '#3D4A73', border: '#E6EBF5' };
 
 const cards = [
   { icon: Heart, title: 'Worker Respect', text: 'OKG believes workers should be treated with dignity, clear instructions and safe working expectations.' },
@@ -26,10 +26,10 @@ export default function SocialCommitment() {
         intro="OKG is committed to building a culture that respects workers, supports fair opportunity and contributes positively to the UAE construction environment."
       />
 
-      <section className="py-20 md:py-28" style={{ background: C.warmWhite }}>
+      <section className="py-20 md:py-28" style={{ background: P.white }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionEyebrow label="Our Commitments" />
-          <motion.h2 {...fu} className="font-display text-[28px] md:text-[38px] font-extrabold leading-[1.12] tracking-[-0.018em] mb-12" style={{ color: C.charcoal }}>
+          <motion.h2 {...fu} className="font-display text-[28px] md:text-[38px] font-extrabold leading-[1.12] tracking-[-0.018em] mb-12" style={{ color: P.head2 }}>
             People, accountability and responsible practice.
           </motion.h2>
           <div className="grid md:grid-cols-3 gap-5">

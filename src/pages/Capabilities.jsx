@@ -6,7 +6,7 @@ import SectionEyebrow from '../components/shared/SectionEyebrow';
 import ChecklistItem from '../components/shared/ChecklistItem';
 import CTABand from '../components/shared/CTABand';
 
-const C = { ivory: '#F7F4EE', stone: '#F1ECE4', warmWhite: '#FBF9F5', charcoal: '#1F1F1B', charcoalDk: '#2E2B27', taupe: '#67635C', border: '#DDD6CB', bronze: '#B58A57' };
+const P = { white: '#FFFFFF', bg: '#F7F9FF', tint: '#EAF0FF', blue: '#6E85E8', head: '#5F6D9A', head2: '#3D4A73', body: '#7C86A8', muted: '#97A0BC', border: '#E6EBF5' };
 
 const checklist = [
   'UAE-based building contracting presence',
@@ -40,8 +40,8 @@ export default function Capabilities() {
         intro="OKG's operating model is designed around clear communication, realistic mobilisation, measurable work progress and accountable project coordination."
       />
 
-      {/* ─── Checklist + image ───────────────────────────────────── */}
-      <section className="py-20 md:py-28" style={{ background: C.warmWhite }}>
+      {/* Checklist + image */}
+      <section className="py-20 md:py-28" style={{ background: P.white }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <motion.div
@@ -50,7 +50,7 @@ export default function Capabilities() {
               viewport={{ once: true }}
               className="relative"
             >
-              <div className="rounded-xl overflow-hidden" style={{ boxShadow: '0 12px 40px rgba(31,31,27,0.1)' }}>
+              <div className="rounded-2xl overflow-hidden" style={{ boxShadow: '0 20px 56px rgba(110,133,232,0.1)' }}>
                 <img
                   src="https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/b43d44e48_generated_image.png"
                   alt="Construction engineer reviewing BOQ drawings and project documentation UAE"
@@ -58,12 +58,12 @@ export default function Capabilities() {
                   loading="lazy"
                 />
               </div>
-              <div className="absolute -bottom-4 -right-4 w-20 h-20 rounded-xl hidden lg:block" style={{ background: C.stone, border: `1px solid ${C.border}`, zIndex: -1 }} />
+              <div className="absolute -bottom-4 -right-4 w-20 h-20 rounded-2xl hidden lg:block" style={{ background: P.tint, border: `1px solid ${P.border}`, zIndex: -1 }} />
             </motion.div>
 
             <div>
               <SectionEyebrow label="Core Capabilities" />
-              <motion.h2 {...fu} className="font-display text-[28px] md:text-[36px] font-extrabold leading-[1.12] tracking-[-0.018em] mb-8" style={{ color: C.charcoal }}>
+              <motion.h2 {...fu} className="font-display text-[28px] md:text-[36px] font-extrabold leading-[1.12] tracking-[-0.018em] mb-8" style={{ color: P.head2 }}>
                 What OKG brings to every project.
               </motion.h2>
               <div className="space-y-4">
@@ -76,18 +76,18 @@ export default function Capabilities() {
         </div>
       </section>
 
-      {/* ─── Execution Process ───────────────────────────────────── */}
-      <section className="py-20 md:py-28" style={{ background: C.stone, borderTop: `1px solid ${C.border}` }}>
+      {/* Execution Process */}
+      <section className="py-20 md:py-28" style={{ background: P.bg, borderTop: `1px solid ${P.border}` }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionEyebrow label="Execution Process" />
-          <motion.h2 {...fu} className="font-display text-[28px] md:text-[38px] font-extrabold leading-[1.12] tracking-[-0.018em] mb-4" style={{ color: C.charcoal }}>
+          <motion.h2 {...fu} className="font-display text-[28px] md:text-[38px] font-extrabold leading-[1.12] tracking-[-0.018em] mb-4" style={{ color: P.head2 }}>
             A controlled process from enquiry to handover.
           </motion.h2>
-          <motion.p {...fu} transition={{ delay: 0.1 }} className="text-[15px] leading-[1.8] mb-12 max-w-2xl" style={{ color: C.taupe }}>
+          <motion.p {...fu} transition={{ delay: 0.1 }} className="text-[15px] leading-[1.8] mb-12 max-w-2xl" style={{ color: P.body }}>
             Clear scope, defined responsibilities, daily site control and documented approvals reduce delays, disputes and rework.
           </motion.p>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {steps.map((step, i) => (
               <motion.div
                 key={i}
@@ -95,18 +95,18 @@ export default function Capabilities() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
-                className="group relative bg-white rounded-xl p-7 border hover:shadow-md transition-all duration-300 overflow-hidden"
-                style={{ borderColor: C.border }}
+                className="group relative rounded-2xl p-7 transition-all duration-300 hover:shadow-lg overflow-hidden"
+                style={{ background: 'rgba(255,255,255,0.8)', border: `1px solid ${P.border}`, backdropFilter: 'blur(8px)' }}
               >
-                <div className="absolute top-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity" style={{ background: C.bronze }} />
+                <div className="absolute top-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity" style={{ background: 'linear-gradient(to right, transparent, #6E85E8, transparent)' }} />
                 <div className="flex items-center gap-3 mb-5">
-                  <div className="w-10 h-10 rounded-lg flex items-center justify-center shrink-0" style={{ background: C.stone }}>
-                    <step.icon className="w-4.5 h-4.5" style={{ color: C.charcoalDk, width: 18, height: 18 }} />
+                  <div className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0" style={{ background: P.tint, border: `1px solid ${P.border}` }}>
+                    <step.icon style={{ color: P.blue, width: 18, height: 18 }} />
                   </div>
-                  <span className="text-[11px] font-mono font-bold" style={{ color: C.bronze }}>{step.num}</span>
+                  <span className="text-[11px] font-mono font-bold" style={{ color: P.blue }}>{step.num}</span>
                 </div>
-                <h3 className="text-[15px] font-bold mb-2" style={{ color: C.charcoal }}>{step.title}</h3>
-                <p className="text-[13.5px] leading-relaxed" style={{ color: C.taupe }}>{step.text}</p>
+                <h3 className="text-[15px] font-bold mb-2" style={{ color: P.head2 }}>{step.title}</h3>
+                <p className="text-[13.5px] leading-relaxed" style={{ color: P.body }}>{step.text}</p>
               </motion.div>
             ))}
           </div>
