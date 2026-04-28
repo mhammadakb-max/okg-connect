@@ -61,7 +61,7 @@ export default function Header() {
             </p>
             <div className="flex items-center gap-1 text-xs text-white/50">
               <Phone className="w-3 h-3 text-gold" />
-              <span>+971 XX XXX XXXX</span>
+              <span>+971 54 217 1502</span>
             </div>
           </div>
         </div>
@@ -307,7 +307,7 @@ export default function Header() {
                 </Link>
                 <div className="flex items-center justify-center gap-1.5 text-xs text-steel">
                   <Phone className="w-3 h-3 text-gold" />
-                  <span>+971 XX XXX XXXX</span>
+                  <span>+971 54 217 1502</span>
                 </div>
               </div>
             </motion.div>

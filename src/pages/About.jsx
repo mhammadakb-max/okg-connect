@@ -61,8 +61,8 @@ export default function About() {
               className="relative rounded-2xl overflow-hidden shadow-2xl shadow-navy/12 mb-6"
             >
               <img
-                src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1100&q=80"
-                alt="Construction supervisor reviewing drawings and project documentation on site"
+                src="https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/b43d44e48_generated_image.png"
+                alt="Construction engineer reviewing project drawings documentation UAE"
                 className="w-full h-60 object-cover object-center"
                 loading="lazy"
               />

@@ -8,6 +8,7 @@ import CTABand from '../components/shared/CTABand';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { toast } from 'sonner';
+import { base44 } from '@/api/base44Client';
 
 const roles = [
   { icon: ClipboardCheck, title: 'Site Supervisors', text: 'For daily control, reporting, worker coordination, site instructions and progress follow-up.' },
@@ -21,11 +22,37 @@ const labelStyle = { fontSize: 13, fontWeight: 600, color: '#001078', display: '
 
 export default function Careers() {
   const [form, setForm] = useState({ name: '', phone: '', email: '', position: '', details: '' });
+  const [sending, setSending] = useState(false);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setSending(true);
+
+    const body = `
+New job application received from OKG website — okgcontracting.com/careers
+
+Name: ${form.name}
+Phone / WhatsApp: ${form.phone || 'Not provided'}
+Email: ${form.email}
+Position / Trade: ${form.position || 'Not specified'}
+
+Experience & Details:
+${form.details || 'Not provided'}
+
+---
+Submitted: ${new Date().toLocaleString('en-GB', { timeZone: 'Asia/Dubai' })} (UAE time)
+    `.trim();
+
+    await base44.integrations.Core.SendEmail({
+      to: 'omerkhalfangc@gmail.com',
+      from_name: 'OKG Website — Careers',
+      subject: `New Job Application — ${form.name}${form.position ? ' / ' + form.position : ''}`,
+      body,
+    });
+
     toast.success('Application submitted. We will be in touch.');
     setForm({ name: '', phone: '', email: '', position: '', details: '' });
+    setSending(false);
   };
 
   return (
@@ -39,7 +66,7 @@ export default function Careers() {
       {/* Hero image band */}
       <div className="relative h-48 sm:h-64 md:h-80 overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920&q=80"
+          src="https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/2f6870904_generated_image.png"
           alt="Construction workers in PPE and hard hats at UAE building site"
           className="w-full h-full object-cover object-center"
           loading="lazy"
@@ -90,7 +117,7 @@ export default function Careers() {
             <div className="grid md:grid-cols-2 gap-5">
               <div>
                 <label style={labelStyle}>Phone / WhatsApp</label>
-                <Input value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="+971 XX XXX XXXX" />
+                <Input value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="+971 54 217 1502" />
               </div>
               <div>
                 <label style={labelStyle}>Email Address</label>
@@ -112,11 +139,12 @@ export default function Careers() {
             </div>
             <button
               type="submit"
-              className="w-full flex items-center justify-center gap-2.5 py-3.5 rounded-xl text-[14px] font-bold text-white transition-all hover:scale-[1.01] shadow-md"
+              disabled={sending}
+              className="w-full flex items-center justify-center gap-2.5 py-3.5 rounded-xl text-[14px] font-bold text-white transition-all hover:opacity-90 shadow-md disabled:opacity-60"
               style={{ background: '#001078' }}
             >
-              Submit Application
-              <ArrowRight className="w-4 h-4" />
+              {sending ? 'Sending…' : 'Submit Application'}
+              {!sending && <ArrowRight className="w-4 h-4" />}
             </button>
           </motion.form>
         </div>

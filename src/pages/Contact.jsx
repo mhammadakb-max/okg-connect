@@ -7,6 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { toast } from 'sonner';
+import { base44 } from '@/api/base44Client';
 
 // ── Contact info ───────────────────────────────────────────────────────────────
 const contactInfo = [
@@ -35,58 +36,38 @@ export default function Contact() {
   const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
 
-  /*
-   * FORM SUBMISSION — Connect to omerkhalfangc@gmail.com before publishing.
-   * Using Formspree (https://formspree.io) — replace YOUR_FORM_ID with the
-   * actual Formspree form ID tied to omerkhalfangc@gmail.com.
-   * Subject is set via hidden field "_subject".
-   * Reply-to is set via hidden field "_replyto".
-   */
-  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/YOUR_FORM_ID'; // ← REPLACE BEFORE PUBLISHING
-
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSending(true);
 
-    const payload = {
-      _subject: 'New OKG Website Enquiry',
-      _replyto: form.email,
-      page_source: 'okgcontracting.com/contact',
-      submission_date: new Date().toLocaleString('en-GB', { timeZone: 'Asia/Dubai' }),
-      full_name: form.name,
-      company_name: form.company,
-      phone_whatsapp: form.phone,
-      email_address: form.email,
-      project_location: form.location,
-      service_required: form.service,
-      scope_details: form.scope,
-    };
+    const body = `
+New enquiry received from OKG website — okgcontracting.com
 
-    try {
-      const res = await fetch(FORMSPREE_ENDPOINT, {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
-        body: JSON.stringify(payload),
-      });
+Name: ${form.name}
+Company: ${form.company || 'Not provided'}
+Phone / WhatsApp: ${form.phone || 'Not provided'}
+Email: ${form.email}
+Project Location: ${form.location || 'Not provided'}
+Service Required: ${form.service || 'Not specified'}
 
-      if (res.ok) {
-        setSent(true);
-        setForm({ name: '', company: '', phone: '', email: '', location: '', service: '', scope: '' });
-        toast.success('Enquiry submitted. OKG will review your details and respond.');
-      } else {
-        // Fallback: still show success to user and log issue
-        setSent(true);
-        toast.success('Enquiry submitted. OKG will review your details and respond.');
-        console.warn('Formspree not configured — replace YOUR_FORM_ID');
-      }
-    } catch {
-      // Network error fallback
-      setSent(true);
-      toast.success('Enquiry submitted. OKG will review your details and respond.');
-      console.warn('Form submission error — check Formspree config');
-    } finally {
-      setSending(false);
-    }
+Scope Details:
+${form.scope || 'Not provided'}
+
+---
+Submitted: ${new Date().toLocaleString('en-GB', { timeZone: 'Asia/Dubai' })} (UAE time)
+    `.trim();
+
+    await base44.integrations.Core.SendEmail({
+      to: 'omerkhalfangc@gmail.com',
+      from_name: 'OKG Website',
+      subject: `New OKG Enquiry — ${form.name}${form.company ? ' / ' + form.company : ''}`,
+      body,
+    });
+
+    setSent(true);
+    setForm({ name: '', company: '', phone: '', email: '', location: '', service: '', scope: '' });
+    toast.success('Enquiry submitted. OKG will review your details and respond.');
+    setSending(false);
   };
 
   return (
@@ -107,8 +88,8 @@ export default function Contact() {
               {/* Image panel */}
               <div className="relative rounded-2xl overflow-hidden h-52 hidden lg:block">
                 <img
-                  src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&q=80"
-                  alt="UAE construction skyline and building site"
+                  src="https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/5879e578b_generated_image.png"
+                  alt="UAE construction site skyline cranes modern buildings"
                   className="w-full h-full object-cover object-center"
                   loading="lazy"
                 />
