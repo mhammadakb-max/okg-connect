@@ -11,10 +11,15 @@ module.exports = {
       },
       colors: {
         navy: '#001078',
+        'navy-dark': '#000A4D',
+        'navy-deep': '#000833',
         gold: '#F8B858',
+        'gold-hover': '#E6A43F',
         offwhite: '#F7F8FB',
+        'cool-grey': '#EEF1F6',
         charcoal: '#1E1E1E',
         steel: '#6B7280',
+        'border-grey': '#D9DEE8',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {

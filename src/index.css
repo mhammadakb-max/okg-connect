@@ -10,6 +10,18 @@
     --font-display: 'Sora', 'Inter', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
 
+    /* Brand palette */
+    --color-navy: 230 100% 24%;         /* #001078 */
+    --color-navy-dark: 231 100% 15%;    /* #000A4D */
+    --color-navy-deep: 228 100% 8%;     /* #000833 */
+    --color-gold: 39 92% 66%;           /* #F8B858 */
+    --color-gold-hover: 36 82% 57%;     /* #E6A43F */
+    --color-offwhite: 228 33% 97%;      /* #F7F8FB */
+    --color-cool-grey: 220 28% 92%;     /* #EEF1F6 */
+    --color-charcoal: 0 0% 12%;         /* #1E1E1E */
+    --color-steel: 220 9% 46%;          /* #6B7280 */
+    --color-border: 220 18% 86%;        /* #D9DEE8 */
+
     --background: 0 0% 100%;
     --foreground: 0 0% 12%;
     --card: 0 0% 100%;
@@ -26,8 +38,8 @@
     --accent-foreground: 0 0% 12%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
+    --border: 220 18% 86%;
+    --input: 220 18% 86%;
     --ring: 230 100% 24%;
     --chart-1: 230 100% 24%;
     --chart-2: 39 92% 66%;
@@ -41,42 +53,42 @@
     --sidebar-primary-foreground: 0 0% 98%;
     --sidebar-accent: 228 33% 97%;
     --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
+    --sidebar-border: 220 18% 86%;
     --sidebar-ring: 230 100% 24%;
   }
 
   .dark {
-    --background: 230 50% 5%;
+    --background: 231 100% 5%;
     --foreground: 0 0% 95%;
-    --card: 230 40% 8%;
+    --card: 231 80% 8%;
     --card-foreground: 0 0% 95%;
-    --popover: 230 40% 8%;
+    --popover: 231 80% 8%;
     --popover-foreground: 0 0% 95%;
     --primary: 39 92% 66%;
     --primary-foreground: 230 100% 24%;
-    --secondary: 230 30% 15%;
+    --secondary: 231 40% 14%;
     --secondary-foreground: 0 0% 95%;
-    --muted: 230 30% 15%;
+    --muted: 231 40% 14%;
     --muted-foreground: 220 9% 60%;
     --accent: 39 92% 66%;
     --accent-foreground: 230 100% 24%;
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 230 20% 18%;
-    --input: 230 20% 18%;
+    --border: 231 25% 18%;
+    --input: 231 25% 18%;
     --ring: 39 92% 66%;
     --chart-1: 39 92% 66%;
     --chart-2: 230 100% 24%;
     --chart-3: 220 9% 46%;
     --chart-4: 228 33% 97%;
     --chart-5: 0 0% 12%;
-    --sidebar-background: 230 50% 5%;
+    --sidebar-background: 231 100% 5%;
     --sidebar-foreground: 0 0% 95%;
     --sidebar-primary: 39 92% 66%;
     --sidebar-primary-foreground: 230 100% 24%;
-    --sidebar-accent: 230 30% 15%;
+    --sidebar-accent: 231 40% 14%;
     --sidebar-accent-foreground: 0 0% 95%;
-    --sidebar-border: 230 20% 18%;
+    --sidebar-border: 231 25% 18%;
     --sidebar-ring: 39 92% 66%;
   }
 }
@@ -88,7 +100,7 @@
   body {
     @apply bg-background text-foreground font-body;
     font-size: 16px;
-    line-height: 1.618;
+    line-height: 1.65;
   }
   html {
     scroll-behavior: smooth;
@@ -99,15 +111,17 @@
   .gold-dot::before {
     content: '';
     display: inline-block;
-    width: 8px;
-    height: 8px;
+    width: 7px;
+    height: 7px;
     border-radius: 50%;
     background-color: #F8B858;
     margin-right: 10px;
     flex-shrink: 0;
   }
   .section-line {
-    border-top: 1px solid #6B7280;
-    opacity: 0.2;
+    border-top: 1px solid #D9DEE8;
+  }
+  .navy-glow {
+    box-shadow: 0 0 80px rgba(0, 16, 120, 0.12);
   }
 }
