@@ -55,7 +55,7 @@ export default function Contact() {
             {/* ── Left info panel ── */}
             <div className="lg:col-span-2">
               <SectionEyebrow label="Contact Details" />
-              <motion.h2 {...fu} className="text-2xl md:text-[32px] font-bold leading-[1.2] tracking-[-0.015em] mb-4" style={{ color: '#001078' }}>
+              <motion.h2 {...fu} className="font-display text-2xl md:text-[32px] font-bold leading-[1.2] tracking-[-0.015em] mb-4" style={{ color: '#001078' }}>
                 Talk to OKG about your project.
               </motion.h2>
               <motion.p {...fu} transition={{ delay: 0.1 }} className="text-[14px] leading-[1.8] mb-8" style={{ color: '#6B7280' }}>

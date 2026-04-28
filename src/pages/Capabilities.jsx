@@ -65,7 +65,7 @@ export default function Capabilities() {
             {/* Checklist */}
             <div>
               <SectionEyebrow label="Core Capabilities" />
-              <motion.h2 {...fu} className="text-3xl md:text-[36px] font-bold leading-[1.2] tracking-[-0.015em] mb-8" style={{ color: '#001078' }}>
+              <motion.h2 {...fu} className="font-display text-3xl md:text-[36px] font-bold leading-[1.2] tracking-[-0.015em] mb-8" style={{ color: '#001078' }}>
                 What OKG brings to every project.
               </motion.h2>
               <div className="space-y-4">
@@ -82,7 +82,7 @@ export default function Capabilities() {
       <section className="py-20 md:py-28" style={{ background: '#F7F8FB' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionEyebrow label="Execution Process" />
-          <motion.h2 {...fu} className="text-3xl md:text-[40px] font-bold leading-[1.18] tracking-[-0.015em] mb-4" style={{ color: '#001078' }}>
+          <motion.h2 {...fu} className="font-display text-3xl md:text-[40px] font-bold leading-[1.18] tracking-[-0.015em] mb-4" style={{ color: '#001078' }}>
             A controlled process from enquiry to handover.
           </motion.h2>
           <motion.p {...fu} transition={{ delay: 0.1 }} className="text-[15px] leading-[1.8] mb-12 max-w-2xl" style={{ color: '#6B7280' }}>

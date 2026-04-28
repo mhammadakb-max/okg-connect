@@ -133,19 +133,19 @@ export default function Home() {
                 className="inline-flex items-center gap-3 mb-8"
               >
                 <span className="w-10 h-px" style={{ background: '#F8B858' }} />
-                <span className="text-[11px] font-mono font-semibold tracking-[0.22em] uppercase" style={{ color: '#F8B858' }}>
-                  UAE Building Contracting Company
+                <span className="text-[10.5px] font-mono font-bold tracking-[0.24em] uppercase" style={{ color: '#F8B858' }}>
+                  UAE Building Contracting
                 </span>
               </motion.div>
 
               {/* H1 */}
               <motion.h1
                 initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-                className="text-[38px] md:text-[56px] lg:text-[64px] font-black leading-[1.06] tracking-[-0.025em] text-white mb-6"
+                className="font-display text-[40px] md:text-[58px] lg:text-[68px] font-black leading-[1.04] tracking-[-0.025em] text-white mb-6"
               >
                 Constructing with<br />
-                <span style={{ color: '#F8B858' }}>discipline</span>, clarity<br />
-                and control.
+                <span style={{ color: '#F8B858' }}>discipline</span>,<br />
+                clarity and control.
               </motion.h1>
 
               <motion.p
@@ -214,8 +214,8 @@ export default function Home() {
 
                 {/* Card body */}
                 <div className="p-7 md:p-8" style={{ background: 'rgba(0,5,40,0.7)', backdropFilter: 'blur(20px)' }}>
-                  <p className="text-[11px] font-mono font-semibold tracking-[0.2em] uppercase mb-6" style={{ color: '#F8B858' }}>
-                    Controlled execution from enquiry to handover.
+                  <p className="text-[10.5px] font-mono font-bold tracking-[0.2em] uppercase mb-6" style={{ color: '#F8B858' }}>
+                    Enquiry to Handover — Controlled
                   </p>
                   <div className="space-y-4">
                     {heroChecklist.map((item, i) => (
@@ -263,7 +263,7 @@ export default function Home() {
         </div>
 
         {/* Bottom diagonal cut */}
-        <div className="absolute bottom-0 left-0 right-0 h-16 bg-white" style={{ clipPath: 'polygon(0 100%, 100% 0, 100% 100%)' }} />
+        <div className="absolute bottom-0 left-0 right-0 h-20 bg-white" style={{ clipPath: 'polygon(0 100%, 100% 20%, 100% 100%)' }} />
       </section>
 
 
@@ -276,7 +276,7 @@ export default function Home() {
 
             <div>
               <SectionEyebrow label="About OKG" />
-              <motion.h2 {...fu} className="text-3xl md:text-[42px] font-bold leading-[1.15] tracking-[-0.018em] mb-6" style={{ color: '#001078' }}>
+              <motion.h2 {...fu} className="font-display text-3xl md:text-[42px] font-bold leading-[1.15] tracking-[-0.018em] mb-6" style={{ color: '#001078' }}>
                 Built around disciplined execution and transparent delivery.
               </motion.h2>
               <motion.p {...fu} transition={{ delay: 0.1 }} className="text-[15px] leading-[1.85] mb-4" style={{ color: '#1E1E1E' }}>
@@ -340,7 +340,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start mb-16">
             <div>
               <SectionEyebrow label="Discover OKG" />
-              <motion.h2 {...fu} className="text-3xl md:text-[42px] font-bold leading-[1.15] tracking-[-0.018em] text-white">
+              <motion.h2 {...fu} className="font-display text-3xl md:text-[42px] font-bold leading-[1.15] tracking-[-0.018em] text-white">
                 A practical contracting partner for UAE project teams.
               </motion.h2>
             </div>
@@ -376,7 +376,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
             <div>
               <SectionEyebrow label="What We Do" />
-              <motion.h2 {...fu} className="text-3xl md:text-[42px] font-bold leading-[1.15] tracking-[-0.018em]" style={{ color: '#001078' }}>
+              <motion.h2 {...fu} className="font-display text-3xl md:text-[42px] font-bold leading-[1.15] tracking-[-0.018em]" style={{ color: '#001078' }}>
                 What we do.
               </motion.h2>
               <motion.p {...fu} transition={{ delay: 0.1 }} className="text-[15px] mt-3 max-w-xl" style={{ color: '#6B7280' }}>
@@ -421,7 +421,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="mb-12 max-w-2xl">
             <SectionEyebrow label="Core Pillars" />
-            <motion.h2 {...fu} className="text-3xl md:text-[42px] font-bold leading-[1.15] tracking-[-0.018em]" style={{ color: '#001078' }}>
+            <motion.h2 {...fu} className="font-display text-3xl md:text-[42px] font-bold leading-[1.15] tracking-[-0.018em]" style={{ color: '#001078' }}>
               The principles behind OKG delivery.
             </motion.h2>
           </div>
@@ -451,7 +451,7 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
               <SectionEyebrow label="Commitments" />
-              <motion.h2 {...fu} className="text-3xl md:text-[42px] font-bold leading-[1.15] tracking-[-0.018em] mb-6" style={{ color: '#001078' }}>
+              <motion.h2 {...fu} className="font-display text-3xl md:text-[42px] font-bold leading-[1.15] tracking-[-0.018em] mb-6" style={{ color: '#001078' }}>
                 Committed to practical construction standards.
               </motion.h2>
               <motion.p {...fu} transition={{ delay: 0.1 }} className="text-[14px] leading-[1.85]" style={{ color: '#6B7280' }}>
@@ -488,7 +488,7 @@ export default function Home() {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionEyebrow label="Project Control" />
-          <motion.h2 {...fu} className="text-3xl md:text-[42px] font-bold leading-[1.15] tracking-[-0.018em] text-white mb-4">
+          <motion.h2 {...fu} className="font-display text-3xl md:text-[42px] font-bold leading-[1.15] tracking-[-0.018em] text-white mb-4">
             From BOQ to handover, every package needs control.
           </motion.h2>
           <motion.p {...fu} transition={{ delay: 0.1 }} className="text-[15px] leading-[1.8] mb-14 max-w-xl" style={{ color: 'rgba(255,255,255,0.55)' }}>

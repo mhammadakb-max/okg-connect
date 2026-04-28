@@ -43,7 +43,7 @@ export default function PolicyPageLayout({ heroTitle, heroIntro, eyebrow, headin
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-2xl md:text-3xl font-bold mb-8"
+            className="font-display text-2xl md:text-3xl font-bold mb-8"
             style={{ color: '#001078' }}
           >
             {heading}

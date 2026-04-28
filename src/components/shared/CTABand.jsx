@@ -5,7 +5,7 @@ import { motion } from 'framer-motion';
 
 export default function CTABand({
   heading = "Ready to discuss a scope or request a quotation?",
-  text = "Share the drawings, BOQ, location and expected start date. OKG will review the details and respond with a clear, structured proposal.",
+  text = "Share drawings, BOQ, location and expected start date. OKG will review and respond with a clear, structured proposal.",
   buttonText = "Request Quotation",
   buttonLink = "/contact",
   secondaryText = "View Services",
@@ -13,41 +13,36 @@ export default function CTABand({
 }) {
   return (
     <section className="relative overflow-hidden" style={{ background: '#001078' }}>
-      {/* Grid pattern */}
+      {/* Grid */}
       <div
-        className="absolute inset-0 opacity-[0.035]"
+        className="absolute inset-0 pointer-events-none"
         style={{
-          backgroundImage: `
-            linear-gradient(rgba(255,255,255,1) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)
-          `,
+          backgroundImage: `linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)`,
           backgroundSize: '48px 48px',
+          opacity: 0.025,
         }}
       />
 
       {/* Gold glow */}
-      <div className="absolute -top-32 right-0 w-[500px] h-[500px] rounded-full blur-3xl opacity-[0.07] pointer-events-none"
-        style={{ background: '#F8B858' }} />
-      <div className="absolute -bottom-20 left-1/3 w-80 h-80 rounded-full blur-3xl opacity-[0.04] pointer-events-none"
-        style={{ background: '#F8B858' }} />
+      <div className="absolute -top-40 right-0 pointer-events-none" style={{ width: 600, height: 600, background: '#F8B858', opacity: 0.05, borderRadius: '50%', filter: 'blur(80px)' }} />
 
-      {/* Gold border top */}
-      <div className="absolute top-0 left-0 right-0 h-[2px]"
-        style={{ background: 'linear-gradient(to right, transparent, #F8B858 40%, #F8B858 60%, transparent)' }} />
+      {/* Top border */}
+      <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: 'linear-gradient(to right, transparent, #F8B858 35%, #F8B858 65%, transparent)' }} />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
         <div className="max-w-3xl mx-auto text-center">
+
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             className="flex items-center justify-center gap-3 mb-6"
           >
-            <span className="w-8 h-px" style={{ background: '#F8B858', opacity: 0.6 }} />
-            <span className="text-[11px] font-mono font-semibold tracking-[0.2em] uppercase" style={{ color: '#F8B858', opacity: 0.8 }}>
+            <span className="w-8 h-px" style={{ background: '#F8B858', opacity: 0.5 }} />
+            <span className="text-[10.5px] font-mono font-semibold tracking-[0.22em] uppercase" style={{ color: '#F8B858', opacity: 0.7 }}>
               OKG Building Contracting
             </span>
-            <span className="w-8 h-px" style={{ background: '#F8B858', opacity: 0.6 }} />
+            <span className="w-8 h-px" style={{ background: '#F8B858', opacity: 0.5 }} />
           </motion.div>
 
           <motion.h2
@@ -55,27 +50,27 @@ export default function CTABand({
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.08 }}
-            className="text-2xl md:text-[38px] font-bold text-white leading-[1.2] tracking-[-0.01em] mb-5"
+            className="text-[26px] md:text-[38px] font-black text-white leading-[1.18] tracking-[-0.015em] mb-5"
           >
             {heading}
           </motion.h2>
 
           <motion.p
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.16 }}
-            className="text-[15px] leading-relaxed mb-10 max-w-xl mx-auto"
-            style={{ color: 'rgba(255,255,255,0.55)' }}
+            transition={{ delay: 0.15 }}
+            className="text-[15px] leading-[1.8] mb-10 max-w-xl mx-auto"
+            style={{ color: 'rgba(255,255,255,0.5)' }}
           >
             {text}
           </motion.p>
 
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
+            initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ delay: 0.24 }}
+            transition={{ delay: 0.22 }}
             className="flex flex-wrap items-center justify-center gap-3"
           >
             <Link
@@ -90,8 +85,8 @@ export default function CTABand({
             {secondaryText && secondaryLink && (
               <Link
                 to={secondaryLink}
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-[14px] font-semibold border transition-all hover:bg-white/5"
-                style={{ border: '1.5px solid rgba(255,255,255,0.18)', color: 'rgba(255,255,255,0.8)' }}
+                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-[14px] font-semibold transition-all hover:bg-white/8"
+                style={{ border: '1.5px solid rgba(255,255,255,0.15)', color: 'rgba(255,255,255,0.75)' }}
               >
                 {secondaryText}
               </Link>
@@ -99,6 +94,9 @@ export default function CTABand({
           </motion.div>
         </div>
       </div>
+
+      {/* Bottom fade into next section */}
+      <div className="absolute bottom-0 left-0 right-0 h-px" style={{ background: 'rgba(255,255,255,0.04)' }} />
     </section>
   );
 }
