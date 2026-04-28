@@ -1,39 +1,73 @@
 import React from 'react';
+import PageHero from '@/components/shared/PageHero';
+import CTABand from '@/components/shared/CTABand';
+import SectionEyebrow from '@/components/shared/SectionEyebrow';
 import { motion } from 'framer-motion';
-import { Heart, Lightbulb, Scale } from 'lucide-react';
-import PageHero from '../components/shared/PageHero';
-import SectionEyebrow from '../components/shared/SectionEyebrow';
-import ValueCard from '../components/shared/ValueCard';
-import CTABand from '../components/shared/CTABand';
-
-const P = { white: '#FFFFFF', bg: '#F7F9FF', head2: '#3D4A73', border: '#E6EBF5' };
-
-const cards = [
-  { icon: Heart, title: 'Worker Respect', text: 'OKG believes workers should be treated with dignity, clear instructions and safe working expectations.' },
-  { icon: Lightbulb, title: 'Local Opportunity', text: 'OKG supports opportunities for supervisors, skilled workers, subcontractors and suppliers operating in the UAE.' },
-  { icon: Scale, title: 'Ethical Conduct', text: 'OKG aims to work through transparent communication, fair dealing and professional accountability.' },
-];
-
-const fu = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
 
 export default function SocialCommitment() {
   return (
     <>
       <PageHero
+        title="Social Commitment"
+        intro="OKG operates with commitment to fair practices, ethical business conduct and responsible engagement with communities and workers."
         eyebrow="Social Commitment"
         breadcrumb="Social Commitment"
-        title="Responsible operations with people and community in mind."
-        intro="OKG is committed to building a culture that respects workers, supports fair opportunity and contributes positively to the UAE construction environment."
       />
 
-      <section className="py-20 md:py-28" style={{ background: P.white }}>
+      {/* Commitments */}
+      <section className="bg-white border-t border-gray-200 py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionEyebrow label="Our Commitments" />
-          <motion.h2 {...fu} className="font-display text-[28px] md:text-[38px] font-extrabold leading-[1.12] tracking-[-0.018em] mb-12" style={{ color: P.head2 }}>
-            People, accountability and responsible practice.
-          </motion.h2>
-          <div className="grid md:grid-cols-3 gap-5">
-            {cards.map((c, i) => <ValueCard key={i} icon={c.icon} title={c.title} text={c.text} index={i} />)}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-2xl mb-12"
+          >
+            <SectionEyebrow label="Our Values" />
+            <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: '#001078' }}>
+              Operating with responsibility and integrity.
+            </h2>
+            <p className="text-lg text-text-secondary">
+              OKG's social commitment is based on fair treatment, honest communication and ethical business practice.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                title: 'Fair Labour Practices',
+                text: 'Workers receive fair compensation, clear working terms, safe conditions and respectful treatment. OKG does not engage in exploitative labour practices.',
+              },
+              {
+                title: 'Community Respect',
+                text: 'OKG operates with consideration for neighbouring communities, minimising disruption and managing environmental and noise impacts responsibly.',
+              },
+              {
+                title: 'Ethical Business',
+                text: 'OKG conducts business with honesty, transparency and integrity. We do not engage in corruption, bribery or unethical practices.',
+              },
+              {
+                title: 'Subcontractor Standards',
+                text: 'OKG works with subcontractors and vendors that share our commitment to fair practices, safety and environmental responsibility.',
+              },
+            ].map((item, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.05 }}
+                className="bg-gray-50 border border-gray-200 rounded-lg p-8"
+              >
+                <div className="w-1 h-6 rounded-full mb-4" style={{ backgroundColor: '#F8B858' }} />
+                <h3 className="text-lg font-bold mb-3" style={{ color: '#001078' }}>
+                  {item.title}
+                </h3>
+                <p className="text-sm text-text-secondary leading-relaxed">
+                  {item.text}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>

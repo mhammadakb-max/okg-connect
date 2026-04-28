@@ -7,26 +7,14 @@ module.exports = {
       fontFamily: {
         body: ['Manrope', 'sans-serif'],
         display: ['Manrope', 'sans-serif'],
-        mono: ['JetBrains Mono', 'monospace'],
       },
       colors: {
-        /* OKG Logo Palette — Navy + Amber */
-        'okw':        '#FFFFFF',
-        'ok-soft':    '#FCFDFF',
-        'ok-bg':      '#F5F7FC',
-        'ok-bg2':     '#EEF2FA',
-        'ok-tint':    '#E4EAFA',
-        'ok-accent':  '#DAE2F8',
-        'ok-gold':    '#FFF8E1',
-        'ok-champ':   '#FDF0CC',
-        'ok-gold-m':  '#F9A825',
-        'ok-amber':   '#FBC04A',
-        'ok-blue':    '#1A237E',
-        'ok-blue-l':  '#3D52A8',
-        'ok-head':    '#1A237E',
-        'ok-body':    '#5B6494',
-        'ok-muted':   '#8B93BA',
-        'ok-border':  '#D8DCF0',
+        /* OKG Palette — Navy + Gold only */
+        'navy': '#001078',
+        'gold': '#F8B858',
+        'text-primary': '#1E1E1E',
+        'text-secondary': '#6B7280',
+        'bg-light': '#F7F8FB',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {
@@ -65,20 +53,6 @@ module.exports = {
         lg: 'var(--radius)',
         md: 'calc(var(--radius) - 2px)',
         sm: 'calc(var(--radius) - 4px)',
-      },
-      keyframes: {
-        'accordion-down': {
-          from: { height: '0' },
-          to: { height: 'var(--radix-accordion-content-height)' },
-        },
-        'accordion-up': {
-          from: { height: 'var(--radix-accordion-content-height)' },
-          to: { height: '0' },
-        },
-      },
-      animation: {
-        'accordion-down': 'accordion-down 0.2s ease-out',
-        'accordion-up': 'accordion-up 0.2s ease-out',
       },
     },
   },

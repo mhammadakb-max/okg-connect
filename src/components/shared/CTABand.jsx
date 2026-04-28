@@ -12,86 +12,53 @@ export default function CTABand({
   secondaryLink = "/services",
 }) {
   return (
-    <section
-      className="relative overflow-hidden"
-      style={{
-        background: 'linear-gradient(160deg, #F5F7FC 0%, #E4EAFA 50%, #F5F7FC 100%)',
-        borderTop: '1px solid #D8DCF0',
-      }}
-    >
-      {/* Soft glow */}
-      <div
-        className="absolute top-0 left-1/2 -translate-x-1/2 w-[600px] h-48 pointer-events-none"
-        style={{ background: 'radial-gradient(ellipse, rgba(26,35,126,0.06) 0%, transparent 70%)' }}
-      />
+    <section className="bg-white border-t border-gray-200 py-20 md:py-28">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="text-3xl md:text-4xl font-bold mb-4 leading-tight"
+          style={{ color: '#001078' }}
+        >
+          {heading}
+        </motion.h2>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-24">
-        <div className="max-w-3xl mx-auto text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="flex items-center justify-center gap-3 mb-6"
-          >
-            <span className="w-5 h-px" style={{ background: 'rgba(26,35,126,0.3)' }} />
-            <span className="text-[10px] font-mono font-semibold tracking-[0.22em] uppercase" style={{ color: '#1A237E' }}>
-              OKG Building Contracting
-            </span>
-            <span className="w-5 h-px" style={{ background: 'rgba(26,35,126,0.3)' }} />
-          </motion.div>
+        <motion.p
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.1 }}
+          className="text-lg text-text-secondary mb-10 max-w-2xl mx-auto leading-relaxed"
+        >
+          {text}
+        </motion.p>
 
-          <motion.h2
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.08 }}
-            className="text-[24px] md:text-[36px] font-extrabold leading-[1.2] tracking-[-0.015em] mb-5"
-            style={{ color: '#1A237E' }}
+        <motion.div
+          initial={{ opacity: 0, y: 16 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ delay: 0.2 }}
+          className="flex flex-wrap items-center justify-center gap-3"
+        >
+          <Link
+            to={buttonLink}
+            className="inline-flex items-center gap-2 px-6 py-3 text-white font-semibold rounded-md transition-opacity hover:opacity-90"
+            style={{ backgroundColor: '#001078' }}
           >
-            {heading}
-          </motion.h2>
-
-          <motion.p
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.15 }}
-            className="text-[14.5px] leading-[1.8] mb-10 max-w-xl mx-auto"
-            style={{ color: '#5B6494' }}
-          >
-            {text}
-          </motion.p>
-
-          <motion.div
-            initial={{ opacity: 0, y: 16 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.22 }}
-            className="flex flex-wrap items-center justify-center gap-3"
-          >
+            {buttonText}
+            <ArrowRight className="w-4 h-4" />
+          </Link>
+          {secondaryText && secondaryLink && (
             <Link
-              to={buttonLink}
-              className="inline-flex items-center gap-2.5 px-7 py-3.5 rounded-xl text-[13.5px] font-semibold transition-all hover:opacity-88"
-              style={{ background: '#1A237E', color: '#fff', boxShadow: '0 4px 20px rgba(26,35,126,0.25)' }}
+              to={secondaryLink}
+              className="inline-flex items-center gap-2 px-6 py-3 font-medium rounded-md transition-colors border border-gray-200 hover:bg-gray-50"
+              style={{ color: '#001078' }}
             >
-              {buttonText}
-              <ArrowRight className="w-4 h-4" />
+              {secondaryText}
             </Link>
-            {secondaryText && secondaryLink && (
-              <Link
-                to={secondaryLink}
-                className="inline-flex items-center gap-2 px-7 py-3.5 rounded-xl text-[13.5px] font-medium transition-all hover:opacity-80"
-                style={{
-                  border: '1px solid #D8DCF0',
-                  color: '#5B6494',
-                  background: 'rgba(255,255,255,0.7)',
-                }}
-              >
-                {secondaryText}
-              </Link>
-            )}
-          </motion.div>
-        </div>
+          )}
+        </motion.div>
       </div>
     </section>
   );

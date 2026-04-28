@@ -1,16 +1,10 @@
 import React from 'react';
 
-export default function SectionEyebrow({ label, light = false }) {
+export default function SectionEyebrow({ label }) {
   return (
-    <div className="flex items-center gap-3 mb-5">
-      <span
-        className="w-5 h-px rounded-full"
-        style={{ background: light ? 'rgba(249,168,37,0.4)' : '#F9A825', opacity: light ? 0.7 : 1 }}
-      />
-      <span
-        className="text-[10.5px] font-mono font-semibold tracking-[0.22em] uppercase"
-        style={{ color: light ? 'rgba(255,255,255,0.7)' : '#1A237E' }}
-      >
+    <div className="flex items-center gap-2 mb-3">
+      <span className="w-1 h-1 rounded-full" style={{ backgroundColor: '#F8B858' }} />
+      <span className="text-xs font-bold tracking-widest uppercase" style={{ color: '#001078' }}>
         {label}
       </span>
     </div>

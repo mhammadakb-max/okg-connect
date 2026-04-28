@@ -1,103 +1,123 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import PageHero from '@/components/shared/PageHero';
+import CTABand from '@/components/shared/CTABand';
+import SectionEyebrow from '@/components/shared/SectionEyebrow';
+import ChecklistItem from '@/components/shared/ChecklistItem';
 import { motion } from 'framer-motion';
-import { ArrowRight, ShieldCheck, HardHat, Leaf, Heart } from 'lucide-react';
-import PageHero from '../components/shared/PageHero';
-import SectionEyebrow from '../components/shared/SectionEyebrow';
-import ChecklistItem from '../components/shared/ChecklistItem';
-import CTABand from '../components/shared/CTABand';
-
-const P = { white: '#FFFFFF', bg: '#F7F9FF', tint: '#EAF0FF', blue: '#6E85E8', head: '#5F6D9A', head2: '#3D4A73', body: '#7C86A8', muted: '#97A0BC', border: '#E6EBF5' };
-
-const cards = [
-  { icon: ShieldCheck, title: 'Quality Commitment', text: 'OKG aims to complete works in line with approved drawings, agreed scope, site instructions and client expectations. Measurement, inspection and correction are part of the work.', link: '/quality-policy', btn: 'Read Quality Policy' },
-  { icon: HardHat, title: 'Health & Safety Commitment', text: 'Workers must follow site safety rules, PPE requirements, induction processes and supervisor instructions. Unsafe shortcuts are not accepted.', link: '/health-safety-policy', btn: 'Read H&S Policy' },
-  { icon: Leaf, title: 'Environmental Responsibility', text: 'OKG supports proper housekeeping, responsible material use, reduced wastage and clean work areas so teams add value instead of disruption.', link: '/environmental-policy', btn: 'Read Environmental Policy' },
-  { icon: Heart, title: 'Social Commitment', text: 'OKG supports fair work practices, worker respect, local opportunity and responsible community engagement as part of its operating standard.', link: '/social-commitment', btn: 'Read Social Commitment' },
-];
-
-const checklist = [
-  'Site induction and PPE compliance',
-  'Daily housekeeping and work area discipline',
-  'Quality checking before inspection request',
-  'Clear reporting of unsafe conditions, delay causes and workfront issues',
-];
-
-const fu = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
 
 export default function QHSE() {
   return (
     <>
       <PageHero
+        title="Quality, Health, Safety & Environment"
+        intro="OKG's QHSE approach integrates quality control, safety discipline, environmental responsibility and documented accountability into every project."
         eyebrow="QHSE"
         breadcrumb="QHSE"
-        title="Quality, safety and control built into the work."
-        intro="Every project should be handled with safety awareness, clean documentation, quality checking, responsible housekeeping and clear reporting."
       />
 
-      <section className="py-20 md:py-28" style={{ background: P.white }}>
+      {/* Commitments */}
+      <section className="bg-white border-t border-gray-200 py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionEyebrow label="Policy Areas" />
-          <motion.h2 {...fu} className="font-display text-[28px] md:text-[38px] font-extrabold leading-[1.12] tracking-[-0.018em] mb-12" style={{ color: P.head2 }}>
-            Four commitments. One standard.
-          </motion.h2>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-2xl mb-12"
+          >
+            <SectionEyebrow label="Our Commitment" />
+            <h2 className="text-3xl md:text-4xl font-bold" style={{ color: '#001078' }}>
+              QHSE built into project delivery.
+            </h2>
+          </motion.div>
 
-          <div className="grid md:grid-cols-2 gap-5">
-            {cards.map((c, i) => (
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                title: 'Quality Commitment',
+                text: 'Work execution that meets specification, passes inspection standards and receives documented approval. Quality is managed through clear standards, daily supervision and final handover verification.',
+              },
+              {
+                title: 'Health & Safety Discipline',
+                text: 'Daily safety awareness, hazard management, worker training and incident reporting. All site operations follow safety protocols, PPE requirements and emergency procedures.',
+              },
+              {
+                title: 'Environmental Responsibility',
+                text: 'Waste management, pollution control, site housekeeping and resource efficiency. Environmental impacts are minimized through responsible material handling and site cleanup.',
+              },
+              {
+                title: 'Subcontractor Control',
+                text: 'Vendor qualification, QHSE compliance verification and performance monitoring. Subcontractors are selected based on QHSE capacity and monitored throughout project execution.',
+              },
+            ].map((item, idx) => (
               <motion.div
-                key={i}
-                initial={{ opacity: 0, y: 24 }}
+                key={idx}
+                initial={{ opacity: 0, y: 16 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="group relative rounded-2xl p-7 transition-all hover:shadow-lg overflow-hidden"
-                style={{ background: 'rgba(255,255,255,0.85)', border: `1px solid ${P.border}`, backdropFilter: 'blur(8px)' }}
+                transition={{ delay: idx * 0.05 }}
+                className="bg-gray-50 border border-gray-200 rounded-lg p-8"
               >
-                <div className="absolute top-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity" style={{ background: 'linear-gradient(to right, transparent, #6E85E8, transparent)' }} />
-                <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-5" style={{ background: P.tint, border: `1px solid ${P.border}` }}>
-                  <c.icon style={{ color: P.blue, width: 18, height: 18 }} />
-                </div>
-                <h3 className="text-[16px] font-bold mb-3" style={{ color: P.head2 }}>{c.title}</h3>
-                <p className="text-[13.5px] leading-relaxed mb-6" style={{ color: P.body }}>{c.text}</p>
-                <Link to={c.link} className="inline-flex items-center gap-2 text-[13px] font-semibold transition-opacity hover:opacity-70" style={{ color: P.blue }}>
-                  {c.btn} <ArrowRight className="w-3.5 h-3.5" />
-                </Link>
+                <div className="w-1 h-6 rounded-full mb-4" style={{ backgroundColor: '#F8B858' }} />
+                <h3 className="text-lg font-bold mb-3" style={{ color: '#001078' }}>
+                  {item.title}
+                </h3>
+                <p className="text-sm text-text-secondary leading-relaxed">
+                  {item.text}
+                </p>
               </motion.div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* Applied section */}
-      <section className="py-20 md:py-28" style={{ background: P.bg, borderTop: `1px solid ${P.border}` }}>
+      {/* Site Standards */}
+      <section className="bg-gray-50 border-t border-gray-200 py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <div>
-              <SectionEyebrow label="QHSE Standard" />
-              <motion.h2 {...fu} className="font-display text-[26px] md:text-[34px] font-extrabold leading-[1.15] tracking-[-0.018em] mb-5" style={{ color: P.head2 }}>
-                Applied consistently on site.
-              </motion.h2>
-              <motion.p {...fu} transition={{ delay: 0.1 }} className="text-[14px] leading-[1.85] mb-8" style={{ color: P.body }}>
-                OKG's QHSE approach is practical and documented. Safety, quality and housekeeping are treated as core elements of disciplined project delivery, not optional additions.
-              </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-2xl mb-12"
+          >
+            <SectionEyebrow label="On-Site Standards" />
+            <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: '#001078' }}>
+              QHSE expectations on every project.
+            </h2>
+            <p className="text-lg text-text-secondary">
+              OKG's site operations follow clear QHSE standards to protect workers, clients, and project quality.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-12">
+            <div className="bg-white border border-gray-200 rounded-lg p-8">
               <div className="space-y-4">
-                {checklist.map((item, i) => <ChecklistItem key={i} text={item} index={i} />)}
+                {[
+                  'Daily toolbox talks and safety briefings',
+                  'Personal Protective Equipment (PPE) compliance',
+                  'Incident reporting and near-miss tracking',
+                  'Site safety signage and barriers',
+                  'First aid and emergency response readiness',
+                  'Worker health and welfare monitoring',
+                ].map((item, idx) => (
+                  <ChecklistItem key={idx} text={item} index={idx} />
+                ))}
               </div>
             </div>
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="rounded-2xl overflow-hidden"
-              style={{ boxShadow: '0 20px 56px rgba(110,133,232,0.1)' }}
-            >
-              <img
-                src="https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/6af65c67b_generated_image.png"
-                alt="Construction worker PPE safety helmet conducting QHSE inspection on site"
-                className="w-full h-[380px] object-cover object-center"
-                loading="lazy"
-              />
-            </motion.div>
+
+            <div className="bg-white border border-gray-200 rounded-lg p-8">
+              <div className="space-y-4">
+                {[
+                  'Quality inspection schedules and sign-off',
+                  'Material testing and specification compliance',
+                  'Work documentation and photo records',
+                  'Waste segregation and disposal management',
+                  'Site housekeeping and cleanliness standards',
+                  'Subcontractor performance monitoring',
+                ].map((item, idx) => (
+                  <ChecklistItem key={idx} text={item} index={idx + 6} />
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </section>

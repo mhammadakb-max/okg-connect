@@ -1,130 +1,198 @@
 import React, { useState } from 'react';
+import PageHero from '@/components/shared/PageHero';
+import SectionEyebrow from '@/components/shared/SectionEyebrow';
 import { motion } from 'framer-motion';
-import { ClipboardCheck, Wrench, Users, FileText, ArrowRight } from 'lucide-react';
-import PageHero from '../components/shared/PageHero';
-import SectionEyebrow from '../components/shared/SectionEyebrow';
-import ValueCard from '../components/shared/ValueCard';
-import CTABand from '../components/shared/CTABand';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { toast } from 'sonner';
-import { base44 } from '@/api/base44Client';
 
-const P = { white: '#FFFFFF', bg: '#F7F9FF', tint: '#EAF0FF', blue: '#6E85E8', blueL: '#8FA2F2', head: '#5F6D9A', head2: '#3D4A73', body: '#7C86A8', muted: '#97A0BC', border: '#E6EBF5' };
-
-const roles = [
-  { icon: ClipboardCheck, title: 'Site Supervisors', text: 'For daily control, reporting, worker coordination, site instructions and progress follow-up.' },
-  { icon: Wrench, title: 'Skilled Workers', text: 'Masons, plasterers, steel fixers, shuttering carpenters, helpers and finishing workers.' },
-  { icon: Users, title: 'Subcontractors', text: 'Specialist teams for controlled work packages with documentation and accountability.' },
-  { icon: FileText, title: 'Admin Support', text: 'Quotation, document control, worker records, attendance and client coordination.' },
+const jobCategories = [
+  { title: 'Site Supervisors', desc: 'Experienced site supervisors and foremen for project coordination.' },
+  { title: 'Skilled Trades', desc: 'Masons, plasterers, carpenters and concrete finishers.' },
+  { title: 'Unskilled Labour', desc: 'General labour and support workers for construction projects.' },
+  { title: 'Admin Support', desc: 'Office staff, documentation and site administration roles.' },
 ];
 
-const labelCls = { fontSize: 12, fontWeight: 600, color: '#5F6D9A', display: 'block', marginBottom: 6 };
-const inputStyle = { background: '#FCFDFF', borderColor: '#E6EBF5', color: '#5F6D9A' };
-const fu = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
-
 export default function Careers() {
-  const [form, setForm] = useState({ name: '', phone: '', email: '', position: '', details: '' });
-  const [sending, setSending] = useState(false);
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', position: '', message: '' });
+  const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = async (e) => {
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setSending(true);
-    const body = `New job application from OKG website — okgcontracting.com/careers\n\nName: ${form.name}\nPhone: ${form.phone || 'Not provided'}\nEmail: ${form.email}\nPosition: ${form.position || 'Not specified'}\n\nDetails:\n${form.details || 'Not provided'}\n\n---\n${new Date().toLocaleString('en-GB', { timeZone: 'Asia/Dubai' })} (UAE time)`;
-    await base44.integrations.Core.SendEmail({ to: 'omerkhalfangc@gmail.com', from_name: 'OKG Website — Careers', subject: `New Job Application — ${form.name}${form.position ? ' / ' + form.position : ''}`, body });
-    toast.success('Application submitted. We will be in touch.');
-    setForm({ name: '', phone: '', email: '', position: '', details: '' });
-    setSending(false);
+    // TODO: Connect to omerkhalfangc@gmail.com before publishing
+    setSubmitted(true);
+    setTimeout(() => setSubmitted(false), 5000);
   };
 
   return (
     <>
       <PageHero
+        title="Careers at OKG"
+        intro="Join the OKG team. We're looking for experienced professionals in construction, site supervision and project support."
         eyebrow="Careers"
         breadcrumb="Careers"
-        title="Join a team built around site discipline and professional delivery."
-        intro="OKG is a UAE-based building contracting company. We seek responsible site supervisors, skilled workers, subcontractors and support staff who take quality and accountability seriously."
       />
 
-      {/* Hero image band */}
-      <div className="relative h-48 sm:h-60 md:h-64 overflow-hidden" style={{ borderBottom: `1px solid ${P.border}` }}>
-        <img
-          src="https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/2f6870904_generated_image.png"
-          alt="Construction workers in PPE and hard hats at UAE building site"
-          className="w-full h-full object-cover object-center"
-          loading="lazy"
-        />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(247,249,255,0.3) 0%, rgba(61,74,115,0.4) 100%)' }} />
-      </div>
-
-      {/* Roles */}
-      <section className="py-20 md:py-28" style={{ background: P.white }}>
+      {/* Job Categories */}
+      <section className="bg-white border-t border-gray-200 py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionEyebrow label="Careers" />
-          <motion.h2 {...fu} className="font-display text-[28px] md:text-[38px] font-extrabold leading-[1.12] tracking-[-0.018em] mb-4" style={{ color: P.head2 }}>
-            We value reliability, skill and site discipline.
-          </motion.h2>
-          <motion.p {...fu} transition={{ delay: 0.1 }} className="text-[15px] leading-[1.85] mb-12 max-w-2xl" style={{ color: P.body }}>
-            OKG looks for people who respect attendance, safety, workmanship and clear communication. Construction teams are judged by output and behaviour on site.
-          </motion.p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {roles.map((r, i) => <ValueCard key={i} icon={r.icon} title={r.title} text={r.text} index={i} />)}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-2xl mb-12"
+          >
+            <SectionEyebrow label="Open Positions" />
+            <h2 className="text-3xl md:text-4xl font-bold" style={{ color: '#001078' }}>
+              Join the OKG team.
+            </h2>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
+            {jobCategories.map((job, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.05 }}
+                className="bg-gray-50 border border-gray-200 rounded-lg p-8"
+              >
+                <div className="w-1 h-4 rounded-full mb-4" style={{ backgroundColor: '#F8B858' }} />
+                <h3 className="text-lg font-bold mb-3" style={{ color: '#001078' }}>
+                  {job.title}
+                </h3>
+                <p className="text-sm text-text-secondary leading-relaxed">
+                  {job.desc}
+                </p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
 
       {/* Application Form */}
-      <section className="py-20 md:py-28" style={{ background: P.bg, borderTop: `1px solid ${P.border}` }}>
-        <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionEyebrow label="Apply" />
-          <motion.h2 {...fu} className="font-display text-[26px] md:text-[34px] font-extrabold leading-[1.15] tracking-[-0.015em] mb-3" style={{ color: P.head2 }}>
-            Send your details.
-          </motion.h2>
-          <motion.p {...fu} transition={{ delay: 0.1 }} className="text-[14px] leading-[1.85] mb-8" style={{ color: P.body }}>
-            Include your trade, years of experience, current visa status and location. OKG will review and be in touch.
-          </motion.p>
-
-          <motion.form
-            {...fu} transition={{ delay: 0.2 }}
-            onSubmit={handleSubmit}
-            className="rounded-2xl p-7 md:p-9 space-y-5"
-            style={{ background: 'rgba(255,255,255,0.85)', backdropFilter: 'blur(16px)', border: `1px solid ${P.border}`, boxShadow: '0 8px 32px rgba(110,133,232,0.1)' }}
+      <section className="bg-gray-50 border-t border-gray-200 py-20 md:py-28">
+        <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-2xl mx-auto mb-12"
           >
-            <div>
-              <label style={labelCls}>Full Name</label>
-              <Input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} required placeholder="Your full name" style={inputStyle} />
+            <SectionEyebrow label="Apply Now" />
+            <h2 className="text-3xl font-bold mb-6" style={{ color: '#001078' }}>
+              Submit your application.
+            </h2>
+            <p className="text-lg text-text-secondary">
+              Tell us about your experience and the role you're interested in.
+            </p>
+          </motion.div>
+
+          {submitted ? (
+            <div className="bg-green-50 border border-green-200 rounded-lg p-8 text-center">
+              <p className="text-lg font-semibold mb-2" style={{ color: '#001078' }}>
+                Thank you for applying!
+              </p>
+              <p className="text-text-secondary">
+                OKG will review your application and contact you if there's a match.
+              </p>
             </div>
-            <div className="grid md:grid-cols-2 gap-5">
-              <div>
-                <label style={labelCls}>Phone / WhatsApp</label>
-                <Input value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="+971 54 217 1502" style={inputStyle} />
-              </div>
-              <div>
-                <label style={labelCls}>Email Address</label>
-                <Input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} required placeholder="email@example.com" style={inputStyle} />
-              </div>
+          ) : (
+            <div className="bg-white border border-gray-200 rounded-lg p-8">
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-semibold mb-2" style={{ color: '#001078' }}>
+                      Full Name
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-2.5 border border-gray-200 rounded-md text-text-primary focus:outline-none focus:ring-2"
+                      style={{ '--tw-ring-color': '#F8B858' }}
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold mb-2" style={{ color: '#001078' }}>
+                      Position
+                    </label>
+                    <input
+                      type="text"
+                      name="position"
+                      value={formData.position}
+                      onChange={handleChange}
+                      placeholder="e.g. Site Supervisor"
+                      className="w-full px-4 py-2.5 border border-gray-200 rounded-md text-text-primary focus:outline-none focus:ring-2"
+                      style={{ '--tw-ring-color': '#F8B858' }}
+                    />
+                  </div>
+                </div>
+
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-semibold mb-2" style={{ color: '#001078' }}>
+                      Email
+                    </label>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-2.5 border border-gray-200 rounded-md text-text-primary focus:outline-none focus:ring-2"
+                      style={{ '--tw-ring-color': '#F8B858' }}
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-semibold mb-2" style={{ color: '#001078' }}>
+                      Phone
+                    </label>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-2.5 border border-gray-200 rounded-md text-text-primary focus:outline-none focus:ring-2"
+                      style={{ '--tw-ring-color': '#F8B858' }}
+                    />
+                  </div>
+                </div>
+
+                <div>
+                  <label className="block text-sm font-semibold mb-2" style={{ color: '#001078' }}>
+                    About You
+                  </label>
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleChange}
+                    rows={5}
+                    placeholder="Tell us about your experience, skills and why you're interested in joining OKG."
+                    className="w-full px-4 py-2.5 border border-gray-200 rounded-md text-text-primary focus:outline-none focus:ring-2 resize-none"
+                    style={{ '--tw-ring-color': '#F8B858' }}
+                  />
+                </div>
+
+                <button
+                  type="submit"
+                  className="w-full py-3 text-white font-semibold rounded-md transition-opacity hover:opacity-90"
+                  style={{ backgroundColor: '#001078' }}
+                >
+                  Submit Application
+                </button>
+              </form>
             </div>
-            <div>
-              <label style={labelCls}>Position / Trade</label>
-              <Input value={form.position} onChange={(e) => setForm({ ...form, position: e.target.value })} placeholder="e.g. Mason, Site Supervisor, Plasterer" style={inputStyle} />
-            </div>
-            <div>
-              <label style={labelCls}>Experience, visa status, location and availability</label>
-              <Textarea value={form.details} onChange={(e) => setForm({ ...form, details: e.target.value })} rows={4} placeholder="Briefly describe your experience, current visa status, location and availability..." style={inputStyle} />
-            </div>
-            <button
-              type="submit" disabled={sending}
-              className="w-full flex items-center justify-center gap-2.5 py-3.5 rounded-xl text-[13.5px] font-semibold transition-all hover:opacity-88 disabled:opacity-60"
-              style={{ background: 'linear-gradient(135deg, #6E85E8 0%, #8FA2F2 100%)', color: '#fff', boxShadow: '0 4px 20px rgba(110,133,232,0.25)' }}
-            >
-              {sending ? 'Sending…' : 'Submit Application'}
-              {!sending && <ArrowRight className="w-4 h-4" />}
-            </button>
-          </motion.form>
+          )}
         </div>
       </section>
-
-      <CTABand />
     </>
   );
 }

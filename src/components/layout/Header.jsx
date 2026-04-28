@@ -1,182 +1,79 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X, ChevronDown, Phone } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
-
-const P = {
-  blue: '#1A237E',
-  blueL: '#3D52A8',
-  amber: '#F9A825',
-  head: '#1A237E',
-  body: '#5B6494',
-  muted: '#8B93BA',
-  border: '#D8DCF0',
-  bg: '#F5F7FC',
-  white: '#FFFFFF',
-};
+import { Menu, X, ChevronDown } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const navLinks = [
   { label: 'Home', path: '/' },
-  { label: 'Services', path: '/services' },
-  { label: 'Capabilities', path: '/capabilities' },
-  { label: 'Projects', path: '/projects' },
-  {
-    label: 'Policies',
-    children: [
-      { label: 'QHSE Overview', path: '/qhse' },
-      { label: 'Quality Policy', path: '/quality-policy' },
-      { label: 'Health & Safety Policy', path: '/health-safety-policy' },
-      { label: 'Environmental Policy', path: '/environmental-policy' },
-      { label: 'Social Commitment', path: '/social-commitment' },
-    ],
-  },
-  {
-    label: 'Company',
+  { 
+    label: 'Company', 
     children: [
       { label: 'About', path: '/about' },
       { label: 'People Focus', path: '/people-focus' },
-      { label: 'Careers', path: '/careers' },
-      { label: 'Contact', path: '/contact' },
-    ],
+    ]
   },
+  { label: 'Services', path: '/services' },
+  { label: 'Capabilities', path: '/capabilities' },
+  { label: 'QHSE', path: '/qhse' },
+  { label: 'Projects', path: '/projects' },
+  { label: 'Careers', path: '/careers' },
+  { label: 'Contact', path: '/contact' },
 ];
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const [openDropdown, setOpenDropdown] = useState(null);
   const [mobileOpenDropdown, setMobileOpenDropdown] = useState(null);
   const location = useLocation();
 
-  useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 24);
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  useEffect(() => {
-    setMobileOpen(false);
-    setMobileOpenDropdown(null);
-  }, [location.pathname]);
-
-  useEffect(() => {
-    document.body.style.overflow = mobileOpen ? 'hidden' : '';
-    return () => { document.body.style.overflow = ''; };
-  }, [mobileOpen]);
-
   const isActive = (path) => location.pathname === path;
-  const isGroupActive = (link) => link.children?.some((c) => c.path === location.pathname);
+  const isGroupActive = (link) => link.children?.some(child => isActive(child.path));
 
   return (
     <>
-
-
-      {/* Main header */}
-      <header
-        className="sticky top-0 left-0 right-0 z-50 transition-all duration-300"
-        style={{
-          background: scrolled ? 'rgba(245,247,252,0.94)' : '#FFFFFF',
-          borderBottom: `1px solid ${P.border}`,
-          boxShadow: scrolled ? '0 2px 20px rgba(26,35,126,0.07)' : 'none',
-          backdropFilter: scrolled ? 'blur(16px)' : 'none',
-          WebkitBackdropFilter: scrolled ? 'blur(16px)' : 'none',
-        }}
-      >
+      <header className="sticky top-0 z-50 bg-white border-b border-gray-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-[54px]">
-
+          <div className="flex items-center justify-between h-16">
             {/* Logo */}
-            <Link to="/" className="flex items-center gap-0 shrink-0 group">
-              <span
-                className="text-[22px] font-extrabold tracking-[-0.02em] leading-none"
-                style={{ color: '#1A237E' }}
-              >OKG</span>
-              <span
-                className="text-[22px] font-extrabold leading-none"
-                style={{ color: '#F9A825' }}
-              >.</span>
-              <span className="mx-3 self-stretch w-px" style={{ background: '#C5CAE9', opacity: 0.8 }} />
-              <span className="text-[10px] font-bold tracking-[0.12em] uppercase leading-[1.3] hidden sm:block" style={{ color: '#1A237E' }}>
-                Building<br />Contracting
-              </span>
+            <Link to="/" className="flex items-baseline gap-0">
+              <span className="text-2xl font-bold" style={{ color: '#001078' }}>OKG</span>
+              <span className="text-2xl font-bold" style={{ color: '#F8B858' }}>.</span>
             </Link>
 
-            {/* Desktop nav */}
-            <nav className="hidden lg:flex items-center gap-0">
+            {/* Desktop Nav */}
+            <nav className="hidden lg:flex items-center gap-1">
               {navLinks.map((link) =>
                 link.children ? (
-                  <div
-                    key={link.label}
-                    className="relative"
-                    onMouseEnter={() => setOpenDropdown(link.label)}
-                    onMouseLeave={() => setOpenDropdown(null)}
-                  >
-                    <button
-                      className="flex items-center gap-1 px-3.5 py-2 text-[13px] font-medium rounded-lg transition-colors"
-                      style={{ color: isGroupActive(link) ? '#1A237E' : '#5B6494' }}
-                    >
+                  <div key={link.label} className="relative group">
+                    <button className="px-3 py-2 text-sm font-medium text-text-primary hover:text-navy transition-colors">
                       {link.label}
-                      <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${openDropdown === link.label ? 'rotate-180' : ''}`} style={{ color: '#F9A825' }} />
+                      <ChevronDown className="w-4 h-4 inline ml-1" />
                     </button>
-
                     <AnimatePresence>
-                      {openDropdown === link.label && (
-                        <motion.div
-                          initial={{ opacity: 0, y: 6 }}
-                          animate={{ opacity: 1, y: 0 }}
-                          exit={{ opacity: 0, y: 6 }}
-                          transition={{ duration: 0.14 }}
-                          className="absolute top-full left-0 mt-1 rounded-2xl overflow-hidden"
-                          style={{
-                            width: 220,
-                            background: 'rgba(255,255,255,0.9)',
-                            backdropFilter: 'blur(20px)',
-                            WebkitBackdropFilter: 'blur(20px)',
-                            border: '1px solid #D8DCF0',
-                            boxShadow: '0 12px 40px rgba(26,35,126,0.12)',
-                          }}
-                        >
-                          <div className="px-4 py-2.5" style={{ borderBottom: '1px solid #D8DCF0' }}>
-                            <p className="text-[10px] font-mono font-semibold tracking-widest uppercase" style={{ color: '#1A237E' }}>{link.label}</p>
-                          </div>
-                          {link.children.map((child) => (
-                            <Link
-                              key={child.path}
-                              to={child.path}
-                              className="flex items-center gap-3 px-4 py-2.5 text-[13px] transition-colors"
-                              style={{
-                                color: isActive(child.path) ? '#1A237E' : '#5B6494',
-                                background: isActive(child.path) ? '#E4EAFA' : 'transparent',
-                                fontWeight: isActive(child.path) ? 600 : 400,
-                              }}
-                              onMouseEnter={(e) => { if (!isActive(child.path)) { e.currentTarget.style.background = '#EEF2FA'; e.currentTarget.style.color = '#1A237E'; } }}
-                              onMouseLeave={(e) => { if (!isActive(child.path)) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#5B6494'; } }}
-                            >
-                              <span className="w-1 h-1 rounded-full shrink-0" style={{ background: '#F9A825' }} />
-                              {child.label}
-                            </Link>
-                          ))}
-                        </motion.div>
-                      )}
+                      <motion.div
+                        initial={{ opacity: 0, y: -8 }}
+                        whileHover={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: -8 }}
+                        className="absolute left-0 mt-0 w-48 bg-white border border-gray-200 rounded-lg shadow-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all"
+                      >
+                        {link.children.map((child) => (
+                          <Link
+                            key={child.path}
+                            to={child.path}
+                            className="block px-4 py-2.5 text-sm text-text-primary hover:bg-gray-50 first:rounded-t-lg last:rounded-b-lg transition-colors"
+                          >
+                            {child.label}
+                          </Link>
+                        ))}
+                      </motion.div>
                     </AnimatePresence>
                   </div>
                 ) : (
                   <Link
                     key={link.path}
                     to={link.path}
-                    className="relative px-3.5 py-2 text-[13px] font-medium rounded-lg transition-colors"
-                    style={{ color: isActive(link.path) ? '#1A237E' : '#5B6494' }}
-                    onMouseEnter={(e) => { e.currentTarget.style.color = '#1A237E'; e.currentTarget.style.background = '#EEF2FA'; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.color = isActive(link.path) ? '#1A237E' : '#5B6494'; e.currentTarget.style.background = 'transparent'; }}
+                    className="px-3 py-2 text-sm font-medium text-text-primary hover:text-navy transition-colors"
                   >
                     {link.label}
-                    {isActive(link.path) && (
-                      <motion.span
-                        layoutId="nav-underline"
-                        className="absolute bottom-0 left-3 right-3 h-px rounded-full"
-                        style={{ background: '#F9A825' }}
-                      />
-                    )}
                   </Link>
                 )
               )}
@@ -186,167 +83,90 @@ export default function Header() {
             <div className="flex items-center gap-2">
               <Link
                 to="/contact"
-                className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-[12.5px] font-semibold rounded-xl transition-all hover:opacity-88"
-                style={{
-                  background: 'linear-gradient(135deg, #1A237E 0%, #3D52A8 100%)',
-                  color: '#fff',
-                  boxShadow: '0 4px 16px rgba(26,35,126,0.22)',
-                }}
+                className="hidden sm:inline-flex px-5 py-2 text-sm font-semibold text-white rounded-md transition-opacity hover:opacity-90"
+                style={{ backgroundColor: '#001078' }}
               >
                 Request Quotation
               </Link>
 
               <button
-                className="lg:hidden flex items-center justify-center w-10 h-10 rounded-xl transition-colors"
-                style={{ border: `1px solid ${P.border}`, color: '#1A237E', background: '#F5F7FC' }}
+                className="lg:hidden p-2 hover:bg-gray-100 rounded-md transition-colors"
                 onClick={() => setMobileOpen(!mobileOpen)}
                 aria-label="Toggle menu"
               >
-                <AnimatePresence mode="wait" initial={false}>
-                  {mobileOpen ? (
-                    <motion.span key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }}>
-                      <X className="w-5 h-5" />
-                    </motion.span>
-                  ) : (
-                    <motion.span key="menu" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.15 }}>
-                      <Menu className="w-5 h-5" />
-                    </motion.span>
-                  )}
-                </AnimatePresence>
+                {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
               </button>
             </div>
-
           </div>
         </div>
-      </header>
 
-      {/* Mobile drawer */}
-      <AnimatePresence>
-        {mobileOpen && (
-          <>
+        {/* Mobile Menu */}
+        <AnimatePresence>
+          {mobileOpen && (
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
-              className="fixed inset-0 z-40 lg:hidden"
-              style={{ background: 'rgba(26,35,126,0.2)', backdropFilter: 'blur(4px)' }}
-              onClick={() => setMobileOpen(false)}
-            />
-            <motion.div
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
-              transition={{ type: 'tween', duration: 0.26, ease: 'easeInOut' }}
-              className="fixed top-0 right-0 bottom-0 z-50 w-80 max-w-full flex flex-col lg:hidden"
-              style={{
-                background: 'rgba(245,247,252,0.98)',
-                backdropFilter: 'blur(20px)',
-                WebkitBackdropFilter: 'blur(20px)',
-                borderLeft: `1px solid ${P.border}`,
-                boxShadow: '-8px 0 40px rgba(26,35,126,0.10)',
-              }}
+              initial={{ opacity: 0, height: 0 }}
+              animate={{ opacity: 1, height: 'auto' }}
+              exit={{ opacity: 0, height: 0 }}
+              className="lg:hidden border-t border-gray-200 bg-white"
             >
-              {/* Mobile header */}
-              <div className="flex items-center justify-between px-5 py-4" style={{ borderBottom: `1px solid ${P.border}` }}>
-                <div className="flex items-center gap-0">
-                  <span className="text-[20px] font-extrabold tracking-[-0.02em] leading-none" style={{ color: '#1A237E' }}>OKG</span>
-                  <span className="text-[20px] font-extrabold leading-none" style={{ color: '#F9A825' }}>.</span>
-                </div>
-                <button
-                  onClick={() => setMobileOpen(false)}
-                  className="w-8 h-8 flex items-center justify-center rounded-lg"
-                  style={{ color: '#97A0BC' }}
-                >
-                  <X className="w-5 h-5" />
-                </button>
-              </div>
-
-              {/* Links */}
-              <div className="flex-1 overflow-y-auto px-4 py-4">
-                <div className="space-y-0.5">
-                  {navLinks.map((link) =>
-                    link.children ? (
-                      <div key={link.label}>
-                        <button
-                          onClick={() => setMobileOpenDropdown(mobileOpenDropdown === link.label ? null : link.label)}
-                          className="flex items-center justify-between w-full px-4 py-3 text-sm font-medium rounded-xl transition-colors"
-                          style={{
-                            color: isGroupActive(link) ? '#1A237E' : '#5B6494',
-                            background: isGroupActive(link) ? '#E4EAFA' : 'transparent',
-                          }}
-                        >
-                          <span>{link.label}</span>
-                          <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileOpenDropdown === link.label ? 'rotate-180' : ''}`} style={{ color: '#F9A825' }} />
-                        </button>
-                        <AnimatePresence>
-                          {mobileOpenDropdown === link.label && (
-                            <motion.div
-                              initial={{ opacity: 0, height: 0 }}
-                              animate={{ opacity: 1, height: 'auto' }}
-                              exit={{ opacity: 0, height: 0 }}
-                              className="overflow-hidden"
-                            >
-                              <div className="pl-3 pt-1 space-y-0.5 pb-2">
-                                {link.children.map((child) => (
-                                  <Link
-                                    key={child.path}
-                                    to={child.path}
-                                    className="flex items-center gap-3 px-4 py-2.5 text-sm rounded-xl transition-colors"
-                                    style={{
-                                      color: isActive(child.path) ? '#1A237E' : '#5B6494',
-                                      background: isActive(child.path) ? '#E4EAFA' : 'transparent',
-                                      fontWeight: isActive(child.path) ? 600 : 400,
-                                    }}
-                                  >
-                                    <span className="w-1 h-1 rounded-full shrink-0" style={{ background: '#F9A825' }} />
-                                    {child.label}
-                                  </Link>
-                                ))}
-                              </div>
-                            </motion.div>
-                          )}
-                        </AnimatePresence>
-                      </div>
-                    ) : (
-                      <Link
-                        key={link.path}
-                        to={link.path}
-                        className="flex items-center px-4 py-3 text-sm font-medium rounded-xl transition-colors"
-                        style={{
-                          color: isActive(link.path) ? '#1A237E' : '#5B6494',
-                          background: isActive(link.path) ? '#E4EAFA' : 'transparent',
-                          fontWeight: isActive(link.path) ? 600 : 400,
-                        }}
+              <div className="px-4 py-4 space-y-2">
+                {navLinks.map((link) =>
+                  link.children ? (
+                    <div key={link.label}>
+                      <button
+                        onClick={() => setMobileOpenDropdown(mobileOpenDropdown === link.label ? null : link.label)}
+                        className="w-full flex items-center justify-between px-4 py-2.5 text-sm font-medium rounded-md hover:bg-gray-50 transition-colors"
                       >
-                        {link.label}
-                      </Link>
-                    )
-                  )}
-                </div>
-              </div>
-
-              {/* Bottom CTA */}
-              <div className="px-4 py-4 space-y-3" style={{ borderTop: `1px solid ${P.border}` }}>
+                        <span>{link.label}</span>
+                        <ChevronDown className={`w-4 h-4 transition-transform ${mobileOpenDropdown === link.label ? 'rotate-180' : ''}`} />
+                      </button>
+                      <AnimatePresence>
+                        {mobileOpenDropdown === link.label && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: 'auto' }}
+                            exit={{ opacity: 0, height: 0 }}
+                            className="overflow-hidden"
+                          >
+                            <div className="pl-4 space-y-1">
+                              {link.children.map((child) => (
+                                <Link
+                                  key={child.path}
+                                  to={child.path}
+                                  className="block px-4 py-2 text-sm text-text-primary hover:bg-gray-50 rounded-md transition-colors"
+                                  onClick={() => setMobileOpen(false)}
+                                >
+                                  {child.label}
+                                </Link>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
+                  ) : (
+                    <Link
+                      key={link.path}
+                      to={link.path}
+                      className="block px-4 py-2.5 text-sm font-medium text-text-primary hover:bg-gray-50 rounded-md transition-colors"
+                      onClick={() => setMobileOpen(false)}
+                    >
+                      {link.label}
+                    </Link>
+                  )
+                )}
                 <Link
                   to="/contact"
-                  className="flex items-center justify-center w-full py-3 text-sm font-semibold rounded-xl transition-colors"
-                  style={{
-                    background: 'linear-gradient(135deg, #1A237E 0%, #3D52A8 100%)',
-                    color: '#fff',
-                    boxShadow: '0 4px 16px rgba(26,35,126,0.22)',
-                  }}
+                  className="block w-full px-4 py-2.5 text-sm font-semibold text-white text-center rounded-md transition-opacity hover:opacity-90 mt-4"
+                  style={{ backgroundColor: '#001078' }}
                 >
-                  Request a Quotation
+                  Request Quotation
                 </Link>
-                <div className="flex items-center justify-center gap-1.5 text-xs" style={{ color: '#97A0BC' }}>
-                  <Phone className="w-3 h-3" style={{ color: '#1A237E' }} />
-                  <span>+971 54 217 1502</span>
-                </div>
               </div>
             </motion.div>
-          </>
-        )}
-      </AnimatePresence>
+          )}
+        </AnimatePresence>
+      </header>
     </>
   );
 }

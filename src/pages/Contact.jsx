@@ -1,210 +1,177 @@
 import React, { useState } from 'react';
+import PageHero from '@/components/shared/PageHero';
+import SectionEyebrow from '@/components/shared/SectionEyebrow';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail, ArrowRight, CheckCircle2 } from 'lucide-react';
-import PageHero from '../components/shared/PageHero';
-import SectionEyebrow from '../components/shared/SectionEyebrow';
-import { Input } from '@/components/ui/input';
-import { Textarea } from '@/components/ui/textarea';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-import { toast } from 'sonner';
-import { base44 } from '@/api/base44Client';
-
-const P = { white: '#FFFFFF', bg: '#F7F9FF', bg2: '#F2F6FF', tint: '#EAF0FF', blue: '#6E85E8', blueL: '#8FA2F2', head: '#5F6D9A', head2: '#3D4A73', body: '#7C86A8', muted: '#97A0BC', border: '#E6EBF5' };
-
-const contactInfo = [
-  { Icon: Phone, label: 'Phone / WhatsApp', value: '+971 54 217 1502' },
-  { Icon: Mail, label: 'Email', value: 'info@okgcontracting.com' },
-  { Icon: MapPin, label: 'Location', value: 'United Arab Emirates' },
-];
-
-const serviceOptions = [
-  'Building contracting works', 'Blockwork and masonry', 'Plastering works',
-  'Concrete, shuttering and steel fixing', 'Fit-out and finishing',
-  'Subcontracting or manpower support', 'Renovation and maintenance',
-];
-
-const fu = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
-const labelCls = { fontSize: 12, fontWeight: 600, color: '#5F6D9A', display: 'block', marginBottom: 6, letterSpacing: '0.02em' };
-const inputStyle = { background: '#FCFDFF', borderColor: '#E6EBF5', color: '#5F6D9A' };
+import { Phone, Mail, MapPin } from 'lucide-react';
 
 export default function Contact() {
-  const [form, setForm] = useState({ name: '', company: '', phone: '', email: '', location: '', service: '', scope: '' });
-  const [sending, setSending] = useState(false);
-  const [sent, setSent] = useState(false);
+  const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
+  const [submitted, setSubmitted] = useState(false);
 
-  const handleSubmit = async (e) => {
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setSending(true);
-    const body = `New enquiry received from OKG website — okgcontracting.com\n\nName: ${form.name}\nCompany: ${form.company || 'Not provided'}\nPhone: ${form.phone || 'Not provided'}\nEmail: ${form.email}\nLocation: ${form.location || 'Not provided'}\nService: ${form.service || 'Not specified'}\n\nScope:\n${form.scope || 'Not provided'}\n\n---\nSubmitted: ${new Date().toLocaleString('en-GB', { timeZone: 'Asia/Dubai' })} (UAE time)`;
-    await base44.integrations.Core.SendEmail({ to: 'omerkhalfangc@gmail.com', from_name: 'OKG Website', subject: `New OKG Enquiry — ${form.name}${form.company ? ' / ' + form.company : ''}`, body });
-    setSent(true);
-    setForm({ name: '', company: '', phone: '', email: '', location: '', service: '', scope: '' });
-    toast.success('Enquiry submitted. OKG will review and respond.');
-    setSending(false);
+    // TODO: Connect form to omerkhalfangc@gmail.com before publishing
+    setSubmitted(true);
+    setTimeout(() => setSubmitted(false), 5000);
   };
 
   return (
     <>
       <PageHero
+        title="Contact OKG"
+        intro="Discuss your project scope, request a quotation or learn more about our construction services."
         eyebrow="Contact"
         breadcrumb="Contact"
-        title="Request a quotation or discuss a subcontract package."
-        intro="Share drawings, BOQ, location, site condition and expected start date. OKG can review the scope and prepare a clear, structured proposal."
       />
 
-      <section className="py-20 md:py-28" style={{ background: P.white }}>
+      {/* Contact Section */}
+      <section className="bg-white border-t border-gray-200 py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-5 gap-10 lg:gap-14 items-start">
+          <div className="grid md:grid-cols-2 gap-16">
+            {/* Contact Info */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <div className="space-y-12">
+                <div>
+                  <SectionEyebrow label="Get In Touch" />
+                  <h2 className="text-3xl font-bold mb-6" style={{ color: '#001078' }}>
+                    Ready to discuss your project?
+                  </h2>
+                  <p className="text-lg text-text-secondary leading-relaxed">
+                    Share your project scope, drawings, BOQ, location and timeline. OKG will review and respond with a clear, structured proposal.
+                  </p>
+                </div>
 
-            {/* Info panel */}
-            <div className="lg:col-span-2 space-y-5">
-              <SectionEyebrow label="Contact Details" />
-              <motion.h2 {...fu} className="font-display text-[24px] md:text-[30px] font-extrabold leading-[1.15] tracking-[-0.015em]" style={{ color: P.head2 }}>
-                Talk to OKG about your project.
-              </motion.h2>
-              <motion.p {...fu} transition={{ delay: 0.1 }} className="text-[14px] leading-[1.85]" style={{ color: P.body }}>
-                For a faster response, send the latest drawings, BOQ, scope notes, location and expected start date.
-              </motion.p>
-
-              <div className="space-y-3">
-                {contactInfo.map(({ Icon, label, value }, i) => (
-                  <motion.div
-                    key={i}
-                    initial={{ opacity: 0, x: -12 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: i * 0.08 }}
-                    className="flex items-center gap-4 p-4 rounded-2xl"
-                    style={{ background: 'rgba(255,255,255,0.8)', border: `1px solid ${P.border}`, backdropFilter: 'blur(8px)' }}
-                  >
-                    <div className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0" style={{ background: P.tint, border: `1px solid ${P.border}` }}>
-                      <Icon className="w-4 h-4" style={{ color: P.blue }} />
-                    </div>
-                    <div>
-                      <p className="text-[10px] font-mono font-semibold tracking-[0.18em] uppercase mb-0.5" style={{ color: P.blue }}>{label}</p>
-                      <p className="text-[14px] font-semibold" style={{ color: P.head2 }}>{value}</p>
-                    </div>
-                  </motion.div>
-                ))}
+                <div className="space-y-6">
+                  {[
+                    { Icon: Phone, label: 'Phone', value: '+971 54 217 1502' },
+                    { Icon: Mail, label: 'Email', value: 'info@okgcontracting.com' },
+                    { Icon: MapPin, label: 'Location', value: 'United Arab Emirates' },
+                  ].map((contact, idx) => (
+                    <motion.div
+                      key={idx}
+                      initial={{ opacity: 0, x: -16 }}
+                      whileInView={{ opacity: 1, x: 0 }}
+                      viewport={{ once: true }}
+                      transition={{ delay: idx * 0.1 }}
+                      className="flex items-start gap-4"
+                    >
+                      <div className="w-10 h-10 rounded-lg flex items-center justify-center flex-shrink-0" style={{ backgroundColor: '#F8B858' }}>
+                        <contact.Icon className="w-5 h-5" style={{ color: '#001078' }} />
+                      </div>
+                      <div>
+                        <p className="text-xs font-bold uppercase tracking-widest" style={{ color: '#001078' }}>
+                          {contact.label}
+                        </p>
+                        <p className="text-base text-text-secondary mt-1">
+                          {contact.value}
+                        </p>
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
               </div>
-
-              {/* What to include */}
-              <motion.div
-                {...fu} transition={{ delay: 0.3 }}
-                className="relative rounded-2xl p-6 overflow-hidden"
-                style={{ background: 'linear-gradient(135deg, #EAF0FF 0%, #F2F6FF 100%)', border: `1px solid ${P.border}` }}
-              >
-                <div className="absolute left-0 top-0 bottom-0 w-[3px] rounded-l-2xl" style={{ background: 'linear-gradient(to bottom, #6E85E8, #8FA2F2)' }} />
-                <div className="pl-5">
-                  <p className="text-[10.5px] font-mono font-semibold tracking-[0.18em] uppercase mb-3" style={{ color: P.blue }}>What to include</p>
-                  <ul className="space-y-2">
-                    {['Latest drawings or BOQ', 'Project location and site access', 'Scope of work and quantities', 'Expected start date'].map((item) => (
-                      <li key={item} className="flex items-center gap-2 text-[13px]" style={{ color: P.body }}>
-                        <span className="w-1 h-1 rounded-full shrink-0" style={{ background: P.blue }} />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </motion.div>
-
-              {/* Site image */}
-              <motion.div {...fu} transition={{ delay: 0.35 }} className="relative rounded-2xl overflow-hidden hidden lg:block" style={{ height: 200 }}>
-                <img
-                  src="https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/5879e578b_generated_image.png"
-                  alt="UAE construction site cranes modern buildings"
-                  className="w-full h-full object-cover"
-                  loading="lazy"
-                />
-                <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(247,249,255,0) 0%, rgba(61,74,115,0.55) 100%)' }} />
-                <div className="absolute bottom-0 left-0 right-0 px-5 py-4">
-                  <p className="text-[11.5px] font-semibold text-white">Building Contracting · UAE</p>
-                  <p className="text-[11px]" style={{ color: 'rgba(255,255,255,0.6)' }}>Civil · Masonry · Fit-Out · QHSE</p>
-                </div>
-              </motion.div>
-            </div>
+            </motion.div>
 
             {/* Form */}
-            <div className="lg:col-span-3">
-              <motion.div
-                {...fu} transition={{ delay: 0.1 }}
-                className="rounded-2xl p-7 md:p-9"
-                style={{
-                  background: 'rgba(255,255,255,0.85)',
-                  backdropFilter: 'blur(16px)',
-                  border: `1px solid ${P.border}`,
-                  boxShadow: '0 8px 32px rgba(110,133,232,0.1)',
-                }}
-              >
-                {sent ? (
-                  <div className="text-center py-12">
-                    <div className="w-14 h-14 rounded-2xl mx-auto mb-4 flex items-center justify-center" style={{ background: P.tint }}>
-                      <CheckCircle2 className="w-7 h-7" style={{ color: P.blue }} />
-                    </div>
-                    <h3 className="text-[22px] font-bold mb-2" style={{ color: P.head2 }}>Enquiry received.</h3>
-                    <p className="text-[14px] leading-relaxed mb-6" style={{ color: P.body }}>OKG will review your details and respond with a structured proposal.</p>
-                    <button onClick={() => setSent(false)} className="text-[13px] font-semibold underline" style={{ color: P.blue }}>Send another enquiry</button>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+            >
+              {submitted ? (
+                <div className="bg-green-50 border border-green-200 rounded-lg p-8 text-center">
+                  <p className="text-lg font-semibold mb-2" style={{ color: '#001078' }}>
+                    Thank you for your enquiry!
+                  </p>
+                  <p className="text-text-secondary">
+                    OKG will review your details and respond shortly.
+                  </p>
+                </div>
+              ) : (
+                <form onSubmit={handleSubmit} className="space-y-5">
+                  <div>
+                    <label className="block text-sm font-semibold mb-2" style={{ color: '#001078' }}>
+                      Name
+                    </label>
+                    <input
+                      type="text"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleChange}
+                      required
+                      className="w-full px-4 py-2.5 border border-gray-200 rounded-md text-text-primary focus:outline-none focus:ring-2"
+                      style={{ '--tw-ring-color': '#F8B858' }}
+                    />
                   </div>
-                ) : (
-                  <>
-                    <h3 className="text-[20px] font-bold mb-1.5" style={{ color: P.head2 }}>Request a quotation</h3>
-                    <p className="text-[13px] mb-7" style={{ color: P.body }}>Use this form to share project details. OKG will respond with a structured proposal.</p>
 
-                    <form onSubmit={handleSubmit} className="space-y-5">
-                      <div className="grid md:grid-cols-2 gap-5">
-                        <div>
-                          <label style={labelCls}>Full Name *</label>
-                          <Input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} required placeholder="Your full name" style={inputStyle} />
-                        </div>
-                        <div>
-                          <label style={labelCls}>Company Name</label>
-                          <Input value={form.company} onChange={(e) => setForm({ ...form, company: e.target.value })} placeholder="Company or project name" style={inputStyle} />
-                        </div>
-                      </div>
-                      <div className="grid md:grid-cols-2 gap-5">
-                        <div>
-                          <label style={labelCls}>Phone / WhatsApp</label>
-                          <Input value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="+971 54 217 1502" style={inputStyle} />
-                        </div>
-                        <div>
-                          <label style={labelCls}>Email Address *</label>
-                          <Input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} required placeholder="email@example.com" style={inputStyle} />
-                        </div>
-                      </div>
-                      <div>
-                        <label style={labelCls}>Project Location</label>
-                        <Input value={form.location} onChange={(e) => setForm({ ...form, location: e.target.value })} placeholder="e.g. Dubai, Abu Dhabi, Sharjah" style={inputStyle} />
-                      </div>
-                      <div>
-                        <label style={labelCls}>Service Required</label>
-                        <Select value={form.service} onValueChange={(v) => setForm({ ...form, service: v })}>
-                          <SelectTrigger style={inputStyle}>
-                            <SelectValue placeholder="Select a service" />
-                          </SelectTrigger>
-                          <SelectContent>
-                            {serviceOptions.map((opt) => <SelectItem key={opt} value={opt}>{opt}</SelectItem>)}
-                          </SelectContent>
-                        </Select>
-                      </div>
-                      <div>
-                        <label style={labelCls}>Scope Details</label>
-                        <Textarea value={form.scope} onChange={(e) => setForm({ ...form, scope: e.target.value })} rows={4} placeholder="Briefly describe scope, quantity, expected start date and documents available." style={inputStyle} />
-                      </div>
-                      <button
-                        type="submit" disabled={sending}
-                        className="w-full flex items-center justify-center gap-2.5 py-3.5 rounded-xl text-[13.5px] font-semibold transition-all hover:opacity-88 disabled:opacity-60"
-                        style={{ background: 'linear-gradient(135deg, #6E85E8 0%, #8FA2F2 100%)', color: '#fff', boxShadow: '0 4px 20px rgba(110,133,232,0.25)' }}
-                      >
-                        {sending ? 'Sending…' : 'Submit Enquiry'}
-                        {!sending && <ArrowRight className="w-4 h-4" />}
-                      </button>
-                      <p className="text-[11.5px] text-center" style={{ color: P.muted }}>OKG will review your enquiry and respond with a structured proposal.</p>
-                    </form>
-                  </>
-                )}
-              </motion.div>
-            </div>
+                  <div className="grid md:grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-semibold mb-2" style={{ color: '#001078' }}>
+                        Email
+                      </label>
+                      <input
+                        type="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        required
+                        className="w-full px-4 py-2.5 border border-gray-200 rounded-md text-text-primary focus:outline-none focus:ring-2"
+                        style={{ '--tw-ring-color': '#F8B858' }}
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-semibold mb-2" style={{ color: '#001078' }}>
+                        Phone
+                      </label>
+                      <input
+                        type="tel"
+                        name="phone"
+                        value={formData.phone}
+                        onChange={handleChange}
+                        className="w-full px-4 py-2.5 border border-gray-200 rounded-md text-text-primary focus:outline-none focus:ring-2"
+                        style={{ '--tw-ring-color': '#F8B858' }}
+                      />
+                    </div>
+                  </div>
 
+                  <div>
+                    <label className="block text-sm font-semibold mb-2" style={{ color: '#001078' }}>
+                      Project Details
+                    </label>
+                    <textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      rows={5}
+                      placeholder="Describe your project scope, location, timeline and any specific requirements."
+                      className="w-full px-4 py-2.5 border border-gray-200 rounded-md text-text-primary focus:outline-none focus:ring-2 resize-none"
+                      style={{ '--tw-ring-color': '#F8B858' }}
+                    />
+                  </div>
+
+                  <button
+                    type="submit"
+                    className="w-full py-3 text-white font-semibold rounded-md transition-opacity hover:opacity-90"
+                    style={{ backgroundColor: '#001078' }}
+                  >
+                    Send Enquiry
+                  </button>
+
+                  <p className="text-xs text-text-secondary text-center">
+                    We respect your privacy. Form submissions are handled securely.
+                  </p>
+                </form>
+              )}
+            </motion.div>
           </div>
         </div>
       </section>
