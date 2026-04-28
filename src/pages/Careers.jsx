@@ -37,10 +37,10 @@ export default function Careers() {
       />
 
       {/* Hero image band */}
-      <div className="relative h-64 md:h-80 overflow-hidden">
+      <div className="relative h-48 sm:h-64 md:h-80 overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1581092335397-9583eb92d232?w=1920&q=80"
-          alt="Construction workers in PPE at UAE building site"
+          src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920&q=80"
+          alt="Construction workers in PPE and hard hats at UAE building site"
           className="w-full h-full object-cover object-center"
           loading="lazy"
         />

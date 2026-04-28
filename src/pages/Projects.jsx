@@ -114,9 +114,9 @@ export default function Projects() {
             <motion.div {...fu} transition={{ delay: 0.2 }} className="space-y-4">
               {/* Construction image placeholder cards */}
               {[
-                { label: 'Civil Works Package', img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1000&q=75', alt: 'Civil works construction package site' },
-                { label: 'Masonry & Plastering Package', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1000&q=75', alt: 'Masonry and plastering works package' },
-                { label: 'Fit-Out & Finishing Package', img: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1000&q=75', alt: 'Fit-out and finishing interior package' },
+                { label: 'Civil Works Package', img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1000&q=75', alt: 'Civil construction works concrete frame active site' },
+                { label: 'Masonry & Plastering Package', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1000&q=75', alt: 'Blockwork masonry wall construction package' },
+                { label: 'Fit-Out & Finishing Package', img: 'https://images.unsplash.com/photo-1621905252507-b35492cc74b4?w=1000&q=75', alt: 'Interior fit-out finishing construction works' },
               ].map((card, i) => (
                 <div key={i} className="relative rounded-2xl overflow-hidden" style={{ height: 130 }}>
                   <img src={card.img} alt={card.alt} className="w-full h-full object-cover" loading="lazy" />

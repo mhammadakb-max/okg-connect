@@ -339,8 +339,8 @@ export default function Home() {
                 className="relative rounded-2xl overflow-hidden shadow-xl shadow-navy/10 mb-2"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1590736704728-f4730bb30770?w=1100&q=80"
-                  alt="Construction engineer coordinating plans at active UAE project site"
+                  src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=1100&q=80"
+                  alt="OKG Building Contracting construction workers team site supervision"
                   className="w-full h-56 object-cover object-center"
                   loading="lazy"
                 />

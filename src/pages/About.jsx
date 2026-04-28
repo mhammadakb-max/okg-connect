@@ -26,10 +26,10 @@ export default function About() {
       />
 
       {/* ─── Visual band ─────────────────────────────────────────────────── */}
-      <div className="relative h-72 md:h-96 overflow-hidden">
+      <div className="relative h-56 sm:h-72 md:h-96 overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1469571486292-0ba58a3f068b?w=1920&q=80"
-          alt="UAE construction site with crane and active structural works"
+          src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920&q=80"
+          alt="OKG Building Contracting UAE construction site team workers PPE"
           className="w-full h-full object-cover object-center"
           loading="lazy"
         />
@@ -62,7 +62,7 @@ export default function About() {
             >
               <img
                 src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1100&q=80"
-                alt="Site supervisor reviewing construction drawings and project documentation"
+                alt="Construction supervisor reviewing drawings and project documentation on site"
                 className="w-full h-60 object-cover object-center"
                 loading="lazy"
               />
