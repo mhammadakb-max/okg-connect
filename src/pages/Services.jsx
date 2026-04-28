@@ -4,16 +4,71 @@ import PageHero from '../components/shared/PageHero';
 import SectionEyebrow from '../components/shared/SectionEyebrow';
 import CTABand from '../components/shared/CTABand';
 
+// Service images — AI-generated, guaranteed construction-specific photography
 const services = [
-  { num: '01', title: 'Building Contracting Works', text: 'Support for villas, commercial units, small developments, extensions, renovations and subcontract packages across the UAE.', img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=75', alt: 'Active building construction site with crane and concrete structure' },
-  { num: '02', title: 'Blockwork & Masonry', text: 'Blockwork, masonry, internal partitions, external walls and coordinated site delivery with clear measurement and progress tracking.', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=75', alt: 'Blockwork masonry wall construction worker PPE' },
-  { num: '03', title: 'Plastering Works', text: 'Internal and external plastering works with focus on surface preparation, line, level, finishing quality and supervision.', img: 'https://images.unsplash.com/photo-1620115166323-e1e0bba21fa6?w=900&q=75', alt: 'Construction worker applying plaster to wall surface trowel' },
-  { num: '04', title: 'Concrete Works', text: 'Execution support for concrete casting, site coordination, pour preparation and labour-based concrete activities.', img: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=900&q=75', alt: 'Concrete slab pouring structural works construction site' },
-  { num: '05', title: 'Steel Fixing & Shuttering', text: 'Labour and execution support for structural work packages under approved drawings and site supervision.', img: 'https://images.unsplash.com/photo-1613677135043-a2512fbf49fa?w=900&q=75', alt: 'Steel rebar fixing formwork shuttering construction site' },
-  { num: '06', title: 'Fit-Out & Finishing', text: 'Finishing coordination, renovation works, gypsum, painting, flooring, ceiling and handover-focused support.', img: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=900&q=75', alt: 'Construction interior fit-out finishing works supervisor drawings' },
-  { num: '07', title: 'Subcontracting Support', text: 'Structured subcontract package delivery with documentation, attendance tracking and approval control.', img: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=900&q=75', alt: 'Construction team workers PPE coordinating site delivery subcontract' },
-  { num: '08', title: 'Manpower Mobilisation', text: 'Responsible mobilisation of workers and teams based on scope, schedule and site access conditions.', img: 'https://images.unsplash.com/photo-1565182999561-18d7dc61c393?w=900&q=75', alt: 'Construction workers PPE team mobilisation site entry' },
-  { num: '09', title: 'Renovation & Maintenance', text: 'Repair, improvement, alteration and finishing works for private, commercial and project-based clients.', img: 'https://images.unsplash.com/photo-1590736704728-f4730bb30770?w=900&q=75', alt: 'Renovation maintenance construction worker finishing repair' },
+  {
+    num: '01',
+    title: 'Building Contracting Works',
+    text: 'Support for villas, commercial units, small developments, extensions, renovations and subcontract packages across the UAE.',
+    img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=75',
+    alt: 'Active building construction site tower crane concrete structure UAE',
+  },
+  {
+    num: '02',
+    title: 'Blockwork & Masonry',
+    text: 'Blockwork, masonry, internal partitions, external walls and coordinated site delivery with clear measurement and progress tracking.',
+    img: 'https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/b42f1aeda_generated_image.png',
+    alt: 'Workers in PPE laying concrete blocks for masonry wall construction site',
+  },
+  {
+    num: '03',
+    title: 'Plastering Works',
+    text: 'Internal and external plastering works with focus on surface preparation, line, level, finishing quality and supervision.',
+    img: 'https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/a65b1ec5c_generated_image.png',
+    alt: 'Construction worker PPE applying plaster with trowel to interior wall',
+  },
+  {
+    num: '04',
+    title: 'Concrete Works',
+    text: 'Execution support for concrete casting, site coordination, pour preparation and labour-based concrete activities.',
+    img: 'https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/916b3e206_generated_image.png',
+    alt: 'Construction workers hard hats pouring concrete slab UAE construction site',
+  },
+  {
+    num: '05',
+    title: 'Steel Fixing & Shuttering',
+    text: 'Labour and execution support for structural work packages under approved drawings and site supervision.',
+    img: 'https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/8b5302156_generated_image.png',
+    alt: 'Steel rebar fixing and formwork shuttering construction structural works',
+  },
+  {
+    num: '06',
+    title: 'Fit-Out & Finishing',
+    text: 'Finishing coordination, renovation works, gypsum, painting, flooring, ceiling and handover-focused support.',
+    img: 'https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/2f06871a6_generated_image.png',
+    alt: 'Construction interior fit-out gypsum ceiling finishing works',
+  },
+  {
+    num: '07',
+    title: 'Subcontracting Support',
+    text: 'Structured subcontract package delivery with documentation, attendance tracking and approval control.',
+    img: 'https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/77b0ae2ef_generated_image.png',
+    alt: 'Construction supervisor reviewing subcontract documentation BOQ on site',
+  },
+  {
+    num: '08',
+    title: 'Manpower Mobilisation',
+    text: 'Responsible mobilisation of workers and teams based on scope, schedule and site access conditions.',
+    img: 'https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/6580cd8a3_generated_image.png',
+    alt: 'Construction workers mobilisation team PPE entering UAE construction site',
+  },
+  {
+    num: '09',
+    title: 'Renovation & Maintenance',
+    text: 'Repair, improvement, alteration and finishing works for private, commercial and project-based clients.',
+    img: 'https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/28a91b909_generated_image.png',
+    alt: 'Construction renovation maintenance works worker finishing wall repair',
+  },
 ];
 
 const scopeRows = [

@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Check, ChevronRight, Shield, Zap, FileText } from 'lucide-react';
+import { ArrowRight, Check, ChevronRight, Shield, Zap, FileText, HardHat, Building2, Users } from 'lucide-react';
 import SectionEyebrow from '../components/shared/SectionEyebrow';
 import CTABand from '../components/shared/CTABand';
 
@@ -38,36 +38,50 @@ const valueCards = [
   },
 ];
 
-const discoverBlocks = [
+// Image-led service tiles — AI-generated guaranteed construction images
+const services = [
   {
     num: '01',
-    title: 'Civil Works Support',
-    text: 'Execution support for building works, concrete activities, steel fixing, shuttering and site-based civil packages.',
+    title: 'Building Contracting Works',
+    text: 'Villas, commercial units, extensions, renovations and subcontract packages.',
+    img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=75',
+    alt: 'Active building construction site tower crane concrete structure UAE',
   },
   {
     num: '02',
-    title: 'Masonry & Plastering',
-    text: 'Blockwork, partitions, internal and external plastering, surface preparation and finishing coordination.',
+    title: 'Blockwork & Masonry',
+    text: 'Blockwork, masonry, partitions, walls and controlled progress tracking.',
+    img: 'https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/b42f1aeda_generated_image.png',
+    alt: 'Workers PPE laying concrete blocks masonry wall construction',
   },
   {
     num: '03',
-    title: 'Fit-Out & Finishing',
-    text: 'Renovation, gypsum, painting, flooring, ceiling and finishing support with handover-focused coordination.',
+    title: 'Plastering Works',
+    text: 'Internal and external plastering with surface preparation, line, level and finish.',
+    img: 'https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/a65b1ec5c_generated_image.png',
+    alt: 'Construction worker PPE applying plaster trowel wall',
   },
   {
     num: '04',
-    title: 'Subcontracting & Manpower',
-    text: 'Structured mobilisation of teams with worker details, attendance tracking, documentation and site supervision.',
+    title: 'Concrete Works',
+    text: 'Concrete casting, pour preparation and labour-based concrete execution.',
+    img: 'https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/916b3e206_generated_image.png',
+    alt: 'Construction workers hard hats concrete pouring slab UAE',
   },
-];
-
-const services = [
-  { num: '01', title: 'Building Contracting Works', text: 'Villas, commercial units, extensions, renovations and subcontract packages.' },
-  { num: '02', title: 'Blockwork & Masonry', text: 'Blockwork, masonry, partitions, walls and controlled progress tracking.' },
-  { num: '03', title: 'Plastering Works', text: 'Internal and external plastering with surface preparation, line, level and finish.' },
-  { num: '04', title: 'Concrete Works', text: 'Concrete casting, pour preparation and labour-based concrete execution.' },
-  { num: '05', title: 'Steel Fixing & Shuttering', text: 'Structural work under approved drawings, shuttering and steel fixing packages.' },
-  { num: '06', title: 'Fit-Out & Finishing', text: 'Gypsum, painting, flooring, ceiling and handover-focused finishing support.' },
+  {
+    num: '05',
+    title: 'Steel Fixing & Shuttering',
+    text: 'Structural work under approved drawings, shuttering and steel fixing packages.',
+    img: 'https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/8b5302156_generated_image.png',
+    alt: 'Steel rebar fixing formwork shuttering construction structural frame',
+  },
+  {
+    num: '06',
+    title: 'Fit-Out & Finishing',
+    text: 'Gypsum, painting, flooring, ceiling and handover-focused finishing support.',
+    img: 'https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/2f06871a6_generated_image.png',
+    alt: 'Construction interior fit-out gypsum ceiling finishing works',
+  },
 ];
 
 const pillars = [
@@ -104,6 +118,25 @@ const processSteps = [
   'Enquiry', 'Site Review', 'Scope Alignment', 'Quotation', 'Mobilisation', 'Execution', 'Inspection', 'Handover',
 ];
 
+// Who OKG supports
+const supportCards = [
+  {
+    icon: Building2,
+    title: 'Main Contractors',
+    text: 'Subcontract packages for civil, masonry, plastering and finishing scopes requiring responsible mobilisation and disciplined execution.',
+  },
+  {
+    icon: HardHat,
+    title: 'Project Managers & Consultants',
+    text: 'Site teams that need accountable labour coordination, QHSE compliance and documented progress reporting.',
+  },
+  {
+    icon: Users,
+    title: 'Private Clients & Developers',
+    text: 'Villa owners, developers and private clients requiring transparent pricing, quality finishing and site accountability.',
+  },
+];
+
 const fu = { initial: { opacity: 0, y: 28 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
 
 /* ─── Component ─────────────────────────────────────────────────────── */
@@ -117,35 +150,33 @@ export default function Home() {
       ═══════════════════════════════════════════════════════════════════ */}
       <section className="relative overflow-hidden" style={{ background: '#001078', minHeight: '94vh' }}>
 
-        {/* Background image — slow zoom */}
+        {/* Background construction site image */}
         <div className="absolute inset-0 overflow-hidden">
           <motion.img
             src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80"
-            alt="UAE construction site with tower crane and concrete structure"
+            alt="UAE construction site with tower crane and active concrete structure"
             className="w-full h-full object-cover object-center"
-            style={{ opacity: 0.32 }}
+            style={{ opacity: 0.30 }}
             initial={{ scale: 1.08 }}
             animate={{ scale: 1 }}
             transition={{ duration: 12, ease: 'easeOut' }}
           />
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(140deg, rgba(0,16,120,0.92) 0%, rgba(0,24,140,0.78) 55%, rgba(0,16,120,0.90) 100%)' }} />
+          {/* Navy overlay — no purple, no glow */}
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(150deg, rgba(0,16,120,0.94) 0%, rgba(0,20,100,0.82) 55%, rgba(0,16,120,0.92) 100%)' }} />
         </div>
 
         {/* Subtle grid */}
         <div className="absolute inset-0 pointer-events-none"
-          style={{ backgroundImage: `linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)`, backgroundSize: '60px 60px', opacity: 0.03 }} />
+          style={{ backgroundImage: `linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)`, backgroundSize: '60px 60px', opacity: 0.025 }} />
 
-        {/* Left gold rule — animated in */}
+        {/* Left gold rule */}
         <motion.div
           className="absolute left-0 top-0 bottom-0 w-[3px]"
-          style={{ background: 'linear-gradient(to bottom, #F8B858 0%, rgba(248,184,88,0.2) 65%, transparent 100%)' }}
+          style={{ background: 'linear-gradient(to bottom, #F8B858 0%, rgba(248,184,88,0.15) 65%, transparent 100%)' }}
           initial={{ scaleY: 0, originY: 0 }}
           animate={{ scaleY: 1 }}
           transition={{ duration: 0.9, ease: 'easeOut', delay: 0.3 }}
         />
-
-        {/* Subtle vignette — no glow blobs */}
-        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 80% 50%, rgba(255,255,255,0.03) 0%, transparent 70%)' }} />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-36 md:pt-28 md:pb-44 lg:pt-32 lg:pb-48">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
@@ -166,7 +197,7 @@ export default function Home() {
               {/* H1 */}
               <motion.h1
                 initial={{ opacity: 0, y: 32 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.1 }}
-                className="font-display text-[42px] md:text-[60px] lg:text-[72px] font-black leading-[1.02] tracking-[-0.028em] text-white mb-7"
+                className="font-display text-[38px] md:text-[58px] lg:text-[70px] font-black leading-[1.02] tracking-[-0.028em] text-white mb-7"
               >
                 Constructing with<br />
                 <span style={{ color: '#F8B858' }}>discipline</span>,<br />
@@ -184,7 +215,7 @@ export default function Home() {
               <motion.p
                 initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.26 }}
                 className="text-[14px] leading-[1.8] mb-11 max-w-lg"
-                style={{ color: 'rgba(255,255,255,0.65)' }}
+                style={{ color: 'rgba(255,255,255,0.55)' }}
               >
                 We work with clients, contractors and project teams that require clear scope alignment, responsible mobilisation, daily site supervision, documentation control and transparent delivery.
               </motion.p>
@@ -196,21 +227,21 @@ export default function Home() {
               >
                 <Link
                   to="/contact"
-                  className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl text-[14px] font-bold transition-all hover:scale-[1.02] shadow-lg shadow-gold/10"
+                  className="inline-flex items-center gap-2.5 px-8 py-4 rounded-xl text-[14px] font-bold transition-all hover:scale-[1.02]"
                   style={{ background: '#F8B858', color: '#001078' }}
                 >
                   Request Quotation <ArrowRight className="w-4 h-4" />
                 </Link>
                 <Link
                   to="/capabilities"
-                  className="inline-flex items-center gap-2 px-7 py-4 rounded-xl text-[14px] font-semibold transition-all hover:bg-white/8"
+                  className="inline-flex items-center gap-2 px-7 py-4 rounded-xl text-[14px] font-semibold transition-all"
                   style={{ border: '1.5px solid rgba(255,255,255,0.18)', color: 'rgba(255,255,255,0.8)' }}
                 >
                   Explore Capabilities
                 </Link>
               </motion.div>
 
-              {/* Trust chips — staggered */}
+              {/* Trust chips */}
               <div className="flex flex-wrap gap-2.5">
                 {trustBlocks.map((b, i) => (
                   <motion.div
@@ -229,12 +260,12 @@ export default function Home() {
               </div>
             </div>
 
-            {/* Right — control card */}
+            {/* Right — control card with construction image */}
             <motion.div
               initial={{ opacity: 0, x: 28 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3, duration: 0.55 }}
               className="lg:col-span-5"
             >
-              <div className="rounded-2xl overflow-hidden relative" style={{ border: '1px solid rgba(255,255,255,0.1)', boxShadow: '0 32px 80px rgba(0,0,0,0.4)' }}>
+              <div className="rounded-2xl overflow-hidden relative" style={{ border: '1px solid rgba(255,255,255,0.1)', boxShadow: '0 32px 80px rgba(0,0,0,0.35)' }}>
                 {/* Background site image */}
                 <div className="absolute inset-0">
                   <img
@@ -242,16 +273,16 @@ export default function Home() {
                     alt="Site supervisor reviewing construction drawings on site"
                     className="w-full h-full object-cover object-center"
                     loading="lazy"
-                    style={{ opacity: 0.28 }}
+                    style={{ opacity: 0.25 }}
                   />
-                  <div className="absolute inset-0" style={{ background: 'rgba(0,16,120,0.78)' }} />
+                  <div className="absolute inset-0" style={{ background: 'rgba(0,16,120,0.82)' }} />
                 </div>
                 {/* Top gold strip */}
                 <div className="h-[3px] relative z-10" style={{ background: 'linear-gradient(to right, #F8B858, rgba(248,184,88,0.2))' }} />
                 {/* Left gold rule */}
                 <div className="absolute left-0 top-0 bottom-0 w-[3px] z-10" style={{ background: 'linear-gradient(to bottom, #F8B858, rgba(248,184,88,0.1))' }} />
 
-                <div className="p-8 relative z-10" style={{ backdropFilter: 'blur(4px)' }}>
+                <div className="p-8 relative z-10">
                   <p className="text-[10px] font-mono font-bold tracking-[0.22em] uppercase mb-6" style={{ color: 'rgba(248,184,88,0.7)' }}>
                     Enquiry to Handover — Controlled
                   </p>
@@ -283,17 +314,17 @@ export default function Home() {
 
               {/* Sub-chips */}
               <div className="mt-3.5 grid grid-cols-3 gap-3">
-              {[
-                { label: 'Civil Works', val: 'Contracting' },
-                { label: 'UAE', val: 'Operations' },
-                { label: 'QHSE', val: 'Focused' },
-              ].map((s) => (
-                <div key={s.label} className="rounded-xl px-3 py-3 text-center"
-                  style={{ border: '1px solid rgba(255,255,255,0.14)', background: 'rgba(255,255,255,0.07)' }}>
-                  <p className="text-[13px] font-bold text-white leading-none mb-1">{s.val}</p>
-                  <p className="text-[10.5px]" style={{ color: 'rgba(255,255,255,0.55)' }}>{s.label}</p>
-                </div>
-              ))}
+                {[
+                  { label: 'Civil Works', val: 'Contracting' },
+                  { label: 'UAE', val: 'Operations' },
+                  { label: 'QHSE', val: 'Focused' },
+                ].map((s) => (
+                  <div key={s.label} className="rounded-xl px-3 py-3 text-center"
+                    style={{ border: '1px solid rgba(255,255,255,0.14)', background: 'rgba(255,255,255,0.07)' }}>
+                    <p className="text-[13px] font-bold text-white leading-none mb-1">{s.val}</p>
+                    <p className="text-[10.5px]" style={{ color: 'rgba(255,255,255,0.55)' }}>{s.label}</p>
+                  </div>
+                ))}
               </div>
             </motion.div>
 
@@ -333,19 +364,20 @@ export default function Home() {
             </div>
 
             <div className="space-y-4">
-              {/* About image */}
+              {/* About image — construction supervisor */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                className="relative rounded-2xl overflow-hidden shadow-xl shadow-navy/10 mb-2"
+                className="relative rounded-2xl overflow-hidden shadow-xl mb-2"
+                style={{ boxShadow: '0 20px 60px rgba(0,16,120,0.10)' }}
               >
                 <img
-                  src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=1100&q=80"
-                  alt="OKG Building Contracting construction workers team site supervision"
-                  className="w-full h-56 object-cover object-center"
+                  src="https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/2f6870904_generated_image.png"
+                  alt="UAE construction site workers team in PPE on active building site"
+                  className="w-full h-64 object-cover object-center"
                   loading="lazy"
                 />
                 {/* Caption card */}
-                <div className="absolute bottom-0 left-0 right-0 px-5 py-3 flex items-center gap-3" style={{ background: 'rgba(0,16,120,0.88)', backdropFilter: 'blur(8px)' }}>
+                <div className="absolute bottom-0 left-0 right-0 px-5 py-3 flex items-center gap-3" style={{ background: 'rgba(0,16,120,0.88)' }}>
                   <span className="w-[3px] h-8 rounded-full shrink-0" style={{ background: '#F8B858' }} />
                   <span className="text-[12px] font-bold tracking-[0.12em] uppercase text-white/90">Scope · Supervision · Delivery</span>
                 </div>
@@ -368,7 +400,7 @@ export default function Home() {
                 <motion.div key={i}
                   initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                   transition={{ delay: i * 0.1 }}
-                  className="bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-lg hover:shadow-navy/5 hover:border-gray-200 transition-all group">
+                  className="bg-white rounded-2xl p-6 border border-gray-100 hover:shadow-lg hover:border-gray-200 transition-all group">
                   <div className="flex items-start gap-4">
                     <span className="text-[11px] font-mono font-bold shrink-0 mt-0.5" style={{ color: '#F8B858' }}>{card.num}</span>
                     <div>
@@ -385,48 +417,9 @@ export default function Home() {
 
 
       {/* ═══════════════════════════════════════════════════════════════════
-          DISCOVER OKG — Light premium section
+          WHAT WE DO — Image-led service tiles
       ═══════════════════════════════════════════════════════════════════ */}
-      <section className="py-24 md:py-32 relative overflow-hidden" style={{ background: '#EEF1FF' }}>
-        <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: 'linear-gradient(to right, transparent, #F8B858 35%, #F8B858 65%, transparent)', opacity: 0.6 }} />
-        <div className="absolute inset-0 pointer-events-none"
-          style={{ backgroundImage: `linear-gradient(rgba(0,16,120,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(0,16,120,0.06) 1px, transparent 1px)`, backgroundSize: '52px 52px' }} />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-end mb-14">
-            <div>
-              <SectionEyebrow label="Discover OKG" />
-            <motion.h2 {...fu} className="font-display text-[32px] md:text-[44px] font-black leading-[1.1] tracking-[-0.02em]" style={{ color: '#001078' }}>
-                A practical contracting partner for UAE project teams.
-              </motion.h2>
-            </div>
-            <motion.p {...fu} transition={{ delay: 0.1 }}
-              className="text-[15px] leading-[1.9] lg:pb-2" style={{ color: '#6B7280' }}>
-              OKG supports clients and contractors through disciplined execution, controlled subcontracting, manpower coordination and QHSE-conscious project delivery.
-            </motion.p>
-          </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
-            {discoverBlocks.map((b, i) => (
-              <motion.div key={i}
-                initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                transition={{ delay: i * 0.08 }}
-                className="group relative rounded-2xl p-6 bg-white border border-gray-100 hover:border-gray-200 hover:shadow-xl hover:shadow-navy/8 transition-all duration-300">
-                <div className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity rounded-t-2xl" style={{ background: '#F8B858' }} />
-                <span className="block text-[11px] font-mono font-bold mb-5" style={{ color: '#F8B858' }}>{b.num}</span>
-                <h3 className="text-[15.5px] font-bold mb-3 leading-snug" style={{ color: '#001078' }}>{b.title}</h3>
-                <p className="text-[13px] leading-relaxed" style={{ color: '#6B7280' }}>{b.text}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-
-      {/* ═══════════════════════════════════════════════════════════════════
-          WHAT WE DO
-      ═══════════════════════════════════════════════════════════════════ */}
-      <section className="py-24 md:py-32 bg-white">
+      <section className="py-24 md:py-32" style={{ background: '#F2F4F8' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
             <div>
@@ -438,28 +431,43 @@ export default function Home() {
                 Integrated construction support for civil, structural, masonry and finishing work packages.
               </motion.p>
             </div>
-            <Link to="/services" className="inline-flex items-center gap-2 text-[13px] font-bold whitespace-nowrap group" style={{ color: '#001078' }}>
+            <Link to="/services" className="inline-flex items-center gap-2 text-[13px] font-bold whitespace-nowrap group shrink-0" style={{ color: '#001078' }}>
               Full service spectrum <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {services.map((s, i) => (
-              <motion.div key={i}
-                initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                transition={{ delay: i * 0.07, duration: 0.55, ease: 'easeOut' }}
-                whileHover={{ y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
-                className="group relative rounded-2xl p-8 border border-gray-100/80 cursor-default overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-navy/12 bg-white"
-                style={{ minHeight: 175 }}>
-                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: '#001078' }} />
-                <div className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: '#F8B858' }} />
-                <div className="relative z-10">
-                  <span className="text-[11px] font-mono font-bold block mb-4 transition-colors" style={{ color: '#F8B858' }}>{s.num}</span>
-                  <h3 className="text-[16.5px] font-bold mb-3 leading-snug transition-colors duration-300 group-hover:text-white" style={{ color: '#001078' }}>{s.title}</h3>
-                  <p className="text-[13px] leading-relaxed transition-colors duration-300 group-hover:text-white/55" style={{ color: '#6B7280' }}>{s.text}</p>
-                  <div className="mt-5 flex items-center gap-1.5 text-[12px] font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ color: '#F8B858' }}>
-                    View capability <ChevronRight className="w-3.5 h-3.5" />
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 24 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: i * 0.07, duration: 0.5, ease: 'easeOut' }}
+                className="group relative rounded-2xl border border-gray-100 hover:border-gray-200 hover:shadow-2xl transition-all duration-300 overflow-hidden bg-white flex flex-col"
+                style={{ boxShadow: '0 1px 6px rgba(0,16,120,0.04)' }}
+              >
+                {/* Construction image */}
+                <div className="relative h-48 overflow-hidden shrink-0">
+                  <img
+                    src={s.img}
+                    alt={s.alt}
+                    className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  {/* Navy overlay on hover */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: 'rgba(0,16,120,0.45)' }} />
+                  {/* Gold top rule on hover */}
+                  <div className="absolute top-0 left-0 right-0 h-[3px] opacity-0 group-hover:opacity-100 transition-opacity" style={{ background: '#F8B858' }} />
+                  {/* Number badge */}
+                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded-lg" style={{ background: 'rgba(0,8,40,0.72)' }}>
+                    <span className="text-[10px] font-mono font-bold" style={{ color: '#F8B858' }}>{s.num}</span>
                   </div>
+                </div>
+                {/* Content */}
+                <div className="p-6 flex-1">
+                  <h3 className="text-[15.5px] font-bold mb-2.5 leading-snug" style={{ color: '#001078' }}>{s.title}</h3>
+                  <p className="text-[13px] leading-relaxed" style={{ color: '#6B7280' }}>{s.text}</p>
                 </div>
               </motion.div>
             ))}
@@ -485,8 +493,7 @@ export default function Home() {
               <motion.div key={i}
                 initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                 transition={{ delay: i * 0.1, duration: 0.6, ease: 'easeOut' }}
-                whileHover={{ y: -3, transition: { duration: 0.2, ease: 'easeOut' } }}
-                className="relative rounded-2xl p-8 border border-gray-100 hover:border-gray-200 hover:shadow-2xl hover:shadow-navy/8 transition-all duration-300 overflow-hidden group"
+                className="relative rounded-2xl p-8 border border-gray-100 hover:border-gray-200 hover:shadow-xl transition-all duration-300 overflow-hidden group"
                 style={{ background: '#F7F8FB' }}>
                 <div className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: '#F8B858' }} />
 
@@ -507,50 +514,16 @@ export default function Home() {
 
 
       {/* ═══════════════════════════════════════════════════════════════════
-          COMMITMENTS
+          QHSE PREVIEW — Construction image
       ═══════════════════════════════════════════════════════════════════ */}
       <section className="py-24 md:py-28" style={{ background: '#F2F4F8' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
-            <div>
-              <SectionEyebrow label="Our Commitments" />
-              <motion.h2 {...fu} className="font-display text-[32px] md:text-[44px] font-black leading-[1.1] tracking-[-0.02em] mb-6" style={{ color: '#001078' }}>
-                Committed to practical construction standards.
-              </motion.h2>
-              <motion.p {...fu} transition={{ delay: 0.1 }} className="text-[14px] leading-[1.9]" style={{ color: '#6B7280' }}>
-                Every OKG project should be approached with the same level of discipline, transparency and care — regardless of scope size or package type.
-              </motion.p>
-            </div>
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-              {commitments.map((c, i) => (
-                <motion.div key={i}
-                  initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
-                  transition={{ delay: i * 0.07 }}
-                  className="flex items-center gap-3 rounded-xl p-4 bg-white border border-gray-100 hover:shadow-md transition-all">
-                  <div className="w-5 h-5 rounded-full flex items-center justify-center shrink-0"
-                    style={{ background: 'rgba(248,184,88,0.12)' }}>
-                    <Check className="w-3 h-3" style={{ color: '#F8B858' }} />
-                  </div>
-                  <span className="text-[12.5px] font-semibold leading-tight" style={{ color: '#001078' }}>{c}</span>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-
-      {/* ═══════════════════════════════════════════════════════════════════
-          QHSE PREVIEW
-      ═══════════════════════════════════════════════════════════════════ */}
-      <section className="py-24 md:py-28 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-navy/10">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl order-2 lg:order-1" style={{ boxShadow: '0 24px 80px rgba(0,16,120,0.12)' }}>
               <img
-                src="https://images.unsplash.com/photo-1622021142947-da7dedc7c39a?w=1100&q=80"
-                alt="Construction worker in full PPE at UAE project site"
-                className="w-full h-[380px] object-cover object-center"
+                src="https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/6af65c67b_generated_image.png"
+                alt="Construction worker PPE safety helmet conducting site inspection with checklist UAE"
+                className="w-full h-[400px] object-cover object-center"
                 loading="lazy"
               />
               <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,16,120,0.5) 0%, transparent 60%)' }} />
@@ -559,7 +532,7 @@ export default function Home() {
                 <span className="text-[12px] font-bold tracking-[0.12em] uppercase text-white/90">Safety · Quality · Housekeeping</span>
               </div>
             </div>
-            <div>
+            <div className="order-1 lg:order-2">
               <SectionEyebrow label="QHSE" />
               <motion.h2 {...fu} className="font-display text-[32px] md:text-[40px] font-black leading-[1.1] tracking-[-0.02em] mb-5" style={{ color: '#001078' }}>
                 Quality, safety and control built into the work.
@@ -582,12 +555,13 @@ export default function Home() {
         </div>
       </section>
 
+
       {/* ═══════════════════════════════════════════════════════════════════
           PROJECT CONTROL TIMELINE
       ═══════════════════════════════════════════════════════════════════ */}
-      <section className="py-24 md:py-28 relative overflow-hidden" style={{ background: '#1833A3' }}>
+      <section className="py-24 md:py-28 relative overflow-hidden" style={{ background: '#001078' }}>
         <div className="absolute inset-0 pointer-events-none"
-          style={{ backgroundImage: `linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)`, backgroundSize: '52px 52px', opacity: 0.04 }} />
+          style={{ backgroundImage: `linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)`, backgroundSize: '52px 52px', opacity: 0.03 }} />
         <div className="absolute top-0 left-0 right-0 h-[1px]" style={{ background: 'linear-gradient(to right, transparent, rgba(248,184,88,0.5) 40%, rgba(248,184,88,0.5) 60%, transparent)' }} />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -599,18 +573,16 @@ export default function Home() {
             OKG's process is built around practical execution control at each stage of a project package.
           </motion.p>
 
-          {/* ── Desktop horizontal timeline ── */}
+          {/* Desktop horizontal timeline */}
           <div className="hidden md:block relative">
-            {/* Horizontal navy line */}
             <motion.div
               className="absolute top-[22px] left-[22px] right-[22px] h-[2px]"
-              style={{ background: 'rgba(255,255,255,0.1)' }}
+              style={{ background: 'rgba(255,255,255,0.08)' }}
               initial={{ scaleX: 0, originX: 0 }}
               whileInView={{ scaleX: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 1, ease: 'easeOut', delay: 0.2 }}
             />
-            {/* Gold progress line */}
             <motion.div
               className="absolute top-[22px] left-[22px] h-[2px]"
               style={{ background: 'linear-gradient(to right, #F8B858, rgba(248,184,88,0.3))', width: 'calc(100% - 44px)' }}
@@ -628,27 +600,24 @@ export default function Home() {
                   transition={{ delay: 0.2 + i * 0.08, duration: 0.55, ease: 'easeOut' }}
                   className="relative flex flex-col items-center text-center group"
                 >
-                  {/* Gold dot */}
                   <div className="relative z-10 w-11 h-11 rounded-full flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110"
                     style={{
-                      background: i === 0 ? '#F8B858' : 'rgba(255,255,255,0.12)',
-                      border: `2px solid ${i === 0 ? '#F8B858' : 'rgba(248,184,88,0.45)'}`,
-                      boxShadow: i === 0 ? '0 0 0 6px rgba(248,184,88,0.15)' : 'none',
+                      background: i === 0 ? '#F8B858' : 'rgba(255,255,255,0.1)',
+                      border: `2px solid ${i === 0 ? '#F8B858' : 'rgba(248,184,88,0.4)'}`,
                     }}>
                     <span className="text-[9px] font-mono font-bold leading-none" style={{ color: i === 0 ? '#001078' : '#F8B858' }}>
                       {String(i + 1).padStart(2, '0')}
                     </span>
                   </div>
-                  <p className="text-[11px] font-semibold leading-tight transition-colors duration-200 group-hover:text-white" style={{ color: i === 0 ? '#F8B858' : 'rgba(255,255,255,0.6)' }}>{step}</p>
+                  <p className="text-[11px] font-semibold leading-tight group-hover:text-white transition-colors" style={{ color: i === 0 ? '#F8B858' : 'rgba(255,255,255,0.55)' }}>{step}</p>
                 </motion.div>
               ))}
             </div>
           </div>
 
-          {/* ── Mobile vertical timeline ── */}
+          {/* Mobile vertical timeline */}
           <div className="md:hidden relative pl-8">
-            {/* Vertical line */}
-            <div className="absolute left-[18px] top-0 bottom-0 w-[2px]" style={{ background: 'rgba(255,255,255,0.1)' }} />
+            <div className="absolute left-[18px] top-0 bottom-0 w-[2px]" style={{ background: 'rgba(255,255,255,0.08)' }} />
             <div className="space-y-6">
               {processSteps.map((step, i) => (
                 <motion.div key={i}
@@ -658,17 +627,82 @@ export default function Home() {
                   transition={{ delay: i * 0.06, duration: 0.5, ease: 'easeOut' }}
                   className="relative flex items-center gap-4"
                 >
-                  {/* Gold dot */}
                   <div className="absolute -left-8 w-9 h-9 rounded-full flex items-center justify-center shrink-0 z-10"
                     style={{
-                      background: i === 0 ? '#F8B858' : 'rgba(255,255,255,0.12)',
-                      border: `2px solid ${i === 0 ? '#F8B858' : 'rgba(248,184,88,0.45)'}`,
+                      background: i === 0 ? '#F8B858' : 'rgba(255,255,255,0.1)',
+                      border: `2px solid ${i === 0 ? '#F8B858' : 'rgba(248,184,88,0.4)'}`,
                     }}>
                     <span className="text-[9px] font-mono font-bold" style={{ color: i === 0 ? '#001078' : '#F8B858' }}>
                       {String(i + 1).padStart(2, '0')}
                     </span>
                   </div>
                   <p className="text-[13.5px] font-semibold" style={{ color: i === 0 ? '#F8B858' : 'rgba(255,255,255,0.7)' }}>{step}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+
+      {/* ═══════════════════════════════════════════════════════════════════
+          WHO OKG SUPPORTS
+      ═══════════════════════════════════════════════════════════════════ */}
+      <section className="py-24 md:py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="mb-14 max-w-2xl">
+            <SectionEyebrow label="Who We Support" />
+            <motion.h2 {...fu} className="font-display text-[32px] md:text-[44px] font-black leading-[1.1] tracking-[-0.02em]" style={{ color: '#001078' }}>
+              Built for UAE project teams, contractors and clients.
+            </motion.h2>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-5">
+            {supportCards.map((c, i) => (
+              <motion.div key={i}
+                initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                transition={{ delay: i * 0.1 }}
+                className="group relative rounded-2xl p-8 border border-gray-100 hover:border-gray-200 hover:shadow-xl transition-all duration-300 overflow-hidden"
+                style={{ background: '#F7F8FB' }}>
+                <div className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity" style={{ background: '#F8B858' }} />
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-6" style={{ background: '#001078' }}>
+                  <c.icon className="w-5 h-5 text-white" />
+                </div>
+                <h3 className="text-[17px] font-bold mb-3" style={{ color: '#001078' }}>{c.title}</h3>
+                <p className="text-[13.5px] leading-relaxed" style={{ color: '#6B7280' }}>{c.text}</p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+
+      {/* ═══════════════════════════════════════════════════════════════════
+          COMMITMENTS — Light section
+      ═══════════════════════════════════════════════════════════════════ */}
+      <section className="py-20 md:py-24" style={{ background: '#F2F4F8' }}>
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
+            <div>
+              <SectionEyebrow label="Our Commitments" />
+              <motion.h2 {...fu} className="font-display text-[32px] md:text-[40px] font-black leading-[1.1] tracking-[-0.02em] mb-6" style={{ color: '#001078' }}>
+                Committed to practical construction standards.
+              </motion.h2>
+              <motion.p {...fu} transition={{ delay: 0.1 }} className="text-[14px] leading-[1.9]" style={{ color: '#6B7280' }}>
+                Every OKG project should be approached with the same level of discipline, transparency and care — regardless of scope size or package type.
+              </motion.p>
+            </div>
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+              {commitments.map((c, i) => (
+                <motion.div key={i}
+                  initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }}
+                  transition={{ delay: i * 0.07 }}
+                  className="flex items-center gap-3 rounded-xl p-4 bg-white border border-gray-100 hover:shadow-md transition-all">
+                  <div className="w-5 h-5 rounded-full flex items-center justify-center shrink-0"
+                    style={{ background: 'rgba(248,184,88,0.12)' }}>
+                    <Check className="w-3 h-3" style={{ color: '#F8B858' }} />
+                  </div>
+                  <span className="text-[12.5px] font-semibold leading-tight" style={{ color: '#001078' }}>{c}</span>
                 </motion.div>
               ))}
             </div>

@@ -49,8 +49,8 @@ export default function PeopleFocus() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div className="rounded-2xl overflow-hidden shadow-2xl shadow-navy/12">
               <img
-                src="https://images.unsplash.com/photo-1590736704728-f4730bb30770?w=1100&q=80"
-                alt="Construction supervisor reviewing site progress and coordinating with team"
+                src="https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/2f6870904_generated_image.png"
+                alt="Construction site supervisor coordinating with workers team PPE UAE"
                 className="w-full h-[380px] object-cover object-center"
                 loading="lazy"
               />

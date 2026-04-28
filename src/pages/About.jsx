@@ -28,8 +28,8 @@ export default function About() {
       {/* ─── Visual band ─────────────────────────────────────────────────── */}
       <div className="relative h-56 sm:h-72 md:h-96 overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920&q=80"
-          alt="OKG Building Contracting UAE construction site team workers PPE"
+          src="https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/23fd35dff_generated_image.png"
+          alt="UAE construction site workers team in PPE high-visibility vests on active building site"
           className="w-full h-full object-cover object-center"
           loading="lazy"
         />
