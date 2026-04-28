@@ -6,6 +6,8 @@ import SectionEyebrow from '../components/shared/SectionEyebrow';
 import ValueCard from '../components/shared/ValueCard';
 import CTABand from '../components/shared/CTABand';
 
+const C = { ivory: '#F7F4EE', stone: '#F1ECE4', warmWhite: '#FBF9F5', charcoal: '#1F1F1B', charcoalDk: '#2E2B27', taupe: '#67635C', border: '#DDD6CB', bronze: '#B58A57' };
+
 const values = [
   { icon: Heart, title: 'Honesty', text: 'Every proposal is based on actual capacity, realistic programme and clearly defined scope. Transparent pricing and honest communication are non-negotiable.' },
   { icon: Shield, title: 'Discipline', text: 'Construction progress depends on daily supervision, attendance control, material coordination and fast issue escalation.' },
@@ -21,85 +23,70 @@ export default function About() {
     <>
       <PageHero
         eyebrow="About OKG"
+        breadcrumb="About"
         title="Built around disciplined execution and transparent delivery."
         intro="OKG Building Contracting serves the UAE construction market with a straightforward operating principle: understand the scope, mobilise responsibly, supervise the work and protect the client's quality, time and budget."
       />
 
-      {/* ─── Visual band ─────────────────────────────────────────────────── */}
-      <div className="relative h-56 sm:h-72 md:h-96 overflow-hidden">
+      {/* ─── Visual band ─────────────────────────────────────────── */}
+      <div className="relative h-52 sm:h-64 md:h-80 overflow-hidden" style={{ borderBottom: `1px solid ${C.border}` }}>
         <img
           src="https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/23fd35dff_generated_image.png"
-          alt="UAE construction site workers team in PPE high-visibility vests on active building site"
+          alt="UAE construction site workers team PPE high-visibility vests active building site"
           className="w-full h-full object-cover object-center"
           loading="lazy"
         />
-        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,16,120,0.05) 0%, rgba(0,8,51,0.55) 100%)' }} />
-        <div className="absolute bottom-0 left-0 right-0 h-[2px]" style={{ background: 'linear-gradient(to right, transparent, #F8B858 35%, #F8B858 65%, transparent)' }} />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(247,244,238,0) 0%, rgba(46,43,39,0.5) 100%)' }} />
       </div>
 
-      {/* ─── Company Profile ─────────────────────────────────────────────── */}
-      <section className="py-20 md:py-28 bg-white">
+      {/* ─── Company Profile ─────────────────────────────────────── */}
+      <section className="py-20 md:py-28" style={{ background: C.warmWhite }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
+
             <div>
               <SectionEyebrow label="Company Profile" />
-              <motion.h2 {...fu} className="font-display text-3xl md:text-[40px] font-bold leading-[1.18] tracking-[-0.015em] mb-7" style={{ color: '#001078' }}>
+              <motion.h2 {...fu} className="font-display text-[28px] md:text-[38px] font-extrabold leading-[1.12] tracking-[-0.02em] mb-6" style={{ color: C.charcoal }}>
                 A contractor built around execution discipline.
               </motion.h2>
-              <motion.p {...fu} transition={{ delay: 0.1 }} className="text-[15px] leading-[1.8] mb-5" style={{ color: '#1E1E1E' }}>
+              <motion.p {...fu} transition={{ delay: 0.1 }} className="text-[15px] leading-[1.85] mb-5" style={{ color: C.charcoal }}>
                 OKG supports clients requiring a clear, responsive and accountable contractor for civil works, masonry, plastering, structural support, fit-out and finishing packages across the UAE.
               </motion.p>
-              <motion.p {...fu} transition={{ delay: 0.18 }} className="text-[14px] leading-[1.8]" style={{ color: '#6B7280' }}>
+              <motion.p {...fu} transition={{ delay: 0.18 }} className="text-[14px] leading-[1.85]" style={{ color: C.taupe }}>
                 OKG is positioned around site control, clear documentation, honest communication and professional commitment — through every stage of the project.
               </motion.p>
             </div>
 
-            {/* About image */}
-            <motion.div
-              {...fu}
-              transition={{ delay: 0.15 }}
-              className="relative rounded-2xl overflow-hidden shadow-2xl shadow-navy/12 mb-6"
-            >
-              <img
-                src="https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/b43d44e48_generated_image.png"
-                alt="Construction engineer reviewing project drawings documentation UAE"
-                className="w-full h-60 object-cover object-center"
-                loading="lazy"
-              />
-              <div className="absolute bottom-0 left-0 right-0 px-5 py-3 flex items-center gap-3" style={{ background: 'rgba(0,16,120,0.88)', backdropFilter: 'blur(8px)' }}>
-                <span className="w-[3px] h-7 rounded-full shrink-0" style={{ background: '#F8B858' }} />
-                <span className="text-[11.5px] font-bold tracking-[0.12em] uppercase text-white/90">Scope · Supervision · Delivery</span>
-              </div>
-            </motion.div>
+            <div className="space-y-6">
+              {/* Image */}
+              <motion.div {...fu} transition={{ delay: 0.15 }} className="relative rounded-xl overflow-hidden" style={{ boxShadow: '0 12px 40px rgba(31,31,27,0.1)' }}>
+                <img
+                  src="https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/b43d44e48_generated_image.png"
+                  alt="Construction engineer reviewing project drawings documentation UAE"
+                  className="w-full h-60 object-cover object-center"
+                  loading="lazy"
+                />
+              </motion.div>
 
-            {/* Market position card */}
-            <motion.div
-              {...fu}
-              transition={{ delay: 0.2 }}
-              className="relative rounded-2xl overflow-hidden border border-gray-100 bg-white"
-            >
-              <div className="absolute left-0 top-0 bottom-0 w-1" style={{ background: '#F8B858' }} />
-              <div className="p-8 md:p-10 pl-10">
-                <p className="text-[11px] font-mono font-semibold tracking-[0.18em] uppercase mb-4" style={{ color: '#F8B858' }}>
-                  Our position
-                </p>
-                <h3 className="text-[20px] font-bold mb-4" style={{ color: '#001078' }}>
-                  For clients who value transparency and accountability.
-                </h3>
-                <p className="text-[14px] leading-[1.8]" style={{ color: '#6B7280' }}>
+              {/* Position card */}
+              <motion.div {...fu} transition={{ delay: 0.2 }} className="relative rounded-lg p-7 overflow-hidden" style={{ background: C.stone, border: `1px solid ${C.border}` }}>
+                <div className="absolute left-0 top-0 bottom-0 w-[2px]" style={{ background: C.bronze }} />
+                <p className="text-[10px] font-mono font-semibold tracking-[0.2em] uppercase mb-3 pl-5" style={{ color: C.bronze }}>Our position</p>
+                <p className="text-[14px] leading-[1.85] pl-5" style={{ color: C.charcoal }}>
                   OKG is suited for clients who want a contractor that is transparent about capacity, clear in pricing, disciplined in mobilisation and serious about performance on site.
                 </p>
-              </div>
-            </motion.div>
+              </motion.div>
+            </div>
+
           </div>
         </div>
       </section>
 
-      {/* ─── Values ──────────────────────────────────────────────────────── */}
-      <section className="py-20 md:py-28" style={{ background: '#F2F4F8' }}>
+      {/* ─── Values ──────────────────────────────────────────────── */}
+      <section className="py-20 md:py-28" style={{ background: C.stone, borderTop: `1px solid ${C.border}` }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionEyebrow label="Core Values" />
-          <motion.h2 {...fu} className="font-display text-3xl md:text-[40px] font-bold leading-[1.18] tracking-[-0.015em] mb-12" style={{ color: '#001078' }}>
+          <motion.h2 {...fu} className="font-display text-[28px] md:text-[38px] font-extrabold leading-[1.12] tracking-[-0.018em] mb-12" style={{ color: C.charcoal }}>
             What OKG commits to on every project.
           </motion.h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">

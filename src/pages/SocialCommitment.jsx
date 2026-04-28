@@ -6,6 +6,8 @@ import SectionEyebrow from '../components/shared/SectionEyebrow';
 import ValueCard from '../components/shared/ValueCard';
 import CTABand from '../components/shared/CTABand';
 
+const C = { stone: '#F1ECE4', warmWhite: '#FBF9F5', charcoal: '#1F1F1B', border: '#DDD6CB' };
+
 const cards = [
   { icon: Heart, title: 'Worker Respect', text: 'OKG believes workers should be treated with dignity, clear instructions and safe working expectations.' },
   { icon: Lightbulb, title: 'Local Opportunity', text: 'OKG supports opportunities for supervisors, skilled workers, subcontractors and suppliers operating in the UAE.' },
@@ -19,20 +21,19 @@ export default function SocialCommitment() {
     <>
       <PageHero
         eyebrow="Social Commitment"
+        breadcrumb="Social Commitment"
         title="Responsible operations with people and community in mind."
         intro="OKG is committed to building a culture that respects workers, supports fair opportunity and contributes positively to the UAE construction environment."
       />
 
-      <section className="py-20 md:py-28 bg-white">
+      <section className="py-20 md:py-28" style={{ background: C.warmWhite }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionEyebrow label="Our commitments" />
-          <motion.h2 {...fu} className="font-display text-3xl md:text-[40px] font-bold leading-[1.18] tracking-[-0.015em] mb-12" style={{ color: '#001078' }}>
+          <SectionEyebrow label="Our Commitments" />
+          <motion.h2 {...fu} className="font-display text-[28px] md:text-[38px] font-extrabold leading-[1.12] tracking-[-0.018em] mb-12" style={{ color: C.charcoal }}>
             People, accountability and responsible practice.
           </motion.h2>
           <div className="grid md:grid-cols-3 gap-5">
-            {cards.map((c, i) => (
-              <ValueCard key={i} icon={c.icon} title={c.title} text={c.text} index={i} />
-            ))}
+            {cards.map((c, i) => <ValueCard key={i} icon={c.icon} title={c.title} text={c.text} index={i} />)}
           </div>
         </div>
       </section>

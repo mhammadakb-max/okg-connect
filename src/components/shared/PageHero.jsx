@@ -1,43 +1,35 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, ChevronRight } from 'lucide-react';
 
-export default function PageHero({ title, intro, eyebrow, ctaLabel, ctaLink }) {
+export default function PageHero({ title, intro, eyebrow, ctaLabel, ctaLink, breadcrumb }) {
   return (
     <section
-      className="relative text-white overflow-hidden"
-      style={{ background: '#001078', minHeight: 340 }}
+      className="relative text-charcoal overflow-hidden"
+      style={{ background: '#F1ECE4', borderBottom: '1px solid #DDD6CB' }}
     >
-      {/* Grid */}
+      {/* Left bronze accent */}
       <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,0.7) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.7) 1px, transparent 1px)`,
-          backgroundSize: '40px 40px',
-          opacity: 0.03,
-        }}
+        className="absolute left-0 top-0 bottom-0 w-[2px]"
+        style={{ background: 'linear-gradient(to bottom, #B58A57 0%, rgba(181,138,87,0.1) 70%, transparent 100%)' }}
       />
 
-      {/* Gold bar left */}
-      <div
-        className="absolute left-0 top-0 bottom-0 w-[3px]"
-        style={{ background: 'linear-gradient(to bottom, #F8B858 0%, rgba(248,184,88,0.2) 70%, transparent 100%)' }}
-      />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
 
-      {/* Glow */}
-      <div
-        className="absolute top-0 right-0 pointer-events-none"
-        style={{ width: 500, height: 500, background: '#F8B858', opacity: 0.05, borderRadius: '50%', filter: 'blur(80px)', transform: 'translate(25%, -25%)' }}
-      />
+        {/* Breadcrumb */}
+        {breadcrumb && (
+          <motion.div
+            initial={{ opacity: 0, y: 8 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex items-center gap-1.5 mb-6"
+          >
+            <Link to="/" className="text-[11px] font-mono tracking-wide transition-colors hover:opacity-70" style={{ color: '#B58A57' }}>Home</Link>
+            <ChevronRight className="w-3 h-3" style={{ color: '#DDD6CB' }} />
+            <span className="text-[11px] font-mono tracking-wide" style={{ color: '#67635C' }}>{breadcrumb}</span>
+          </motion.div>
+        )}
 
-      {/* Bottom diagonal */}
-      <div
-        className="absolute bottom-0 left-0 right-0 h-12 bg-white pointer-events-none"
-        style={{ clipPath: 'polygon(0 100%, 100% 0, 100% 100%)' }}
-      />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
         {eyebrow && (
           <motion.div
             initial={{ opacity: 0, y: 10 }}
@@ -45,8 +37,8 @@ export default function PageHero({ title, intro, eyebrow, ctaLabel, ctaLink }) {
             transition={{ delay: 0.04 }}
             className="flex items-center gap-3 mb-5"
           >
-            <span className="w-8 h-px" style={{ background: '#F8B858' }} />
-            <span className="text-[11px] font-mono font-semibold tracking-[0.22em] uppercase" style={{ color: '#F8B858' }}>
+            <span className="w-6 h-px" style={{ background: '#B58A57' }} />
+            <span className="text-[10.5px] font-mono font-semibold tracking-[0.22em] uppercase" style={{ color: '#B58A57' }}>
               {eyebrow}
             </span>
           </motion.div>
@@ -56,7 +48,8 @@ export default function PageHero({ title, intro, eyebrow, ctaLabel, ctaLink }) {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.1 }}
-          className="font-display text-[28px] md:text-[46px] font-black leading-[1.1] max-w-3xl tracking-[-0.022em] text-white"
+          className="font-display text-[26px] md:text-[42px] font-extrabold leading-[1.12] max-w-3xl tracking-[-0.022em]"
+          style={{ color: '#1F1F1B' }}
         >
           {title}
         </motion.h1>
@@ -66,8 +59,8 @@ export default function PageHero({ title, intro, eyebrow, ctaLabel, ctaLink }) {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="mt-5 text-[15px] md:text-[16px] max-w-2xl leading-[1.8]"
-            style={{ color: 'rgba(255,255,255,0.6)' }}
+            className="mt-5 text-[15px] md:text-[15.5px] max-w-2xl leading-[1.8]"
+            style={{ color: '#67635C' }}
           >
             {intro}
           </motion.p>
@@ -82,8 +75,8 @@ export default function PageHero({ title, intro, eyebrow, ctaLabel, ctaLink }) {
           >
             <Link
               to={ctaLink}
-              className="inline-flex items-center gap-2.5 px-6 py-3.5 rounded-xl text-[13.5px] font-bold transition-all hover:scale-[1.02]"
-              style={{ background: '#F8B858', color: '#001078' }}
+              className="inline-flex items-center gap-2.5 px-6 py-3 rounded-lg text-[13px] font-semibold transition-all hover:opacity-85"
+              style={{ background: '#2E2B27', color: '#FBF9F5' }}
             >
               {ctaLabel}
               <ArrowRight className="w-4 h-4" />

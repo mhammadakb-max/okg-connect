@@ -34,57 +34,42 @@ const serviceList = [
 
 export default function Footer() {
   return (
-    <footer style={{ background: '#001078' }} className="text-white relative overflow-hidden">
+    <footer style={{ background: '#2E2B27' }} className="relative overflow-hidden">
 
-      {/* Subtle grid pattern */}
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: `linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)`,
-          backgroundSize: '56px 56px',
-          opacity: 0.022,
-        }}
-      />
+      {/* Subtle top divider */}
+      <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'rgba(221,214,203,0.15)' }} />
+      {/* Bronze accent line */}
+      <div className="absolute top-0 left-0 w-24 h-[2px]" style={{ background: '#B58A57' }} />
 
-      {/* Gold top border */}
-      <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: 'linear-gradient(to right, transparent, #F8B858 25%, #F8B858 75%, transparent)' }} />
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
 
-      {/* Main grid */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-14">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-10">
-
-          {/* Brand col */}
+          {/* Brand */}
           <div className="lg:col-span-4">
-            {/* Logo */}
-            <Link to="/" className="inline-flex items-baseline gap-0 mb-6 group">
-              <span className="text-[32px] font-black tracking-[-0.03em] text-white leading-none">OKG</span>
-              <span className="w-[8px] h-[8px] rounded-full ml-[2px] mb-[2px] group-hover:scale-110 transition-transform" style={{ background: '#F8B858' }} />
+            <Link to="/" className="inline-flex items-baseline gap-0 mb-5 group">
+              <span className="text-[28px] font-extrabold tracking-[-0.03em] leading-none" style={{ color: '#FBF9F5' }}>OKG</span>
+              <span className="w-[6px] h-[6px] rounded-full ml-[2px] mb-[2px] group-hover:scale-110 transition-transform" style={{ background: '#B58A57' }} />
             </Link>
 
-            <p className="text-[13px] leading-[1.85] mb-7 max-w-xs" style={{ color: 'rgba(255,255,255,0.48)' }}>
+            <p className="text-[13px] leading-[1.85] mb-6 max-w-xs" style={{ color: 'rgba(251,249,245,0.45)' }}>
               OKG Building Contracting is a UAE-based contractor focused on disciplined construction support, site supervision, documentation, QHSE and transparent project delivery.
             </p>
 
-            {/* Tagline */}
-            <div
-              className="inline-flex items-center gap-2.5 rounded-lg px-4 py-2.5 mb-8"
-              style={{ border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.04)' }}
-            >
-              <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#F8B858' }} />
-              <span className="text-[10.5px] font-mono tracking-[0.18em] uppercase" style={{ color: 'rgba(255,255,255,0.4)' }}>
+            <div className="inline-flex items-center gap-2 rounded px-3.5 py-2 mb-7" style={{ border: '1px solid rgba(221,214,203,0.15)', background: 'rgba(255,255,255,0.03)' }}>
+              <span className="w-1 h-1 rounded-full" style={{ background: '#B58A57' }} />
+              <span className="text-[10px] font-mono tracking-[0.18em] uppercase" style={{ color: 'rgba(251,249,245,0.35)' }}>
                 Discipline · Clarity · Accountability
               </span>
             </div>
 
-            {/* Contact */}
-            <ul className="space-y-3.5">
+            <ul className="space-y-3">
               {[
                 { icon: MapPin, val: 'United Arab Emirates' },
                 { icon: Phone, val: '+971 54 217 1502' },
                 { icon: Mail, val: 'info@okgcontracting.com' },
               ].map(({ icon: Icon, val }) => (
-                <li key={val} className="flex items-center gap-3 text-[13px]" style={{ color: 'rgba(255,255,255,0.45)' }}>
-                  <Icon className="w-3.5 h-3.5 shrink-0" style={{ color: '#F8B858', opacity: 0.8 }} />
+                <li key={val} className="flex items-center gap-3 text-[13px]" style={{ color: 'rgba(251,249,245,0.4)' }}>
+                  <Icon className="w-3.5 h-3.5 shrink-0" style={{ color: '#B58A57', opacity: 0.7 }} />
                   {val}
                 </li>
               ))}
@@ -93,18 +78,17 @@ export default function Footer() {
 
           {/* Navigation */}
           <div className="lg:col-span-2">
-            <h4 className="text-[10px] font-bold tracking-[0.2em] uppercase mb-5" style={{ color: 'rgba(255,255,255,0.3)' }}>Navigation</h4>
-            <ul className="space-y-2">
+            <h4 className="text-[10px] font-mono font-bold tracking-[0.22em] uppercase mb-5" style={{ color: 'rgba(251,249,245,0.25)' }}>Navigation</h4>
+            <ul className="space-y-2.5">
               {quickLinks.map((link) => (
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className="text-[13px] transition-colors hover:text-white flex items-center gap-1.5 group"
-                    style={{ color: 'rgba(255,255,255,0.5)' }}
+                    className="text-[13px] transition-colors flex items-center gap-1.5 group"
+                    style={{ color: 'rgba(251,249,245,0.45)' }}
+                    onMouseEnter={(e) => e.currentTarget.style.color = 'rgba(251,249,245,0.85)'}
+                    onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(251,249,245,0.45)'}
                   >
-                    <span className="w-0 overflow-hidden group-hover:w-3 transition-all duration-200 shrink-0">
-                      <span className="block w-3 h-px" style={{ background: '#F8B858' }} />
-                    </span>
                     {link.label}
                   </Link>
                 </li>
@@ -114,18 +98,17 @@ export default function Footer() {
 
           {/* Policies */}
           <div className="lg:col-span-3">
-            <h4 className="text-[10px] font-bold tracking-[0.2em] uppercase mb-5" style={{ color: 'rgba(255,255,255,0.3)' }}>Policies</h4>
-            <ul className="space-y-2">
+            <h4 className="text-[10px] font-mono font-bold tracking-[0.22em] uppercase mb-5" style={{ color: 'rgba(251,249,245,0.25)' }}>Policies</h4>
+            <ul className="space-y-2.5">
               {policyLinks.map((link) => (
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className="text-[13px] transition-colors hover:text-white flex items-center gap-1.5 group"
-                    style={{ color: 'rgba(255,255,255,0.5)' }}
+                    className="text-[13px] transition-colors flex items-center gap-1.5"
+                    style={{ color: 'rgba(251,249,245,0.45)' }}
+                    onMouseEnter={(e) => e.currentTarget.style.color = 'rgba(251,249,245,0.85)'}
+                    onMouseLeave={(e) => e.currentTarget.style.color = 'rgba(251,249,245,0.45)'}
                   >
-                    <span className="w-0 overflow-hidden group-hover:w-3 transition-all duration-200 shrink-0">
-                      <span className="block w-3 h-px" style={{ background: '#F8B858' }} />
-                    </span>
                     {link.label}
                   </Link>
                 </li>
@@ -135,22 +118,21 @@ export default function Footer() {
 
           {/* Services */}
           <div className="lg:col-span-3">
-            <h4 className="text-[10px] font-bold tracking-[0.2em] uppercase mb-5" style={{ color: 'rgba(255,255,255,0.3)' }}>Services</h4>
-            <ul className="space-y-2">
+            <h4 className="text-[10px] font-mono font-bold tracking-[0.22em] uppercase mb-5" style={{ color: 'rgba(251,249,245,0.25)' }}>Services</h4>
+            <ul className="space-y-2.5">
               {serviceList.map((s) => (
-                <li key={s} className="text-[13px] flex items-center gap-2.5" style={{ color: 'rgba(255,255,255,0.45)' }}>
-                  <span className="w-1 h-1 rounded-full shrink-0" style={{ background: '#F8B858', opacity: 0.5 }} />
+                <li key={s} className="text-[13px] flex items-center gap-2.5" style={{ color: 'rgba(251,249,245,0.4)' }}>
+                  <span className="w-1 h-1 rounded-full shrink-0" style={{ background: '#B58A57', opacity: 0.5 }} />
                   {s}
                 </li>
               ))}
             </ul>
 
-            {/* CTA */}
             <div className="mt-8">
               <Link
                 to="/contact"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl text-[13px] font-bold transition-all hover:scale-[1.02]"
-                style={{ background: '#F8B858', color: '#001078' }}
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-lg text-[13px] font-semibold transition-all hover:opacity-85"
+                style={{ background: '#B58A57', color: '#FBF9F5' }}
               >
                 Request Quotation
                 <ArrowUpRight className="w-3.5 h-3.5" />
@@ -161,13 +143,13 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom strip */}
-      <div className="relative z-10" style={{ borderTop: '1px solid rgba(255,255,255,0.06)' }}>
+      {/* Bottom */}
+      <div className="relative z-10" style={{ borderTop: '1px solid rgba(221,214,203,0.1)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-2">
-          <p className="text-[12px]" style={{ color: 'rgba(255,255,255,0.25)' }}>
+          <p className="text-[12px]" style={{ color: 'rgba(251,249,245,0.22)' }}>
             © {new Date().getFullYear()} OKG Building Contracting LLC. All rights reserved. United Arab Emirates.
           </p>
-          <p className="text-[11px] font-mono tracking-wide" style={{ color: 'rgba(255,255,255,0.2)' }}>
+          <p className="text-[11px] font-mono tracking-wide" style={{ color: 'rgba(251,249,245,0.18)' }}>
             Constructing with clarity, discipline and accountability.
           </p>
         </div>

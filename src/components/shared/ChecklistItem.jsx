@@ -13,11 +13,11 @@ export default function ChecklistItem({ text, index = 0 }) {
     >
       <div
         className="w-5 h-5 rounded-full flex items-center justify-center mt-0.5 shrink-0"
-        style={{ background: 'rgba(248,184,88,0.15)' }}
+        style={{ background: 'rgba(181,138,87,0.12)', border: '1px solid rgba(181,138,87,0.25)' }}
       >
-        <Check className="w-3 h-3" style={{ color: '#F8B858' }} />
+        <Check className="w-2.5 h-2.5" style={{ color: '#B58A57' }} />
       </div>
-      <span className="text-[14px] leading-relaxed" style={{ color: '#1E1E1E' }}>{text}</span>
+      <span className="text-[14px] leading-relaxed" style={{ color: '#1F1F1B' }}>{text}</span>
     </motion.div>
   );
 }
