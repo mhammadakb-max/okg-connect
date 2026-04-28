@@ -68,26 +68,7 @@ export default function Header() {
 
   return (
     <>
-      {/* Top info strip */}
-      <div
-        className="hidden lg:block"
-        style={{
-          background: 'linear-gradient(to right, #F2F6FF, #EAF0FF)',
-          borderBottom: '1px solid #E6EBF5',
-        }}
-      >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-7">
-            <p className="text-[10px] font-mono tracking-wide opacity-70" style={{ color: '#97A0BC' }}>
-              UAE Building Contracting — Civil · Masonry · Plastering · Finishing
-            </p>
-            <div className="flex items-center gap-1.5 text-[10px] opacity-70" style={{ color: '#97A0BC' }}>
-              <Phone className="w-3 h-3" style={{ color: '#6E85E8' }} />
-              <span>+971 54 217 1502</span>
-            </div>
-          </div>
-        </div>
-      </div>
+
 
       {/* Main header */}
       <header
@@ -106,15 +87,16 @@ export default function Header() {
             {/* Logo */}
             <Link to="/" className="flex items-center gap-0 shrink-0 group">
               <span
-                className="text-[24px] font-extrabold tracking-[-0.03em] leading-none"
-                style={{ color: '#3D4A73' }}
+                className="text-[22px] font-extrabold tracking-[-0.02em] leading-none"
+                style={{ color: '#1A237E' }}
               >OKG</span>
               <span
-                className="w-[5px] h-[5px] rounded-full ml-[2px] mb-[13px] transition-transform group-hover:scale-125"
-                style={{ background: '#6E85E8' }}
-              />
-              <span className="ml-3 text-[10px] font-semibold tracking-[0.14em] uppercase leading-none hidden sm:block" style={{ color: '#97A0BC' }}>
-                Building Contracting
+                className="text-[22px] font-extrabold leading-none"
+                style={{ color: '#F9A825' }}
+              >.</span>
+              <span className="mx-3 self-stretch w-px" style={{ background: '#C5CAE9', opacity: 0.8 }} />
+              <span className="text-[10px] font-bold tracking-[0.12em] uppercase leading-[1.3] hidden sm:block" style={{ color: '#1A237E' }}>
+                Building<br />Contracting
               </span>
             </Link>
 
@@ -266,8 +248,8 @@ export default function Header() {
               {/* Mobile header */}
               <div className="flex items-center justify-between px-5 py-4" style={{ borderBottom: `1px solid ${P.border}` }}>
                 <div className="flex items-center gap-0">
-                  <span className="text-[22px] font-extrabold tracking-tight" style={{ color: '#3D4A73' }}>OKG</span>
-                  <span className="w-1.5 h-1.5 rounded-full ml-0.5 mb-[12px]" style={{ background: '#6E85E8' }} />
+                  <span className="text-[20px] font-extrabold tracking-[-0.02em] leading-none" style={{ color: '#1A237E' }}>OKG</span>
+                  <span className="text-[20px] font-extrabold leading-none" style={{ color: '#F9A825' }}>.</span>
                 </div>
                 <button
                   onClick={() => setMobileOpen(false)}
