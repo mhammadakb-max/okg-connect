@@ -16,10 +16,9 @@ const P = {
 
 const navLinks = [
   { label: 'Home', path: '/' },
-  { label: 'About', path: '/about' },
-  { label: 'People Focus', path: '/people-focus' },
   { label: 'Services', path: '/services' },
   { label: 'Capabilities', path: '/capabilities' },
+  { label: 'Projects', path: '/projects' },
   {
     label: 'Policies',
     children: [
@@ -30,16 +29,22 @@ const navLinks = [
       { label: 'Social Commitment', path: '/social-commitment' },
     ],
   },
-  { label: 'Projects', path: '/projects' },
-  { label: 'Careers', path: '/careers' },
-  { label: 'Contact', path: '/contact' },
+  {
+    label: 'Company',
+    children: [
+      { label: 'About', path: '/about' },
+      { label: 'People Focus', path: '/people-focus' },
+      { label: 'Careers', path: '/careers' },
+      { label: 'Contact', path: '/contact' },
+    ],
+  },
 ];
 
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const [policyOpen, setPolicyOpen] = useState(false);
-  const [mobilePolicyOpen, setMobilePolicyOpen] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
+  const [mobileOpenDropdown, setMobileOpenDropdown] = useState(null);
   const location = useLocation();
 
   useEffect(() => {
@@ -50,7 +55,7 @@ export default function Header() {
 
   useEffect(() => {
     setMobileOpen(false);
-    setMobilePolicyOpen(false);
+    setMobileOpenDropdown(null);
   }, [location.pathname]);
 
   useEffect(() => {
@@ -59,7 +64,7 @@ export default function Header() {
   }, [mobileOpen]);
 
   const isActive = (path) => location.pathname === path;
-  const isPolicyActive = navLinks.find((l) => l.children)?.children.some((c) => c.path === location.pathname);
+  const isGroupActive = (link) => link.children?.some((c) => c.path === location.pathname);
 
   return (
     <>
@@ -120,19 +125,19 @@ export default function Header() {
                   <div
                     key={link.label}
                     className="relative"
-                    onMouseEnter={() => setPolicyOpen(true)}
-                    onMouseLeave={() => setPolicyOpen(false)}
+                    onMouseEnter={() => setOpenDropdown(link.label)}
+                    onMouseLeave={() => setOpenDropdown(null)}
                   >
                     <button
                       className="flex items-center gap-1 px-3.5 py-2 text-[13px] font-medium rounded-lg transition-colors"
-                      style={{ color: isPolicyActive ? '#3D4A73' : '#7C86A8' }}
+                      style={{ color: isGroupActive(link) ? '#3D4A73' : '#7C86A8' }}
                     >
                       {link.label}
-                      <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${policyOpen ? 'rotate-180' : ''}`} style={{ color: '#6E85E8' }} />
+                      <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${openDropdown === link.label ? 'rotate-180' : ''}`} style={{ color: '#6E85E8' }} />
                     </button>
 
                     <AnimatePresence>
-                      {policyOpen && (
+                      {openDropdown === link.label && (
                         <motion.div
                           initial={{ opacity: 0, y: 6 }}
                           animate={{ opacity: 1, y: 0 }}
@@ -140,7 +145,7 @@ export default function Header() {
                           transition={{ duration: 0.14 }}
                           className="absolute top-full left-0 mt-1 rounded-2xl overflow-hidden"
                           style={{
-                            width: 256,
+                            width: 220,
                             background: 'rgba(255,255,255,0.9)',
                             backdropFilter: 'blur(20px)',
                             WebkitBackdropFilter: 'blur(20px)',
@@ -149,7 +154,7 @@ export default function Header() {
                           }}
                         >
                           <div className="px-4 py-2.5" style={{ borderBottom: '1px solid #E6EBF5' }}>
-                            <p className="text-[10px] font-mono font-semibold tracking-widest uppercase" style={{ color: '#6E85E8' }}>Policy Documents</p>
+                            <p className="text-[10px] font-mono font-semibold tracking-widest uppercase" style={{ color: '#6E85E8' }}>{link.label}</p>
                           </div>
                           {link.children.map((child) => (
                             <Link
@@ -280,18 +285,18 @@ export default function Header() {
                     link.children ? (
                       <div key={link.label}>
                         <button
-                          onClick={() => setMobilePolicyOpen(!mobilePolicyOpen)}
+                          onClick={() => setMobileOpenDropdown(mobileOpenDropdown === link.label ? null : link.label)}
                           className="flex items-center justify-between w-full px-4 py-3 text-sm font-medium rounded-xl transition-colors"
                           style={{
-                            color: isPolicyActive ? '#3D4A73' : '#7C86A8',
-                            background: isPolicyActive ? '#EAF0FF' : 'transparent',
+                            color: isGroupActive(link) ? '#3D4A73' : '#7C86A8',
+                            background: isGroupActive(link) ? '#EAF0FF' : 'transparent',
                           }}
                         >
                           <span>{link.label}</span>
-                          <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobilePolicyOpen ? 'rotate-180' : ''}`} style={{ color: '#6E85E8' }} />
+                          <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileOpenDropdown === link.label ? 'rotate-180' : ''}`} style={{ color: '#6E85E8' }} />
                         </button>
                         <AnimatePresence>
-                          {mobilePolicyOpen && (
+                          {mobileOpenDropdown === link.label && (
                             <motion.div
                               initial={{ opacity: 0, height: 0 }}
                               animate={{ opacity: 1, height: 'auto' }}
