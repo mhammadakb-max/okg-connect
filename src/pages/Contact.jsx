@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { MapPin, Phone, Mail } from 'lucide-react';
+import { MapPin, Phone, Mail, ArrowRight } from 'lucide-react';
 import PageHero from '../components/shared/PageHero';
 import SectionEyebrow from '../components/shared/SectionEyebrow';
 import { Input } from '@/components/ui/input';
@@ -11,7 +11,7 @@ import { toast } from 'sonner';
 
 const contactInfo = [
   { icon: MapPin, label: 'Location', value: 'United Arab Emirates' },
-  { icon: Phone, label: 'Phone', value: '+971 XX XXX XXXX' },
+  { icon: Phone, label: 'Phone / WhatsApp', value: '+971 XX XXX XXXX' },
   { icon: Mail, label: 'Email', value: 'info@okgcontracting.com' },
 ];
 
@@ -22,9 +22,12 @@ const serviceOptions = [
   'Concrete, shuttering and steel fixing',
   'Fit-out and finishing',
   'Subcontracting or manpower support',
+  'Renovation and maintenance',
 ];
 
-const fadeUp = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
+const fu = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
+
+const labelStyle = { fontSize: 13, fontWeight: 600, color: '#001078', display: 'block', marginBottom: 6 };
 
 export default function Contact() {
   const [form, setForm] = useState({
@@ -40,91 +43,113 @@ export default function Contact() {
   return (
     <>
       <PageHero
+        eyebrow="Contact"
         title="Request a quotation or discuss a subcontract package."
-        intro="Share your drawings, BOQ, location, site condition and expected start date. OKG can review the scope and prepare a clear proposal."
+        intro="Share drawings, BOQ, location, site condition and expected start date. OKG can review the scope and prepare a clear, structured proposal."
       />
 
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-5 gap-12">
-            {/* Contact Info */}
+          <div className="grid lg:grid-cols-5 gap-10 lg:gap-16">
+
+            {/* ── Left info panel ── */}
             <div className="lg:col-span-2">
               <SectionEyebrow label="Contact Details" />
-              <motion.h2 {...fadeUp} className="text-2xl md:text-3xl font-bold text-navy mb-4">
+              <motion.h2 {...fu} className="text-2xl md:text-[32px] font-bold leading-[1.2] tracking-[-0.015em] mb-4" style={{ color: '#001078' }}>
                 Talk to OKG about your project.
               </motion.h2>
-              <motion.p {...fadeUp} transition={{ delay: 0.1 }} className="text-steel mb-8 leading-relaxed">
+              <motion.p {...fu} transition={{ delay: 0.1 }} className="text-[14px] leading-[1.8] mb-8" style={{ color: '#6B7280' }}>
                 For a faster response, send the latest drawings, BOQ, scope notes, location, site photos and expected start date.
               </motion.p>
 
-              <div className="space-y-5">
+              <div className="space-y-5 mb-10">
                 {contactInfo.map((c, i) => (
                   <motion.div
                     key={i}
-                    initial={{ opacity: 0, x: -10 }}
+                    initial={{ opacity: 0, x: -12 }}
                     whileInView={{ opacity: 1, x: 0 }}
                     viewport={{ once: true }}
                     transition={{ delay: i * 0.1 }}
                     className="flex items-start gap-4"
                   >
-                    <div className="w-10 h-10 rounded-lg bg-navy/5 flex items-center justify-center shrink-0">
-                      <c.icon className="w-5 h-5 text-navy" />
+                    <div
+                      className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
+                      style={{ background: 'rgba(0,16,120,0.07)' }}
+                    >
+                      <c.icon className="w-4.5 h-4.5" style={{ color: '#001078' }} />
                     </div>
                     <div>
-                      <p className="text-xs font-mono text-gold uppercase tracking-wider mb-0.5">{c.label}</p>
-                      <p className="text-charcoal font-medium">{c.value}</p>
+                      <p className="text-[10px] font-mono font-semibold tracking-[0.18em] uppercase mb-1" style={{ color: '#F8B858' }}>{c.label}</p>
+                      <p className="text-[14px] font-semibold" style={{ color: '#1E1E1E' }}>{c.value}</p>
                     </div>
                   </motion.div>
                 ))}
               </div>
 
-              {/* Image */}
-              <div className="mt-10 rounded-2xl overflow-hidden shadow-lg hidden lg:block">
-                <img
-                  src="https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/cb91a0e25_generated_1adfcffb.png"
-                  alt="Modern UAE construction site office"
-                  className="w-full h-56 object-cover"
-                />
-              </div>
+              {/* What to send */}
+              <motion.div
+                {...fu}
+                transition={{ delay: 0.3 }}
+                className="relative rounded-2xl p-6 border border-gray-100 overflow-hidden"
+                style={{ background: '#F7F8FB' }}
+              >
+                <div className="absolute left-0 top-0 bottom-0 w-1" style={{ background: '#F8B858' }} />
+                <div className="pl-4">
+                  <p className="text-[12px] font-mono font-semibold tracking-widest uppercase mb-3" style={{ color: '#001078' }}>What to include</p>
+                  <ul className="space-y-2">
+                    {['Latest drawings or BOQ', 'Project location and site access', 'Scope of work and quantities', 'Expected start date'].map((item) => (
+                      <li key={item} className="flex items-center gap-2 text-[13px]" style={{ color: '#6B7280' }}>
+                        <span className="w-1 h-1 rounded-full shrink-0" style={{ background: '#F8B858' }} />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </motion.div>
             </div>
 
-            {/* Form */}
+            {/* ── Form ── */}
             <div className="lg:col-span-3">
-              <motion.div {...fadeUp} transition={{ delay: 0.2 }} className="bg-offwhite rounded-xl p-6 md:p-8 border border-border">
-                <h3 className="text-xl font-bold text-navy mb-2">Request a quotation</h3>
-                <p className="text-steel text-sm mb-6">
-                  Use this enquiry form to share project details. It can later connect to email, WhatsApp, CRM or a backend service.
+              <motion.div
+                {...fu}
+                transition={{ delay: 0.15 }}
+                className="rounded-2xl p-7 md:p-9 border border-gray-100 shadow-lg shadow-navy/5"
+                style={{ background: '#F7F8FB' }}
+              >
+                <h3 className="text-[20px] font-bold mb-1.5" style={{ color: '#001078' }}>Request a quotation</h3>
+                <p className="text-[13px] mb-7" style={{ color: '#6B7280' }}>
+                  Use this form to share project details. OKG will respond with a structured proposal.
                 </p>
 
                 <form onSubmit={handleSubmit} className="space-y-5">
                   <div className="grid md:grid-cols-2 gap-5">
                     <div>
-                      <label className="text-sm font-medium text-navy mb-1.5 block">Full Name</label>
-                      <Input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} required placeholder="Your full name" />
+                      <label style={labelStyle}>Full Name</label>
+                      <Input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} required placeholder="Your full name" className="bg-white" />
                     </div>
                     <div>
-                      <label className="text-sm font-medium text-navy mb-1.5 block">Company Name</label>
-                      <Input value={form.company} onChange={(e) => setForm({ ...form, company: e.target.value })} placeholder="Company or project name" />
+                      <label style={labelStyle}>Company Name</label>
+                      <Input value={form.company} onChange={(e) => setForm({ ...form, company: e.target.value })} placeholder="Company or project name" className="bg-white" />
                     </div>
                   </div>
                   <div className="grid md:grid-cols-2 gap-5">
                     <div>
-                      <label className="text-sm font-medium text-navy mb-1.5 block">Phone / WhatsApp</label>
-                      <Input value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="+971 XX XXX XXXX" />
+                      <label style={labelStyle}>Phone / WhatsApp</label>
+                      <Input value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="+971 XX XXX XXXX" className="bg-white" />
                     </div>
                     <div>
-                      <label className="text-sm font-medium text-navy mb-1.5 block">Email Address</label>
-                      <Input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} required placeholder="email@example.com" />
+                      <label style={labelStyle}>Email Address</label>
+                      <Input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} required placeholder="email@example.com" className="bg-white" />
                     </div>
                   </div>
                   <div>
-                    <label className="text-sm font-medium text-navy mb-1.5 block">Project Location</label>
-                    <Input value={form.location} onChange={(e) => setForm({ ...form, location: e.target.value })} placeholder="e.g. Dubai, Abu Dhabi, Sharjah" />
+                    <label style={labelStyle}>Project Location</label>
+                    <Input value={form.location} onChange={(e) => setForm({ ...form, location: e.target.value })} placeholder="e.g. Dubai, Abu Dhabi, Sharjah" className="bg-white" />
                   </div>
                   <div>
-                    <label className="text-sm font-medium text-navy mb-1.5 block">Service Required</label>
+                    <label style={labelStyle}>Service Required</label>
                     <Select value={form.service} onValueChange={(v) => setForm({ ...form, service: v })}>
-                      <SelectTrigger>
+                      <SelectTrigger className="bg-white">
                         <SelectValue placeholder="Select a service" />
                       </SelectTrigger>
                       <SelectContent>
@@ -135,19 +160,25 @@ export default function Contact() {
                     </Select>
                   </div>
                   <div>
-                    <label className="text-sm font-medium text-navy mb-1.5 block">Scope Details</label>
+                    <label style={labelStyle}>Scope Details</label>
                     <Textarea
                       value={form.scope}
                       onChange={(e) => setForm({ ...form, scope: e.target.value })}
                       rows={4}
                       placeholder="Briefly describe the scope, quantity, expected start date and any documents available."
+                      className="bg-white"
                     />
                   </div>
-                  <Button type="submit" className="w-full bg-navy hover:bg-navy/90 text-white font-semibold py-3">
+                  <button
+                    type="submit"
+                    className="w-full flex items-center justify-center gap-2.5 py-3.5 rounded-xl text-[14px] font-bold text-white transition-all hover:scale-[1.01] shadow-md"
+                    style={{ background: '#001078' }}
+                  >
                     Submit Enquiry
-                  </Button>
-                  <p className="text-xs text-steel text-center">
-                    Note: Form submission requires backend connection during development.
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                  <p className="text-[12px] text-center" style={{ color: '#9CA3AF' }}>
+                    Form requires backend connection for live email delivery.
                   </p>
                 </form>
               </motion.div>

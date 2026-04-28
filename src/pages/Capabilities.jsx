@@ -7,7 +7,7 @@ import ChecklistItem from '../components/shared/ChecklistItem';
 import CTABand from '../components/shared/CTABand';
 
 const checklist = [
-  'Dubai-based building contracting presence',
+  'UAE-based building contracting presence',
   'Controlled subcontractor mobilisation',
   'Clear scope, quotation and measurement discipline',
   'Site supervision and daily progress follow-up',
@@ -26,29 +26,48 @@ const steps = [
   { num: '06', title: 'Inspection & Closeout', text: 'Support approval, snagging, correction, final measurement and handover.', icon: ClipboardCheck },
 ];
 
-const fadeUp = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
+const fu = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
 
 export default function Capabilities() {
   return (
     <>
       <PageHero
+        eyebrow="Capabilities"
         title="Operational strength built through control, not inflated claims."
         intro="OKG's capability model is designed around site supervision, documentation, subcontractor control, communication and realistic mobilisation."
       />
 
-      {/* Checklist */}
-      <section className="py-16 md:py-24 bg-white">
+      {/* ─── Checklist + image ───────────────────────────────────────────── */}
+      <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="rounded-2xl overflow-hidden shadow-lg">
-              <img
-                src="https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/f18566c18_generated_68f4f5c5.png"
-                alt="UAE urban construction development"
-                className="w-full h-80 object-cover"
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            {/* Image */}
+            <motion.div
+              initial={{ opacity: 0, x: -24 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              className="relative"
+            >
+              <div className="rounded-2xl overflow-hidden shadow-2xl shadow-navy/12">
+                <img
+                  src="https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/f18566c18_generated_68f4f5c5.png"
+                  alt="UAE urban construction development"
+                  className="w-full h-[420px] object-cover"
+                />
+              </div>
+              {/* Floating accent */}
+              <div
+                className="absolute -bottom-4 -right-4 w-24 h-24 rounded-2xl hidden lg:block"
+                style={{ background: '#F8B858', opacity: 0.12 }}
               />
-            </div>
+            </motion.div>
+
+            {/* Checklist */}
             <div>
               <SectionEyebrow label="Core Capabilities" />
+              <motion.h2 {...fu} className="text-3xl md:text-[36px] font-bold leading-[1.2] tracking-[-0.015em] mb-8" style={{ color: '#001078' }}>
+                What OKG brings to every project.
+              </motion.h2>
               <div className="space-y-4">
                 {checklist.map((item, i) => (
                   <ChecklistItem key={i} text={item} index={i} />
@@ -59,32 +78,44 @@ export default function Capabilities() {
         </div>
       </section>
 
-      {/* Execution Process */}
-      <section className="py-16 md:py-24 bg-offwhite">
+      {/* ─── Execution Process ────────────────────────────────────────────── */}
+      <section className="py-20 md:py-28" style={{ background: '#F7F8FB' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionEyebrow label="Execution Process" />
-          <motion.h2 {...fadeUp} className="text-2xl md:text-4xl font-bold text-navy mb-4 max-w-2xl">
+          <motion.h2 {...fu} className="text-3xl md:text-[40px] font-bold leading-[1.18] tracking-[-0.015em] mb-4" style={{ color: '#001078' }}>
             A controlled process from enquiry to handover.
           </motion.h2>
+          <motion.p {...fu} transition={{ delay: 0.1 }} className="text-[15px] leading-[1.8] mb-12 max-w-2xl" style={{ color: '#6B7280' }}>
+            OKG does not improvise. Each project phase follows a disciplined sequence designed to protect the client's time, budget and quality expectations.
+          </motion.p>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-10">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {steps.map((step, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
-                className="bg-white rounded-xl p-6 border border-border hover:shadow-lg transition-all group"
+                className="group relative bg-white rounded-2xl p-7 border border-gray-100 hover:border-gray-200 hover:shadow-xl hover:shadow-navy/6 transition-all overflow-hidden"
               >
-                <div className="flex items-center gap-3 mb-4">
-                  <div className="w-10 h-10 rounded-lg bg-navy flex items-center justify-center shrink-0 group-hover:bg-gold transition-colors">
+                <div
+                  className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{ background: '#F8B858' }}
+                />
+
+                <div className="flex items-center gap-3 mb-5">
+                  <div
+                    className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0 transition-colors duration-300"
+                    style={{ background: '#001078' }}
+                  >
                     <step.icon className="w-5 h-5 text-white" />
                   </div>
-                  <span className="text-xs font-mono font-medium text-gold tracking-wider">{step.num}</span>
+                  <span className="text-[11px] font-mono font-bold" style={{ color: '#F8B858' }}>{step.num}</span>
                 </div>
-                <h3 className="text-lg font-semibold text-navy mb-2">{step.title}</h3>
-                <p className="text-steel text-sm leading-relaxed">{step.text}</p>
+
+                <h3 className="text-[16px] font-bold mb-2 leading-snug" style={{ color: '#001078' }}>{step.title}</h3>
+                <p className="text-[13.5px] leading-relaxed" style={{ color: '#6B7280' }}>{step.text}</p>
               </motion.div>
             ))}
           </div>

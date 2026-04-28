@@ -20,38 +20,46 @@ const checklist = [
   'Escalation of delays, access issues or material shortages',
 ];
 
-const fadeUp = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
+const fu = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
 
 export default function PeopleFocus() {
   return (
     <>
       <PageHero
+        eyebrow="People Focus"
         title="People, supervision and communication are the engine of delivery."
         intro="OKG's people focus is about selecting responsible teams, controlling attendance, respecting site rules and building a culture of accountability."
       />
 
-      <section className="py-16 md:py-24 bg-white">
+      {/* Cards */}
+      <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-3 gap-6 mb-16">
+          <SectionEyebrow label="Three pillars" />
+          <motion.h2 {...fu} className="text-3xl md:text-[40px] font-bold leading-[1.18] tracking-[-0.015em] mb-12" style={{ color: '#001078' }}>
+            How OKG manages its people.
+          </motion.h2>
+
+          <div className="grid md:grid-cols-3 gap-5 mb-20">
             {cards.map((c, i) => (
               <ValueCard key={i} icon={c.icon} title={c.title} text={c.text} index={i} />
             ))}
           </div>
 
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="rounded-2xl overflow-hidden shadow-lg">
+          {/* Workforce Standard */}
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div className="rounded-2xl overflow-hidden shadow-2xl shadow-navy/12">
               <img
                 src="https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/fa276dd29_generated_0616a86b.png"
                 alt="Site supervisor managing construction progress"
-                className="w-full h-72 object-cover"
+                className="w-full h-[380px] object-cover"
               />
             </div>
             <div>
               <SectionEyebrow label="Workforce Standard" />
-              <motion.h2 {...fadeUp} className="text-2xl md:text-3xl font-bold text-navy mb-4">
+              <motion.h2 {...fu} className="text-3xl md:text-[36px] font-bold leading-[1.2] tracking-[-0.015em] mb-5" style={{ color: '#001078' }}>
                 Strong manpower is not only numbers. It is control.
               </motion.h2>
-              <motion.p {...fadeUp} transition={{ delay: 0.1 }} className="text-steel mb-8 leading-relaxed">
+              <motion.p {...fu} transition={{ delay: 0.1 }} className="text-[14px] leading-[1.8] mb-8" style={{ color: '#6B7280' }}>
                 A large team without discipline creates problems. OKG focuses on responsible mobilisation, clear roles, site rules, reporting and realistic output expectations.
               </motion.p>
               <div className="space-y-4">

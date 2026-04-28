@@ -45,35 +45,56 @@ const checklist = [
   'Clear reporting of unsafe conditions, delay causes and workfront issues',
 ];
 
-const fadeUp = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
+const fu = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
 
 export default function QHSE() {
   return (
     <>
       <PageHero
+        eyebrow="QHSE"
         title="Quality, Health, Safety and Environmental responsibility."
         intro="OKG's QHSE approach is simple: safe work, clean documentation, practical supervision, quality checking and responsible housekeeping."
       />
 
       {/* Cards */}
-      <section className="py-16 md:py-24 bg-white">
+      <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid md:grid-cols-2 gap-6">
+          <SectionEyebrow label="Policy Areas" />
+          <motion.h2 {...fu} className="text-3xl md:text-[40px] font-bold leading-[1.18] tracking-[-0.015em] mb-12" style={{ color: '#001078' }}>
+            Four areas of commitment.
+          </motion.h2>
+
+          <div className="grid md:grid-cols-2 gap-5">
             {cards.map((c, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-offwhite rounded-xl p-6 md:p-8 border border-border hover:shadow-lg transition-all group"
+                className="group relative rounded-2xl p-7 md:p-8 border border-gray-100 hover:border-gray-200 hover:shadow-xl hover:shadow-navy/6 transition-all overflow-hidden"
+                style={{ background: '#F7F8FB' }}
               >
-                <div className="w-11 h-11 rounded-lg bg-navy/5 flex items-center justify-center mb-5 group-hover:bg-gold/10 transition-colors">
-                  <c.icon className="w-5 h-5 text-navy" />
+                <div
+                  className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{ background: '#F8B858' }}
+                />
+
+                <div
+                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-colors duration-300"
+                  style={{ background: 'rgba(0,16,120,0.07)' }}
+                >
+                  <c.icon className="w-5 h-5" style={{ color: '#001078' }} />
                 </div>
-                <h3 className="text-lg font-semibold text-navy mb-3">{c.title}</h3>
-                <p className="text-steel text-sm leading-relaxed mb-5">{c.text}</p>
-                <Link to={c.link} className="inline-flex items-center gap-2 text-sm font-semibold text-navy hover:text-gold transition-colors">
+
+                <h3 className="text-[17px] font-bold mb-3" style={{ color: '#001078' }}>{c.title}</h3>
+                <p className="text-[13.5px] leading-relaxed mb-6" style={{ color: '#6B7280' }}>{c.text}</p>
+
+                <Link
+                  to={c.link}
+                  className="inline-flex items-center gap-2 text-[13px] font-bold transition-colors"
+                  style={{ color: '#001078' }}
+                >
                   {c.btn} <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </motion.div>
@@ -83,15 +104,15 @@ export default function QHSE() {
       </section>
 
       {/* QHSE Standard */}
-      <section className="py-16 md:py-24 bg-offwhite">
+      <section className="py-20 md:py-28" style={{ background: '#F7F8FB' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>
               <SectionEyebrow label="QHSE Standard" />
-              <motion.h2 {...fadeUp} className="text-2xl md:text-3xl font-bold text-navy mb-4">
+              <motion.h2 {...fu} className="text-3xl md:text-[36px] font-bold leading-[1.2] tracking-[-0.015em] mb-5" style={{ color: '#001078' }}>
                 Professional standards from day one.
               </motion.h2>
-              <motion.p {...fadeUp} transition={{ delay: 0.1 }} className="text-steel mb-8 leading-relaxed">
+              <motion.p {...fu} transition={{ delay: 0.1 }} className="text-[14px] leading-[1.8] mb-8" style={{ color: '#6B7280' }}>
                 A new contractor cannot afford casual habits. OKG's QHSE system should be practical, documented and enforceable on site.
               </motion.p>
               <div className="space-y-4">
@@ -100,11 +121,11 @@ export default function QHSE() {
                 ))}
               </div>
             </div>
-            <div className="rounded-2xl overflow-hidden shadow-lg">
+            <div className="rounded-2xl overflow-hidden shadow-2xl shadow-navy/12">
               <img
                 src="https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/837e82396_generated_b8f62262.png"
                 alt="Construction safety equipment"
-                className="w-full h-72 object-cover"
+                className="w-full h-[380px] object-cover"
               />
             </div>
           </div>

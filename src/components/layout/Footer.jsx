@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Mail, Phone, MapPin } from 'lucide-react';
+import { Mail, Phone, MapPin, ArrowRight } from 'lucide-react';
 
 const quickLinks = [
   { label: 'Home', path: '/' },
@@ -20,33 +20,66 @@ const policyLinks = [
   { label: 'Social Commitment', path: '/social-commitment' },
 ];
 
+const services = [
+  'Blockwork & Masonry',
+  'Plastering Works',
+  'Concrete Works',
+  'Steel Fixing & Shuttering',
+  'Fit-Out & Finishing',
+  'Subcontracting Support',
+];
+
 export default function Footer() {
   return (
-    <footer className="bg-navy text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-20">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
-          {/* Brand */}
-          <div className="lg:col-span-1">
-            <div className="flex items-center gap-1 mb-5">
-              <span className="text-3xl font-black tracking-tight text-white">OKG</span>
-              <span className="w-2.5 h-2.5 rounded-full bg-gold -ml-1 mb-4"></span>
+    <footer style={{ background: '#001078' }} className="text-white">
+
+      {/* Main grid */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
+
+          {/* Brand col — spans 4 */}
+          <div className="lg:col-span-4">
+            {/* Logo */}
+            <div className="flex items-center gap-0 mb-5">
+              <span className="text-[30px] font-black tracking-[-0.02em] text-white leading-none">OKG</span>
+              <span className="w-2 h-2 rounded-full ml-0.5 mb-[16px]" style={{ background: '#F8B858' }} />
             </div>
-            <p className="text-white/70 text-sm leading-relaxed">
-              OKG Building Contracting is a UAE-based contractor built around honest commitments, disciplined site delivery and professional construction standards.
+            <p className="text-[13px] leading-relaxed text-white/60 mb-6 max-w-xs">
+              UAE-based building contractor committed to honest project delivery, disciplined site supervision and professional construction execution.
             </p>
+
+            {/* Tagline pill */}
+            <div className="inline-flex items-center gap-2 border border-white/15 rounded-full px-4 py-2 mb-8">
+              <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#F8B858' }} />
+              <span className="text-[11px] font-mono tracking-widest uppercase text-white/50">New company. Serious standard.</span>
+            </div>
+
+            {/* Contact */}
+            <ul className="space-y-3.5">
+              {[
+                { icon: MapPin, val: 'United Arab Emirates' },
+                { icon: Phone, val: '+971 XX XXX XXXX' },
+                { icon: Mail, val: 'info@okgcontracting.com' },
+              ].map(({ icon: Icon, val }) => (
+                <li key={val} className="flex items-center gap-3 text-[13px] text-white/55">
+                  <Icon className="w-3.5 h-3.5 shrink-0" style={{ color: '#F8B858' }} />
+                  {val}
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h4 className="text-sm font-semibold text-white mb-5 tracking-wide uppercase">Quick Links</h4>
-            <ul className="space-y-3">
+          {/* Quick links — spans 2 */}
+          <div className="lg:col-span-2">
+            <h4 className="text-[10px] font-semibold tracking-[0.18em] uppercase text-white/40 mb-5">Navigation</h4>
+            <ul className="space-y-2.5">
               {quickLinks.map((link) => (
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className="text-sm text-white/60 hover:text-gold transition-colors flex items-center gap-2"
+                    className="text-[13px] text-white/55 hover:text-white transition-colors flex items-center gap-2 group"
                   >
-                    <span className="w-1 h-1 rounded-full bg-gold/50"></span>
+                    <ArrowRight className="w-2.5 h-2.5 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-200" style={{ color: '#F8B858' }} />
                     {link.label}
                   </Link>
                 </li>
@@ -54,17 +87,17 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Policies */}
-          <div>
-            <h4 className="text-sm font-semibold text-white mb-5 tracking-wide uppercase">Policies</h4>
-            <ul className="space-y-3">
+          {/* Policies — spans 3 */}
+          <div className="lg:col-span-3">
+            <h4 className="text-[10px] font-semibold tracking-[0.18em] uppercase text-white/40 mb-5">Policies</h4>
+            <ul className="space-y-2.5">
               {policyLinks.map((link) => (
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className="text-sm text-white/60 hover:text-gold transition-colors flex items-center gap-2"
+                    className="text-[13px] text-white/55 hover:text-white transition-colors flex items-center gap-2 group"
                   >
-                    <span className="w-1 h-1 rounded-full bg-gold/50"></span>
+                    <ArrowRight className="w-2.5 h-2.5 opacity-0 -ml-4 group-hover:opacity-100 group-hover:ml-0 transition-all duration-200" style={{ color: '#F8B858' }} />
                     {link.label}
                   </Link>
                 </li>
@@ -72,37 +105,29 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Contact */}
-          <div>
-            <h4 className="text-sm font-semibold text-white mb-5 tracking-wide uppercase">Contact</h4>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3 text-sm text-white/60">
-                <MapPin className="w-4 h-4 mt-0.5 text-gold shrink-0" />
-                United Arab Emirates
-              </li>
-              <li className="flex items-start gap-3 text-sm text-white/60">
-                <Phone className="w-4 h-4 mt-0.5 text-gold shrink-0" />
-                +971 XX XXX XXXX
-              </li>
-              <li className="flex items-start gap-3 text-sm text-white/60">
-                <Mail className="w-4 h-4 mt-0.5 text-gold shrink-0" />
-                info@okgcontracting.com
-              </li>
+          {/* Services — spans 3 */}
+          <div className="lg:col-span-3">
+            <h4 className="text-[10px] font-semibold tracking-[0.18em] uppercase text-white/40 mb-5">Services</h4>
+            <ul className="space-y-2.5">
+              {services.map((s) => (
+                <li key={s} className="text-[13px] text-white/55 flex items-center gap-2">
+                  <span className="w-1 h-1 rounded-full shrink-0" style={{ background: '#F8B858', opacity: 0.5 }} />
+                  {s}
+                </li>
+              ))}
             </ul>
           </div>
         </div>
       </div>
 
-      {/* Bottom Bar */}
-      <div className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
-          <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-            <p className="text-xs text-white/40">
-              © {new Date().getFullYear()} OKG Building Contracting. All rights reserved.
-            </p>
-          </div>
-          <p className="text-center mt-4 text-sm text-gold/80 font-medium">
-            Built on honest commitments, disciplined site delivery and UAE construction standards.
+      {/* Bottom strip */}
+      <div className="border-t border-white/[0.08]">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-[12px] text-white/30">
+            © {new Date().getFullYear()} OKG Building Contracting LLC. All rights reserved.
+          </p>
+          <p className="text-[12px] font-mono text-white/25 tracking-wide">
+            Discipline · Transparency · Accountability
           </p>
         </div>
       </div>

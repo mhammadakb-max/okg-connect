@@ -1,13 +1,12 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { ClipboardCheck, Wrench, Users, FileText } from 'lucide-react';
+import { ClipboardCheck, Wrench, Users, FileText, ArrowRight } from 'lucide-react';
 import PageHero from '../components/shared/PageHero';
 import SectionEyebrow from '../components/shared/SectionEyebrow';
 import ValueCard from '../components/shared/ValueCard';
 import CTABand from '../components/shared/CTABand';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Button } from '@/components/ui/button';
 import { toast } from 'sonner';
 
 const roles = [
@@ -17,7 +16,8 @@ const roles = [
   { icon: FileText, title: 'Admin Support', text: 'Quotation, document control, worker records, attendance and client coordination.' },
 ];
 
-const fadeUp = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
+const fu = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
+const labelStyle = { fontSize: 13, fontWeight: 600, color: '#001078', display: 'block', marginBottom: 6 };
 
 export default function Careers() {
   const [form, setForm] = useState({ name: '', phone: '', email: '', position: '', details: '' });
@@ -31,21 +31,22 @@ export default function Careers() {
   return (
     <>
       <PageHero
+        eyebrow="Careers"
         title="Join a company being built with discipline from day one."
         intro="OKG is a new contracting company. As work grows, the company will need responsible site supervisors, skilled workers, subcontractors and support staff."
       />
 
-      {/* Values */}
-      <section className="py-16 md:py-24 bg-white">
+      {/* Roles */}
+      <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionEyebrow label="Careers" />
-          <motion.h2 {...fadeUp} className="text-2xl md:text-3xl font-bold text-navy mb-4 max-w-2xl">
+          <motion.h2 {...fu} className="text-3xl md:text-[40px] font-bold leading-[1.18] tracking-[-0.015em] mb-4" style={{ color: '#001078' }}>
             We value reliability, skill and site discipline.
           </motion.h2>
-          <motion.p {...fadeUp} transition={{ delay: 0.1 }} className="text-steel mb-10 max-w-2xl">
+          <motion.p {...fu} transition={{ delay: 0.1 }} className="text-[15px] leading-[1.8] mb-12 max-w-2xl" style={{ color: '#6B7280' }}>
             OKG's future recruitment should focus on people who respect attendance, safety, workmanship and communication. Construction teams are judged by output and behaviour on site.
           </motion.p>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             {roles.map((r, i) => (
               <ValueCard key={i} icon={r.icon} title={r.title} text={r.text} index={i} />
             ))}
@@ -54,47 +55,57 @@ export default function Careers() {
       </section>
 
       {/* Application Form */}
-      <section className="py-16 md:py-24 bg-offwhite">
+      <section className="py-20 md:py-28" style={{ background: '#F7F8FB' }}>
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionEyebrow label="Apply" />
-          <motion.h2 {...fadeUp} className="text-2xl md:text-3xl font-bold text-navy mb-4">
+          <motion.h2 {...fu} className="text-3xl md:text-[36px] font-bold leading-[1.2] tracking-[-0.015em] mb-3" style={{ color: '#001078' }}>
             Send your details.
           </motion.h2>
-          <motion.p {...fadeUp} transition={{ delay: 0.1 }} className="text-steel mb-8">
-            This form can later connect to an email or recruitment service.
+          <motion.p {...fu} transition={{ delay: 0.1 }} className="text-[14px] leading-[1.8] mb-8" style={{ color: '#6B7280' }}>
+            This form can later connect to an email or recruitment service. Include your trade, experience and current visa status.
           </motion.p>
 
           <motion.form
-            {...fadeUp}
+            {...fu}
             transition={{ delay: 0.2 }}
             onSubmit={handleSubmit}
-            className="bg-white rounded-xl p-6 md:p-8 border border-border shadow-sm space-y-5"
+            className="bg-white rounded-2xl p-7 md:p-9 border border-gray-100 shadow-md space-y-5"
           >
             <div>
-              <label className="text-sm font-medium text-navy mb-1.5 block">Full Name</label>
+              <label style={labelStyle}>Full Name</label>
               <Input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} required placeholder="Your full name" />
             </div>
             <div className="grid md:grid-cols-2 gap-5">
               <div>
-                <label className="text-sm font-medium text-navy mb-1.5 block">Phone / WhatsApp</label>
+                <label style={labelStyle}>Phone / WhatsApp</label>
                 <Input value={form.phone} onChange={(e) => setForm({ ...form, phone: e.target.value })} placeholder="+971 XX XXX XXXX" />
               </div>
               <div>
-                <label className="text-sm font-medium text-navy mb-1.5 block">Email Address</label>
+                <label style={labelStyle}>Email Address</label>
                 <Input type="email" value={form.email} onChange={(e) => setForm({ ...form, email: e.target.value })} required placeholder="email@example.com" />
               </div>
             </div>
             <div>
-              <label className="text-sm font-medium text-navy mb-1.5 block">Position / Trade</label>
+              <label style={labelStyle}>Position / Trade</label>
               <Input value={form.position} onChange={(e) => setForm({ ...form, position: e.target.value })} placeholder="e.g. Mason, Site Supervisor, Plasterer" />
             </div>
             <div>
-              <label className="text-sm font-medium text-navy mb-1.5 block">Experience, visa status, location and availability</label>
-              <Textarea value={form.details} onChange={(e) => setForm({ ...form, details: e.target.value })} rows={4} placeholder="Briefly describe your experience, current visa status, location and availability..." />
+              <label style={labelStyle}>Experience, visa status, location and availability</label>
+              <Textarea
+                value={form.details}
+                onChange={(e) => setForm({ ...form, details: e.target.value })}
+                rows={4}
+                placeholder="Briefly describe your experience, current visa status, location and availability..."
+              />
             </div>
-            <Button type="submit" className="w-full bg-navy hover:bg-navy/90 text-white font-semibold py-3">
+            <button
+              type="submit"
+              className="w-full flex items-center justify-center gap-2.5 py-3.5 rounded-xl text-[14px] font-bold text-white transition-all hover:scale-[1.01] shadow-md"
+              style={{ background: '#001078' }}
+            >
               Submit Application
-            </Button>
+              <ArrowRight className="w-4 h-4" />
+            </button>
           </motion.form>
         </div>
       </section>
