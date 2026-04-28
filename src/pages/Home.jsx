@@ -115,7 +115,7 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════════════════════
           HERO
       ═══════════════════════════════════════════════════════════════════ */}
-      <section className="relative overflow-hidden" style={{ background: '#000833', minHeight: '94vh' }}>
+      <section className="relative overflow-hidden" style={{ background: '#001078', minHeight: '94vh' }}>
 
         {/* Background image — slow zoom */}
         <div className="absolute inset-0 overflow-hidden">
@@ -123,12 +123,12 @@ export default function Home() {
             src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80"
             alt="UAE construction site with tower crane and concrete structure"
             className="w-full h-full object-cover object-center"
-            style={{ opacity: 0.22 }}
+            style={{ opacity: 0.32 }}
             initial={{ scale: 1.08 }}
             animate={{ scale: 1 }}
             transition={{ duration: 12, ease: 'easeOut' }}
           />
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(140deg, rgba(0,8,51,0.97) 0%, rgba(0,16,120,0.88) 55%, rgba(0,8,51,0.96) 100%)' }} />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(140deg, rgba(0,16,120,0.92) 0%, rgba(0,24,140,0.78) 55%, rgba(0,16,120,0.90) 100%)' }} />
         </div>
 
         {/* Subtle grid */}
@@ -144,8 +144,8 @@ export default function Home() {
           transition={{ duration: 0.9, ease: 'easeOut', delay: 0.3 }}
         />
 
-        {/* Ambient glow */}
-        <div className="absolute top-0 right-0 pointer-events-none" style={{ width: 800, height: 800, background: '#001078', opacity: 0.5, borderRadius: '50%', filter: 'blur(120px)', transform: 'translate(25%,-20%)' }} />
+        {/* Subtle vignette — no glow blobs */}
+        <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse at 80% 50%, rgba(255,255,255,0.03) 0%, transparent 70%)' }} />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-36 md:pt-28 md:pb-44 lg:pt-32 lg:pb-48">
           <div className="grid lg:grid-cols-12 gap-10 lg:gap-16 items-center">
@@ -184,7 +184,7 @@ export default function Home() {
               <motion.p
                 initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.26 }}
                 className="text-[14px] leading-[1.8] mb-11 max-w-lg"
-                style={{ color: 'rgba(255,255,255,0.4)' }}
+                style={{ color: 'rgba(255,255,255,0.65)' }}
               >
                 We work with clients, contractors and project teams that require clear scope alignment, responsible mobilisation, daily site supervision, documentation control and transparent delivery.
               </motion.p>
@@ -238,13 +238,13 @@ export default function Home() {
                 {/* Background site image */}
                 <div className="absolute inset-0">
                   <img
-                    src="https://images.unsplash.com/photo-1590736704728-f4730bb30770?w=900&q=80"
-                    alt="Site supervisor reviewing construction drawings"
+                    src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=900&q=80"
+                    alt="Site supervisor reviewing construction drawings on site"
                     className="w-full h-full object-cover object-center"
                     loading="lazy"
-                    style={{ opacity: 0.18 }}
+                    style={{ opacity: 0.28 }}
                   />
-                  <div className="absolute inset-0" style={{ background: 'rgba(0,8,40,0.82)' }} />
+                  <div className="absolute inset-0" style={{ background: 'rgba(0,16,120,0.78)' }} />
                 </div>
                 {/* Top gold strip */}
                 <div className="h-[3px] relative z-10" style={{ background: 'linear-gradient(to right, #F8B858, rgba(248,184,88,0.2))' }} />
@@ -283,17 +283,17 @@ export default function Home() {
 
               {/* Sub-chips */}
               <div className="mt-3.5 grid grid-cols-3 gap-3">
-                {[
-                  { label: 'Civil Works', val: 'Contracting' },
-                  { label: 'UAE', val: 'Operations' },
-                  { label: 'QHSE', val: 'Focused' },
-                ].map((s) => (
-                  <div key={s.label} className="rounded-xl px-3 py-3 text-center"
-                    style={{ border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.03)' }}>
-                    <p className="text-[13px] font-bold text-white leading-none mb-1">{s.val}</p>
-                    <p className="text-[10.5px]" style={{ color: 'rgba(255,255,255,0.35)' }}>{s.label}</p>
-                  </div>
-                ))}
+              {[
+                { label: 'Civil Works', val: 'Contracting' },
+                { label: 'UAE', val: 'Operations' },
+                { label: 'QHSE', val: 'Focused' },
+              ].map((s) => (
+                <div key={s.label} className="rounded-xl px-3 py-3 text-center"
+                  style={{ border: '1px solid rgba(255,255,255,0.14)', background: 'rgba(255,255,255,0.07)' }}>
+                  <p className="text-[13px] font-bold text-white leading-none mb-1">{s.val}</p>
+                  <p className="text-[10.5px]" style={{ color: 'rgba(255,255,255,0.55)' }}>{s.label}</p>
+                </div>
+              ))}
               </div>
             </motion.div>
 
@@ -339,8 +339,8 @@ export default function Home() {
                 className="relative rounded-2xl overflow-hidden shadow-xl shadow-navy/10 mb-2"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1100&q=80"
-                  alt="Construction engineer reviewing structural plans at an active UAE project site"
+                  src="https://images.unsplash.com/photo-1590736704728-f4730bb30770?w=1100&q=80"
+                  alt="Construction engineer coordinating plans at active UAE project site"
                   className="w-full h-56 object-cover object-center"
                   loading="lazy"
                 />
@@ -451,7 +451,7 @@ export default function Home() {
                 whileHover={{ y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
                 className="group relative rounded-2xl p-8 border border-gray-100/80 cursor-default overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-navy/12 bg-white"
                 style={{ minHeight: 175 }}>
-                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: '#182BA3' }} />
+                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: '#001078' }} />
                 <div className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: '#F8B858' }} />
                 <div className="relative z-10">
                   <span className="text-[11px] font-mono font-bold block mb-4 transition-colors" style={{ color: '#F8B858' }}>{s.num}</span>
@@ -585,7 +585,7 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════════════════════
           PROJECT CONTROL TIMELINE
       ═══════════════════════════════════════════════════════════════════ */}
-      <section className="py-24 md:py-28 relative overflow-hidden" style={{ background: '#182BA3' }}>
+      <section className="py-24 md:py-28 relative overflow-hidden" style={{ background: '#1833A3' }}>
         <div className="absolute inset-0 pointer-events-none"
           style={{ backgroundImage: `linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)`, backgroundSize: '52px 52px', opacity: 0.04 }} />
         <div className="absolute top-0 left-0 right-0 h-[1px]" style={{ background: 'linear-gradient(to right, transparent, rgba(248,184,88,0.5) 40%, rgba(248,184,88,0.5) 60%, transparent)' }} />

@@ -50,8 +50,8 @@ export default function Capabilities() {
             >
               <div className="rounded-2xl overflow-hidden shadow-2xl shadow-navy/12">
                 <img
-                  src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1100&q=80"
-                  alt="Construction team reviewing project plans and coordinating site delivery"
+                  src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=1100&q=80"
+                  alt="Construction engineer reviewing BOQ drawings and project documentation"
                   className="w-full h-[420px] object-cover object-center"
                   loading="lazy"
                 />

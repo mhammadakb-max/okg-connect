@@ -51,7 +51,7 @@ export default function Header() {
   return (
     <>
       {/* Top utility bar */}
-      <div className="hidden lg:block" style={{ background: '#000d5a', borderBottom: '1px solid rgba(255,255,255,0.07)' }}>
+      <div className="hidden lg:block" style={{ background: '#001078', borderBottom: '1px solid rgba(255,255,255,0.08)' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-9">
             <p className="text-[11px] text-white/40 font-mono tracking-[0.12em] uppercase">
