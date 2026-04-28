@@ -123,9 +123,10 @@ export default function QHSE() {
             </div>
             <div className="rounded-2xl overflow-hidden shadow-2xl shadow-navy/12">
               <img
-                src="https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/837e82396_generated_b8f62262.png"
-                alt="Construction safety equipment"
-                className="w-full h-[380px] object-cover"
+                src="https://images.unsplash.com/photo-1622021142947-da7dedc7c39a?w=900&q=80"
+                alt="Construction worker wearing safety helmet and PPE on site"
+                className="w-full h-[380px] object-cover object-center"
+                loading="lazy"
               />
             </div>
           </div>

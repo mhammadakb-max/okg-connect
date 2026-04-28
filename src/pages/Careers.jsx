@@ -36,6 +36,18 @@ export default function Careers() {
         intro="OKG is a UAE-based building contracting company. We seek responsible site supervisors, skilled workers, subcontractors and support staff who take quality and accountability seriously."
       />
 
+      {/* Hero image band */}
+      <div className="relative h-64 md:h-80 overflow-hidden">
+        <img
+          src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920&q=80"
+          alt="Construction workers in PPE at UAE building site"
+          className="w-full h-full object-cover object-center"
+          loading="lazy"
+        />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,16,120,0.1) 0%, rgba(0,8,51,0.6) 100%)' }} />
+        <div className="absolute bottom-0 left-0 right-0 h-[2px]" style={{ background: 'linear-gradient(to right, transparent, #F8B858 40%, #F8B858 60%, transparent)' }} />
+      </div>
+
       {/* Roles */}
       <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

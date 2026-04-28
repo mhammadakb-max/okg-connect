@@ -54,6 +54,21 @@ export default function Contact() {
 
             {/* ── Left info panel ── */}
             <div className="lg:col-span-2">
+              {/* UAE site background panel */}
+              <div className="relative rounded-2xl overflow-hidden mb-8 h-52 hidden lg:block">
+                <img
+                  src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&q=80"
+                  alt="UAE construction skyline and building site"
+                  className="w-full h-full object-cover object-center"
+                  loading="lazy"
+                />
+                <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(0,16,120,0.88) 0%, rgba(0,8,51,0.75) 100%)' }} />
+                <div className="absolute inset-0 px-7 flex flex-col justify-end pb-6">
+                  <p className="text-[10px] font-mono font-bold tracking-[0.2em] uppercase mb-2" style={{ color: '#F8B858' }}>OKG Building Contracting</p>
+                  <p className="text-[16px] font-bold text-white leading-snug">UAE Construction Partner</p>
+                  <p className="text-[12.5px] mt-1" style={{ color: 'rgba(255,255,255,0.55)' }}>Disciplined execution across the UAE</p>
+                </div>
+              </div>
               <SectionEyebrow label="Contact Details" />
               <motion.h2 {...fu} className="font-display text-2xl md:text-[32px] font-bold leading-[1.2] tracking-[-0.015em] mb-4" style={{ color: '#001078' }}>
                 Talk to OKG about your project.

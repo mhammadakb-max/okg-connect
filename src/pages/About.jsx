@@ -25,6 +25,18 @@ export default function About() {
         intro="OKG Building Contracting serves the UAE construction market with a straightforward operating principle: understand the scope, mobilise responsibly, supervise the work and protect the client's quality, time and budget."
       />
 
+      {/* ─── Visual band ─────────────────────────────────────────────────── */}
+      <div className="relative h-72 md:h-96 overflow-hidden">
+        <img
+          src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80"
+          alt="UAE construction site with active building works and cranes"
+          className="w-full h-full object-cover object-center"
+          loading="lazy"
+        />
+        <div className="absolute inset-0" style={{ background: 'linear-gradient(to bottom, rgba(0,16,120,0.05) 0%, rgba(0,8,51,0.55) 100%)' }} />
+        <div className="absolute bottom-0 left-0 right-0 h-[2px]" style={{ background: 'linear-gradient(to right, transparent, #F8B858 35%, #F8B858 65%, transparent)' }} />
+      </div>
+
       {/* ─── Company Profile ─────────────────────────────────────────────── */}
       <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,6 +53,24 @@ export default function About() {
                 OKG is positioned around site control, clear documentation, honest communication and professional commitment — through every stage of the project.
               </motion.p>
             </div>
+
+            {/* About image */}
+            <motion.div
+              {...fu}
+              transition={{ delay: 0.15 }}
+              className="relative rounded-2xl overflow-hidden shadow-2xl shadow-navy/12 mb-6"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1590736704728-f4730bb30770?w=1100&q=80"
+                alt="Construction engineer reviewing project plans and documentation"
+                className="w-full h-60 object-cover object-center"
+                loading="lazy"
+              />
+              <div className="absolute bottom-0 left-0 right-0 px-5 py-3 flex items-center gap-3" style={{ background: 'rgba(0,16,120,0.88)', backdropFilter: 'blur(8px)' }}>
+                <span className="w-[3px] h-7 rounded-full shrink-0" style={{ background: '#F8B858' }} />
+                <span className="text-[11.5px] font-bold tracking-[0.12em] uppercase text-white/90">Scope · Supervision · Delivery</span>
+              </div>
+            </motion.div>
 
             {/* Market position card */}
             <motion.div

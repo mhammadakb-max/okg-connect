@@ -50,9 +50,10 @@ export default function Capabilities() {
             >
               <div className="rounded-2xl overflow-hidden shadow-2xl shadow-navy/12">
                 <img
-                  src="https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/f18566c18_generated_68f4f5c5.png"
-                  alt="UAE urban construction development"
-                  className="w-full h-[420px] object-cover"
+                  src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1100&q=80"
+                  alt="Site supervisor reviewing construction drawings and coordinating with project team"
+                  className="w-full h-[420px] object-cover object-center"
+                  loading="lazy"
                 />
               </div>
               {/* Floating accent */}

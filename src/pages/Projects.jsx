@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Building2, Target, FileCheck, Clock } from 'lucide-react';
+import { Building2, Target, FileCheck } from 'lucide-react';
 import PageHero from '../components/shared/PageHero';
 import SectionEyebrow from '../components/shared/SectionEyebrow';
 import ChecklistItem from '../components/shared/ChecklistItem';
@@ -110,41 +110,26 @@ export default function Projects() {
               </div>
             </div>
 
-            {/* Right — enquiry card */}
-            <motion.div
-              {...fu}
-              transition={{ delay: 0.2 }}
-              className="relative rounded-2xl border-2 border-dashed overflow-hidden"
-              style={{ borderColor: 'rgba(0,16,120,0.15)', background: '#F7F8FB' }}
-            >
-              {/* Grid pattern */}
-              <div
-                className="absolute inset-0 opacity-[0.04]"
-                style={{
-                  backgroundImage: `linear-gradient(rgba(0,16,120,1) 1px, transparent 1px), linear-gradient(90deg, rgba(0,16,120,1) 1px, transparent 1px)`,
-                  backgroundSize: '32px 32px',
-                }}
-              />
-              <div className="relative z-10 p-10 flex flex-col items-center justify-center text-center min-h-[320px]">
-                <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center mb-6"
-                  style={{ background: 'rgba(0,16,120,0.08)' }}
-                >
-                  <Clock className="w-7 h-7" style={{ color: '#001078', opacity: 0.5 }} />
+            {/* Right — image + enquiry card */}
+            <motion.div {...fu} transition={{ delay: 0.2 }} className="space-y-4">
+              {/* Construction image placeholder cards */}
+              {[
+                { label: 'Civil Works Package', img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1000&q=75', alt: 'Civil works construction package site' },
+                { label: 'Masonry & Plastering Package', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=1000&q=75', alt: 'Masonry and plastering works package' },
+                { label: 'Fit-Out & Finishing Package', img: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=1000&q=75', alt: 'Fit-out and finishing interior package' },
+              ].map((card, i) => (
+                <div key={i} className="relative rounded-2xl overflow-hidden" style={{ height: 130 }}>
+                  <img src={card.img} alt={card.alt} className="w-full h-full object-cover" loading="lazy" />
+                  <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(0,16,120,0.82) 0%, rgba(0,16,120,0.4) 100%)' }} />
+                  <div className="absolute inset-0 px-6 flex flex-col justify-center">
+                    <p className="text-[9.5px] font-mono font-bold tracking-[0.2em] uppercase mb-1" style={{ color: '#F8B858' }}>Project documentation format</p>
+                    <p className="text-[15px] font-bold text-white">{card.label}</p>
+                  </div>
                 </div>
-                <h3 className="text-[18px] font-bold mb-3" style={{ color: '#001078' }}>
-                  Discuss a project package with OKG
-                </h3>
-                <p className="text-[13.5px] leading-relaxed max-w-xs" style={{ color: '#6B7280' }}>
-                  OKG coordinates project packages with defined scope, clear timeline, daily supervision, progress tracking and documented handover support.
-                </p>
-                <div
-                  className="mt-8 inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-[13px] font-semibold"
-                  style={{ background: 'rgba(0,16,120,0.08)', color: '#001078' }}
-                >
-                  <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#F8B858' }} />
-                  Accepting package enquiries
-                </div>
+              ))}
+              <div className="rounded-xl px-5 py-3.5 flex items-center gap-3" style={{ background: 'rgba(0,16,120,0.06)', border: '1px solid rgba(0,16,120,0.1)' }}>
+                <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: '#F8B858' }} />
+                <p className="text-[12.5px]" style={{ color: '#6B7280' }}>Images above are representative of package types. These are not completed OKG projects.</p>
               </div>
             </motion.div>
           </div>

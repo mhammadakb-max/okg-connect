@@ -5,15 +5,15 @@ import SectionEyebrow from '../components/shared/SectionEyebrow';
 import CTABand from '../components/shared/CTABand';
 
 const services = [
-  { num: '01', title: 'Building Contracting Works', text: 'Support for villas, commercial units, small developments, extensions, renovations and subcontract packages across the UAE.' },
-  { num: '02', title: 'Blockwork & Masonry', text: 'Blockwork, masonry, internal partitions, external walls and coordinated site delivery with clear measurement and progress tracking.' },
-  { num: '03', title: 'Plastering Works', text: 'Internal and external plastering works with focus on surface preparation, line, level, finishing quality and supervision.' },
-  { num: '04', title: 'Concrete Works', text: 'Execution support for concrete casting, site coordination, pour preparation and labour-based concrete activities.' },
-  { num: '05', title: 'Steel Fixing & Shuttering', text: 'Labour and execution support for structural work packages under approved drawings and site supervision.' },
-  { num: '06', title: 'Fit-Out & Finishing', text: 'Finishing coordination, renovation works, gypsum, painting, flooring, ceiling and handover-focused support.' },
-  { num: '07', title: 'Subcontracting Support', text: 'Structured subcontract package delivery with documentation, attendance tracking and approval control.' },
-  { num: '08', title: 'Manpower Mobilisation', text: 'Responsible mobilisation of workers and teams based on scope, schedule and site access conditions.' },
-  { num: '09', title: 'Renovation & Maintenance', text: 'Repair, improvement, alteration and finishing works for private, commercial and project-based clients.' },
+  { num: '01', title: 'Building Contracting Works', text: 'Support for villas, commercial units, small developments, extensions, renovations and subcontract packages across the UAE.', img: 'https://images.unsplash.com/photo-1590735213920-68192a487bc2?w=900&q=75', alt: 'Active building construction site with structure' },
+  { num: '02', title: 'Blockwork & Masonry', text: 'Blockwork, masonry, internal partitions, external walls and coordinated site delivery with clear measurement and progress tracking.', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=900&q=75', alt: 'Concrete block wall masonry construction' },
+  { num: '03', title: 'Plastering Works', text: 'Internal and external plastering works with focus on surface preparation, line, level, finishing quality and supervision.', img: 'https://images.unsplash.com/photo-1620115166323-e1e0bba21fa6?w=900&q=75', alt: 'Worker applying plaster to wall surface' },
+  { num: '04', title: 'Concrete Works', text: 'Execution support for concrete casting, site coordination, pour preparation and labour-based concrete activities.', img: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=900&q=75', alt: 'Concrete slab and structural works on construction site' },
+  { num: '05', title: 'Steel Fixing & Shuttering', text: 'Labour and execution support for structural work packages under approved drawings and site supervision.', img: 'https://images.unsplash.com/photo-1613677135043-a2512fbf49fa?w=900&q=75', alt: 'Steel rebar fixing and formwork shuttering' },
+  { num: '06', title: 'Fit-Out & Finishing', text: 'Finishing coordination, renovation works, gypsum, painting, flooring, ceiling and handover-focused support.', img: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=900&q=75', alt: 'Modern interior finishing and fit-out work' },
+  { num: '07', title: 'Subcontracting Support', text: 'Structured subcontract package delivery with documentation, attendance tracking and approval control.', img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=900&q=75', alt: 'Construction team coordination and supervision on site' },
+  { num: '08', title: 'Manpower Mobilisation', text: 'Responsible mobilisation of workers and teams based on scope, schedule and site access conditions.', img: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=900&q=75', alt: 'Construction workers in PPE at site entry' },
+  { num: '09', title: 'Renovation & Maintenance', text: 'Repair, improvement, alteration and finishing works for private, commercial and project-based clients.', img: 'https://images.unsplash.com/photo-1565182999561-18d7dc61c393?w=900&q=75', alt: 'Interior renovation and maintenance finishing works' },
 ];
 
 const scopeRows = [
@@ -50,16 +50,30 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.05 }}
-                className="group relative rounded-2xl p-7 border border-gray-100 hover:border-gray-200 hover:shadow-xl hover:shadow-navy/6 transition-all overflow-hidden"
-                style={{ background: '#F7F8FB' }}
+                className="group relative rounded-2xl border border-gray-100 hover:border-gray-200 hover:shadow-xl hover:shadow-navy/8 transition-all overflow-hidden bg-white"
               >
-                <div
-                  className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{ background: '#F8B858' }}
-                />
-                <span className="text-[11px] font-mono font-bold block mb-3" style={{ color: '#F8B858' }}>{s.num}</span>
-                <h3 className="text-[16px] font-bold mb-3 leading-snug" style={{ color: '#001078' }}>{s.title}</h3>
-                <p className="text-[13.5px] leading-relaxed" style={{ color: '#6B7280' }}>{s.text}</p>
+                {/* Image */}
+                <div className="relative h-44 overflow-hidden">
+                  <img
+                    src={s.img}
+                    alt={s.alt}
+                    className="w-full h-full object-cover object-center transition-transform duration-500 group-hover:scale-105"
+                    loading="lazy"
+                  />
+                  {/* Navy overlay on hover */}
+                  <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: 'rgba(0,16,120,0.55)' }} />
+                  {/* Gold top rule on hover */}
+                  <div className="absolute top-0 left-0 right-0 h-[3px] opacity-0 group-hover:opacity-100 transition-opacity" style={{ background: '#F8B858' }} />
+                  {/* Number badge */}
+                  <div className="absolute top-3 left-3 px-2.5 py-1 rounded-lg" style={{ background: 'rgba(0,8,40,0.75)', backdropFilter: 'blur(6px)' }}>
+                    <span className="text-[10px] font-mono font-bold" style={{ color: '#F8B858' }}>{s.num}</span>
+                  </div>
+                </div>
+                {/* Content */}
+                <div className="p-6">
+                  <h3 className="text-[15.5px] font-bold mb-2.5 leading-snug" style={{ color: '#001078' }}>{s.title}</h3>
+                  <p className="text-[13px] leading-relaxed" style={{ color: '#6B7280' }}>{s.text}</p>
+                </div>
               </motion.div>
             ))}
           </div>

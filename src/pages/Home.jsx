@@ -120,12 +120,12 @@ export default function Home() {
         {/* Background image */}
         <div className="absolute inset-0">
           <img
-            src="https://media.base44.com/images/public/69f0f9c5f2486cca9280edd1/fa276dd29_generated_0616a86b.png"
-            alt=""
+            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80"
+            alt="UAE construction site with tower crane and concrete structure"
             className="w-full h-full object-cover object-center"
-            style={{ opacity: 0.14 }}
+            style={{ opacity: 0.22 }}
           />
-          <div className="absolute inset-0" style={{ background: 'linear-gradient(140deg, rgba(0,8,51,0.98) 0%, rgba(0,16,120,0.92) 55%, rgba(0,8,51,0.97) 100%)' }} />
+          <div className="absolute inset-0" style={{ background: 'linear-gradient(140deg, rgba(0,8,51,0.97) 0%, rgba(0,16,120,0.88) 55%, rgba(0,8,51,0.96) 100%)' }} />
         </div>
 
         {/* Subtle grid */}
@@ -223,11 +223,24 @@ export default function Home() {
               initial={{ opacity: 0, x: 28 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.3, duration: 0.55 }}
               className="lg:col-span-5"
             >
-              <div className="rounded-2xl overflow-hidden" style={{ border: '1px solid rgba(255,255,255,0.1)', boxShadow: '0 32px 80px rgba(0,0,0,0.4)' }}>
+              <div className="rounded-2xl overflow-hidden relative" style={{ border: '1px solid rgba(255,255,255,0.1)', boxShadow: '0 32px 80px rgba(0,0,0,0.4)' }}>
+                {/* Background site image */}
+                <div className="absolute inset-0">
+                  <img
+                    src="https://images.unsplash.com/photo-1590736704728-f4730bb30770?w=900&q=80"
+                    alt="Site supervisor reviewing construction drawings"
+                    className="w-full h-full object-cover object-center"
+                    loading="lazy"
+                    style={{ opacity: 0.18 }}
+                  />
+                  <div className="absolute inset-0" style={{ background: 'rgba(0,8,40,0.82)' }} />
+                </div>
                 {/* Top gold strip */}
-                <div className="h-[3px]" style={{ background: 'linear-gradient(to right, #F8B858, rgba(248,184,88,0.2))' }} />
+                <div className="h-[3px] relative z-10" style={{ background: 'linear-gradient(to right, #F8B858, rgba(248,184,88,0.2))' }} />
+                {/* Left gold rule */}
+                <div className="absolute left-0 top-0 bottom-0 w-[3px] z-10" style={{ background: 'linear-gradient(to bottom, #F8B858, rgba(248,184,88,0.1))' }} />
 
-                <div className="p-8" style={{ background: 'rgba(0,8,40,0.75)', backdropFilter: 'blur(24px)' }}>
+                <div className="p-8 relative z-10" style={{ backdropFilter: 'blur(4px)' }}>
                   <p className="text-[10px] font-mono font-bold tracking-[0.22em] uppercase mb-6" style={{ color: 'rgba(248,184,88,0.7)' }}>
                     Enquiry to Handover — Controlled
                   </p>
@@ -309,6 +322,24 @@ export default function Home() {
             </div>
 
             <div className="space-y-4">
+              {/* About image */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
+                className="relative rounded-2xl overflow-hidden shadow-xl shadow-navy/10 mb-2"
+              >
+                <img
+                  src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1100&q=80"
+                  alt="Site supervisor reviewing construction drawings and plans"
+                  className="w-full h-56 object-cover object-center"
+                  loading="lazy"
+                />
+                {/* Caption card */}
+                <div className="absolute bottom-0 left-0 right-0 px-5 py-3 flex items-center gap-3" style={{ background: 'rgba(0,16,120,0.88)', backdropFilter: 'blur(8px)' }}>
+                  <span className="w-[3px] h-8 rounded-full shrink-0" style={{ background: '#F8B858' }} />
+                  <span className="text-[12px] font-bold tracking-[0.12em] uppercase text-white/90">Scope · Supervision · Delivery</span>
+                </div>
+              </motion.div>
+
               {/* Position card */}
               <motion.div {...fu} transition={{ delay: 0.1 }}
                 className="relative rounded-2xl p-7 overflow-hidden border border-gray-100"
