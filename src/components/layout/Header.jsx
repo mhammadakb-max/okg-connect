@@ -4,13 +4,14 @@ import { Menu, X, ChevronDown, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const P = {
-  blue: '#6E85E8',
-  blueL: '#8FA2F2',
-  head: '#5F6D9A',
-  body: '#7C86A8',
-  muted: '#97A0BC',
-  border: '#E6EBF5',
-  bg: '#F7F9FF',
+  blue: '#1A237E',
+  blueL: '#3D52A8',
+  amber: '#F9A825',
+  head: '#1A237E',
+  body: '#5B6494',
+  muted: '#8B93BA',
+  border: '#D8DCF0',
+  bg: '#F5F7FC',
   white: '#FFFFFF',
 };
 
@@ -74,9 +75,9 @@ export default function Header() {
       <header
         className="sticky top-0 left-0 right-0 z-50 transition-all duration-300"
         style={{
-          background: scrolled ? 'rgba(247,249,255,0.92)' : '#FFFFFF',
+          background: scrolled ? 'rgba(245,247,252,0.94)' : '#FFFFFF',
           borderBottom: `1px solid ${P.border}`,
-          boxShadow: scrolled ? '0 2px 20px rgba(110,133,232,0.08)' : 'none',
+          boxShadow: scrolled ? '0 2px 20px rgba(26,35,126,0.07)' : 'none',
           backdropFilter: scrolled ? 'blur(16px)' : 'none',
           WebkitBackdropFilter: scrolled ? 'blur(16px)' : 'none',
         }}
@@ -112,10 +113,10 @@ export default function Header() {
                   >
                     <button
                       className="flex items-center gap-1 px-3.5 py-2 text-[13px] font-medium rounded-lg transition-colors"
-                      style={{ color: isGroupActive(link) ? '#3D4A73' : '#7C86A8' }}
+                      style={{ color: isGroupActive(link) ? '#1A237E' : '#5B6494' }}
                     >
                       {link.label}
-                      <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${openDropdown === link.label ? 'rotate-180' : ''}`} style={{ color: '#6E85E8' }} />
+                      <ChevronDown className={`w-3.5 h-3.5 transition-transform duration-200 ${openDropdown === link.label ? 'rotate-180' : ''}`} style={{ color: '#F9A825' }} />
                     </button>
 
                     <AnimatePresence>
@@ -131,12 +132,12 @@ export default function Header() {
                             background: 'rgba(255,255,255,0.9)',
                             backdropFilter: 'blur(20px)',
                             WebkitBackdropFilter: 'blur(20px)',
-                            border: '1px solid #E6EBF5',
-                            boxShadow: '0 12px 40px rgba(110,133,232,0.14)',
+                            border: '1px solid #D8DCF0',
+                            boxShadow: '0 12px 40px rgba(26,35,126,0.12)',
                           }}
                         >
-                          <div className="px-4 py-2.5" style={{ borderBottom: '1px solid #E6EBF5' }}>
-                            <p className="text-[10px] font-mono font-semibold tracking-widest uppercase" style={{ color: '#6E85E8' }}>{link.label}</p>
+                          <div className="px-4 py-2.5" style={{ borderBottom: '1px solid #D8DCF0' }}>
+                            <p className="text-[10px] font-mono font-semibold tracking-widest uppercase" style={{ color: '#1A237E' }}>{link.label}</p>
                           </div>
                           {link.children.map((child) => (
                             <Link
@@ -144,12 +145,11 @@ export default function Header() {
                               to={child.path}
                               className="flex items-center gap-3 px-4 py-2.5 text-[13px] transition-colors"
                               style={{
-                                color: isActive(child.path) ? '#3D4A73' : '#7C86A8',
-                                background: isActive(child.path) ? '#EAF0FF' : 'transparent',
-                                fontWeight: isActive(child.path) ? 600 : 400,
-                              }}
-                              onMouseEnter={(e) => { if (!isActive(child.path)) { e.currentTarget.style.background = '#F2F6FF'; e.currentTarget.style.color = '#5F6D9A'; } }}
-                              onMouseLeave={(e) => { if (!isActive(child.path)) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#7C86A8'; } }}
+                                color: isActive(child.path) ? '#1A237E' : '#5B6494',
+                                background: isActive(child.path) ? '#E4EAFA' : 'transparent',
+...
+                              onMouseEnter={(e) => { if (!isActive(child.path)) { e.currentTarget.style.background = '#EEF2FA'; e.currentTarget.style.color = '#1A237E'; } }}
+                              onMouseLeave={(e) => { if (!isActive(child.path)) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#5B6494'; } }}
                             >
                               <span className="w-1 h-1 rounded-full shrink-0" style={{ background: '#6E85E8' }} />
                               {child.label}
@@ -164,16 +164,16 @@ export default function Header() {
                     key={link.path}
                     to={link.path}
                     className="relative px-3.5 py-2 text-[13px] font-medium rounded-lg transition-colors"
-                    style={{ color: isActive(link.path) ? '#3D4A73' : '#7C86A8' }}
-                    onMouseEnter={(e) => { e.currentTarget.style.color = '#3D4A73'; e.currentTarget.style.background = '#F2F6FF'; }}
-                    onMouseLeave={(e) => { e.currentTarget.style.color = isActive(link.path) ? '#3D4A73' : '#7C86A8'; e.currentTarget.style.background = 'transparent'; }}
+                    style={{ color: isActive(link.path) ? '#1A237E' : '#5B6494' }}
+                    onMouseEnter={(e) => { e.currentTarget.style.color = '#1A237E'; e.currentTarget.style.background = '#EEF2FA'; }}
+                    onMouseLeave={(e) => { e.currentTarget.style.color = isActive(link.path) ? '#1A237E' : '#5B6494'; e.currentTarget.style.background = 'transparent'; }}
                   >
                     {link.label}
                     {isActive(link.path) && (
                       <motion.span
                         layoutId="nav-underline"
                         className="absolute bottom-0 left-3 right-3 h-px rounded-full"
-                        style={{ background: '#6E85E8' }}
+                        style={{ background: '#F9A825' }}
                       />
                     )}
                   </Link>
@@ -187,9 +187,9 @@ export default function Header() {
                 to="/contact"
                 className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-[12.5px] font-semibold rounded-xl transition-all hover:opacity-88"
                 style={{
-                  background: 'linear-gradient(135deg, #6E85E8 0%, #8FA2F2 100%)',
+                  background: 'linear-gradient(135deg, #1A237E 0%, #3D52A8 100%)',
                   color: '#fff',
-                  boxShadow: '0 4px 16px rgba(110,133,232,0.25)',
+                  boxShadow: '0 4px 16px rgba(26,35,126,0.22)',
                 }}
               >
                 Request Quotation
@@ -197,7 +197,7 @@ export default function Header() {
 
               <button
                 className="lg:hidden flex items-center justify-center w-10 h-10 rounded-xl transition-colors"
-                style={{ border: `1px solid ${P.border}`, color: '#5F6D9A', background: '#F7F9FF' }}
+                style={{ border: `1px solid ${P.border}`, color: '#1A237E', background: '#F5F7FC' }}
                 onClick={() => setMobileOpen(!mobileOpen)}
                 aria-label="Toggle menu"
               >
@@ -228,7 +228,7 @@ export default function Header() {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               className="fixed inset-0 z-40 lg:hidden"
-              style={{ background: 'rgba(61,74,115,0.25)', backdropFilter: 'blur(4px)' }}
+              style={{ background: 'rgba(26,35,126,0.2)', backdropFilter: 'blur(4px)' }}
               onClick={() => setMobileOpen(false)}
             />
             <motion.div
@@ -238,11 +238,11 @@ export default function Header() {
               transition={{ type: 'tween', duration: 0.26, ease: 'easeInOut' }}
               className="fixed top-0 right-0 bottom-0 z-50 w-80 max-w-full flex flex-col lg:hidden"
               style={{
-                background: 'rgba(247,249,255,0.97)',
+                background: 'rgba(245,247,252,0.98)',
                 backdropFilter: 'blur(20px)',
                 WebkitBackdropFilter: 'blur(20px)',
                 borderLeft: `1px solid ${P.border}`,
-                boxShadow: '-8px 0 40px rgba(110,133,232,0.12)',
+                boxShadow: '-8px 0 40px rgba(26,35,126,0.10)',
               }}
             >
               {/* Mobile header */}
@@ -270,12 +270,12 @@ export default function Header() {
                           onClick={() => setMobileOpenDropdown(mobileOpenDropdown === link.label ? null : link.label)}
                           className="flex items-center justify-between w-full px-4 py-3 text-sm font-medium rounded-xl transition-colors"
                           style={{
-                            color: isGroupActive(link) ? '#3D4A73' : '#7C86A8',
-                            background: isGroupActive(link) ? '#EAF0FF' : 'transparent',
+                            color: isGroupActive(link) ? '#1A237E' : '#5B6494',
+                            background: isGroupActive(link) ? '#E4EAFA' : 'transparent',
                           }}
                         >
                           <span>{link.label}</span>
-                          <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileOpenDropdown === link.label ? 'rotate-180' : ''}`} style={{ color: '#6E85E8' }} />
+                          <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${mobileOpenDropdown === link.label ? 'rotate-180' : ''}`} style={{ color: '#F9A825' }} />
                         </button>
                         <AnimatePresence>
                           {mobileOpenDropdown === link.label && (
@@ -292,12 +292,12 @@ export default function Header() {
                                     to={child.path}
                                     className="flex items-center gap-3 px-4 py-2.5 text-sm rounded-xl transition-colors"
                                     style={{
-                                      color: isActive(child.path) ? '#3D4A73' : '#7C86A8',
-                                      background: isActive(child.path) ? '#EAF0FF' : 'transparent',
+                                      color: isActive(child.path) ? '#1A237E' : '#5B6494',
+                                      background: isActive(child.path) ? '#E4EAFA' : 'transparent',
                                       fontWeight: isActive(child.path) ? 600 : 400,
                                     }}
                                   >
-                                    <span className="w-1 h-1 rounded-full shrink-0" style={{ background: '#6E85E8' }} />
+                                    <span className="w-1 h-1 rounded-full shrink-0" style={{ background: '#F9A825' }} />
                                     {child.label}
                                   </Link>
                                 ))}
@@ -312,8 +312,8 @@ export default function Header() {
                         to={link.path}
                         className="flex items-center px-4 py-3 text-sm font-medium rounded-xl transition-colors"
                         style={{
-                          color: isActive(link.path) ? '#3D4A73' : '#7C86A8',
-                          background: isActive(link.path) ? '#EAF0FF' : 'transparent',
+                          color: isActive(link.path) ? '#1A237E' : '#5B6494',
+                          background: isActive(link.path) ? '#E4EAFA' : 'transparent',
                           fontWeight: isActive(link.path) ? 600 : 400,
                         }}
                       >
@@ -330,15 +330,15 @@ export default function Header() {
                   to="/contact"
                   className="flex items-center justify-center w-full py-3 text-sm font-semibold rounded-xl transition-colors"
                   style={{
-                    background: 'linear-gradient(135deg, #6E85E8 0%, #8FA2F2 100%)',
+                    background: 'linear-gradient(135deg, #1A237E 0%, #3D52A8 100%)',
                     color: '#fff',
-                    boxShadow: '0 4px 16px rgba(110,133,232,0.22)',
+                    boxShadow: '0 4px 16px rgba(26,35,126,0.22)',
                   }}
                 >
                   Request a Quotation
                 </Link>
                 <div className="flex items-center justify-center gap-1.5 text-xs" style={{ color: '#97A0BC' }}>
-                  <Phone className="w-3 h-3" style={{ color: '#6E85E8' }} />
+                  <Phone className="w-3 h-3" style={{ color: '#1A237E' }} />
                   <span>+971 54 217 1502</span>
                 </div>
               </div>

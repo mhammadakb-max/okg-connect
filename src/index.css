@@ -10,43 +10,43 @@
     --font-display: 'Manrope', sans-serif;
     --font-mono: 'JetBrains Mono', monospace;
 
-    /* OKG Light Premium Palette */
+    /* OKG Logo Palette — Navy + Amber on White */
     --color-white:       0 0% 100%;
     --color-soft-white:  220 100% 99%;       /* #FCFDFF */
-    --color-bg-main:     225 67% 97%;        /* #F7F9FF */
-    --color-bg-secondary:220 75% 96%;        /* #F2F6FF */
-    --color-bg-tint:     225 60% 94%;        /* #EAF0FF */
-    --color-bg-accent:   222 55% 92%;        /* #E3EBFF */
-    --color-gold-tint:   38 100% 95%;        /* #FFF6E8 */
-    --color-champagne:   38 89% 94%;         /* #FDF3E2 */
-    --color-gold-muted:  36 67% 73%;         /* #E8C48E */
-    --color-amber:       38 77% 81%;         /* #F2D7A6 */
-    --color-blue-accent: 228 73% 67%;        /* #6E85E8 */
-    --color-blue-light:  228 75% 75%;        /* #8FA2F2 */
-    --color-heading:     230 24% 48%;        /* #5F6D9A */
-    --color-body:        228 20% 58%;        /* #7C86A8 */
-    --color-muted:       225 18% 67%;        /* #97A0BC */
-    --color-border:      225 33% 90%;        /* #E6EBF5 */
+    --color-bg-main:     220 40% 97%;        /* #F5F7FC */
+    --color-bg-secondary:225 50% 95%;        /* #EEF2FA */
+    --color-bg-tint:     228 60% 93%;        /* #E4EAFA */
+    --color-bg-accent:   228 55% 90%;        /* #DAE2F8 */
+    --color-gold-tint:   43 100% 95%;        /* #FFF8E1 */
+    --color-champagne:   43 89% 92%;         /* #FDF0CC */
+    --color-gold-muted:  40 93% 60%;         /* #F9A825 — logo amber */
+    --color-amber:       40 90% 70%;         /* #FBC04A */
+    --color-blue-accent: 231 68% 30%;        /* #1A237E — logo navy */
+    --color-blue-light:  231 50% 50%;        /* #3D52A8 */
+    --color-heading:     231 68% 30%;        /* #1A237E */
+    --color-body:        231 25% 45%;        /* #5B6494 */
+    --color-muted:       231 18% 62%;        /* #8B93BA */
+    --color-border:      231 30% 88%;        /* #D8DCF0 */
 
-    --background: 225 67% 97%;
-    --foreground: 230 24% 48%;
+    --background: 220 40% 97%;
+    --foreground: 231 68% 30%;
     --card: 0 0% 100%;
-    --card-foreground: 230 24% 48%;
+    --card-foreground: 231 68% 30%;
     --popover: 0 0% 100%;
-    --popover-foreground: 230 24% 48%;
-    --primary: 228 73% 67%;
+    --popover-foreground: 231 68% 30%;
+    --primary: 231 68% 30%;
     --primary-foreground: 0 0% 100%;
-    --secondary: 220 75% 96%;
-    --secondary-foreground: 230 24% 48%;
-    --muted: 225 33% 90%;
-    --muted-foreground: 225 18% 67%;
-    --accent: 36 67% 73%;
+    --secondary: 225 50% 95%;
+    --secondary-foreground: 231 68% 30%;
+    --muted: 231 30% 88%;
+    --muted-foreground: 231 18% 62%;
+    --accent: 40 93% 60%;
     --accent-foreground: 0 0% 100%;
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 225 33% 90%;
-    --input: 225 33% 90%;
-    --ring: 228 73% 67%;
+    --border: 231 30% 88%;
+    --input: 231 30% 88%;
+    --ring: 231 68% 30%;
     --radius: 0.75rem;
   }
 }
@@ -59,8 +59,8 @@
     font-family: 'Manrope', sans-serif;
     font-size: 16px;
     line-height: 1.65;
-    background-color: #F7F9FF;
-    color: #7C86A8;
+    background-color: #F5F7FC;
+    color: #5B6494;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
