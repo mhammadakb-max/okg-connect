@@ -90,11 +90,7 @@ export default function Home() {
               transition={{ delay: 0.1 }}
               className="relative h-96 bg-gray-100 rounded-lg overflow-hidden"
             >
-              <img
-                src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&h=600&fit=crop"
-                alt="Construction site"
-                className="w-full h-full object-cover"
-              />
+              {/* Construction site hero image */}
             </motion.div>
           </div>
 
@@ -128,11 +124,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="relative h-96 bg-white rounded-lg overflow-hidden">
-              <img
-                src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=600&h=600&fit=crop"
-                alt="Construction work"
-                className="w-full h-full object-cover"
-              />
+              {/* Construction work execution image */}
             </div>
 
             <motion.div
@@ -333,6 +325,89 @@ export default function Home() {
                 <p className="text-sm text-text-secondary">
                   {step.desc}
                 </p>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Project Management */}
+      <section className="bg-white border-t border-gray-200 py-20 md:py-28">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="max-w-2xl mb-12"
+          >
+            <SectionEyebrow label="Management" />
+            <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: '#001078' }}>
+              Project management that protects your investment.
+            </h2>
+            <p className="text-lg text-text-secondary">
+              Effective project management requires clear coordination, daily monitoring and documented decision-making. OKG handles the operational details so you can focus on project outcomes.
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {[
+              {
+                title: 'Scope Management',
+                items: [
+                  'Clear scope definition and BOQ alignment',
+                  'Change request and variation control',
+                  'Documented approvals and sign-off',
+                  'Budget and timeline tracking',
+                ]
+              },
+              {
+                title: 'Resource Coordination',
+                items: [
+                  'Manpower scheduling and mobilisation',
+                  'Material procurement and logistics',
+                  'Subcontractor coordination and control',
+                  'Equipment and tool management',
+                ]
+              },
+              {
+                title: 'Daily Operations',
+                items: [
+                  'Site supervision and work control',
+                  'Progress tracking and reporting',
+                  'Quality inspections and sign-off',
+                  'Safety monitoring and incident management',
+                ]
+              },
+              {
+                title: 'Documentation',
+                items: [
+                  'Daily activity reports and photos',
+                  'Inspection and approval records',
+                  'Worker attendance and timesheets',
+                  'Final handover documentation',
+                ]
+              },
+            ].map((mgmt, idx) => (
+              <motion.div
+                key={idx}
+                initial={{ opacity: 0, y: 16 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: idx * 0.05 }}
+                className="bg-gray-50 border border-gray-200 rounded-lg p-8"
+              >
+                <div className="w-1 h-6 rounded-full mb-4" style={{ backgroundColor: '#F8B858' }} />
+                <h3 className="text-lg font-bold mb-4" style={{ color: '#001078' }}>
+                  {mgmt.title}
+                </h3>
+                <ul className="space-y-3">
+                  {mgmt.items.map((item, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <span className="w-1 h-1 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#F8B858' }} />
+                      <span className="text-sm text-text-secondary">{item}</span>
+                    </li>
+                  ))}
+                </ul>
               </motion.div>
             ))}
           </div>

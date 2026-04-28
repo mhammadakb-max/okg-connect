@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import PageHero from '@/components/shared/PageHero';
 import SectionEyebrow from '@/components/shared/SectionEyebrow';
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin } from 'lucide-react';
+import { Phone, Mail, MapPin, MessageCircle } from 'lucide-react';
+import { base44 } from '@/api/base44Client';
 
 export default function Contact() {
   const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
@@ -12,11 +13,17 @@ export default function Contact() {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: Connect form to omerkhalfangc@gmail.com before publishing
-    setSubmitted(true);
-    setTimeout(() => setSubmitted(false), 5000);
+    try {
+      await base44.functions.invoke('sendContactForm', formData);
+      setFormData({ name: '', email: '', phone: '', message: '' });
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 5000);
+    } catch (error) {
+      console.error('Form submission error:', error);
+      alert('Failed to send enquiry. Please try again.');
+    }
   };
 
   return (
@@ -53,6 +60,7 @@ export default function Contact() {
                   {[
                     { Icon: Phone, label: 'Phone', value: '+971 54 217 1502' },
                     { Icon: Mail, label: 'Email', value: 'info@okgcontracting.com' },
+                    { Icon: MessageCircle, label: 'WhatsApp', value: '+971 54 217 1502', link: 'https://wa.me/971542171502' },
                     { Icon: MapPin, label: 'Location', value: 'United Arab Emirates' },
                   ].map((contact, idx) => (
                     <motion.div
@@ -70,9 +78,15 @@ export default function Contact() {
                         <p className="text-xs font-bold uppercase tracking-widest" style={{ color: '#001078' }}>
                           {contact.label}
                         </p>
-                        <p className="text-base text-text-secondary mt-1">
-                          {contact.value}
-                        </p>
+                        {contact.link ? (
+                          <a href={contact.link} target="_blank" rel="noopener noreferrer" className="text-base text-text-secondary mt-1 hover:text-navy transition-colors">
+                            {contact.value}
+                          </a>
+                        ) : (
+                          <p className="text-base text-text-secondary mt-1">
+                            {contact.value}
+                          </p>
+                        )}
                       </div>
                     </motion.div>
                   ))}
