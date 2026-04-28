@@ -7,7 +7,7 @@ import ValueCard from '../components/shared/ValueCard';
 import CTABand from '../components/shared/CTABand';
 
 const values = [
-  { icon: Heart, title: 'Honesty', text: 'We do not claim what we have not done. Every proposal should be based on actual capacity, realistic programme and clear scope.' },
+  { icon: Heart, title: 'Honesty', text: 'Every proposal is based on actual capacity, realistic programme and clearly defined scope. Transparent pricing and honest communication are non-negotiable.' },
   { icon: Shield, title: 'Discipline', text: 'Construction progress depends on daily supervision, attendance control, material coordination and fast issue escalation.' },
   { icon: Target, title: 'Accountability', text: 'OKG expects work to be checked, corrected and handed over professionally instead of leaving defects or confusion behind.' },
   { icon: Eye, title: 'Vision', text: 'To become a trusted UAE building contracting company known for reliable execution, disciplined site management and quality construction delivery.' },
@@ -38,7 +38,7 @@ export default function About() {
                 OKG supports clients requiring a clear, responsive and accountable contractor for civil works, masonry, plastering, structural support, fit-out and finishing packages across the UAE.
               </motion.p>
               <motion.p {...fu} transition={{ delay: 0.18 }} className="text-[14px] leading-[1.8]" style={{ color: '#6B7280' }}>
-                OKG's brand is positioned around honesty, site control, clear documentation and professional commitment — from the first enquiry through to final handover.
+                OKG is positioned around site control, clear documentation, honest communication and professional commitment — through every stage of the project.
               </motion.p>
             </div>
 
@@ -55,7 +55,7 @@ export default function About() {
                   Our position
                 </p>
                 <h3 className="text-[20px] font-bold mb-4" style={{ color: '#001078' }}>
-                  Suitable for clients who value transparency.
+                  For clients who value transparency and accountability.
                 </h3>
                 <p className="text-[14px] leading-[1.8]" style={{ color: '#6B7280' }}>
                   OKG is suited for clients who want a contractor that is transparent about capacity, clear in pricing, disciplined in mobilisation and serious about performance on site.

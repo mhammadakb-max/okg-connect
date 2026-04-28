@@ -33,7 +33,7 @@ export default function Capabilities() {
     <>
       <PageHero
         eyebrow="Capabilities"
-        title="Operational strength built through control, not inflated claims."
+        title="Operational strength built through control, coordination and site discipline."
         intro="OKG's operating model is designed around clear communication, realistic mobilisation, measurable work progress and accountable project coordination."
       />
 

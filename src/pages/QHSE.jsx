@@ -32,7 +32,7 @@ const cards = [
   {
     icon: Heart,
     title: 'Social Commitment',
-    text: 'As the company grows, OKG intends to support fair work practices, worker respect, local opportunity and responsible community engagement.',
+    text: 'OKG supports fair work practices, worker respect, local opportunity and responsible community engagement as part of its operating standard.',
     link: '/social-commitment',
     btn: 'Read Social Commitment',
   },
@@ -110,10 +110,10 @@ export default function QHSE() {
             <div>
               <SectionEyebrow label="QHSE Standard" />
               <motion.h2 {...fu} className="text-3xl md:text-[36px] font-bold leading-[1.2] tracking-[-0.015em] mb-5" style={{ color: '#001078' }}>
-                Professional standards from day one.
+                 Practical QHSE standards applied on site.
               </motion.h2>
               <motion.p {...fu} transition={{ delay: 0.1 }} className="text-[14px] leading-[1.8] mb-8" style={{ color: '#6B7280' }}>
-                A new contractor cannot afford casual habits. OKG's QHSE system should be practical, documented and enforceable on site.
+                 OKG's QHSE system is practical, documented and enforceable. Safety, quality and housekeeping are treated as part of disciplined project delivery.
               </motion.p>
               <div className="space-y-4">
                 {checklist.map((item, i) => (

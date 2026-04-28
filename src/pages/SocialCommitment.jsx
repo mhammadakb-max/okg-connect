@@ -8,7 +8,7 @@ import CTABand from '../components/shared/CTABand';
 
 const cards = [
   { icon: Heart, title: 'Worker Respect', text: 'OKG believes workers should be treated with dignity, clear instructions and safe working expectations.' },
-  { icon: Lightbulb, title: 'Local Opportunity', text: 'As the company grows, OKG can create opportunities for supervisors, skilled workers, subcontractors and suppliers.' },
+  { icon: Lightbulb, title: 'Local Opportunity', text: 'OKG supports opportunities for supervisors, skilled workers, subcontractors and suppliers operating in the UAE.' },
   { icon: Scale, title: 'Ethical Conduct', text: 'OKG aims to work through transparent communication, fair dealing and professional accountability.' },
 ];
 
@@ -19,15 +19,15 @@ export default function SocialCommitment() {
     <>
       <PageHero
         eyebrow="Social Commitment"
-        title="Responsible growth with people and community in mind."
-        intro="As OKG grows, the company intends to build a culture that respects workers, supports fair opportunity and contributes positively to the UAE construction environment."
+        title="Responsible operations with people and community in mind."
+        intro="OKG is committed to building a culture that respects workers, supports fair opportunity and contributes positively to the UAE construction environment."
       />
 
       <section className="py-20 md:py-28 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionEyebrow label="Our commitments" />
           <motion.h2 {...fu} className="text-3xl md:text-[40px] font-bold leading-[1.18] tracking-[-0.015em] mb-12" style={{ color: '#001078' }}>
-            People over claims.
+            People, accountability and responsible practice.
           </motion.h2>
           <div className="grid md:grid-cols-3 gap-5">
             {cards.map((c, i) => (

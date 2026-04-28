@@ -178,7 +178,7 @@ export default function Contact() {
                     <ArrowRight className="w-4 h-4" />
                   </button>
                   <p className="text-[12px] text-center" style={{ color: '#9CA3AF' }}>
-                    Form requires backend connection for live email delivery.
+                    OKG will review your enquiry and respond with a structured proposal.
                   </p>
                 </form>
               </motion.div>

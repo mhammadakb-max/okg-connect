@@ -32,8 +32,8 @@ export default function Careers() {
     <>
       <PageHero
         eyebrow="Careers"
-        title="Join a company being built with discipline from day one."
-        intro="OKG is a new contracting company. As work grows, the company will need responsible site supervisors, skilled workers, subcontractors and support staff."
+        title="Join a team built around site discipline and professional delivery."
+        intro="OKG is a UAE-based building contracting company. We seek responsible site supervisors, skilled workers, subcontractors and support staff who take quality and accountability seriously."
       />
 
       {/* Roles */}
@@ -44,7 +44,7 @@ export default function Careers() {
             We value reliability, skill and site discipline.
           </motion.h2>
           <motion.p {...fu} transition={{ delay: 0.1 }} className="text-[15px] leading-[1.8] mb-12 max-w-2xl" style={{ color: '#6B7280' }}>
-            OKG's future recruitment should focus on people who respect attendance, safety, workmanship and communication. Construction teams are judged by output and behaviour on site.
+            OKG looks for people who respect attendance, safety, workmanship and clear communication. Construction teams are judged by output and behaviour on site.
           </motion.p>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             {roles.map((r, i) => (
@@ -62,7 +62,7 @@ export default function Careers() {
             Send your details.
           </motion.h2>
           <motion.p {...fu} transition={{ delay: 0.1 }} className="text-[14px] leading-[1.8] mb-8" style={{ color: '#6B7280' }}>
-            This form can later connect to an email or recruitment service. Include your trade, experience and current visa status.
+            Include your trade, years of experience, current visa status and location. OKG will review your details and be in touch.
           </motion.p>
 
           <motion.form

@@ -89,12 +89,12 @@ export default function Projects() {
         </div>
       </section>
 
-      {/* ─── Placeholder section ─────────────────────────────────────────── */}
+      {/* ─── Documentation Standard ──────────────────────────────────────── */}
       <section className="py-20 md:py-28" style={{ background: '#F7F8FB' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-start">
 
-            {/* Left — future format */}
+            {/* Left — documentation standard */}
             <div>
               <SectionEyebrow label="Project Documentation Standard" />
               <motion.h2 {...fu} className="text-3xl md:text-[36px] font-bold leading-[1.2] tracking-[-0.015em] mb-4" style={{ color: '#001078' }}>
@@ -110,7 +110,7 @@ export default function Projects() {
               </div>
             </div>
 
-            {/* Right — placeholder card */}
+            {/* Right — enquiry card */}
             <motion.div
               {...fu}
               transition={{ delay: 0.2 }}
@@ -133,10 +133,10 @@ export default function Projects() {
                   <Clock className="w-7 h-7" style={{ color: '#001078', opacity: 0.5 }} />
                 </div>
                 <h3 className="text-[18px] font-bold mb-3" style={{ color: '#001078' }}>
-                  Project records updated as awarded
+                  Discuss a project package with OKG
                 </h3>
                 <p className="text-[13.5px] leading-relaxed max-w-xs" style={{ color: '#6B7280' }}>
-                  OKG documents project packages with location, scope, timeline, progress and handover status. Contact OKG to discuss a package.
+                  OKG coordinates project packages with defined scope, clear timeline, daily supervision, progress tracking and documented handover support.
                 </p>
                 <div
                   className="mt-8 inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-[13px] font-semibold"
