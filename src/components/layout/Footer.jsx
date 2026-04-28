@@ -45,13 +45,13 @@ export default function Footer() {
               <span className="w-2 h-2 rounded-full ml-0.5 mb-[16px]" style={{ background: '#F8B858' }} />
             </div>
             <p className="text-[13px] leading-relaxed text-white/60 mb-6 max-w-xs">
-              UAE-based building contractor committed to honest project delivery, disciplined site supervision and professional construction execution.
+              OKG Building Contracting is a UAE-based contractor focused on disciplined construction support, site supervision, documentation, QHSE and transparent project delivery.
             </p>
 
             {/* Tagline pill */}
             <div className="inline-flex items-center gap-2 border border-white/15 rounded-full px-4 py-2 mb-8">
               <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#F8B858' }} />
-              <span className="text-[11px] font-mono tracking-widest uppercase text-white/50">New company. Serious standard.</span>
+              <span className="text-[11px] font-mono tracking-widest uppercase text-white/50">Discipline · Clarity · Accountability</span>
             </div>
 
             {/* Contact */}
@@ -127,7 +127,7 @@ export default function Footer() {
             © {new Date().getFullYear()} OKG Building Contracting LLC. All rights reserved.
           </p>
           <p className="text-[12px] font-mono text-white/25 tracking-wide">
-            Discipline · Transparency · Accountability
+            Constructing with clarity, discipline and accountability.
           </p>
         </div>
       </div>

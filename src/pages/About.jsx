@@ -21,8 +21,8 @@ export default function About() {
     <>
       <PageHero
         eyebrow="About OKG"
-        title="New company. Serious standard. Honest positioning."
-        intro="OKG Building Contracting is being built as a disciplined UAE contractor focused on practical delivery, transparent communication and controlled site execution."
+        title="Built around disciplined execution and transparent delivery."
+        intro="OKG Building Contracting serves the UAE construction market with a straightforward operating principle: understand the scope, mobilise responsibly, supervise the work and protect the client's quality, time and budget."
       />
 
       {/* ─── Company Profile ─────────────────────────────────────────────── */}
@@ -35,10 +35,10 @@ export default function About() {
                 A contractor built around execution discipline.
               </motion.h2>
               <motion.p {...fu} transition={{ delay: 0.1 }} className="text-[15px] leading-[1.8] mb-5" style={{ color: '#1E1E1E' }}>
-                OKG exists to serve clients who need a clear, responsive and accountable contractor for civil works, masonry, plastering, structural support, fit-out and finishing packages.
+                OKG supports clients requiring a clear, responsive and accountable contractor for civil works, masonry, plastering, structural support, fit-out and finishing packages across the UAE.
               </motion.p>
               <motion.p {...fu} transition={{ delay: 0.18 }} className="text-[14px] leading-[1.8]" style={{ color: '#6B7280' }}>
-                Because OKG is new, the company does not rely on exaggerated claims. The brand is positioned around honesty, site control, clear documentation and professional commitment from the first enquiry to final handover.
+                OKG's brand is positioned around honesty, site control, clear documentation and professional commitment — from the first enquiry through to final handover.
               </motion.p>
             </div>
 
@@ -52,13 +52,13 @@ export default function About() {
               <div className="absolute left-0 top-0 bottom-0 w-1" style={{ background: '#F8B858' }} />
               <div className="p-8 md:p-10 pl-10">
                 <p className="text-[11px] font-mono font-semibold tracking-[0.18em] uppercase mb-4" style={{ color: '#F8B858' }}>
-                  Our honest market position
+                  Our position
                 </p>
                 <h3 className="text-[20px] font-bold mb-4" style={{ color: '#001078' }}>
                   Suitable for clients who value transparency.
                 </h3>
                 <p className="text-[14px] leading-[1.8]" style={{ color: '#6B7280' }}>
-                  OKG is suitable for clients who want a contractor that is transparent about capacity, clear in pricing, disciplined in mobilisation and serious about building a real project record through performance.
+                  OKG is suited for clients who want a contractor that is transparent about capacity, clear in pricing, disciplined in mobilisation and serious about performance on site.
                 </p>
               </div>
             </motion.div>
@@ -71,7 +71,7 @@ export default function About() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionEyebrow label="Core Values" />
           <motion.h2 {...fu} className="text-3xl md:text-[40px] font-bold leading-[1.18] tracking-[-0.015em] mb-12" style={{ color: '#001078' }}>
-            What OKG commits to from day one.
+            What OKG commits to on every project.
           </motion.h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {values.map((v, i) => (

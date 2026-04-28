@@ -34,7 +34,7 @@ export default function Capabilities() {
       <PageHero
         eyebrow="Capabilities"
         title="Operational strength built through control, not inflated claims."
-        intro="OKG's capability model is designed around site supervision, documentation, subcontractor control, communication and realistic mobilisation."
+        intro="OKG's operating model is designed around clear communication, realistic mobilisation, measurable work progress and accountable project coordination."
       />
 
       {/* ─── Checklist + image ───────────────────────────────────────────── */}
@@ -86,7 +86,7 @@ export default function Capabilities() {
             A controlled process from enquiry to handover.
           </motion.h2>
           <motion.p {...fu} transition={{ delay: 0.1 }} className="text-[15px] leading-[1.8] mb-12 max-w-2xl" style={{ color: '#6B7280' }}>
-            OKG does not improvise. Each project phase follows a disciplined sequence designed to protect the client's time, budget and quality expectations.
+          Clear scope, defined responsibilities, daily site control and documented approvals reduce delays, disputes and rework. OKG's process is built around practical execution control.
           </motion.p>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">

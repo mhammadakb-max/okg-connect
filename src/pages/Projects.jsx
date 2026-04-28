@@ -16,8 +16,8 @@ const projectCards = [
   {
     icon: Target,
     badge: 'Project Method',
-    title: 'Start Small, Deliver Properly',
-    text: 'Instead of claiming large past portfolios, OKG focuses on winning manageable scopes, delivering them cleanly and building a verified record through performance.',
+    title: 'Controlled Execution',
+    text: 'Work packages are approached through defined scope, realistic mobilisation, supervision, progress tracking and inspection support.',
   },
   {
     icon: FileCheck,
@@ -30,10 +30,10 @@ const projectCards = [
 const futureChecklist = [
   'Project name and location',
   'Client or main contractor, where permitted',
-  'Scope of work and quantities',
-  'Before, during and after photos',
-  'Timeline, mobilisation and handover status',
-  'Approval notes or completion confirmation',
+  'Scope and quantity',
+  'Workfront and timeline',
+  'Progress photos where available',
+  'Inspection and handover status',
 ];
 
 const fu = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };
@@ -43,8 +43,8 @@ export default function Projects() {
     <>
       <PageHero
         eyebrow="Projects"
-        title="A new portfolio must be earned honestly."
-        intro="OKG will not display fake project counts or borrowed achievements. This section is designed to grow as real scopes are awarded, executed and documented."
+        title="Project approach built on clarity and accountability."
+        intro="OKG presents project information through clear scope, location, quantity, timeline, approval status and documented handover details where available."
       />
 
       {/* ─── Approach cards ──────────────────────────────────────────────── */}
@@ -52,7 +52,7 @@ export default function Projects() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionEyebrow label="Project Approach" />
           <motion.h2 {...fu} className="text-3xl md:text-[40px] font-bold leading-[1.18] tracking-[-0.015em] mb-12" style={{ color: '#001078' }}>
-            How OKG builds its track record.
+            How OKG approaches every package.
           </motion.h2>
 
           <div className="grid md:grid-cols-3 gap-5">
@@ -96,12 +96,12 @@ export default function Projects() {
 
             {/* Left — future format */}
             <div>
-              <SectionEyebrow label="Future Project Format" />
+              <SectionEyebrow label="Project Documentation Standard" />
               <motion.h2 {...fu} className="text-3xl md:text-[36px] font-bold leading-[1.2] tracking-[-0.015em] mb-4" style={{ color: '#001078' }}>
-                How completed works will be displayed.
+                Project documentation standard.
               </motion.h2>
               <motion.p {...fu} transition={{ delay: 0.1 }} className="text-[14px] leading-[1.8] mb-8" style={{ color: '#6B7280' }}>
-                Once OKG completes real works, each project will be documented and published properly. No invented numbers or borrowed photographs.
+                Each project package should be recorded with the details needed for transparent coordination and professional handover.
               </motion.p>
               <div className="space-y-4">
                 {futureChecklist.map((item, i) => (
@@ -133,17 +133,17 @@ export default function Projects() {
                   <Clock className="w-7 h-7" style={{ color: '#001078', opacity: 0.5 }} />
                 </div>
                 <h3 className="text-[18px] font-bold mb-3" style={{ color: '#001078' }}>
-                  Project portfolio pending
+                  Project records updated as awarded
                 </h3>
                 <p className="text-[13.5px] leading-relaxed max-w-xs" style={{ color: '#6B7280' }}>
-                  This section will be populated as OKG wins, executes and documents real project scopes. Honesty from day one.
+                  OKG documents project packages with location, scope, timeline, progress and handover status. Contact OKG to discuss a package.
                 </p>
                 <div
                   className="mt-8 inline-flex items-center gap-2 rounded-xl px-5 py-2.5 text-[13px] font-semibold"
                   style={{ background: 'rgba(0,16,120,0.08)', color: '#001078' }}
                 >
                   <span className="w-1.5 h-1.5 rounded-full" style={{ background: '#F8B858' }} />
-                  Actively seeking first packages
+                  Accepting package enquiries
                 </div>
               </div>
             </motion.div>
@@ -151,7 +151,7 @@ export default function Projects() {
         </div>
       </section>
 
-      <CTABand heading="Ready to be OKG's first documented client?" text="OKG is actively seeking blockwork, plastering, concrete and finishing packages. Share your scope and let us respond with a structured proposal." />
+      <CTABand heading="Ready to discuss a project package?" text="OKG supports blockwork, plastering, concrete and finishing packages. Share your scope and we will respond with a structured proposal." />
     </>
   );
 }
