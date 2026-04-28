@@ -122,14 +122,14 @@ export default function Projects() {
                   <img src={card.img} alt={card.alt} className="w-full h-full object-cover" loading="lazy" />
                   <div className="absolute inset-0" style={{ background: 'linear-gradient(to right, rgba(0,16,120,0.82) 0%, rgba(0,16,120,0.4) 100%)' }} />
                   <div className="absolute inset-0 px-6 flex flex-col justify-center">
-                    <p className="text-[9.5px] font-mono font-bold tracking-[0.2em] uppercase mb-1" style={{ color: '#F8B858' }}>Project documentation format</p>
+                    <p className="text-[9.5px] font-mono font-bold tracking-[0.2em] uppercase mb-1" style={{ color: '#F8B858' }}>Work package scope</p>
                     <p className="text-[15px] font-bold text-white">{card.label}</p>
                   </div>
                 </div>
               ))}
               <div className="rounded-xl px-5 py-3.5 flex items-center gap-3" style={{ background: 'rgba(0,16,120,0.06)', border: '1px solid rgba(0,16,120,0.1)' }}>
                 <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: '#F8B858' }} />
-                <p className="text-[12.5px]" style={{ color: '#6B7280' }}>Images above are representative of package types. These are not completed OKG projects.</p>
+                <p className="text-[12.5px]" style={{ color: '#6B7280' }}>Images are illustrative of typical work package categories handled by OKG.</p>
               </div>
             </motion.div>
           </div>

@@ -52,8 +52,8 @@ export default function QHSE() {
     <>
       <PageHero
         eyebrow="QHSE"
-        title="Quality, Health, Safety and Environmental responsibility."
-        intro="OKG's QHSE approach is simple: safe work, clean documentation, practical supervision, quality checking and responsible housekeeping."
+        title="Quality, safety and control built into the work."
+        intro="Every project should be handled with safety awareness, clean documentation, quality checking, responsible housekeeping and clear reporting."
       />
 
       {/* Cards */}
@@ -61,7 +61,7 @@ export default function QHSE() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionEyebrow label="Policy Areas" />
           <motion.h2 {...fu} className="font-display text-3xl md:text-[40px] font-bold leading-[1.18] tracking-[-0.015em] mb-12" style={{ color: '#001078' }}>
-            Four areas of commitment.
+            Quality, safety and control built into the work.
           </motion.h2>
 
           <div className="grid md:grid-cols-2 gap-5">
@@ -110,10 +110,10 @@ export default function QHSE() {
             <div>
               <SectionEyebrow label="QHSE Standard" />
               <motion.h2 {...fu} className="font-display text-3xl md:text-[36px] font-bold leading-[1.2] tracking-[-0.015em] mb-5" style={{ color: '#001078' }}>
-                Practical QHSE standards applied on site.
+                QHSE standards applied consistently on site.
               </motion.h2>
               <motion.p {...fu} transition={{ delay: 0.1 }} className="text-[14px] leading-[1.8] mb-8" style={{ color: '#6B7280' }}>
-                 OKG's QHSE system is practical, documented and enforceable. Safety, quality and housekeeping are treated as part of disciplined project delivery.
+                OKG's QHSE approach is practical and documented. Safety, quality and housekeeping are treated as core elements of disciplined project delivery, not optional additions.
               </motion.p>
               <div className="space-y-4">
                 {checklist.map((item, i) => (

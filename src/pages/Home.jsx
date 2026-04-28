@@ -178,7 +178,7 @@ export default function Home() {
                 className="text-[16px] md:text-[17px] leading-[1.8] mb-4 max-w-xl font-light"
                 style={{ color: 'rgba(255,255,255,0.72)' }}
               >
-                OKG Building Contracting delivers civil, masonry, plastering, concrete, steel fixing, fit-out and finishing support across the UAE.
+                OKG Building Contracting delivers civil, masonry, plastering, concrete, steel fixing, shuttering, fit-out and finishing support for projects across the UAE.
               </motion.p>
 
               <motion.p
@@ -186,7 +186,7 @@ export default function Home() {
                 className="text-[14px] leading-[1.8] mb-11 max-w-lg"
                 style={{ color: 'rgba(255,255,255,0.4)' }}
               >
-                We work with clients, contractors and project teams that require clear scope alignment, responsible mobilisation, daily site supervision and transparent delivery.
+                We work with clients, contractors and project teams that require clear scope alignment, responsible mobilisation, daily site supervision, documentation control and transparent delivery.
               </motion.p>
 
               {/* CTAs */}
@@ -318,7 +318,7 @@ export default function Home() {
                 Built around disciplined execution and transparent delivery.
               </motion.h2>
               <motion.p {...fu} transition={{ delay: 0.1 }} className="text-[15px] leading-[1.9] mb-4" style={{ color: '#1E1E1E' }}>
-                OKG Building Contracting serves the UAE construction market with a straightforward operating principle: understand the scope, mobilise responsibly, supervise the work and protect the client's time, budget and site quality.
+                OKG serves the UAE construction market with a straightforward operating principle: understand the scope, mobilise responsibly, supervise the work and protect the client's time, budget and site quality.
               </motion.p>
               <motion.p {...fu} transition={{ delay: 0.16 }} className="text-[14px] leading-[1.9] mb-8" style={{ color: '#6B7280' }}>
                 Our approach is based on accountability, proper documentation, clear quotations, worker control, subcontractor discipline and practical communication with site teams.

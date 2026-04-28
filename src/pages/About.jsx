@@ -10,8 +10,8 @@ const values = [
   { icon: Heart, title: 'Honesty', text: 'Every proposal is based on actual capacity, realistic programme and clearly defined scope. Transparent pricing and honest communication are non-negotiable.' },
   { icon: Shield, title: 'Discipline', text: 'Construction progress depends on daily supervision, attendance control, material coordination and fast issue escalation.' },
   { icon: Target, title: 'Accountability', text: 'OKG expects work to be checked, corrected and handed over professionally instead of leaving defects or confusion behind.' },
-  { icon: Eye, title: 'Vision', text: 'To become a trusted UAE building contracting company known for reliable execution, disciplined site management and quality construction delivery.' },
-  { icon: Compass, title: 'Mission', text: 'To deliver civil, structural, masonry, plastering and finishing works through professional supervision, safe practices, transparent coordination and timely completion.' },
+  { icon: Eye, title: 'Vision', text: 'OKG operates as a UAE building contracting company known for reliable execution, disciplined site management and quality construction delivery.' },
+  { icon: Compass, title: 'Mission', text: 'To deliver civil, structural, masonry, plastering and finishing works through professional supervision, safe practices, transparent coordination and accountable completion.' },
 ];
 
 const fu = { initial: { opacity: 0, y: 24 }, whileInView: { opacity: 1, y: 0 }, viewport: { once: true } };

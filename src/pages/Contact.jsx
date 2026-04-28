@@ -65,8 +65,8 @@ export default function Contact() {
                 <div className="absolute inset-0" style={{ background: 'linear-gradient(135deg, rgba(0,16,120,0.88) 0%, rgba(0,8,51,0.75) 100%)' }} />
                 <div className="absolute inset-0 px-7 flex flex-col justify-end pb-6">
                   <p className="text-[10px] font-mono font-bold tracking-[0.2em] uppercase mb-2" style={{ color: '#F8B858' }}>OKG Building Contracting</p>
-                  <p className="text-[16px] font-bold text-white leading-snug">UAE Construction Partner</p>
-                  <p className="text-[12.5px] mt-1" style={{ color: 'rgba(255,255,255,0.55)' }}>Disciplined execution across the UAE</p>
+                  <p className="text-[16px] font-bold text-white leading-snug">Building Contracting · UAE</p>
+                  <p className="text-[12.5px] mt-1" style={{ color: 'rgba(255,255,255,0.55)' }}>Civil · Masonry · Fit-Out · Finishing · QHSE</p>
                 </div>
               </div>
               <SectionEyebrow label="Contact Details" />

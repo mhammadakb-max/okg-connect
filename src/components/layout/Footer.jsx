@@ -67,7 +67,7 @@ export default function Footer() {
               <span className="w-[8px] h-[8px] rounded-full ml-[2px] mb-[2px] group-hover:scale-110 transition-transform" style={{ background: '#F8B858' }} />
             </Link>
 
-            <p className="text-[13px] leading-[1.8] mb-7 max-w-xs" style={{ color: 'rgba(255,255,255,0.5)' }}>
+            <p className="text-[13px] leading-[1.85] mb-7 max-w-xs" style={{ color: 'rgba(255,255,255,0.48)' }}>
               OKG Building Contracting is a UAE-based contractor focused on disciplined construction support, site supervision, documentation, QHSE and transparent project delivery.
             </p>
 
@@ -174,7 +174,7 @@ export default function Footer() {
             © {new Date().getFullYear()} OKG Building Contracting LLC. All rights reserved. United Arab Emirates.
           </p>
           <p className="text-[11px] font-mono tracking-wide" style={{ color: 'rgba(255,255,255,0.2)' }}>
-            Constructing with discipline, clarity and accountability.
+            Constructing with clarity, discipline and accountability.
           </p>
         </div>
       </div>
