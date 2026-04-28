@@ -117,13 +117,16 @@ export default function Home() {
       ═══════════════════════════════════════════════════════════════════ */}
       <section className="relative overflow-hidden" style={{ background: '#000833', minHeight: '94vh' }}>
 
-        {/* Background image */}
-        <div className="absolute inset-0">
-          <img
+        {/* Background image — slow zoom */}
+        <div className="absolute inset-0 overflow-hidden">
+          <motion.img
             src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80"
             alt="UAE construction site with tower crane and concrete structure"
             className="w-full h-full object-cover object-center"
             style={{ opacity: 0.22 }}
+            initial={{ scale: 1.08 }}
+            animate={{ scale: 1 }}
+            transition={{ duration: 12, ease: 'easeOut' }}
           />
           <div className="absolute inset-0" style={{ background: 'linear-gradient(140deg, rgba(0,8,51,0.97) 0%, rgba(0,16,120,0.88) 55%, rgba(0,8,51,0.96) 100%)' }} />
         </div>
@@ -132,8 +135,14 @@ export default function Home() {
         <div className="absolute inset-0 pointer-events-none"
           style={{ backgroundImage: `linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)`, backgroundSize: '60px 60px', opacity: 0.03 }} />
 
-        {/* Left gold rule */}
-        <div className="absolute left-0 top-0 bottom-0 w-[3px]" style={{ background: 'linear-gradient(to bottom, #F8B858 0%, rgba(248,184,88,0.2) 65%, transparent 100%)' }} />
+        {/* Left gold rule — animated in */}
+        <motion.div
+          className="absolute left-0 top-0 bottom-0 w-[3px]"
+          style={{ background: 'linear-gradient(to bottom, #F8B858 0%, rgba(248,184,88,0.2) 65%, transparent 100%)' }}
+          initial={{ scaleY: 0, originY: 0 }}
+          animate={{ scaleY: 1 }}
+          transition={{ duration: 0.9, ease: 'easeOut', delay: 0.3 }}
+        />
 
         {/* Ambient glow */}
         <div className="absolute top-0 right-0 pointer-events-none" style={{ width: 800, height: 800, background: '#001078', opacity: 0.5, borderRadius: '50%', filter: 'blur(120px)', transform: 'translate(25%,-20%)' }} />
@@ -201,21 +210,23 @@ export default function Home() {
                 </Link>
               </motion.div>
 
-              {/* Trust chips */}
-              <motion.div
-                initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.44 }}
-                className="flex flex-wrap gap-2.5"
-              >
-                {trustBlocks.map((b) => (
-                  <div key={b.label}
+              {/* Trust chips — staggered */}
+              <div className="flex flex-wrap gap-2.5">
+                {trustBlocks.map((b, i) => (
+                  <motion.div
+                    key={b.label}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.44 + i * 0.1, duration: 0.5, ease: 'easeOut' }}
                     className="flex items-center gap-2.5 rounded-xl px-4 py-2.5"
-                    style={{ border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.04)' }}>
+                    style={{ border: '1px solid rgba(255,255,255,0.1)', background: 'rgba(255,255,255,0.04)' }}
+                  >
                     <span className="w-1.5 h-1.5 rounded-full shrink-0" style={{ background: '#F8B858' }} />
                     <span className="text-[12.5px] font-semibold text-white">{b.label}</span>
                     <span className="text-[11.5px]" style={{ color: 'rgba(255,255,255,0.38)' }}>— {b.sub}</span>
-                  </div>
+                  </motion.div>
                 ))}
-              </motion.div>
+              </div>
             </div>
 
             {/* Right — control card */}
@@ -438,16 +449,17 @@ export default function Home() {
             {services.map((s, i) => (
               <motion.div key={i}
                 initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                transition={{ delay: i * 0.07 }}
-                className="group relative rounded-2xl p-8 border border-gray-100/80 cursor-default overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-navy/10 bg-white"
+                transition={{ delay: i * 0.07, duration: 0.55, ease: 'easeOut' }}
+                whileHover={{ y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
+                className="group relative rounded-2xl p-8 border border-gray-100/80 cursor-default overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-navy/12 bg-white"
                 style={{ minHeight: 175 }}>
                 <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: '#001078' }} />
-                <div className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity" style={{ background: '#F8B858' }} />
+                <div className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: '#F8B858' }} />
                 <div className="relative z-10">
-                  <span className="text-[11px] font-mono font-bold block mb-4" style={{ color: '#F8B858' }}>{s.num}</span>
-                  <h3 className="text-[16.5px] font-bold mb-3 leading-snug transition-colors group-hover:text-white" style={{ color: '#001078' }}>{s.title}</h3>
-                  <p className="text-[13px] leading-relaxed transition-colors group-hover:text-white/55" style={{ color: '#6B7280' }}>{s.text}</p>
-                  <div className="mt-5 flex items-center gap-1.5 text-[12px] font-semibold opacity-0 group-hover:opacity-100 transition-opacity" style={{ color: '#F8B858' }}>
+                  <span className="text-[11px] font-mono font-bold block mb-4 transition-colors" style={{ color: '#F8B858' }}>{s.num}</span>
+                  <h3 className="text-[16.5px] font-bold mb-3 leading-snug transition-colors duration-300 group-hover:text-white" style={{ color: '#001078' }}>{s.title}</h3>
+                  <p className="text-[13px] leading-relaxed transition-colors duration-300 group-hover:text-white/55" style={{ color: '#6B7280' }}>{s.text}</p>
+                  <div className="mt-5 flex items-center gap-1.5 text-[12px] font-semibold opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ color: '#F8B858' }}>
                     View capability <ChevronRight className="w-3.5 h-3.5" />
                   </div>
                 </div>
@@ -474,10 +486,11 @@ export default function Home() {
             {pillars.map((p, i) => (
               <motion.div key={i}
                 initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                transition={{ delay: i * 0.1 }}
-                className="relative rounded-2xl p-8 border border-gray-100 hover:shadow-2xl hover:shadow-navy/8 transition-all duration-300 overflow-hidden group"
+                transition={{ delay: i * 0.1, duration: 0.6, ease: 'easeOut' }}
+                whileHover={{ y: -3, transition: { duration: 0.2, ease: 'easeOut' } }}
+                className="relative rounded-2xl p-8 border border-gray-100 hover:border-gray-200 hover:shadow-2xl hover:shadow-navy/8 transition-all duration-300 overflow-hidden group"
                 style={{ background: '#F7F8FB' }}>
-                <div className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity" style={{ background: '#F8B858' }} />
+                <div className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: '#F8B858' }} />
 
                 <div className="flex items-center gap-3 mb-6">
                   <div className="w-11 h-11 rounded-xl flex items-center justify-center shrink-0" style={{ background: '#001078' }}>
@@ -535,10 +548,14 @@ export default function Home() {
       <section className="py-24 md:py-28 relative overflow-hidden" style={{ background: '#001078' }}>
         <div className="absolute inset-0 pointer-events-none"
           style={{ backgroundImage: `linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)`, backgroundSize: '48px 48px', opacity: 0.03 }} />
+        {/* Diagonal grid overlay for premium feel */}
+        <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: `repeating-linear-gradient(45deg, rgba(248,184,88,0.03) 0px, rgba(248,184,88,0.03) 1px, transparent 1px, transparent 40px)` }} />
         <div className="absolute top-0 left-0 right-0 h-[1px]" style={{ background: 'linear-gradient(to right, transparent, rgba(248,184,88,0.45) 40%, rgba(248,184,88,0.45) 60%, transparent)' }} />
+        {/* Gold corner accent */}
+        <div className="absolute top-0 right-0 w-32 h-32 pointer-events-none" style={{ background: 'radial-gradient(circle at top right, rgba(248,184,88,0.12) 0%, transparent 70%)' }} />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionEyebrow label="Project Control" />
+          <SectionEyebrow label="Project Control" light />
           <motion.h2 {...fu} className="font-display text-[32px] md:text-[44px] font-black leading-[1.1] tracking-[-0.02em] text-white mb-4">
             From BOQ to handover, every package needs control.
           </motion.h2>
@@ -546,21 +563,76 @@ export default function Home() {
             OKG's process is built around practical execution control at each stage of a project package.
           </motion.p>
 
-          <div className="relative">
-            <div className="hidden md:block absolute top-5 left-0 right-0 h-px" style={{ background: 'rgba(248,184,88,0.15)' }} />
-            <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4">
+          {/* ── Desktop horizontal timeline ── */}
+          <div className="hidden md:block relative">
+            {/* Horizontal navy line */}
+            <motion.div
+              className="absolute top-[22px] left-[22px] right-[22px] h-[2px]"
+              style={{ background: 'rgba(255,255,255,0.1)' }}
+              initial={{ scaleX: 0, originX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1, ease: 'easeOut', delay: 0.2 }}
+            />
+            {/* Gold progress line */}
+            <motion.div
+              className="absolute top-[22px] left-[22px] h-[2px]"
+              style={{ background: 'linear-gradient(to right, #F8B858, rgba(248,184,88,0.3))', width: 'calc(100% - 44px)' }}
+              initial={{ scaleX: 0, originX: 0 }}
+              whileInView={{ scaleX: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 1.4, ease: 'easeOut', delay: 0.5 }}
+            />
+            <div className="grid grid-cols-8 gap-2">
               {processSteps.map((step, i) => (
                 <motion.div key={i}
-                  initial={{ opacity: 0, y: 18 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
-                  transition={{ delay: i * 0.07 }}
-                  className="relative flex flex-col items-center text-center group">
-                  <div className="w-10 h-10 rounded-xl flex items-center justify-center mb-3 relative z-10 transition-colors duration-200 group-hover:border-gold/40"
-                    style={{ background: i === 0 ? '#F8B858' : 'rgba(255,255,255,0.06)', border: '1px solid rgba(255,255,255,0.1)' }}>
-                    <span className="text-[10px] font-mono font-bold" style={{ color: i === 0 ? '#001078' : '#F8B858' }}>
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: 0.2 + i * 0.08, duration: 0.55, ease: 'easeOut' }}
+                  className="relative flex flex-col items-center text-center group"
+                >
+                  {/* Gold dot */}
+                  <div className="relative z-10 w-11 h-11 rounded-full flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110"
+                    style={{
+                      background: i === 0 ? '#F8B858' : 'rgba(0,16,120,0.6)',
+                      border: `2px solid ${i === 0 ? '#F8B858' : 'rgba(248,184,88,0.4)'}`,
+                      boxShadow: i === 0 ? '0 0 0 6px rgba(248,184,88,0.15)' : 'none',
+                    }}>
+                    <span className="text-[9px] font-mono font-bold leading-none" style={{ color: i === 0 ? '#001078' : '#F8B858' }}>
                       {String(i + 1).padStart(2, '0')}
                     </span>
                   </div>
-                  <p className="text-[11.5px] font-semibold text-white/80">{step}</p>
+                  <p className="text-[11px] font-semibold leading-tight transition-colors duration-200 group-hover:text-white" style={{ color: i === 0 ? '#F8B858' : 'rgba(255,255,255,0.6)' }}>{step}</p>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* ── Mobile vertical timeline ── */}
+          <div className="md:hidden relative pl-8">
+            {/* Vertical line */}
+            <div className="absolute left-[18px] top-0 bottom-0 w-[2px]" style={{ background: 'rgba(255,255,255,0.1)' }} />
+            <div className="space-y-6">
+              {processSteps.map((step, i) => (
+                <motion.div key={i}
+                  initial={{ opacity: 0, x: -16 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: i * 0.06, duration: 0.5, ease: 'easeOut' }}
+                  className="relative flex items-center gap-4"
+                >
+                  {/* Gold dot */}
+                  <div className="absolute -left-8 w-9 h-9 rounded-full flex items-center justify-center shrink-0 z-10"
+                    style={{
+                      background: i === 0 ? '#F8B858' : 'rgba(0,16,120,0.6)',
+                      border: `2px solid ${i === 0 ? '#F8B858' : 'rgba(248,184,88,0.35)'}`,
+                    }}>
+                    <span className="text-[9px] font-mono font-bold" style={{ color: i === 0 ? '#001078' : '#F8B858' }}>
+                      {String(i + 1).padStart(2, '0')}
+                    </span>
+                  </div>
+                  <p className="text-[13.5px] font-semibold" style={{ color: i === 0 ? '#F8B858' : 'rgba(255,255,255,0.7)' }}>{step}</p>
                 </motion.div>
               ))}
             </div>

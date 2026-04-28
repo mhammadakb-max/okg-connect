@@ -30,7 +30,7 @@ export default function Header() {
   const location = useLocation();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 8);
+    const handleScroll = () => setScrolled(window.scrollY > 40);
     window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
@@ -68,12 +68,16 @@ export default function Header() {
 
       {/* Main header */}
       <header
-        className={`sticky top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        className={`sticky top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
             ? 'shadow-lg shadow-navy/10 border-b border-gray-100/80'
-            : 'border-b border-gray-100'
+            : 'border-b border-transparent'
         }`}
-        style={{ background: scrolled ? 'rgba(255,255,255,0.98)' : '#ffffff', backdropFilter: scrolled ? 'blur(12px)' : 'none' }}
+        style={{
+          background: scrolled ? 'rgba(255,255,255,0.98)' : 'rgba(255,255,255,0.0)',
+          backdropFilter: scrolled ? 'blur(16px)' : 'none',
+          WebkitBackdropFilter: scrolled ? 'blur(16px)' : 'none',
+        }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-[68px] md:h-[72px]">
@@ -81,12 +85,12 @@ export default function Header() {
             {/* Logo */}
             <Link to="/" className="flex items-center gap-0 shrink-0 group">
               <div className="flex items-baseline gap-0">
-                <span className="text-[28px] font-black tracking-[-0.03em] leading-none" style={{ color: '#001078' }}>OKG</span>
+                <span className="text-[28px] font-black tracking-[-0.03em] leading-none transition-colors duration-300" style={{ color: scrolled ? '#001078' : '#ffffff' }}>OKG</span>
                 <span className="w-[7px] h-[7px] rounded-full ml-[2px] mb-[2px] group-hover:scale-110 transition-transform duration-200" style={{ background: '#F8B858' }} />
               </div>
-              <div className="ml-3 pl-3 border-l border-gray-200 hidden sm:block">
-                <p className="text-[10px] font-bold tracking-[0.18em] uppercase leading-tight" style={{ color: '#001078' }}>Building</p>
-                <p className="text-[10px] font-bold tracking-[0.18em] uppercase leading-tight" style={{ color: '#6B7280' }}>Contracting</p>
+              <div className="ml-3 pl-3 border-l hidden sm:block transition-colors duration-300" style={{ borderColor: scrolled ? '#e5e7eb' : 'rgba(255,255,255,0.25)' }}>
+                <p className="text-[10px] font-bold tracking-[0.18em] uppercase leading-tight transition-colors duration-300" style={{ color: scrolled ? '#001078' : 'rgba(255,255,255,0.9)' }}>Building</p>
+                <p className="text-[10px] font-bold tracking-[0.18em] uppercase leading-tight transition-colors duration-300" style={{ color: scrolled ? '#6B7280' : 'rgba(255,255,255,0.55)' }}>Contracting</p>
               </div>
             </Link>
 
@@ -101,8 +105,8 @@ export default function Header() {
                     onMouseLeave={() => setDropdownOpen(false)}
                   >
                     <button
-                      className={`flex items-center gap-1.5 px-4 py-2.5 text-[13px] font-medium transition-colors rounded-lg ${
-                        isDropdownActive ? 'text-navy' : 'text-charcoal hover:text-navy'
+                      className={`flex items-center gap-1.5 px-4 py-2.5 text-[13px] font-medium rounded-lg transition-all duration-200 hover:bg-offwhite ${
+                        isDropdownActive ? 'text-navy' : scrolled ? 'text-charcoal hover:text-navy' : 'text-white/85 hover:text-white'
                       }`}
                     >
                       {link.label}
@@ -152,8 +156,8 @@ export default function Header() {
                   <Link
                     key={link.path}
                     to={link.path}
-                    className={`relative px-4 py-2.5 text-[13px] font-medium rounded-lg transition-colors ${
-                      isActive(link.path) ? 'text-navy font-semibold' : 'text-charcoal hover:text-navy'
+                    className={`relative px-4 py-2.5 text-[13px] font-medium rounded-lg transition-all duration-200 hover:bg-offwhite ${
+                      isActive(link.path) ? 'text-navy font-semibold' : scrolled ? 'text-charcoal hover:text-navy' : 'text-white/85 hover:text-white hover:bg-white/10'
                     }`}
                   >
                     {link.label}
@@ -173,8 +177,8 @@ export default function Header() {
             <div className="flex items-center gap-2.5">
               <Link
                 to="/contact"
-                className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-[13px] font-bold rounded-lg transition-all hover:opacity-90 hover:scale-[1.01]"
-                style={{ background: '#001078', color: '#fff' }}
+                className="hidden sm:inline-flex items-center gap-2 px-5 py-2.5 text-[13px] font-bold rounded-lg transition-all duration-300 hover:opacity-90 hover:scale-[1.01]"
+                style={scrolled ? { background: '#001078', color: '#fff' } : { background: '#F8B858', color: '#001078' }}
               >
                 Request Quotation
                 <ArrowRight className="w-3.5 h-3.5" />
@@ -182,19 +186,19 @@ export default function Header() {
 
               {/* Mobile burger */}
               <button
-                className="lg:hidden flex items-center justify-center w-10 h-10 rounded-lg transition-colors"
-                style={{ border: '1.5px solid #e5e7eb' }}
+                className="lg:hidden flex items-center justify-center w-10 h-10 rounded-lg transition-all duration-300"
+                style={{ border: scrolled ? '1.5px solid #e5e7eb' : '1.5px solid rgba(255,255,255,0.3)' }}
                 onClick={() => setMobileOpen(!mobileOpen)}
                 aria-label="Toggle menu"
               >
                 <AnimatePresence mode="wait" initial={false}>
                   {mobileOpen ? (
                     <motion.span key="x" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }}>
-                      <X className="w-5 h-5" style={{ color: '#001078' }} />
+                      <X className="w-5 h-5" style={{ color: scrolled ? '#001078' : '#ffffff' }} />
                     </motion.span>
                   ) : (
                     <motion.span key="menu" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.15 }}>
-                      <Menu className="w-5 h-5" style={{ color: '#001078' }} />
+                      <Menu className="w-5 h-5" style={{ color: scrolled ? '#001078' : '#ffffff' }} />
                     </motion.span>
                   )}
                 </AnimatePresence>

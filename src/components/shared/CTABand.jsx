@@ -12,8 +12,8 @@ export default function CTABand({
   secondaryLink = "/services",
 }) {
   return (
-    <section className="relative overflow-hidden" style={{ background: '#001078' }}>
-      {/* Grid */}
+    <section className="relative overflow-hidden" style={{ background: '#000A4D' }}>
+      {/* Diagonal construction grid pattern */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
@@ -22,6 +22,21 @@ export default function CTABand({
           opacity: 0.025,
         }}
       />
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `repeating-linear-gradient(45deg, rgba(248,184,88,0.04) 0px, rgba(248,184,88,0.04) 1px, transparent 1px, transparent 48px)`,
+        }}
+      />
+
+      {/* Gold corner accents */}
+      <div className="absolute top-0 left-0 w-24 h-24 pointer-events-none" style={{ background: 'radial-gradient(circle at top left, rgba(248,184,88,0.15) 0%, transparent 70%)' }} />
+      <div className="absolute bottom-0 right-0 w-40 h-40 pointer-events-none" style={{ background: 'radial-gradient(circle at bottom right, rgba(248,184,88,0.1) 0%, transparent 70%)' }} />
+      {/* Gold corner lines */}
+      <div className="absolute top-0 left-0 w-16 h-[2px]" style={{ background: '#F8B858', opacity: 0.6 }} />
+      <div className="absolute top-0 left-0 w-[2px] h-16" style={{ background: '#F8B858', opacity: 0.6 }} />
+      <div className="absolute bottom-0 right-0 w-16 h-[2px]" style={{ background: '#F8B858', opacity: 0.4 }} />
+      <div className="absolute bottom-0 right-0 w-[2px] h-16" style={{ background: '#F8B858', opacity: 0.4 }} />
 
       {/* Gold glow */}
       <div className="absolute -top-40 right-0 pointer-events-none" style={{ width: 600, height: 600, background: '#F8B858', opacity: 0.05, borderRadius: '50%', filter: 'blur(80px)' }} />

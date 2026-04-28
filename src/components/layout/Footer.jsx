@@ -34,24 +34,30 @@ const serviceList = [
 
 export default function Footer() {
   return (
-    <footer style={{ background: '#00093a' }} className="text-white relative overflow-hidden">
+    <footer style={{ background: '#000833' }} className="text-white relative overflow-hidden">
 
-      {/* Subtle grid */}
+      {/* Diagonal grid pattern */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage: `linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)`,
           backgroundSize: '48px 48px',
-          opacity: 0.015,
+          opacity: 0.018,
+        }}
+      />
+      <div
+        className="absolute inset-0 pointer-events-none"
+        style={{
+          backgroundImage: `repeating-linear-gradient(45deg, rgba(248,184,88,0.025) 0px, rgba(248,184,88,0.025) 1px, transparent 1px, transparent 56px)`,
         }}
       />
 
       {/* Gold top border */}
-      <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: 'linear-gradient(to right, transparent, #F8B858 30%, #F8B858 70%, transparent)' }} />
+      <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: 'linear-gradient(to right, transparent, #F8B858 25%, #F8B858 75%, transparent)' }} />
 
       {/* Main grid */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-10 lg:gap-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-20 pb-14">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-10">
 
           {/* Brand col */}
           <div className="lg:col-span-4">
