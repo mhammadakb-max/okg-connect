@@ -34,21 +34,15 @@ const serviceList = [
 
 export default function Footer() {
   return (
-    <footer style={{ background: '#000833' }} className="text-white relative overflow-hidden">
+    <footer style={{ background: '#001078' }} className="text-white relative overflow-hidden">
 
-      {/* Diagonal grid pattern */}
+      {/* Subtle grid pattern */}
       <div
         className="absolute inset-0 pointer-events-none"
         style={{
           backgroundImage: `linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)`,
-          backgroundSize: '48px 48px',
-          opacity: 0.018,
-        }}
-      />
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          backgroundImage: `repeating-linear-gradient(45deg, rgba(248,184,88,0.025) 0px, rgba(248,184,88,0.025) 1px, transparent 1px, transparent 56px)`,
+          backgroundSize: '56px 56px',
+          opacity: 0.022,
         }}
       />
 
@@ -86,7 +80,7 @@ export default function Footer() {
             <ul className="space-y-3.5">
               {[
                 { icon: MapPin, val: 'United Arab Emirates' },
-                { icon: Phone, val: '+971 XX XXX XXXX' },
+                { icon: Phone, val: '+971 54 217 1502' },
                 { icon: Mail, val: 'info@okgcontracting.com' },
               ].map(({ icon: Icon, val }) => (
                 <li key={val} className="flex items-center gap-3 text-[13px]" style={{ color: 'rgba(255,255,255,0.45)' }}>

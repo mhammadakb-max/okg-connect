@@ -12,8 +12,10 @@
 
     /* Brand palette */
     --color-navy: 230 100% 24%;         /* #001078 */
+    --color-navy-mid: 229 72% 37%;      /* #182BA3 */
     --color-navy-dark: 231 100% 15%;    /* #000A4D */
     --color-navy-deep: 228 100% 8%;     /* #000833 */
+    --color-navy-tint: 232 100% 97%;    /* #EEF1FF */
     --color-gold: 39 92% 66%;           /* #F8B858 */
     --color-gold-hover: 36 82% 57%;     /* #E6A43F */
     --color-offwhite: 228 33% 97%;      /* #F7F8FB */

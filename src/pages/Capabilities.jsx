@@ -50,8 +50,8 @@ export default function Capabilities() {
             >
               <div className="rounded-2xl overflow-hidden shadow-2xl shadow-navy/12">
                 <img
-                  src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1100&q=80"
-                  alt="Site supervisor reviewing construction drawings and coordinating with project team"
+                  src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1100&q=80"
+                  alt="Construction team reviewing project plans and coordinating site delivery"
                   className="w-full h-[420px] object-cover object-center"
                   loading="lazy"
                 />
@@ -80,7 +80,7 @@ export default function Capabilities() {
       </section>
 
       {/* ─── Execution Process ────────────────────────────────────────────── */}
-      <section className="py-20 md:py-28" style={{ background: '#F7F8FB' }}>
+      <section className="py-20 md:py-28" style={{ background: '#F2F4F8' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionEyebrow label="Execution Process" />
           <motion.h2 {...fu} className="font-display text-3xl md:text-[40px] font-bold leading-[1.18] tracking-[-0.015em] mb-4" style={{ color: '#001078' }}>

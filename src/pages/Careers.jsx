@@ -39,8 +39,8 @@ export default function Careers() {
       {/* Hero image band */}
       <div className="relative h-64 md:h-80 overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=1920&q=80"
-          alt="Construction workers in PPE at UAE building site"
+          src="https://images.unsplash.com/photo-1566041510394-cf7c1b1edc13?w=1920&q=80"
+          alt="Construction professionals in PPE reviewing project plans on site"
           className="w-full h-full object-cover object-center"
           loading="lazy"
         />
@@ -67,7 +67,7 @@ export default function Careers() {
       </section>
 
       {/* Application Form */}
-      <section className="py-20 md:py-28" style={{ background: '#F7F8FB' }}>
+      <section className="py-20 md:py-28" style={{ background: '#F2F4F8' }}>
         <div className="max-w-2xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionEyebrow label="Apply" />
           <motion.h2 {...fu} className="text-3xl md:text-[36px] font-bold leading-[1.2] tracking-[-0.015em] mb-3" style={{ color: '#001078' }}>

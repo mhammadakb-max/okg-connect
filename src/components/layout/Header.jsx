@@ -60,7 +60,7 @@ export default function Header() {
             <div className="flex items-center gap-4">
               <span className="text-[11px] text-white/35 font-mono">info@okgcontracting.com</span>
               <span className="w-px h-3 bg-white/10" />
-              <span className="text-[11px] text-white/35 font-mono">+971 XX XXX XXXX</span>
+              <span className="text-[11px] text-white/35 font-mono">+971 54 217 1502</span>
             </div>
           </div>
         </div>
@@ -320,7 +320,7 @@ export default function Header() {
                   Request a Quotation
                   <ArrowRight className="w-4 h-4" />
                 </Link>
-                <p className="text-center text-[11px] font-mono" style={{ color: '#9CA3AF' }}>+971 XX XXX XXXX · info@okgcontracting.com</p>
+                <p className="text-center text-[11px] font-mono" style={{ color: '#9CA3AF' }}>+971 54 217 1502 · info@okgcontracting.com</p>
               </div>
             </motion.div>
           </>

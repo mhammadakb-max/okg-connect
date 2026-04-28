@@ -339,8 +339,8 @@ export default function Home() {
                 className="relative rounded-2xl overflow-hidden shadow-xl shadow-navy/10 mb-2"
               >
                 <img
-                  src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1100&q=80"
-                  alt="Site supervisor reviewing construction drawings and plans"
+                  src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1100&q=80"
+                  alt="Construction engineer reviewing structural plans at an active UAE project site"
                   className="w-full h-56 object-cover object-center"
                   loading="lazy"
                 />
@@ -354,7 +354,7 @@ export default function Home() {
               {/* Position card */}
               <motion.div {...fu} transition={{ delay: 0.1 }}
                 className="relative rounded-2xl p-7 overflow-hidden border border-gray-100"
-                style={{ background: '#EEF1F6' }}>
+                style={{ background: '#EEF1FF' }}>
                 <div className="absolute left-0 top-0 bottom-0 w-[3px] rounded-l-full" style={{ background: '#F8B858' }} />
                 <p className="text-[10.5px] font-mono font-bold tracking-[0.2em] uppercase mb-3 pl-4" style={{ color: '#F8B858' }}>
                   Our position
@@ -385,24 +385,23 @@ export default function Home() {
 
 
       {/* ═══════════════════════════════════════════════════════════════════
-          DISCOVER OKG — Dark authority section
+          DISCOVER OKG — Light premium section
       ═══════════════════════════════════════════════════════════════════ */}
-      <section className="py-24 md:py-32 relative overflow-hidden" style={{ background: '#000A4D' }}>
+      <section className="py-24 md:py-32 relative overflow-hidden" style={{ background: '#EEF1FF' }}>
+        <div className="absolute top-0 left-0 right-0 h-[2px]" style={{ background: 'linear-gradient(to right, transparent, #F8B858 35%, #F8B858 65%, transparent)', opacity: 0.6 }} />
         <div className="absolute inset-0 pointer-events-none"
-          style={{ backgroundImage: `linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)`, backgroundSize: '48px 48px', opacity: 0.03 }} />
-        <div className="absolute top-0 left-0 right-0 h-[1px]" style={{ background: 'linear-gradient(to right, transparent, rgba(248,184,88,0.5) 40%, rgba(248,184,88,0.5) 60%, transparent)' }} />
-        <div className="absolute bottom-0 left-0 right-0 h-[1px]" style={{ background: 'rgba(255,255,255,0.05)' }} />
+          style={{ backgroundImage: `linear-gradient(rgba(0,16,120,0.06) 1px, transparent 1px), linear-gradient(90deg, rgba(0,16,120,0.06) 1px, transparent 1px)`, backgroundSize: '52px 52px' }} />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-end mb-16">
+          <div className="grid lg:grid-cols-2 gap-10 lg:gap-20 items-end mb-14">
             <div>
               <SectionEyebrow label="Discover OKG" />
-              <motion.h2 {...fu} className="font-display text-[32px] md:text-[44px] font-black leading-[1.1] tracking-[-0.02em] text-white">
+            <motion.h2 {...fu} className="font-display text-[32px] md:text-[44px] font-black leading-[1.1] tracking-[-0.02em]" style={{ color: '#001078' }}>
                 A practical contracting partner for UAE project teams.
               </motion.h2>
             </div>
             <motion.p {...fu} transition={{ delay: 0.1 }}
-              className="text-[15px] leading-[1.9] lg:pb-2" style={{ color: 'rgba(255,255,255,0.52)' }}>
+              className="text-[15px] leading-[1.9] lg:pb-2" style={{ color: '#6B7280' }}>
               OKG supports clients and contractors through disciplined execution, controlled subcontracting, manpower coordination and QHSE-conscious project delivery.
             </motion.p>
           </div>
@@ -412,12 +411,11 @@ export default function Home() {
               <motion.div key={i}
                 initial={{ opacity: 0, y: 24 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}
                 transition={{ delay: i * 0.08 }}
-                className="group relative rounded-2xl p-6 transition-all"
-                style={{ border: '1px solid rgba(255,255,255,0.08)', background: 'rgba(255,255,255,0.035)' }}>
+                className="group relative rounded-2xl p-6 bg-white border border-gray-100 hover:border-gray-200 hover:shadow-xl hover:shadow-navy/8 transition-all duration-300">
                 <div className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity rounded-t-2xl" style={{ background: '#F8B858' }} />
                 <span className="block text-[11px] font-mono font-bold mb-5" style={{ color: '#F8B858' }}>{b.num}</span>
-                <h3 className="text-[15.5px] font-bold mb-3 text-white leading-snug">{b.title}</h3>
-                <p className="text-[13px] leading-relaxed" style={{ color: 'rgba(255,255,255,0.48)' }}>{b.text}</p>
+                <h3 className="text-[15.5px] font-bold mb-3 leading-snug" style={{ color: '#001078' }}>{b.title}</h3>
+                <p className="text-[13px] leading-relaxed" style={{ color: '#6B7280' }}>{b.text}</p>
               </motion.div>
             ))}
           </div>
@@ -428,7 +426,7 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════════════════════
           WHAT WE DO
       ═══════════════════════════════════════════════════════════════════ */}
-      <section className="py-24 md:py-32" style={{ background: '#F7F8FB' }}>
+      <section className="py-24 md:py-32 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-6 mb-14">
             <div>
@@ -453,7 +451,7 @@ export default function Home() {
                 whileHover={{ y: -4, transition: { duration: 0.2, ease: 'easeOut' } }}
                 className="group relative rounded-2xl p-8 border border-gray-100/80 cursor-default overflow-hidden transition-all duration-300 hover:shadow-2xl hover:shadow-navy/12 bg-white"
                 style={{ minHeight: 175 }}>
-                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: '#001078' }} />
+                <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: '#182BA3' }} />
                 <div className="absolute top-0 left-0 right-0 h-[2px] opacity-0 group-hover:opacity-100 transition-opacity duration-300" style={{ background: '#F8B858' }} />
                 <div className="relative z-10">
                   <span className="text-[11px] font-mono font-bold block mb-4 transition-colors" style={{ color: '#F8B858' }}>{s.num}</span>
@@ -511,7 +509,7 @@ export default function Home() {
       {/* ═══════════════════════════════════════════════════════════════════
           COMMITMENTS
       ═══════════════════════════════════════════════════════════════════ */}
-      <section className="py-24 md:py-28" style={{ background: '#EEF1F6' }}>
+      <section className="py-24 md:py-28" style={{ background: '#F2F4F8' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center">
             <div>
@@ -543,19 +541,57 @@ export default function Home() {
 
 
       {/* ═══════════════════════════════════════════════════════════════════
+          QHSE PREVIEW
+      ═══════════════════════════════════════════════════════════════════ */}
+      <section className="py-24 md:py-28 bg-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl shadow-navy/10">
+              <img
+                src="https://images.unsplash.com/photo-1622021142947-da7dedc7c39a?w=1100&q=80"
+                alt="Construction worker in full PPE at UAE project site"
+                className="w-full h-[380px] object-cover object-center"
+                loading="lazy"
+              />
+              <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,16,120,0.5) 0%, transparent 60%)' }} />
+              <div className="absolute bottom-0 left-0 right-0 px-6 py-4 flex items-center gap-3">
+                <span className="w-[3px] h-8 rounded-full shrink-0" style={{ background: '#F8B858' }} />
+                <span className="text-[12px] font-bold tracking-[0.12em] uppercase text-white/90">Safety · Quality · Housekeeping</span>
+              </div>
+            </div>
+            <div>
+              <SectionEyebrow label="QHSE" />
+              <motion.h2 {...fu} className="font-display text-[32px] md:text-[40px] font-black leading-[1.1] tracking-[-0.02em] mb-5" style={{ color: '#001078' }}>
+                Quality, safety and control built into the work.
+              </motion.h2>
+              <motion.p {...fu} transition={{ delay: 0.1 }} className="text-[15px] leading-[1.9] mb-5" style={{ color: '#1E1E1E' }}>
+                Every project should be handled with safety awareness, clean documentation, quality checking, responsible housekeeping and clear reporting.
+              </motion.p>
+              <motion.p {...fu} transition={{ delay: 0.16 }} className="text-[14px] leading-[1.9] mb-8" style={{ color: '#6B7280' }}>
+                OKG's QHSE approach is practical and documented. Safety and quality are treated as core elements of disciplined project delivery, not optional additions.
+              </motion.p>
+              <motion.div {...fu} transition={{ delay: 0.22 }}>
+                <Link to="/qhse"
+                  className="inline-flex items-center gap-2.5 text-[14px] font-bold group"
+                  style={{ color: '#001078' }}>
+                  View QHSE Policies <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </Link>
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ═══════════════════════════════════════════════════════════════════
           PROJECT CONTROL TIMELINE
       ═══════════════════════════════════════════════════════════════════ */}
-      <section className="py-24 md:py-28 relative overflow-hidden" style={{ background: '#001078' }}>
+      <section className="py-24 md:py-28 relative overflow-hidden" style={{ background: '#182BA3' }}>
         <div className="absolute inset-0 pointer-events-none"
-          style={{ backgroundImage: `linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)`, backgroundSize: '48px 48px', opacity: 0.03 }} />
-        {/* Diagonal grid overlay for premium feel */}
-        <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: `repeating-linear-gradient(45deg, rgba(248,184,88,0.03) 0px, rgba(248,184,88,0.03) 1px, transparent 1px, transparent 40px)` }} />
-        <div className="absolute top-0 left-0 right-0 h-[1px]" style={{ background: 'linear-gradient(to right, transparent, rgba(248,184,88,0.45) 40%, rgba(248,184,88,0.45) 60%, transparent)' }} />
-        {/* Gold corner accent */}
-        <div className="absolute top-0 right-0 w-32 h-32 pointer-events-none" style={{ background: 'radial-gradient(circle at top right, rgba(248,184,88,0.12) 0%, transparent 70%)' }} />
+          style={{ backgroundImage: `linear-gradient(rgba(255,255,255,1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,1) 1px, transparent 1px)`, backgroundSize: '52px 52px', opacity: 0.04 }} />
+        <div className="absolute top-0 left-0 right-0 h-[1px]" style={{ background: 'linear-gradient(to right, transparent, rgba(248,184,88,0.5) 40%, rgba(248,184,88,0.5) 60%, transparent)' }} />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <SectionEyebrow label="Project Control" light />
+          <SectionEyebrow label="Project Control" light={true} />
           <motion.h2 {...fu} className="font-display text-[32px] md:text-[44px] font-black leading-[1.1] tracking-[-0.02em] text-white mb-4">
             From BOQ to handover, every package needs control.
           </motion.h2>
@@ -595,8 +631,8 @@ export default function Home() {
                   {/* Gold dot */}
                   <div className="relative z-10 w-11 h-11 rounded-full flex items-center justify-center mb-4 transition-all duration-300 group-hover:scale-110"
                     style={{
-                      background: i === 0 ? '#F8B858' : 'rgba(0,16,120,0.6)',
-                      border: `2px solid ${i === 0 ? '#F8B858' : 'rgba(248,184,88,0.4)'}`,
+                      background: i === 0 ? '#F8B858' : 'rgba(255,255,255,0.12)',
+                      border: `2px solid ${i === 0 ? '#F8B858' : 'rgba(248,184,88,0.45)'}`,
                       boxShadow: i === 0 ? '0 0 0 6px rgba(248,184,88,0.15)' : 'none',
                     }}>
                     <span className="text-[9px] font-mono font-bold leading-none" style={{ color: i === 0 ? '#001078' : '#F8B858' }}>
@@ -625,8 +661,8 @@ export default function Home() {
                   {/* Gold dot */}
                   <div className="absolute -left-8 w-9 h-9 rounded-full flex items-center justify-center shrink-0 z-10"
                     style={{
-                      background: i === 0 ? '#F8B858' : 'rgba(0,16,120,0.6)',
-                      border: `2px solid ${i === 0 ? '#F8B858' : 'rgba(248,184,88,0.35)'}`,
+                      background: i === 0 ? '#F8B858' : 'rgba(255,255,255,0.12)',
+                      border: `2px solid ${i === 0 ? '#F8B858' : 'rgba(248,184,88,0.45)'}`,
                     }}>
                     <span className="text-[9px] font-mono font-bold" style={{ color: i === 0 ? '#001078' : '#F8B858' }}>
                       {String(i + 1).padStart(2, '0')}

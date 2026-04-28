@@ -11,8 +11,10 @@ module.exports = {
       },
       colors: {
         navy: '#001078',
+        'navy-mid': '#182BA3',
         'navy-dark': '#000A4D',
         'navy-deep': '#000833',
+        'navy-tint': '#EEF1FF',
         gold: '#F8B858',
         'gold-hover': '#E6A43F',
         offwhite: '#F7F8FB',

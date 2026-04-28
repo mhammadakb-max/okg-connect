@@ -81,7 +81,7 @@ export default function Services() {
       </section>
 
       {/* ─── Scope Control ───────────────────────────────────────────────── */}
-      <section className="py-20 md:py-28" style={{ background: '#F7F8FB' }}>
+      <section className="py-20 md:py-28" style={{ background: '#F2F4F8' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionEyebrow label="Scope Control" />
           <motion.h2 {...fu} className="font-display text-3xl md:text-[40px] font-bold leading-[1.18] tracking-[-0.015em] mb-4" style={{ color: '#001078' }}>

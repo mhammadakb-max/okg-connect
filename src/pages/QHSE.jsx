@@ -104,7 +104,7 @@ export default function QHSE() {
       </section>
 
       {/* QHSE Standard */}
-      <section className="py-20 md:py-28" style={{ background: '#F7F8FB' }}>
+      <section className="py-20 md:py-28" style={{ background: '#F2F4F8' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             <div>

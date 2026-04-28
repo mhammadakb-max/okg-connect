@@ -12,7 +12,7 @@ export default function CTABand({
   secondaryLink = "/services",
 }) {
   return (
-    <section className="relative overflow-hidden" style={{ background: '#000A4D' }}>
+    <section className="relative overflow-hidden" style={{ background: '#001078' }}>
       {/* Diagonal construction grid pattern */}
       <div
         className="absolute inset-0 pointer-events-none"

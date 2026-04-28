@@ -28,8 +28,8 @@ export default function About() {
       {/* ─── Visual band ─────────────────────────────────────────────────── */}
       <div className="relative h-72 md:h-96 overflow-hidden">
         <img
-          src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80"
-          alt="UAE construction site with active building works and cranes"
+          src="https://images.unsplash.com/photo-1590735213920-68192a487bc2?w=1920&q=80"
+          alt="Active UAE construction site with building structure and crane"
           className="w-full h-full object-cover object-center"
           loading="lazy"
         />
@@ -61,8 +61,8 @@ export default function About() {
               className="relative rounded-2xl overflow-hidden shadow-2xl shadow-navy/12 mb-6"
             >
               <img
-                src="https://images.unsplash.com/photo-1590736704728-f4730bb30770?w=1100&q=80"
-                alt="Construction engineer reviewing project plans and documentation"
+                src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=1100&q=80"
+                alt="Site supervisor reviewing construction drawings and project documentation"
                 className="w-full h-60 object-cover object-center"
                 loading="lazy"
               />
@@ -76,8 +76,7 @@ export default function About() {
             <motion.div
               {...fu}
               transition={{ delay: 0.2 }}
-              className="relative rounded-2xl overflow-hidden border border-gray-100"
-              style={{ background: '#F7F8FB' }}
+              className="relative rounded-2xl overflow-hidden border border-gray-100 bg-white"
             >
               <div className="absolute left-0 top-0 bottom-0 w-1" style={{ background: '#F8B858' }} />
               <div className="p-8 md:p-10 pl-10">
@@ -97,7 +96,7 @@ export default function About() {
       </section>
 
       {/* ─── Values ──────────────────────────────────────────────────────── */}
-      <section className="py-20 md:py-28" style={{ background: '#F7F8FB' }}>
+      <section className="py-20 md:py-28" style={{ background: '#F2F4F8' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <SectionEyebrow label="Core Values" />
           <motion.h2 {...fu} className="font-display text-3xl md:text-[40px] font-bold leading-[1.18] tracking-[-0.015em] mb-12" style={{ color: '#001078' }}>
