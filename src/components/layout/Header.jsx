@@ -147,11 +147,12 @@ export default function Header() {
                               style={{
                                 color: isActive(child.path) ? '#1A237E' : '#5B6494',
                                 background: isActive(child.path) ? '#E4EAFA' : 'transparent',
-...
+                                fontWeight: isActive(child.path) ? 600 : 400,
+                              }}
                               onMouseEnter={(e) => { if (!isActive(child.path)) { e.currentTarget.style.background = '#EEF2FA'; e.currentTarget.style.color = '#1A237E'; } }}
                               onMouseLeave={(e) => { if (!isActive(child.path)) { e.currentTarget.style.background = 'transparent'; e.currentTarget.style.color = '#5B6494'; } }}
                             >
-                              <span className="w-1 h-1 rounded-full shrink-0" style={{ background: '#6E85E8' }} />
+                              <span className="w-1 h-1 rounded-full shrink-0" style={{ background: '#F9A825' }} />
                               {child.label}
                             </Link>
                           ))}
