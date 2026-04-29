@@ -614,9 +614,9 @@ export default function Home() {
               { src: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80', alt: 'Construction site overview' },
               { src: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80', alt: 'Construction workers on site' },
               { src: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80', alt: 'Steel structure construction' },
-              { src: 'https://images.unsplash.com/photo-1590274853856-f22d5ee3d228?w=800&q=80', alt: 'Building construction progress' },
-              { src: 'https://images.unsplash.com/photo-1567093676748-c592a2b75a89?w=800&q=80', alt: 'Construction scaffolding' },
-              { src: 'https://images.unsplash.com/photo-1429497419816-9ca5cfb4571a?w=800&q=80', alt: 'Concrete pouring on site' },
+              { src: 'https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?w=800&q=80', alt: 'Construction site cranes' },
+              { src: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80', alt: 'Construction workers on scaffold' },
+              { src: 'https://images.unsplash.com/photo-1590674899484-d5640e854abe?w=800&q=80', alt: 'Concrete foundation works' },
             ].map((img, idx) => (
               <motion.div
                 key={idx}
@@ -725,10 +725,10 @@ export default function Home() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { label: 'Residential', img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80' },
-              { label: 'Commercial', img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80' },
-              { label: 'Industrial', img: 'https://images.unsplash.com/photo-1565793979965-06d5e4f08c8c?w=600&q=80' },
-              { label: 'Infrastructure', img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80' },
+              { label: 'Residential', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80' },
+              { label: 'Commercial', img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80' },
+              { label: 'Industrial', img: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&q=80' },
+              { label: 'Infrastructure', img: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&q=80' },
             ].map((sector, idx) => (
               <motion.div
                 key={idx}
