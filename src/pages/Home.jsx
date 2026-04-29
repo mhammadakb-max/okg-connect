@@ -4,6 +4,7 @@ import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import CTABand from '@/components/shared/CTABand';
 import PremiumHomeHero from '@/components/home/PremiumHomeHero';
+import PremiumDateClockWidget from '@/components/home/PremiumDateClockWidget';
 import ValueCard from '@/components/shared/ValueCard';
 import ChecklistItem from '@/components/shared/ChecklistItem';
 import SectionEyebrow from '@/components/shared/SectionEyebrow';
@@ -56,6 +57,7 @@ export default function Home() {
     <main className="home-premium">
       {/* Hero */}
       <PremiumHomeHero image={PHOTOS.hero} />
+      <PremiumDateClockWidget />
 
       {/* About */}
       <section className="bg-gray-50 border-t border-gray-200 py-20 md:py-28">
