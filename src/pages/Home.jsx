@@ -46,26 +46,44 @@ export default function Home() {
       <section className="bg-white py-20 md:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-            >
-              <div className="flex items-center gap-2 mb-4">
+            <div>
+              <motion.div
+                initial={{ opacity: 0, y: 10 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="flex items-center gap-2 mb-4"
+              >
                 <span className="w-1 h-1 rounded-full" style={{ backgroundColor: '#F8B858' }} />
                 <span className="text-xs font-bold tracking-widest uppercase" style={{ color: '#001078' }}>
                   UAE Construction Partner
                 </span>
-              </div>
+              </motion.div>
 
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight" style={{ color: '#001078' }}>
+              <motion.h1
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1, duration: 0.6 }}
+                className="text-4xl md:text-5xl font-bold mb-6 leading-tight"
+                style={{ color: '#001078' }}
+              >
                 Constructing with discipline, clarity and control.
-              </h1>
+              </motion.h1>
 
-              <p className="text-lg text-text-secondary mb-8 leading-relaxed max-w-xl">
+              <motion.p
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.6 }}
+                className="text-lg text-text-secondary mb-8 leading-relaxed max-w-xl"
+              >
                 OKG Building Contracting delivers civil, masonry, plastering, concrete, steel fixing, shuttering, fit-out and finishing support for projects across the UAE. We work with clients, contractors and project teams that require clear scope alignment, responsible mobilisation, daily site supervision, documentation control and transparent delivery.
-              </p>
+              </motion.p>
 
-              <div className="flex flex-wrap gap-3">
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.5 }}
+                className="flex flex-wrap gap-3"
+              >
                 <Link
                   to="/contact"
                   className="inline-flex items-center gap-2 px-6 py-3 text-white font-semibold rounded-md transition-opacity hover:opacity-90"
@@ -81,16 +99,21 @@ export default function Home() {
                 >
                   Explore Services
                 </Link>
-              </div>
-            </motion.div>
+              </motion.div>
+            </div>
 
             <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.1 }}
-              className="relative h-96 bg-gray-100 rounded-lg overflow-hidden"
+              initial={{ opacity: 0, scale: 0.96 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.2, duration: 0.6 }}
+              className="relative h-96 rounded-xl overflow-hidden shadow-xl"
             >
-              {/* Construction site hero image */}
+              <img
+                src="https://images.unsplash.com/photo-1590274853856-f22d5ee3d228?w=800&q=80"
+                alt="Construction site UAE"
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-navy/30 to-transparent" />
             </motion.div>
           </div>
 
@@ -123,9 +146,19 @@ export default function Home() {
       <section className="bg-gray-50 border-t border-gray-200 py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="relative h-96 bg-white rounded-lg overflow-hidden">
-              {/* Construction work execution image */}
-            </div>
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative h-96 rounded-xl overflow-hidden shadow-lg"
+            >
+              <img
+                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
+                alt="Construction workers on site"
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}

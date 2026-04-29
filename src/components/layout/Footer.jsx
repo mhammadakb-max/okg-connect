@@ -71,7 +71,7 @@ export default function Footer() {
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className="text-sm text-text-secondary hover:text-navy transition-colors"
+                    className="text-sm text-text-secondary hover:text-text-primary transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -88,7 +88,7 @@ export default function Footer() {
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className="text-sm text-text-secondary hover:text-navy transition-colors"
+                    className="text-sm text-text-secondary hover:text-text-primary transition-colors"
                   >
                     {link.label}
                   </Link>
