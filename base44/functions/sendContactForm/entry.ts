@@ -47,14 +47,23 @@ Deno.serve(async (req) => {
       status: 'new',
     });
 
-    await base44.asServiceRole.integrations.Core.SendEmail({
-      to: recipientEmail,
-      subject: `New OKG ${submissionType} from ${name}`,
-      body: formattedMessage,
-      from_name: 'OKG Website',
-    });
+    let emailSent = true;
+    let emailError = null;
 
-    return Response.json({ success: true });
+    try {
+      await base44.asServiceRole.integrations.Core.SendEmail({
+        to: recipientEmail,
+        subject: `New OKG ${submissionType} from ${name}`,
+        body: formattedMessage,
+        from_name: 'OKG Website',
+      });
+    } catch (error) {
+      emailSent = false;
+      emailError = error.message;
+      console.error('Submission saved, but email delivery failed:', error.message);
+    }
+
+    return Response.json({ success: true, email_sent: emailSent, email_error: emailError });
   } catch (error) {
     return Response.json({ error: error.message }, { status: 500 });
   }

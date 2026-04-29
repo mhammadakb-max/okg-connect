@@ -20,6 +20,7 @@ export default function QuotationForm() {
   const [formData, setFormData] = useState(initialFormData);
   const [submitted, setSubmitted] = useState(false);
   const [submitting, setSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -28,11 +29,18 @@ export default function QuotationForm() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
-    await base44.functions.invoke('sendContactForm', { ...formData, formType: 'quotation' });
-    setFormData(initialFormData);
-    setSubmitted(true);
-    setSubmitting(false);
-    setTimeout(() => setSubmitted(false), 5000);
+    setErrorMessage('');
+
+    try {
+      await base44.functions.invoke('sendContactForm', { ...formData, formType: 'quotation' });
+      setFormData(initialFormData);
+      setSubmitted(true);
+      setTimeout(() => setSubmitted(false), 5000);
+    } catch (error) {
+      setErrorMessage('Submission failed. Please try again or contact OKG directly.');
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -103,6 +111,12 @@ export default function QuotationForm() {
           style={{ '--tw-ring-color': '#F8B858' }}
         />
       </div>
+
+      {errorMessage && (
+        <p className="rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
+          {errorMessage}
+        </p>
+      )}
 
       <button type="submit" disabled={submitting} className="w-full py-3 text-white font-semibold rounded-md transition-opacity hover:opacity-90 disabled:opacity-60" style={{ backgroundColor: '#001078' }}>
         {submitting ? 'Sending Request...' : 'Submit Quotation Request'}
