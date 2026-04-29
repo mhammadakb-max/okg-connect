@@ -60,7 +60,7 @@ export default function AgileMethodologySection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: idx * 0.06 }}
-              className="bg-gray-50 border border-gray-200 rounded-lg p-6"
+              className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
             >
               <div className="text-2xl font-bold mb-3" style={{ color: '#F8B858' }}>{String(idx + 1).padStart(2, '0')}</div>
               <h3 className="text-lg font-bold mb-2" style={{ color: '#001078' }}>{stage.title}</h3>

@@ -12,13 +12,14 @@ export default function CTABand({
   secondaryLink = "/services",
 }) {
   return (
-    <section className="bg-white border-t border-gray-200 py-20 md:py-28">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <section className="relative overflow-hidden bg-white border-t border-gray-200 py-20 md:py-28">
+      <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(0,16,120,0.06),transparent_45%),radial-gradient(circle_at_bottom_right,rgba(248,184,88,0.18),transparent_34%)]" />
+      <div className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.h2
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          className="text-3xl md:text-4xl font-bold mb-4 leading-tight"
+          className="text-3xl md:text-5xl font-extrabold mb-4 leading-tight tracking-tight"
           style={{ color: '#001078' }}
         >
           {heading}

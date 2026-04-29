@@ -8,7 +8,8 @@ export default function ValueCard({ icon: Icon, title, text, index = 0 }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
-      className="bg-white border border-gray-200 rounded-lg p-6 hover:shadow-md transition-shadow"
+      whileHover={{ y: -4 }}
+      className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-xl transition-shadow duration-300"
     >
       {Icon && (
         <div className="w-10 h-10 rounded-md flex items-center justify-center mb-4" style={{ backgroundColor: '#F8B858' }}>

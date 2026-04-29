@@ -49,7 +49,7 @@ export default function Services() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.05 }}
-                className="bg-gray-50 border border-gray-200 rounded-lg p-8"
+                className="bg-white border border-gray-200 rounded-xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="text-3xl font-bold mb-4" style={{ color: '#F8B858' }}>
                   {service.num}

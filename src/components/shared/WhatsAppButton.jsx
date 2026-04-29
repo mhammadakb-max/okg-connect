@@ -10,8 +10,8 @@ export default function WhatsAppButton() {
       rel="noopener noreferrer"
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
-      transition={{ delay: 1.5, duration: 0.4 }}
-      whileHover={{ scale: 1.1 }}
+      transition={{ delay: 1.2, duration: 0.45, ease: 'easeOut' }}
+      whileHover={{ scale: 1.08, y: -3 }}
       whileTap={{ scale: 0.95 }}
       className="fixed bottom-6 right-6 z-50 flex items-center gap-2 px-4 py-3 rounded-full shadow-lg text-white font-semibold text-sm"
       style={{ backgroundColor: '#25D366' }}

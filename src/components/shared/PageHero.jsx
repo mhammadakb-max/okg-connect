@@ -5,8 +5,15 @@ import { ArrowRight, ChevronRight } from 'lucide-react';
 
 export default function PageHero({ title, intro, eyebrow, ctaLabel, ctaLink, breadcrumb }) {
   return (
-    <section className="bg-white border-b border-gray-200 py-16 md:py-24">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative overflow-hidden bg-white border-b border-gray-200 py-20 md:py-28">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(248,184,88,0.16),transparent_34%),linear-gradient(135deg,rgba(0,16,120,0.06),transparent_52%)]" />
+      <motion.div
+        initial={{ opacity: 0, scale: 0.96 }}
+        animate={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+        className="absolute right-[-6rem] top-[-6rem] h-72 w-72 rounded-full border border-gold/30"
+      />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Breadcrumb */}
         {breadcrumb && (
           <motion.div
@@ -26,7 +33,7 @@ export default function PageHero({ title, intro, eyebrow, ctaLabel, ctaLink, bre
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.15 }}
-          className="text-4xl md:text-5xl font-bold mb-5 leading-tight max-w-2xl"
+          className="text-4xl md:text-6xl font-extrabold mb-5 leading-tight tracking-tight max-w-3xl"
           style={{ color: '#001078' }}
         >
           {title}
@@ -37,7 +44,7 @@ export default function PageHero({ title, intro, eyebrow, ctaLabel, ctaLink, bre
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-lg text-text-secondary max-w-2xl mb-8 leading-relaxed"
+            className="text-lg md:text-xl text-text-secondary max-w-3xl mb-8 leading-relaxed"
           >
             {intro}
           </motion.p>

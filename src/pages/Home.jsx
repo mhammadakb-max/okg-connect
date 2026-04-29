@@ -35,19 +35,19 @@ const steps = [
 
 // Construction images via Unsplash with auto format for CDN reliability
 const PHOTOS = {
-  hero:    'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80',
-  about:   'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80',
-  whyOkg:  'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80',
-  g1:      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80',
-  g2:      'https://images.unsplash.com/photo-1523413363574-c07aa9e08498?auto=format&fit=crop&w=800&q=80',
-  g3:      'https://images.unsplash.com/photo-1590274853856-f22d5ee3d228?auto=format&fit=crop&w=800&q=80',
-  g4:      'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80',
-  g5:      'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80',
-  g6:      'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80',
-  s1:      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80',
-  s2:      'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=600&q=80',
-  s3:      'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=600&q=80',
-  s4:      'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80',
+  hero:    'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=85',
+  about:   'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1000&q=85',
+  whyOkg:  'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=1000&q=85',
+  g1:      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=900&q=85',
+  g2:      'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=900&q=85',
+  g3:      'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=900&q=85',
+  g4:      'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=900&q=85',
+  g5:      'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=85',
+  g6:      'https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=85',
+  s1:      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=700&q=85',
+  s2:      'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=700&q=85',
+  s3:      'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=700&q=85',
+  s4:      'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=700&q=85',
 };
 
 export default function Home() {
@@ -62,7 +62,7 @@ export default function Home() {
                 <span className="w-1 h-1 rounded-full" style={{ backgroundColor: '#F8B858' }} />
                 <span className="text-xs font-bold tracking-widest uppercase" style={{ color: '#001078' }}>UAE Construction Partner</span>
               </div>
-              <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight" style={{ color: '#001078' }}>
+              <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight tracking-tight" style={{ color: '#001078' }}>
                 Constructing with discipline, clarity and control.
               </h1>
               <p className="text-lg text-text-secondary mb-8 leading-relaxed max-w-xl">
@@ -78,7 +78,7 @@ export default function Home() {
               </div>
             </motion.div>
 
-            <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2, duration: 0.6 }} className="relative h-96 rounded-xl overflow-hidden shadow-xl">
+            <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2, duration: 0.7, ease: 'easeOut' }} whileHover={{ y: -6 }} className="relative h-96 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/5">
               <img src={PHOTOS.hero} alt="Construction site UAE" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-navy/30 to-transparent" />
             </motion.div>
@@ -139,7 +139,7 @@ export default function Home() {
           </motion.div>
           <div className="grid md:grid-cols-3 gap-8">
             {services.map((service, idx) => (
-              <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.05 }} className="bg-white border border-gray-200 rounded-lg p-6">
+              <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.05 }} className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                 <div className="text-2xl font-bold mb-3" style={{ color: '#F8B858' }}>{service.num}</div>
                 <h3 className="text-lg font-bold mb-2" style={{ color: '#001078' }}>{service.title}</h3>
                 <p className="text-sm text-text-secondary">{service.text}</p>
@@ -164,7 +164,7 @@ export default function Home() {
           </motion.div>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {capabilities.map((cap, idx) => (
-              <motion.div key={idx} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.05 }} className="bg-gray-50 border border-gray-200 rounded-lg p-6 text-center">
+              <motion.div key={idx} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.05 }} className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1 text-center">
                 <p className="font-semibold text-sm" style={{ color: '#001078' }}>{cap}</p>
               </motion.div>
             ))}
@@ -182,7 +182,7 @@ export default function Home() {
           </motion.div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {steps.map((step, idx) => (
-              <motion.div key={idx} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.05 }} className="bg-white border border-gray-200 rounded-lg p-6">
+              <motion.div key={idx} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.05 }} className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                 <div className="text-2xl font-bold mb-3" style={{ color: '#F8B858' }}>{step.num}</div>
                 <h3 className="text-lg font-bold mb-2" style={{ color: '#001078' }}>{step.title}</h3>
                 <p className="text-sm text-text-secondary">{step.desc}</p>
@@ -237,7 +237,7 @@ export default function Home() {
               { title: 'Environmental Responsibility', desc: 'Waste management, pollution control, site housekeeping and resource efficiency.' },
               { title: 'Subcontractor Control', desc: 'Vendor qualification, QHSE compliance verification and performance monitoring.' },
             ].map((item, idx) => (
-              <motion.div key={idx} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.05 }} className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <motion.div key={idx} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.05 }} className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                 <div className="w-1 h-4 rounded-full mb-4" style={{ backgroundColor: '#F8B858' }} />
                 <h3 className="text-lg font-bold mb-2" style={{ color: '#001078' }}>{item.title}</h3>
                 <p className="text-sm text-text-secondary leading-relaxed">{item.desc}</p>

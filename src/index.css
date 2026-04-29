@@ -50,13 +50,17 @@
     font-family: 'Manrope', sans-serif;
     font-size: 16px;
     line-height: 1.6;
-    background-color: #F7F8FB;
+    background: linear-gradient(180deg, #FFFFFF 0%, #F7F8FB 42%, #FFFFFF 100%);
     color: #1E1E1E;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
   html {
     scroll-behavior: smooth;
+  }
+  ::selection {
+    background: #F8B858;
+    color: #001078;
   }
 }
 

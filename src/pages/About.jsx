@@ -84,10 +84,11 @@ export default function About() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="relative h-96 bg-white rounded-lg overflow-hidden"
+              whileHover={{ y: -6 }}
+              className="relative h-96 bg-white rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/5"
             >
               <img
-                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80"
+                src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=900&q=85"
                 alt="OKG Construction Site"
                 className="w-full h-full object-cover"
               />

@@ -61,7 +61,7 @@ export default function Capabilities() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.05 }}
-                className="bg-gray-50 border border-gray-200 rounded-lg p-6 text-center"
+                className="bg-white border border-gray-200 rounded-xl p-6 text-center shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
                 <p className="font-semibold text-sm" style={{ color: '#001078' }}>
                   {cap}
@@ -95,7 +95,7 @@ export default function Capabilities() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.05 }}
-                className="bg-white border border-gray-200 rounded-lg p-6"
+                className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="text-sm font-bold mb-3" style={{ color: '#F8B858' }}>
                   {item.step}

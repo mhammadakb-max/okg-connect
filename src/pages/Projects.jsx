@@ -38,10 +38,11 @@ export default function Projects() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="relative h-96 bg-gray-100 rounded-lg overflow-hidden"
+              whileHover={{ y: -6 }}
+              className="relative h-96 bg-gray-100 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/5"
             >
               <img
-                src="https://images.unsplash.com/photo-1581092918056-0c4c3acd3789?w=600&h=600&fit=crop"
+                src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=85"
                 alt="Project execution"
                 className="w-full h-full object-cover"
               />
@@ -110,7 +111,7 @@ export default function Projects() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.05 }}
-                className="bg-white border border-gray-200 rounded-lg p-6"
+                className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
                 <h3 className="text-base font-bold mb-2" style={{ color: '#001078' }}>
                   {item.title}

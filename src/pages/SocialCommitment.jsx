@@ -57,7 +57,7 @@ export default function SocialCommitment() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.05 }}
-                className="bg-gray-50 border border-gray-200 rounded-lg p-8"
+                className="bg-white border border-gray-200 rounded-xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
               >
                 <div className="w-1 h-6 rounded-full mb-4" style={{ backgroundColor: '#F8B858' }} />
                 <h3 className="text-lg font-bold mb-3" style={{ color: '#001078' }}>
