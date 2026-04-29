@@ -46,44 +46,26 @@ export default function Home() {
       <section className="bg-white py-20 md:py-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <motion.div
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5 }}
-                className="flex items-center gap-2 mb-4"
-              >
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+            >
+              <div className="flex items-center gap-2 mb-4">
                 <span className="w-1 h-1 rounded-full" style={{ backgroundColor: '#F8B858' }} />
                 <span className="text-xs font-bold tracking-widest uppercase" style={{ color: '#001078' }}>
                   UAE Construction Partner
                 </span>
-              </motion.div>
+              </div>
 
-              <motion.h1
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.1, duration: 0.6 }}
-                className="text-4xl md:text-5xl font-bold mb-6 leading-tight"
-                style={{ color: '#001078' }}
-              >
+              <h1 className="text-4xl md:text-5xl font-bold mb-6 leading-tight" style={{ color: '#001078' }}>
                 Constructing with discipline, clarity and control.
-              </motion.h1>
+              </h1>
 
-              <motion.p
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.2, duration: 0.6 }}
-                className="text-lg text-text-secondary mb-8 leading-relaxed max-w-xl"
-              >
+              <p className="text-lg text-text-secondary mb-8 leading-relaxed max-w-xl">
                 OKG Building Contracting delivers civil, masonry, plastering, concrete, steel fixing, shuttering, fit-out and finishing support for projects across the UAE. We work with clients, contractors and project teams that require clear scope alignment, responsible mobilisation, daily site supervision, documentation control and transparent delivery.
-              </motion.p>
+              </p>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.3, duration: 0.5 }}
-                className="flex flex-wrap gap-3"
-              >
+              <div className="flex flex-wrap gap-3">
                 <Link
                   to="/contact"
                   className="inline-flex items-center gap-2 px-6 py-3 text-white font-semibold rounded-md transition-opacity hover:opacity-90"
@@ -99,21 +81,16 @@ export default function Home() {
                 >
                   Explore Services
                 </Link>
-              </motion.div>
-            </div>
+              </div>
+            </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, scale: 0.96 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.2, duration: 0.6 }}
-              className="relative h-96 rounded-xl overflow-hidden shadow-xl"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.1 }}
+              className="relative h-96 bg-gray-100 rounded-lg overflow-hidden"
             >
-              <img
-                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
-                alt="Construction site UAE"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy/30 to-transparent" />
+              {/* Construction site hero image */}
             </motion.div>
           </div>
 
@@ -146,19 +123,9 @@ export default function Home() {
       <section className="bg-gray-50 border-t border-gray-200 py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative h-96 rounded-xl overflow-hidden shadow-lg"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80"
-                alt="Construction workers on site"
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
+            <div className="relative h-96 bg-white rounded-lg overflow-hidden">
+              {/* Construction work execution image */}
+            </div>
 
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -561,195 +528,6 @@ export default function Home() {
               View projects <ArrowRight className="w-4 h-4" />
             </Link>
           </motion.div>
-        </div>
-      </section>
-
-      {/* Stats Banner */}
-      <section className="py-16 md:py-20" style={{ backgroundColor: '#001078' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[
-              { stat: '10+', label: 'Years of Experience' },
-              { stat: '200+', label: 'Projects Completed' },
-              { stat: '500+', label: 'Skilled Workers Deployed' },
-              { stat: '100%', label: 'Commitment to Quality' },
-            ].map((item, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.1 }}
-              >
-                <div className="text-4xl md:text-5xl font-bold mb-2" style={{ color: '#F8B858' }}>
-                  {item.stat}
-                </div>
-                <p className="text-sm font-medium text-white/80">{item.label}</p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Photo Gallery */}
-      <section className="bg-white border-t border-gray-200 py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-2xl mb-12"
-          >
-            <SectionEyebrow label="On-Site Work" />
-            <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: '#001078' }}>
-              Construction executed with precision.
-            </h2>
-            <p className="text-lg text-text-secondary">
-              From structural works to finishing, every phase is managed, supervised and documented to meet client expectations.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-            {[
-              { src: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80', alt: 'Construction site overview' },
-              { src: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80', alt: 'Construction workers on site' },
-              { src: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80', alt: 'Steel structure construction' },
-              { src: 'https://images.unsplash.com/photo-1565008576549-57569a49371d?w=800&q=80', alt: 'Construction site cranes' },
-              { src: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80', alt: 'Construction workers on scaffold' },
-              { src: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80', alt: 'Concrete foundation works' },
-            ].map((img, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, scale: 0.97 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.07 }}
-                className="relative h-56 rounded-xl overflow-hidden group"
-              >
-                <img
-                  src={img.src}
-                  alt={img.alt}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Why OKG */}
-      <section className="bg-gray-50 border-t border-gray-200 py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <SectionEyebrow label="Why OKG" />
-              <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: '#001078' }}>
-                A contractor that works the way you need it to.
-              </h2>
-              <p className="text-lg text-text-secondary mb-8 leading-relaxed">
-                OKG was built to address a gap in the UAE market — the need for a contracting partner that is structured, communicative and accountable. We don't overpromise. We define the scope, price it clearly, mobilise responsibly and manage the site daily.
-              </p>
-              <div className="space-y-4">
-                {[
-                  'Clear proposals with itemised scope and pricing',
-                  'Dedicated site supervisor on every project',
-                  'Real-time progress updates and photo documentation',
-                  'Strict QHSE compliance from day one',
-                  'Transparent variation and change management',
-                  'Professional handover documentation',
-                ].map((point, idx) => (
-                  <ChecklistItem key={idx} text={point} index={idx} />
-                ))}
-              </div>
-              <div className="mt-10">
-                <Link
-                  to="/contact"
-                  className="inline-flex items-center gap-2 px-6 py-3 text-white font-semibold rounded-md transition-opacity hover:opacity-90"
-                  style={{ backgroundColor: '#001078' }}
-                >
-                  Get in touch <ArrowRight className="w-4 h-4" />
-                </Link>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative h-[480px] rounded-xl overflow-hidden shadow-xl"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80"
-                alt="Construction site management"
-                className="w-full h-full object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy/30 to-transparent" />
-              <div className="absolute bottom-6 left-6 right-6">
-                <div className="bg-white/95 backdrop-blur-sm rounded-lg p-5 shadow-lg">
-                  <p className="text-sm font-semibold mb-1" style={{ color: '#001078' }}>
-                    "Structure. Supervision. Accountability."
-                  </p>
-                  <p className="text-xs text-text-secondary">
-                    OKG's core operating standard on every project.
-                  </p>
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Sectors We Serve */}
-      <section className="bg-white border-t border-gray-200 py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-2xl mx-auto text-center mb-14"
-          >
-            <SectionEyebrow label="Sectors" />
-            <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: '#001078' }}>
-              Active across key UAE construction sectors.
-            </h2>
-            <p className="text-lg text-text-secondary">
-              OKG supports projects across residential, commercial, industrial and infrastructure sectors throughout the UAE.
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
-            {[
-              { label: 'Residential', img: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80' },
-              { label: 'Commercial', img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80' },
-              { label: 'Industrial', img: 'https://images.unsplash.com/photo-1565008576549-57569a49371d?w=600&q=80' },
-              { label: 'Infrastructure', img: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&q=80' },
-            ].map((sector, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.08 }}
-                className="relative h-48 rounded-xl overflow-hidden group"
-              >
-                <img
-                  src={sector.img}
-                  alt={sector.label}
-                  className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
-                />
-                <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,16,120,0.75), rgba(0,16,120,0.1))' }} />
-                <div className="absolute bottom-4 left-4">
-                  <span className="text-white font-bold text-sm">{sector.label}</span>
-                </div>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
