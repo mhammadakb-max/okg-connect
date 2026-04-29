@@ -614,9 +614,9 @@ export default function Home() {
               { src: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80', alt: 'Construction site overview' },
               { src: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80', alt: 'Construction workers on site' },
               { src: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80', alt: 'Steel structure construction' },
-              { src: 'https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?w=800&q=80', alt: 'Construction site cranes' },
+              { src: 'https://images.unsplash.com/photo-1565008576549-57569a49371d?w=800&q=80', alt: 'Construction site cranes' },
               { src: 'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80', alt: 'Construction workers on scaffold' },
-              { src: 'https://images.unsplash.com/photo-1590674899484-d5640e854abe?w=800&q=80', alt: 'Concrete foundation works' },
+              { src: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80', alt: 'Concrete foundation works' },
             ].map((img, idx) => (
               <motion.div
                 key={idx}
@@ -725,9 +725,9 @@ export default function Home() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { label: 'Residential', img: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80' },
+              { label: 'Residential', img: 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=600&q=80' },
               { label: 'Commercial', img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80' },
-              { label: 'Industrial', img: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&q=80' },
+              { label: 'Industrial', img: 'https://images.unsplash.com/photo-1565008576549-57569a49371d?w=600&q=80' },
               { label: 'Infrastructure', img: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&q=80' },
             ].map((sector, idx) => (
               <motion.div
