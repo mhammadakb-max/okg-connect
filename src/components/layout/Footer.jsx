@@ -10,8 +10,6 @@ const quickLinks = [
   { label: 'Projects', path: '/projects' },
   { label: 'Careers', path: '/careers' },
   { label: 'Subcontractors', path: '/subcontractor-portal' },
-  { label: 'Subcontractor Admin', path: '/admin/subcontractors' },
-  { label: 'Contact Admin', path: '/admin/contact-submissions' },
   { label: 'Contact', path: '/contact' },
 ];
 

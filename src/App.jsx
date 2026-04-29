@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
+import ProtectedAdminRoute from './components/ProtectedAdminRoute';
 
 import Layout from './components/layout/Layout';
 import ScrollToTop from './components/layout/ScrollToTop';
@@ -61,8 +62,10 @@ const AuthenticatedApp = () => {
         <Route path="/projects" element={<Projects />} />
         <Route path="/careers" element={<Careers />} />
         <Route path="/subcontractor-portal" element={<SubcontractorPortal />} />
-        <Route path="/admin/subcontractors" element={<AdminSubcontractors />} />
-        <Route path="/admin/contact-submissions" element={<AdminContactSubmissions />} />
+        <Route element={<ProtectedAdminRoute />}>
+          <Route path="/admin/subcontractors" element={<AdminSubcontractors />} />
+          <Route path="/admin/contact-submissions" element={<AdminContactSubmissions />} />
+        </Route>
         <Route path="/contact" element={<Contact />} />
       </Route>
       <Route path="*" element={<PageNotFound />} />
