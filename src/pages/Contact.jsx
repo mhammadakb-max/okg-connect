@@ -166,6 +166,7 @@ export default function Contact() {
                       value={formData.message}
                       onChange={handleChange}
                       rows={5}
+                      required
                       placeholder="Describe your project scope, location, timeline and any specific requirements."
                       className="w-full px-4 py-2.5 border border-gray-200 rounded-md text-text-primary focus:outline-none focus:ring-2 resize-none"
                       style={{ '--tw-ring-color': '#F8B858' }}
