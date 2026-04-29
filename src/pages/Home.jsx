@@ -611,12 +611,12 @@ export default function Home() {
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[
-              { src: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80', alt: 'Steel structure construction' },
-              { src: 'https://images.unsplash.com/photo-1585771724684-38269d6639fd?w=800&q=80', alt: 'Concrete works on site' },
-              { src: 'https://images.unsplash.com/photo-1487958449943-2429e8be8625?w=800&q=80', alt: 'Building construction UAE' },
               { src: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80', alt: 'Construction site overview' },
-              { src: 'https://images.unsplash.com/photo-1565008447742-97f6f38c985c?w=800&q=80', alt: 'Masonry and blockwork' },
-              { src: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80', alt: 'Site workers and supervision' },
+              { src: 'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80', alt: 'Construction workers on site' },
+              { src: 'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80', alt: 'Steel structure construction' },
+              { src: 'https://images.unsplash.com/photo-1590274853856-f22d5ee3d228?w=800&q=80', alt: 'Building construction progress' },
+              { src: 'https://images.unsplash.com/photo-1567093676748-c592a2b75a89?w=800&q=80', alt: 'Construction scaffolding' },
+              { src: 'https://images.unsplash.com/photo-1429497419816-9ca5cfb4571a?w=800&q=80', alt: 'Concrete pouring on site' },
             ].map((img, idx) => (
               <motion.div
                 key={idx}
@@ -685,8 +685,8 @@ export default function Home() {
               className="relative h-[480px] rounded-xl overflow-hidden shadow-xl"
             >
               <img
-                src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?w=800&q=80"
-                alt="Professional construction management"
+                src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80"
+                alt="Construction site management"
                 className="w-full h-full object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-navy/30 to-transparent" />
@@ -725,10 +725,10 @@ export default function Home() {
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { label: 'Residential', img: 'https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&q=80' },
-              { label: 'Commercial', img: 'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=80' },
-              { label: 'Industrial', img: 'https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?w=600&q=80' },
-              { label: 'Infrastructure', img: 'https://images.unsplash.com/photo-1513828583688-c52646db42da?w=600&q=80' },
+              { label: 'Residential', img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=600&q=80' },
+              { label: 'Commercial', img: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&q=80' },
+              { label: 'Industrial', img: 'https://images.unsplash.com/photo-1565793979965-06d5e4f08c8c?w=600&q=80' },
+              { label: 'Infrastructure', img: 'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80' },
             ].map((sector, idx) => (
               <motion.div
                 key={idx}
