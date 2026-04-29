@@ -3,6 +3,7 @@ import PageHero from '@/components/shared/PageHero';
 import CTABand from '@/components/shared/CTABand';
 import SectionEyebrow from '@/components/shared/SectionEyebrow';
 import ChecklistItem from '@/components/shared/ChecklistItem';
+import AgileMethodologySection from '@/components/capabilities/AgileMethodologySection';
 import { motion } from 'framer-motion';
 
 const capabilities = [
@@ -110,6 +111,8 @@ export default function Capabilities() {
           </div>
         </div>
       </section>
+
+      <AgileMethodologySection />
 
       {/* Documentation */}
       <section className="bg-white border-t border-gray-200 py-20 md:py-28">
