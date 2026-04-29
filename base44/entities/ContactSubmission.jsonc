@@ -23,10 +23,15 @@
       "type": "string",
       "enum": [
         "new",
-        "reviewed"
+        "reviewed",
+        "archived"
       ],
       "default": "new",
       "description": "Review status of the enquiry"
+    },
+    "internal_notes": {
+      "type": "string",
+      "description": "Private admin notes about this enquiry"
     }
   },
   "required": [

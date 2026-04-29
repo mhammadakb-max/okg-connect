@@ -22,6 +22,7 @@ import Careers from './pages/Careers';
 import Contact from './pages/Contact';
 import SubcontractorPortal from './pages/SubcontractorPortal';
 import AdminSubcontractors from './pages/AdminSubcontractors';
+import AdminContactSubmissions from './pages/AdminContactSubmissions';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -60,6 +61,7 @@ const AuthenticatedApp = () => {
         <Route path="/careers" element={<Careers />} />
         <Route path="/subcontractor-portal" element={<SubcontractorPortal />} />
         <Route path="/admin/subcontractors" element={<AdminSubcontractors />} />
+        <Route path="/admin/contact-submissions" element={<AdminContactSubmissions />} />
         <Route path="/contact" element={<Contact />} />
       </Route>
       <Route path="*" element={<PageNotFound />} />
