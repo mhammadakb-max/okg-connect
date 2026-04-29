@@ -1,5 +1,4 @@
 import React from 'react';
-import PageHero from '@/components/shared/PageHero';
 import SectionEyebrow from '@/components/shared/SectionEyebrow';
 import QuotationForm from '@/components/contact/QuotationForm';
 import { motion } from 'framer-motion';
@@ -8,15 +7,8 @@ import { Phone, Mail, MapPin, MessageCircle } from 'lucide-react';
 export default function Contact() {
   return (
     <>
-      <PageHero
-        title="Contact OKG"
-        intro="Send us your project requirements and our team will review the scope, location, timeline and next steps with clarity."
-        eyebrow="Contact"
-        breadcrumb="Contact"
-      />
-
       {/* Quotation Section */}
-      <section className="bg-white border-t border-gray-200 py-20 md:py-28">
+      <section className="bg-white py-16 md:py-24">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-16 items-start">
             <QuotationForm />
