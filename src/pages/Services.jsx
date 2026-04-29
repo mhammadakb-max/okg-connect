@@ -2,6 +2,8 @@ import React from 'react';
 import PageHero from '@/components/shared/PageHero';
 import CTABand from '@/components/shared/CTABand';
 import SectionEyebrow from '@/components/shared/SectionEyebrow';
+import ServiceCard from '@/components/services/ServiceCard';
+import ScopeParameterTable from '@/components/services/ScopeParameterTable';
 import { motion } from 'framer-motion';
 
 const services = [
@@ -26,41 +28,48 @@ export default function Services() {
         breadcrumb="Services"
       />
 
-      {/* Services Grid */}
-      <section className="bg-white border-t border-gray-200 py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-2xl mb-12"
-          >
-            <SectionEyebrow label="Full Service Offering" />
-            <h2 className="text-3xl md:text-4xl font-bold" style={{ color: '#001078' }}>
-              Services designed for construction projects.
-            </h2>
-          </motion.div>
+      {/* Premium Services Overview */}
+      <section className="relative overflow-hidden bg-white border-t border-gray-200 py-20 md:py-28">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(248,184,88,0.16),transparent_34%),linear-gradient(180deg,rgba(0,16,120,0.04),transparent_55%)]" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid lg:grid-cols-[0.9fr_1.1fr] gap-12 items-end mb-14">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+            >
+              <SectionEyebrow label="Full Service Offering" />
+              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight mb-6" style={{ color: '#001078' }}>
+                Construction services structured for serious project delivery.
+              </h2>
+              <p className="text-lg text-text-secondary leading-relaxed">
+                OKG combines practical site execution with commercial clarity, supervisor-led control and documented communication for clients who need reliable delivery across the UAE.
+              </p>
+            </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {services.map((service, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.05 }}
-                className="bg-white border border-gray-200 rounded-xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-              >
-                <div className="text-3xl font-bold mb-4" style={{ color: '#F8B858' }}>
-                  {service.num}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="grid sm:grid-cols-3 gap-4"
+            >
+              {[
+                { value: '09', label: 'Core service lines' },
+                { value: 'UAE', label: 'Project coverage' },
+                { value: 'QHSE', label: 'Controlled execution' },
+              ].map((item) => (
+                <div key={item.label} className="rounded-2xl border border-gray-200 bg-white/90 p-6 shadow-sm backdrop-blur-sm">
+                  <div className="text-3xl font-extrabold text-gold mb-2">{item.value}</div>
+                  <p className="text-xs font-bold uppercase tracking-widest text-text-secondary">{item.label}</p>
                 </div>
-                <h3 className="text-lg font-bold mb-3" style={{ color: '#001078' }}>
-                  {service.title}
-                </h3>
-                <p className="text-sm text-text-secondary leading-relaxed">
-                  {service.text}
-                </p>
-              </motion.div>
+              ))}
+            </motion.div>
+          </div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-7">
+            {services.map((service, idx) => (
+              <ServiceCard key={service.num} service={service} index={idx} />
             ))}
           </div>
         </div>
@@ -69,46 +78,27 @@ export default function Services() {
       {/* Scope Control */}
       <section className="bg-gray-50 border-t border-gray-200 py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-2xl mb-12"
-          >
-            <SectionEyebrow label="Service Requirements" />
-            <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: '#001078' }}>
-              Clear scope parameters for every project.
-            </h2>
-            <p className="text-lg text-text-secondary">
-              OKG coordinates work scope across the following parameters to ensure clear delivery expectations.
-            </p>
-          </motion.div>
+          <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-12 items-start">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="lg:sticky lg:top-28"
+            >
+              <SectionEyebrow label="Service Requirements" />
+              <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight leading-tight mb-6" style={{ color: '#001078' }}>
+                Clear scope parameters for every project.
+              </h2>
+              <p className="text-lg text-text-secondary leading-relaxed mb-8">
+                OKG coordinates every service through defined commercial, technical and site-control parameters so clients understand exactly what is covered before mobilisation.
+              </p>
+              <div className="rounded-2xl bg-navy p-6 text-white shadow-xl">
+                <p className="text-sm font-semibold text-white/70 mb-2">Business standard</p>
+                <p className="text-2xl font-extrabold leading-tight">Scope clarity before site activity.</p>
+              </div>
+            </motion.div>
 
-          <div className="bg-white border border-gray-200 rounded-lg overflow-hidden">
-            <div className="overflow-x-auto">
-              <table className="w-full">
-                <thead>
-                  <tr style={{ borderBottom: '1px solid #E5E7EB' }}>
-                    <th className="px-6 py-4 text-left text-sm font-bold" style={{ color: '#001078' }}>Parameter</th>
-                    <th className="px-6 py-4 text-left text-sm font-bold" style={{ color: '#001078' }}>Details Covered</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {[
-                    { param: 'Scope & BOQ', details: 'Work list, quantities, specifications and deliverables.' },
-                    { param: 'Documentation', details: 'Quotations, contracts, approvals and change management.' },
-                    { param: 'Materials & Logistics', details: 'Material supply, storage, handling and delivery coordination.' },
-                    { param: 'Site Access', details: 'Site entry, working hours, access restrictions and safety requirements.' },
-                    { param: 'Approvals', details: 'Inspection schedules, sign-off authority and handover process.' },
-                  ].map((row, idx) => (
-                    <tr key={idx} style={{ borderBottom: idx < 4 ? '1px solid #E5E7EB' : 'none' }}>
-                      <td className="px-6 py-4 text-sm font-semibold" style={{ color: '#001078' }}>{row.param}</td>
-                      <td className="px-6 py-4 text-sm text-text-secondary">{row.details}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
+            <ScopeParameterTable />
           </div>
         </div>
       </section>
