@@ -1,6 +1,6 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
-const recipientEmail = 'info@okgcontracting.com';
+const recipientEmail = 'omerkhalfangc@gmail.com';
 
 Deno.serve(async (req) => {
   try {
