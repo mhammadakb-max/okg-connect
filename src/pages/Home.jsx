@@ -39,11 +39,11 @@ const PHOTOS = {
   about:   'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80',
   whyOkg:  'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80',
   g1:      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80',
-  g2:      'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80',
-  g3:      'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80',
+  g2:      'https://images.unsplash.com/photo-1523413363574-c07aa9e08498?auto=format&fit=crop&w=800&q=80',
+  g3:      'https://images.unsplash.com/photo-1590274853856-f22d5ee3d228?auto=format&fit=crop&w=800&q=80',
   g4:      'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80',
-  g5:      'https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=800&q=80',
-  g6:      'https://images.unsplash.com/photo-1590274853856-f22d5ee3d228?auto=format&fit=crop&w=800&q=80',
+  g5:      'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80',
+  g6:      'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80',
   s1:      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80',
   s2:      'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=600&q=80',
   s3:      'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=600&q=80',
@@ -192,34 +192,32 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Project Management */}
-      <section className="bg-white border-t border-gray-200 py-20 md:py-28">
+      {/* Project Management — teaser strip */}
+      <section className="bg-white border-t border-gray-200 py-16 md:py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="max-w-2xl mb-12">
-            <SectionEyebrow label="Management" />
-            <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: '#001078' }}>Project management that protects your investment.</h2>
-            <p className="text-lg text-text-secondary">Effective project management requires clear coordination, daily monitoring and documented decision-making. OKG handles the operational details so you can focus on project outcomes.</p>
-          </motion.div>
-          <div className="grid md:grid-cols-2 gap-8">
-            {[
-              { title: 'Scope Management', items: ['Clear scope definition and BOQ alignment', 'Change request and variation control', 'Documented approvals and sign-off', 'Budget and timeline tracking'] },
-              { title: 'Resource Coordination', items: ['Manpower scheduling and mobilisation', 'Material procurement and logistics', 'Subcontractor coordination and control', 'Equipment and tool management'] },
-              { title: 'Daily Operations', items: ['Site supervision and work control', 'Progress tracking and reporting', 'Quality inspections and sign-off', 'Safety monitoring and incident management'] },
-              { title: 'Documentation', items: ['Daily activity reports and photos', 'Inspection and approval records', 'Worker attendance and timesheets', 'Final handover documentation'] },
-            ].map((mgmt, idx) => (
-              <motion.div key={idx} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.05 }} className="bg-gray-50 border border-gray-200 rounded-lg p-8">
-                <div className="w-1 h-6 rounded-full mb-4" style={{ backgroundColor: '#F8B858' }} />
-                <h3 className="text-lg font-bold mb-4" style={{ color: '#001078' }}>{mgmt.title}</h3>
-                <ul className="space-y-3">
-                  {mgmt.items.map((item, i) => (
-                    <li key={i} className="flex items-start gap-2">
-                      <span className="w-1 h-1 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#F8B858' }} />
-                      <span className="text-sm text-text-secondary">{item}</span>
-                    </li>
-                  ))}
-                </ul>
-              </motion.div>
-            ))}
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
+              <SectionEyebrow label="Management" />
+              <h2 className="text-3xl md:text-4xl font-bold mb-4" style={{ color: '#001078' }}>Project management that protects your investment.</h2>
+              <p className="text-lg text-text-secondary mb-8 leading-relaxed">OKG handles the operational details — scope alignment, daily supervision, subcontractor control, documentation and handover — so you can focus on outcomes.</p>
+              <Link to="/capabilities" className="inline-flex items-center gap-2 text-sm font-semibold hover:opacity-80 transition-opacity" style={{ color: '#001078' }}>
+                View full capabilities <ArrowRight className="w-4 h-4" />
+              </Link>
+            </motion.div>
+            <div className="grid grid-cols-2 gap-4">
+              {[
+                { title: 'Scope & BOQ', desc: 'Defined and aligned before mobilisation.' },
+                { title: 'Daily Supervision', desc: 'On-site control and progress tracking.' },
+                { title: 'Documentation', desc: 'Reports, photos, approvals and records.' },
+                { title: 'Handover', desc: 'Final inspections and client sign-off.' },
+              ].map((item, idx) => (
+                <motion.div key={idx} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.07 }} className="bg-gray-50 border border-gray-200 rounded-lg p-5">
+                  <div className="w-1 h-4 rounded-full mb-3" style={{ backgroundColor: '#F8B858' }} />
+                  <p className="text-sm font-bold mb-1" style={{ color: '#001078' }}>{item.title}</p>
+                  <p className="text-xs text-text-secondary leading-relaxed">{item.desc}</p>
+                </motion.div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -282,11 +280,17 @@ export default function Home() {
       {/* Stats Banner */}
       <section className="py-16 md:py-20" style={{ backgroundColor: '#001078' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-center">
-            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center">
-              <div className="text-5xl md:text-6xl font-bold mb-2" style={{ color: '#F8B858' }}>100%</div>
-              <p className="text-sm font-medium text-white/80">Commitment to Quality</p>
-            </motion.div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center divide-y md:divide-y-0 md:divide-x divide-white/10">
+            {[
+              { value: 'UAE-Wide', label: 'Active across Dubai, Abu Dhabi & Northern Emirates' },
+              { value: 'Multi-Sector', label: 'Residential, commercial, industrial & infrastructure' },
+              { value: '100%', label: 'Direct site supervision on every project' },
+            ].map((stat, idx) => (
+              <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.1 }} className="py-6 md:py-0 md:px-10">
+                <div className="text-4xl md:text-5xl font-bold mb-2" style={{ color: '#F8B858' }}>{stat.value}</div>
+                <p className="text-sm font-medium text-white/70 max-w-xs mx-auto leading-relaxed">{stat.label}</p>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -374,7 +378,7 @@ export default function Home() {
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
               { label: 'DED Dubai Registered', sub: 'Licensed Building Contractor' },
-              { label: 'EJARI Registered Office', sub: 'Warba Centre, Deira, Dubai' },
+              { label: 'UAE-Based Operations', sub: 'Office in Deira, Dubai, UAE' },
               { label: 'UAE VAT Registered', sub: 'Compliant Business Operations' },
               { label: 'QHSE Committed', sub: 'Site Safety & Quality Standards' },
             ].map((item, idx) => (
