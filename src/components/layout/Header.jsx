@@ -17,6 +17,7 @@ const navLinks = [
   { label: 'QHSE', path: '/qhse' },
   { label: 'Projects', path: '/projects' },
   { label: 'Careers', path: '/careers' },
+  { label: 'Subcontractors', path: '/subcontractor-portal' },
   { label: 'Contact', path: '/contact' },
 ];
 

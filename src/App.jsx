@@ -20,6 +20,8 @@ import SocialCommitment from './pages/SocialCommitment';
 import Projects from './pages/Projects';
 import Careers from './pages/Careers';
 import Contact from './pages/Contact';
+import SubcontractorPortal from './pages/SubcontractorPortal';
+import AdminSubcontractors from './pages/AdminSubcontractors';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -56,6 +58,8 @@ const AuthenticatedApp = () => {
         <Route path="/social-commitment" element={<SocialCommitment />} />
         <Route path="/projects" element={<Projects />} />
         <Route path="/careers" element={<Careers />} />
+        <Route path="/subcontractor-portal" element={<SubcontractorPortal />} />
+        <Route path="/admin/subcontractors" element={<AdminSubcontractors />} />
         <Route path="/contact" element={<Contact />} />
       </Route>
       <Route path="*" element={<PageNotFound />} />

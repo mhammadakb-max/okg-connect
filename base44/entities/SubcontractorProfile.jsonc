@@ -1,0 +1,125 @@
+{
+  "name": "SubcontractorProfile",
+  "type": "object",
+  "properties": {
+    "company_name": {
+      "type": "string",
+      "description": "Registered subcontractor company name"
+    },
+    "trade_license_number": {
+      "type": "string",
+      "description": "Trade license number"
+    },
+    "license_expiry_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Trade license expiry date"
+    },
+    "vat_trn": {
+      "type": "string",
+      "description": "UAE VAT TRN if available"
+    },
+    "contact_person": {
+      "type": "string",
+      "description": "Main contact person"
+    },
+    "designation": {
+      "type": "string",
+      "description": "Contact person's designation"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Business email"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Phone number"
+    },
+    "whatsapp": {
+      "type": "string",
+      "description": "WhatsApp number"
+    },
+    "office_location": {
+      "type": "string",
+      "description": "Office location"
+    },
+    "emirates_covered": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Emirates where subcontractor can work"
+    },
+    "services": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Services and trades offered"
+    },
+    "manpower_count": {
+      "type": "string",
+      "description": "Available manpower count"
+    },
+    "supervisor_count": {
+      "type": "string",
+      "description": "Available supervisor count"
+    },
+    "equipment_available": {
+      "type": "string",
+      "description": "Equipment and tools available"
+    },
+    "previous_projects": {
+      "type": "string",
+      "description": "Previous project experience"
+    },
+    "client_references": {
+      "type": "string",
+      "description": "Client or contractor references"
+    },
+    "insurance_status": {
+      "type": "string",
+      "description": "Insurance and workmen compensation status"
+    },
+    "hse_documents": {
+      "type": "string",
+      "description": "Available HSE and safety documents"
+    },
+    "quality_documents": {
+      "type": "string",
+      "description": "Quality procedure documents available"
+    },
+    "bank_details_ready": {
+      "type": "string",
+      "enum": [
+        "yes",
+        "no"
+      ],
+      "default": "no",
+      "description": "Whether bank details are ready for vendor registration"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional notes"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "submitted",
+        "under_review",
+        "approved",
+        "rejected"
+      ],
+      "default": "submitted",
+      "description": "Admin review status"
+    }
+  },
+  "required": [
+    "company_name",
+    "contact_person",
+    "email",
+    "phone",
+    "services"
+  ]
+}
