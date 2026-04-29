@@ -109,7 +109,7 @@ export default function Home() {
               className="relative h-96 rounded-xl overflow-hidden shadow-xl"
             >
               <img
-                src="https://images.unsplash.com/photo-1590274853856-f22d5ee3d228?w=800&q=80"
+                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
                 alt="Construction site UAE"
                 className="w-full h-full object-cover"
               />
@@ -154,7 +154,7 @@ export default function Home() {
               className="relative h-96 rounded-xl overflow-hidden shadow-lg"
             >
               <img
-                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80"
+                src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80"
                 alt="Construction workers on site"
                 className="w-full h-full object-cover"
               />
