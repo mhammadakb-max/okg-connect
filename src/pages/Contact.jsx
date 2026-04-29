@@ -1,31 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PageHero from '@/components/shared/PageHero';
 import SectionEyebrow from '@/components/shared/SectionEyebrow';
+import QuotationForm from '@/components/contact/QuotationForm';
 import { motion } from 'framer-motion';
 import { Phone, Mail, MapPin, MessageCircle } from 'lucide-react';
-import { base44 } from '@/api/base44Client';
 
 export default function Contact() {
-  const [formData, setFormData] = useState({ name: '', email: '', phone: '', message: '' });
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await base44.functions.invoke('sendContactForm', formData);
-      setFormData({ name: '', email: '', phone: '', message: '' });
-      setSubmitted(true);
-      setTimeout(() => setSubmitted(false), 5000);
-    } catch (error) {
-      console.error('Form submission error:', error);
-      alert('Failed to send enquiry. Please try again.');
-    }
-  };
-
   return (
     <>
       <PageHero
@@ -94,99 +74,8 @@ export default function Contact() {
               </div>
             </motion.div>
 
-            {/* Form */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
-            >
-              {submitted ? (
-                <div className="bg-green-50 border border-green-200 rounded-lg p-8 text-center">
-                  <p className="text-lg font-semibold mb-2" style={{ color: '#001078' }}>
-                    Thank you for your enquiry!
-                  </p>
-                  <p className="text-text-secondary">
-                    OKG will review your details and respond shortly.
-                  </p>
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-5">
-                  <div>
-                    <label className="block text-sm font-semibold mb-2" style={{ color: '#001078' }}>
-                      Name
-                    </label>
-                    <input
-                      type="text"
-                      name="name"
-                      value={formData.name}
-                      onChange={handleChange}
-                      required
-                      className="w-full px-4 py-2.5 border border-gray-200 rounded-md text-text-primary focus:outline-none focus:ring-2"
-                      style={{ '--tw-ring-color': '#F8B858' }}
-                    />
-                  </div>
-
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <div>
-                      <label className="block text-sm font-semibold mb-2" style={{ color: '#001078' }}>
-                        Email
-                      </label>
-                      <input
-                        type="email"
-                        name="email"
-                        value={formData.email}
-                        onChange={handleChange}
-                        required
-                        className="w-full px-4 py-2.5 border border-gray-200 rounded-md text-text-primary focus:outline-none focus:ring-2"
-                        style={{ '--tw-ring-color': '#F8B858' }}
-                      />
-                    </div>
-                    <div>
-                      <label className="block text-sm font-semibold mb-2" style={{ color: '#001078' }}>
-                        Phone
-                      </label>
-                      <input
-                        type="tel"
-                        name="phone"
-                        value={formData.phone}
-                        onChange={handleChange}
-                        className="w-full px-4 py-2.5 border border-gray-200 rounded-md text-text-primary focus:outline-none focus:ring-2"
-                        style={{ '--tw-ring-color': '#F8B858' }}
-                      />
-                    </div>
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-semibold mb-2" style={{ color: '#001078' }}>
-                      Project Details
-                    </label>
-                    <textarea
-                      name="message"
-                      value={formData.message}
-                      onChange={handleChange}
-                      rows={5}
-                      required
-                      placeholder="Describe your project scope, location, timeline and any specific requirements."
-                      className="w-full px-4 py-2.5 border border-gray-200 rounded-md text-text-primary focus:outline-none focus:ring-2 resize-none"
-                      style={{ '--tw-ring-color': '#F8B858' }}
-                    />
-                  </div>
-
-                  <button
-                    type="submit"
-                    className="w-full py-3 text-white font-semibold rounded-md transition-opacity hover:opacity-90"
-                    style={{ backgroundColor: '#001078' }}
-                  >
-                    Send Enquiry
-                  </button>
-
-                  <p className="text-xs text-text-secondary text-center">
-                    We respect your privacy. Form submissions are handled securely.
-                  </p>
-                </form>
-              )}
-            </motion.div>
+            {/* Quotation Form */}
+            <QuotationForm />
           </div>
         </div>
       </section>
