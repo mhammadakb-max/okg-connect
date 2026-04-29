@@ -33,21 +33,21 @@ const steps = [
   { num: '06', title: 'Inspection & Handover', desc: 'Complete final inspections and formal handover.' },
 ];
 
-// Photo IDs sourced directly from unsplash.com construction search results
+// Construction images via Unsplash with auto format for CDN reliability
 const PHOTOS = {
-  hero:    'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80',
-  about:   'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80',
-  whyOkg:  'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80',
-  g1:      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&q=80',
-  g2:      'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80',
-  g3:      'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&q=80',
-  g4:      'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&q=80',
-  g5:      'https://images.unsplash.com/photo-1486325212027-8081e485255e?w=800&q=80',
-  g6:      'https://images.unsplash.com/photo-1590274853856-f22d5ee3d228?w=800&q=80',
-  s1:      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=600&q=80',
-  s2:      'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=600&q=80',
-  s3:      'https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=600&q=80',
-  s4:      'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=600&q=80',
+  hero:    'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80',
+  about:   'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80',
+  whyOkg:  'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80',
+  g1:      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=800&q=80',
+  g2:      'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=800&q=80',
+  g3:      'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80',
+  g4:      'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=800&q=80',
+  g5:      'https://images.unsplash.com/photo-1486325212027-8081e485255e?auto=format&fit=crop&w=800&q=80',
+  g6:      'https://images.unsplash.com/photo-1590274853856-f22d5ee3d228?auto=format&fit=crop&w=800&q=80',
+  s1:      'https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80',
+  s2:      'https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=600&q=80',
+  s3:      'https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=600&q=80',
+  s4:      'https://images.unsplash.com/photo-1621905251189-08b45d6a269e?auto=format&fit=crop&w=600&q=80',
 };
 
 export default function Home() {
@@ -359,6 +359,29 @@ export default function Home() {
                 <div className="absolute bottom-4 left-4">
                   <span className="text-white font-bold text-sm">{sector.label}</span>
                 </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Trust & Credentials */}
+      <section className="bg-gray-50 border-t border-gray-200 py-12">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center mb-8">
+            <p className="text-xs font-bold tracking-widest uppercase text-text-secondary">Registered & Compliant in the UAE</p>
+          </motion.div>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+            {[
+              { label: 'DED Dubai Registered', sub: 'Licensed Building Contractor' },
+              { label: 'EJARI Registered Office', sub: 'Warba Centre, Deira, Dubai' },
+              { label: 'UAE VAT Registered', sub: 'Compliant Business Operations' },
+              { label: 'QHSE Committed', sub: 'Site Safety & Quality Standards' },
+            ].map((item, idx) => (
+              <motion.div key={idx} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.07 }} className="bg-white border border-gray-200 rounded-lg p-5 text-center">
+                <div className="w-2 h-2 rounded-full mx-auto mb-3" style={{ backgroundColor: '#F8B858' }} />
+                <p className="text-sm font-bold mb-1" style={{ color: '#001078' }}>{item.label}</p>
+                <p className="text-xs text-text-secondary">{item.sub}</p>
               </motion.div>
             ))}
           </div>

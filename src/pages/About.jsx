@@ -63,6 +63,7 @@ export default function About() {
                   </p>
                   <ul className="space-y-2">
                     {[
+                      'Office: Warba Centre, Office 504, Al Muraqabat, Deira, Dubai',
                       'Dubai, Abu Dhabi and Northern Emirates',
                       'Civil and structural works support',
                       'Finish and fit-out projects',
@@ -86,8 +87,8 @@ export default function About() {
               className="relative h-96 bg-white rounded-lg overflow-hidden"
             >
               <img
-                src="https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=600&h=600&fit=crop"
-                alt="About OKG"
+                src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=600&q=80"
+                alt="OKG Construction Site"
                 className="w-full h-full object-cover"
               />
             </motion.div>

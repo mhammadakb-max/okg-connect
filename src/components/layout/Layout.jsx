@@ -1,6 +1,7 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import WhatsAppButton from '@/components/shared/WhatsAppButton';
+import MobileCTA from '@/components/shared/MobileCTA';
 import Header from './Header';
 import Footer from './Footer';
 
@@ -13,6 +14,7 @@ export default function Layout() {
       </main>
       <Footer />
       <WhatsAppButton />
+      <MobileCTA />
     </div>
   );
 }
