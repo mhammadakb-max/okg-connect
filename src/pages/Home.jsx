@@ -282,13 +282,11 @@ export default function Home() {
       {/* Stats Banner */}
       <section className="py-16 md:py-20" style={{ backgroundColor: '#001078' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-            {[{ stat: '10+', label: 'Years of Experience' }, { stat: '200+', label: 'Projects Completed' }, { stat: '500+', label: 'Skilled Workers Deployed' }, { stat: '100%', label: 'Commitment to Quality' }].map((item, idx) => (
-              <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.1 }}>
-                <div className="text-4xl md:text-5xl font-bold mb-2" style={{ color: '#F8B858' }}>{item.stat}</div>
-                <p className="text-sm font-medium text-white/80">{item.label}</p>
-              </motion.div>
-            ))}
+          <div className="flex justify-center">
+            <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} className="text-center">
+              <div className="text-5xl md:text-6xl font-bold mb-2" style={{ color: '#F8B858' }}>100%</div>
+              <p className="text-sm font-medium text-white/80">Commitment to Quality</p>
+            </motion.div>
           </div>
         </div>
       </section>

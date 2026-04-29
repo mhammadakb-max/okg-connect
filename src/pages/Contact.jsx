@@ -61,7 +61,7 @@ export default function Contact() {
                     { Icon: Phone, label: 'Phone', value: '+971 54 217 1502' },
                     { Icon: Mail, label: 'Email', value: 'info@okgcontracting.com' },
                     { Icon: MessageCircle, label: 'WhatsApp', value: '+971 54 217 1502', link: 'https://wa.me/971542171502' },
-                    { Icon: MapPin, label: 'Location', value: 'United Arab Emirates' },
+                    { Icon: MapPin, label: 'Location', value: 'Warba Centre, Office 504, Al Muraqabat, Deira, Dubai, UAE' },
                   ].map((contact, idx) => (
                     <motion.div
                       key={idx}

@@ -51,7 +51,7 @@ export default function Footer() {
 
             <ul className="space-y-3">
               {[
-                { Icon: MapPin, val: 'United Arab Emirates' },
+                { Icon: MapPin, val: 'Warba Centre, Office 504, Al Muraqabat, Deira, Dubai, UAE' },
                 { Icon: Phone, val: '+971 54 217 1502' },
                 { Icon: Mail, val: 'info@okgcontracting.com' },
               ].map(({ Icon, val }) => (
