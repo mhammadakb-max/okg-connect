@@ -8,11 +8,11 @@ export default function ValueCard({ icon: Icon, title, text, index = 0 }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ delay: index * 0.1 }}
-      whileHover={{ y: -4 }}
-      className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-xl transition-shadow duration-300"
+      whileHover={{ y: -6 }}
+      className="premium-card relative overflow-hidden border border-gray-200 rounded-2xl p-7 hover:shadow-2xl transition-all duration-300"
     >
       {Icon && (
-        <div className="w-10 h-10 rounded-md flex items-center justify-center mb-4" style={{ backgroundColor: '#F8B858' }}>
+        <div className="w-12 h-12 rounded-xl flex items-center justify-center mb-5 shadow-sm" style={{ backgroundColor: '#F8B858' }}>
           <Icon className="w-5 h-5" style={{ color: '#001078' }} />
         </div>
       )}

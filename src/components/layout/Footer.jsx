@@ -37,18 +37,19 @@ const serviceList = [
 
 export default function Footer() {
   return (
-    <footer className="bg-white border-t border-gray-200 shadow-[0_-18px_60px_rgba(0,16,120,0.06)]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+    <footer className="relative overflow-hidden border-t border-white/10 shadow-[0_-18px_60px_rgba(0,16,120,0.12)]" style={{ backgroundColor: '#001078' }}>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(248,184,88,0.20),transparent_30%),linear-gradient(135deg,rgba(255,255,255,0.08),transparent_42%)]" />
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
 
           {/* Brand */}
           <div>
             <Link to="/" className="flex items-baseline gap-0 mb-4">
-              <span className="text-2xl font-bold" style={{ color: '#001078' }}>OKG</span>
+              <span className="text-2xl font-bold text-white">OKG</span>
               <span className="text-2xl font-bold" style={{ color: '#F8B858' }}>.</span>
             </Link>
 
-            <p className="text-sm text-text-secondary leading-relaxed mb-6">
+            <p className="text-sm text-white/70 leading-relaxed mb-6">
               OKG Building Contracting is a UAE-based contractor focused on disciplined construction support, site supervision, documentation, QHSE and transparent project delivery.
             </p>
 
@@ -58,8 +59,8 @@ export default function Footer() {
                 { Icon: Phone, val: '+971 54 217 1502' },
                 { Icon: Mail, val: 'info@okgcontracting.com' },
               ].map(({ Icon, val }) => (
-                <li key={val} className="flex items-start gap-3 text-sm text-text-secondary">
-                  <Icon className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: '#001078' }} />
+                <li key={val} className="flex items-start gap-3 text-sm text-white/70">
+                  <Icon className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: '#F8B858' }} />
                   <span>{val}</span>
                 </li>
               ))}
@@ -68,13 +69,13 @@ export default function Footer() {
 
           {/* Navigation */}
           <div>
-            <h4 className="text-xs font-bold tracking-widest uppercase mb-4 text-text-primary">Navigation</h4>
+            <h4 className="text-xs font-bold tracking-widest uppercase mb-4 text-white">Navigation</h4>
             <ul className="space-y-2">
               {quickLinks.map((link) => (
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className="text-sm text-text-secondary hover:text-text-primary transition-colors"
+                    className="text-sm text-white/70 hover:text-white transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -85,13 +86,13 @@ export default function Footer() {
 
           {/* Policies */}
           <div>
-            <h4 className="text-xs font-bold tracking-widest uppercase mb-4 text-text-primary">Policies</h4>
+            <h4 className="text-xs font-bold tracking-widest uppercase mb-4 text-white">Policies</h4>
             <ul className="space-y-2">
               {policyLinks.map((link) => (
                 <li key={link.path}>
                   <Link
                     to={link.path}
-                    className="text-sm text-text-secondary hover:text-text-primary transition-colors"
+                    className="text-sm text-white/70 hover:text-white transition-colors"
                   >
                     {link.label}
                   </Link>
@@ -102,10 +103,10 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="text-xs font-bold tracking-widest uppercase mb-4 text-text-primary">Services</h4>
+            <h4 className="text-xs font-bold tracking-widest uppercase mb-4 text-white">Services</h4>
             <ul className="space-y-2">
               {serviceList.map((s) => (
-                <li key={s} className="flex items-start gap-2 text-sm text-text-secondary">
+                <li key={s} className="flex items-start gap-2 text-sm text-white/70">
                   <span className="w-1 h-1 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#F8B858' }} />
                   <span>{s}</span>
                 </li>
@@ -117,8 +118,8 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-gray-200 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-text-secondary">
+      <div className="relative border-t border-white/10 bg-white/5">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/60">
           <p>© {new Date().getFullYear()} OKG Building Contracting LLC. All rights reserved. United Arab Emirates.</p>
           <p>Constructing with clarity, discipline and accountability.</p>
         </div>

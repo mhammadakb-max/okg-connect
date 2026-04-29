@@ -31,13 +31,13 @@ export default function Header() {
 
   return (
     <>
-      <header className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-gray-200 shadow-sm">
+      <header className="sticky top-0 z-50 bg-white/90 backdrop-blur-xl border-b border-gray-200 shadow-[0_12px_40px_rgba(0,16,120,0.08)]">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between h-16">
+          <div className="flex items-center justify-between h-20">
             {/* Logo */}
-            <Link to="/" className="flex items-baseline gap-0 transition-transform duration-300 hover:scale-105">
-              <span className="text-2xl font-bold" style={{ color: '#001078' }}>OKG</span>
-              <span className="text-2xl font-bold" style={{ color: '#F8B858' }}>.</span>
+            <Link to="/" className="flex items-center gap-2 rounded-full border border-gray-200 bg-white px-4 py-2 shadow-sm transition-transform duration-300 hover:scale-105">
+              <span className="text-2xl font-extrabold tracking-tight" style={{ color: '#001078' }}>OKG</span>
+              <span className="h-2 w-2 rounded-full" style={{ backgroundColor: '#F8B858' }} />
             </Link>
 
             {/* Desktop Nav */}
@@ -45,7 +45,7 @@ export default function Header() {
               {navLinks.map((link) =>
                 link.children ? (
                   <div key={link.label} className="relative group">
-                    <button className="px-3 py-2 text-sm font-semibold text-text-primary hover:text-navy transition-all duration-300 hover:-translate-y-0.5">
+                    <button className="px-3 py-2 text-sm font-bold text-text-primary hover:text-navy transition-all duration-300 hover:-translate-y-0.5">
                       {link.label}
                       <ChevronDown className="w-4 h-4 inline ml-1" />
                     </button>
@@ -72,7 +72,7 @@ export default function Header() {
                   <Link
                     key={link.path}
                     to={link.path}
-                    className="px-3 py-2 text-sm font-semibold text-text-primary hover:text-navy transition-all duration-300 hover:-translate-y-0.5"
+                    className={`px-3 py-2 text-sm font-bold transition-all duration-300 hover:-translate-y-0.5 ${isActive(link.path) ? 'text-navy' : 'text-text-primary hover:text-navy'}`}
                   >
                     {link.label}
                   </Link>

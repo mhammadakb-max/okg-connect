@@ -4,7 +4,7 @@ import { Phone } from 'lucide-react';
 
 export default function MobileCTA() {
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden border-t border-gray-200 bg-white/95 backdrop-blur-md shadow-lg">
+    <div className="fixed bottom-0 left-0 right-0 z-40 md:hidden border-t border-gray-200 bg-white/95 backdrop-blur-xl shadow-[0_-14px_40px_rgba(0,16,120,0.12)]">
       <div className="flex">
         <a
           href="tel:+971542171502"
