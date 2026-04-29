@@ -55,7 +55,7 @@ export default function Footer() {
               {[
                 { Icon: MapPin, val: 'Warba Centre, Office 504, Al Muraqabat, Deira, Dubai, UAE' },
                 { Icon: Phone, val: '+971 54 217 1502' },
-                { Icon: Mail, val: 'omerkhalfangc@gmail.com' },
+                { Icon: Mail, val: 'info@okgcontracting.com' },
               ].map(({ Icon, val }) => (
                 <li key={val} className="flex items-start gap-3 text-sm text-white/70">
                   <Icon className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: '#F8B858' }} />
