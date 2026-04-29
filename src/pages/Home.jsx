@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight } from 'lucide-react';
 import CTABand from '@/components/shared/CTABand';
+import PremiumHomeHero from '@/components/home/PremiumHomeHero';
 import ValueCard from '@/components/shared/ValueCard';
 import ChecklistItem from '@/components/shared/ChecklistItem';
 import SectionEyebrow from '@/components/shared/SectionEyebrow';
@@ -54,52 +55,13 @@ export default function Home() {
   return (
     <main>
       {/* Hero */}
-      <section className="bg-white py-20 md:py-32">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
-              <div className="flex items-center gap-2 mb-4">
-                <span className="w-1 h-1 rounded-full" style={{ backgroundColor: '#F8B858' }} />
-                <span className="text-xs font-bold tracking-widest uppercase" style={{ color: '#001078' }}>UAE Construction Partner</span>
-              </div>
-              <h1 className="text-4xl md:text-6xl font-extrabold mb-6 leading-tight tracking-tight" style={{ color: '#001078' }}>
-                Constructing with discipline, clarity and control.
-              </h1>
-              <p className="text-lg text-text-secondary mb-8 leading-relaxed max-w-xl">
-                OKG Building Contracting delivers civil, masonry, plastering, concrete, steel fixing, shuttering, fit-out and finishing support for projects across the UAE. We work with clients, contractors and project teams that require clear scope alignment, responsible mobilisation, daily site supervision, documentation control and transparent delivery.
-              </p>
-              <div className="flex flex-wrap gap-3">
-                <Link to="/contact" className="inline-flex items-center gap-2 px-6 py-3 text-white font-semibold rounded-md transition-opacity hover:opacity-90" style={{ backgroundColor: '#001078' }}>
-                  Request Quotation <ArrowRight className="w-4 h-4" />
-                </Link>
-                <Link to="/services" className="inline-flex items-center gap-2 px-6 py-3 font-semibold rounded-md transition-colors border border-gray-200 hover:bg-gray-50" style={{ color: '#001078' }}>
-                  Explore Services
-                </Link>
-              </div>
-            </motion.div>
-
-            <motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.2, duration: 0.7, ease: 'easeOut' }} whileHover={{ y: -6 }} className="relative h-96 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/5">
-              <img src={PHOTOS.hero} alt="Construction site UAE" className="w-full h-full object-cover" />
-              <div className="absolute inset-0 bg-gradient-to-t from-navy/30 to-transparent" />
-            </motion.div>
-          </div>
-
-          <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.2 }} className="mt-20 grid md:grid-cols-3 gap-8">
-            {[{ title: 'Scope Clarity', text: 'Defined before mobilisation' }, { title: 'Supervision', text: 'Daily site control' }, { title: 'QHSE', text: 'Safety and quality focus' }].map((item, idx) => (
-              <div key={idx} className="text-center">
-                <div className="text-sm font-bold mb-2" style={{ color: '#001078' }}>{item.title}</div>
-                <p className="text-sm text-text-secondary">{item.text}</p>
-              </div>
-            ))}
-          </motion.div>
-        </div>
-      </section>
+      <PremiumHomeHero image={PHOTOS.hero} />
 
       {/* About */}
       <section className="bg-gray-50 border-t border-gray-200 py-20 md:py-28">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative h-96 rounded-xl overflow-hidden shadow-lg">
+            <motion.div initial={{ opacity: 0, x: -30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative h-96 rounded-[2rem] overflow-hidden shadow-2xl ring-1 ring-black/5">
               <img src={PHOTOS.about} alt="Construction workers on site" className="w-full h-full object-cover" />
             </motion.div>
             <motion.div initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }}>
@@ -139,7 +101,7 @@ export default function Home() {
           </motion.div>
           <div className="grid md:grid-cols-3 gap-8">
             {services.map((service, idx) => (
-              <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.05 }} className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <motion.div key={idx} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.05 }} className="premium-card relative overflow-hidden border border-gray-200 rounded-2xl p-7 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                 <div className="text-2xl font-bold mb-3" style={{ color: '#F8B858' }}>{service.num}</div>
                 <h3 className="text-lg font-bold mb-2" style={{ color: '#001078' }}>{service.title}</h3>
                 <p className="text-sm text-text-secondary">{service.text}</p>
@@ -182,7 +144,7 @@ export default function Home() {
           </motion.div>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {steps.map((step, idx) => (
-              <motion.div key={idx} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.05 }} className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <motion.div key={idx} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.05 }} className="premium-card relative overflow-hidden border border-gray-200 rounded-2xl p-7 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                 <div className="text-2xl font-bold mb-3" style={{ color: '#F8B858' }}>{step.num}</div>
                 <h3 className="text-lg font-bold mb-2" style={{ color: '#001078' }}>{step.title}</h3>
                 <p className="text-sm text-text-secondary">{step.desc}</p>
@@ -211,7 +173,7 @@ export default function Home() {
                 { title: 'Documentation', desc: 'Reports, photos, approvals and records.' },
                 { title: 'Handover', desc: 'Final inspections and client sign-off.' },
               ].map((item, idx) => (
-                <motion.div key={idx} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.07 }} className="bg-gray-50 border border-gray-200 rounded-lg p-5">
+                <motion.div key={idx} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.07 }} className="premium-card border border-gray-200 rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                   <div className="w-1 h-4 rounded-full mb-3" style={{ backgroundColor: '#F8B858' }} />
                   <p className="text-sm font-bold mb-1" style={{ color: '#001078' }}>{item.title}</p>
                   <p className="text-xs text-text-secondary leading-relaxed">{item.desc}</p>
@@ -237,7 +199,7 @@ export default function Home() {
               { title: 'Environmental Responsibility', desc: 'Waste management, pollution control, site housekeeping and resource efficiency.' },
               { title: 'Subcontractor Control', desc: 'Vendor qualification, QHSE compliance verification and performance monitoring.' },
             ].map((item, idx) => (
-              <motion.div key={idx} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.05 }} className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
+              <motion.div key={idx} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.05 }} className="premium-card relative overflow-hidden border border-gray-200 rounded-2xl p-7 hover:shadow-2xl transition-all duration-300 hover:-translate-y-1">
                 <div className="w-1 h-4 rounded-full mb-4" style={{ backgroundColor: '#F8B858' }} />
                 <h3 className="text-lg font-bold mb-2" style={{ color: '#001078' }}>{item.title}</h3>
                 <p className="text-sm text-text-secondary leading-relaxed">{item.desc}</p>
@@ -262,7 +224,7 @@ export default function Home() {
             <p className="text-base text-text-secondary font-semibold mb-6">Project documentation standard</p>
             <p className="text-base text-text-secondary mb-8">Each project package should be recorded with the details needed for transparent coordination and professional handover.</p>
           </motion.div>
-          <div className="bg-white border border-gray-200 rounded-lg p-8">
+          <div className="premium-card border border-gray-200 rounded-2xl p-8 shadow-xl shadow-navy/5">
             <div className="space-y-4">
               {['Project name and location', 'Client or main contractor, where permitted', 'Scope and quantity', 'Workfront and timeline', 'Progress photos where available', 'Inspection and handover status'].map((item, idx) => (
                 <ChecklistItem key={idx} text={item} index={idx} />
@@ -278,8 +240,9 @@ export default function Home() {
       </section>
 
       {/* Stats Banner */}
-      <section className="py-16 md:py-20" style={{ backgroundColor: '#001078' }}>
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative overflow-hidden py-16 md:py-24" style={{ backgroundColor: '#001078' }}>
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(248,184,88,0.24),transparent_32%),linear-gradient(135deg,rgba(255,255,255,0.08),transparent_48%)]" />
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-10 text-center divide-y md:divide-y-0 md:divide-x divide-white/10">
             {[
               { value: 'UAE-Wide', label: 'Active across Dubai, Abu Dhabi & Northern Emirates' },
@@ -305,7 +268,7 @@ export default function Home() {
           </motion.div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             {[PHOTOS.g1, PHOTOS.g2, PHOTOS.g3, PHOTOS.g4, PHOTOS.g5, PHOTOS.g6].map((src, idx) => (
-              <motion.div key={idx} initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: idx * 0.07 }} className="relative h-56 rounded-xl overflow-hidden group">
+              <motion.div key={idx} initial={{ opacity: 0, scale: 0.97 }} whileInView={{ opacity: 1, scale: 1 }} viewport={{ once: true }} transition={{ delay: idx * 0.07 }} className="relative h-64 rounded-2xl overflow-hidden group shadow-xl ring-1 ring-black/5">
                 <img src={src} alt="Construction site" className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div className="absolute inset-0 bg-gradient-to-t from-navy/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </motion.div>
@@ -333,11 +296,11 @@ export default function Home() {
                 </Link>
               </div>
             </motion.div>
-            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative h-[480px] rounded-xl overflow-hidden shadow-xl">
+            <motion.div initial={{ opacity: 0, x: 30 }} whileInView={{ opacity: 1, x: 0 }} viewport={{ once: true }} transition={{ duration: 0.6 }} className="relative h-[520px] rounded-[2rem] overflow-hidden shadow-2xl ring-1 ring-black/5">
               <img src={PHOTOS.whyOkg} alt="Construction site management" className="w-full h-full object-cover" />
               <div className="absolute inset-0 bg-gradient-to-t from-navy/30 to-transparent" />
               <div className="absolute bottom-6 left-6 right-6">
-                <div className="bg-white/95 backdrop-blur-sm rounded-lg p-5 shadow-lg">
+                <div className="bg-white/95 backdrop-blur-md rounded-2xl p-6 shadow-2xl border border-white/60">
                   <p className="text-sm font-semibold mb-1" style={{ color: '#001078' }}>"Structure. Supervision. Accountability."</p>
                   <p className="text-xs text-text-secondary">OKG's core operating standard on every project.</p>
                 </div>
@@ -357,7 +320,7 @@ export default function Home() {
           </motion.div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {[{ label: 'Residential', img: PHOTOS.s1 }, { label: 'Commercial', img: PHOTOS.s2 }, { label: 'Industrial', img: PHOTOS.s3 }, { label: 'Infrastructure', img: PHOTOS.s4 }].map((sector, idx) => (
-              <motion.div key={idx} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.08 }} className="relative h-48 rounded-xl overflow-hidden group">
+              <motion.div key={idx} initial={{ opacity: 0, y: 16 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.08 }} className="relative h-56 rounded-2xl overflow-hidden group shadow-xl ring-1 ring-black/5">
                 <img src={sector.img} alt={sector.label} className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105" />
                 <div className="absolute inset-0" style={{ background: 'linear-gradient(to top, rgba(0,16,120,0.75), rgba(0,16,120,0.1))' }} />
                 <div className="absolute bottom-4 left-4">
@@ -382,7 +345,7 @@ export default function Home() {
               { label: 'UAE VAT Registered', sub: 'Compliant Business Operations' },
               { label: 'QHSE Committed', sub: 'Site Safety & Quality Standards' },
             ].map((item, idx) => (
-              <motion.div key={idx} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.07 }} className="bg-white border border-gray-200 rounded-lg p-5 text-center">
+              <motion.div key={idx} initial={{ opacity: 0, y: 12 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: idx * 0.07 }} className="premium-card border border-gray-200 rounded-2xl p-6 text-center hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                 <div className="w-2 h-2 rounded-full mx-auto mb-3" style={{ backgroundColor: '#F8B858' }} />
                 <p className="text-sm font-bold mb-1" style={{ color: '#001078' }}>{item.label}</p>
                 <p className="text-xs text-text-secondary">{item.sub}</p>
