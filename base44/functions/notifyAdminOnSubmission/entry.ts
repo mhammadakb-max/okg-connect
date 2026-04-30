@@ -31,13 +31,22 @@ Deno.serve(async (req) => {
       ? buildContactEmail(data)
       : buildSubcontractorEmail(data);
 
-    await base44.asServiceRole.integrations.Core.SendEmail({
-      to: ADMIN_EMAIL,
-      subject: email.subject,
-      body: email.body,
-    });
+    let emailSent = true;
+    let emailError = null;
 
-    return Response.json({ success: true });
+    try {
+      await base44.asServiceRole.integrations.Core.SendEmail({
+        to: ADMIN_EMAIL,
+        subject: email.subject,
+        body: email.body,
+      });
+    } catch (error) {
+      emailSent = false;
+      emailError = error.message;
+      console.warn('Admin notification email was not sent:', error.message);
+    }
+
+    return Response.json({ success: true, emailSent, emailError });
   } catch (error) {
     return Response.json({ error: error.message }, { status: 500 });
   }
