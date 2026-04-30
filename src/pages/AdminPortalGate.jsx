@@ -17,6 +17,13 @@ export default function AdminPortalGate() {
     try {
       await base44.functions.invoke('verifyAdminPortalPassword', { password });
       sessionStorage.setItem('okg_admin_portal_unlocked', 'true');
+
+      const isAuthenticated = await base44.auth.isAuthenticated();
+      if (!isAuthenticated) {
+        base44.auth.redirectToLogin(`${window.location.origin}/admin/dashboard`);
+        return;
+      }
+
       navigate('/admin/dashboard');
     } catch {
       setError('Incorrect password. Please try again.');
@@ -33,7 +40,7 @@ export default function AdminPortalGate() {
         </div>
         <p className="text-xs font-bold uppercase tracking-widest text-text-secondary mb-2">Private Admin Access</p>
         <h1 className="text-2xl font-extrabold mb-3" style={{ color: '#001078' }}>Enter admin password</h1>
-        <p className="text-sm text-text-secondary mb-6">Sign in using omerkhalfangc@gmail.com, then enter the admin password.</p>
+        <p className="text-sm text-text-secondary mb-6">Enter the admin password first. You will then sign in using omerkhalfangc@gmail.com.</p>
         <input
           type="password"
           value={password}
