@@ -17,7 +17,7 @@ export default function AdminPortalGate() {
     try {
       await base44.functions.invoke('verifyAdminPortalPassword', { password });
       sessionStorage.setItem('okg_admin_portal_unlocked', 'true');
-      navigate('/admin/finance');
+      navigate('/admin/dashboard');
     } catch {
       setError('Incorrect password. Please try again.');
     }

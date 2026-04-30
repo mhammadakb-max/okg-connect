@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { base44 } from '@/api/base44Client';
-import PageHero from '@/components/shared/PageHero';
 import FinanceSummaryCards from '@/components/finance/FinanceSummaryCards';
 import PaymentRecordForm from '@/components/finance/PaymentRecordForm';
 import PaymentRecordTable from '@/components/finance/PaymentRecordTable';
+import AdminShell from '@/components/admin/AdminShell';
+import AdminExportButtons from '@/components/admin/AdminExportButtons';
+import AdminAiPanel from '@/components/admin/AdminAiPanel';
 
 export default function AdminFinance() {
   const [records, setRecords] = useState([]);
@@ -47,26 +49,25 @@ export default function AdminFinance() {
   };
 
   return (
-    <>
-      <PageHero title="Admin Finance" intro="Track income, expenses, pending payments and profit or loss for OKG projects." eyebrow="Admin" breadcrumb="Finance" />
-      <section className="bg-gray-50 border-t border-gray-200 py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          {loading ? (
-            <div className="flex justify-center py-16"><div className="w-8 h-8 border-4 border-gray-200 border-t-navy rounded-full animate-spin" /></div>
-          ) : error ? (
-            <div className="bg-white border border-gray-200 rounded-xl p-8 text-center">
-              <p className="text-text-secondary mb-5">{error}</p>
-              <button onClick={() => base44.auth.redirectToLogin('/admin/finance')} className="px-6 py-3 text-white font-semibold rounded-md" style={{ backgroundColor: '#001078' }}>Admin sign in</button>
-            </div>
-          ) : (
-            <>
-              <FinanceSummaryCards records={records} />
-              <PaymentRecordForm onSubmit={handleCreate} saving={saving} />
-              <PaymentRecordTable records={records} onDelete={handleDelete} />
-            </>
-          )}
+    <AdminShell title="Admin Finance" intro="Track income, expenses, pending payments and profit or loss for OKG projects.">
+      {loading ? (
+        <div className="flex justify-center py-16"><div className="w-8 h-8 border-4 border-gray-200 border-t-navy rounded-full animate-spin" /></div>
+      ) : error ? (
+        <div className="bg-white border border-gray-200 rounded-xl p-8 text-center">
+          <p className="text-text-secondary mb-5">{error}</p>
+          <button onClick={() => base44.auth.redirectToLogin('/admin/finance')} className="px-6 py-3 text-white font-semibold rounded-md" style={{ backgroundColor: '#001078' }}>Admin sign in</button>
         </div>
-      </section>
-    </>
+      ) : (
+        <>
+          <FinanceSummaryCards records={records} />
+          <AdminExportButtons records={records} />
+          <div className="mb-8">
+            <AdminAiPanel />
+          </div>
+          <PaymentRecordForm onSubmit={handleCreate} saving={saving} />
+          <PaymentRecordTable records={records} onDelete={handleDelete} />
+        </>
+      )}
+    </AdminShell>
   );
 }
