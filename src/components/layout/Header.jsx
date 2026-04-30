@@ -19,14 +19,6 @@ const navLinks = [
   { label: 'Careers', path: '/careers' },
   { label: 'Subcontractors', path: '/subcontractor-portal' },
   { label: 'Contact', path: '/contact' },
-  {
-    label: 'Admin',
-    children: [
-      { label: 'Finance', path: '/admin/finance' },
-      { label: 'Contact Submissions', path: '/admin/contact-submissions' },
-      { label: 'Subcontractors', path: '/admin/subcontractors' },
-    ],
-  },
 ];
 
 export default function Header() {

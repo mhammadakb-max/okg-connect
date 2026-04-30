@@ -64,6 +64,7 @@ const AuthenticatedApp = () => {
         <Route path="/careers" element={<Careers />} />
         <Route path="/subcontractor-portal" element={<SubcontractorPortal />} />
         <Route element={<ProtectedAdminRoute />}>
+          <Route path="/okg-admin" element={<AdminFinance />} />
           <Route path="/admin/subcontractors" element={<AdminSubcontractors />} />
           <Route path="/admin/contact-submissions" element={<AdminContactSubmissions />} />
           <Route path="/admin/finance" element={<AdminFinance />} />
