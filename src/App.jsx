@@ -26,6 +26,7 @@ import SubcontractorPortal from './pages/SubcontractorPortal';
 import AdminSubcontractors from './pages/AdminSubcontractors';
 import AdminContactSubmissions from './pages/AdminContactSubmissions';
 import AdminFinance from './pages/AdminFinance';
+import AdminPortalGate from './pages/AdminPortalGate';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -63,8 +64,8 @@ const AuthenticatedApp = () => {
         <Route path="/projects" element={<Projects />} />
         <Route path="/careers" element={<Careers />} />
         <Route path="/subcontractor-portal" element={<SubcontractorPortal />} />
+        <Route path="/okg-admin" element={<AdminPortalGate />} />
         <Route element={<ProtectedAdminRoute />}>
-          <Route path="/okg-admin" element={<AdminFinance />} />
           <Route path="/admin/subcontractors" element={<AdminSubcontractors />} />
           <Route path="/admin/contact-submissions" element={<AdminContactSubmissions />} />
           <Route path="/admin/finance" element={<AdminFinance />} />

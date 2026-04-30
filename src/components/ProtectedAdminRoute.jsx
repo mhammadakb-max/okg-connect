@@ -1,9 +1,10 @@
-import { Outlet } from 'react-router-dom';
+import { Navigate, Outlet, useLocation } from 'react-router-dom';
 import { useAuth } from '@/lib/AuthContext';
 import { base44 } from '@/api/base44Client';
 
 export default function ProtectedAdminRoute() {
   const { user, isAuthenticated, isLoadingAuth, authChecked } = useAuth();
+  const location = useLocation();
 
   if (isLoadingAuth || !authChecked) {
     return (
@@ -28,6 +29,10 @@ export default function ProtectedAdminRoute() {
         </div>
       </div>
     );
+  }
+
+  if (sessionStorage.getItem('okg_admin_portal_unlocked') !== 'true') {
+    return <Navigate to="/okg-admin" replace state={{ from: location.pathname }} />;
   }
 
   return <Outlet />;
