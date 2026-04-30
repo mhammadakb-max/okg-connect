@@ -1,0 +1,62 @@
+{
+  "name": "PaymentRecord",
+  "type": "object",
+  "properties": {
+    "record_type": {
+      "type": "string",
+      "enum": [
+        "income",
+        "expense"
+      ],
+      "description": "Whether this record is money received or money spent"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "paid",
+        "pending"
+      ],
+      "default": "paid",
+      "description": "Whether the amount has been paid/received or is still pending"
+    },
+    "amount": {
+      "type": "number",
+      "description": "Payment amount"
+    },
+    "payment_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Date of the payment or expected payment"
+    },
+    "description": {
+      "type": "string",
+      "description": "Short description of the payment"
+    },
+    "category": {
+      "type": "string",
+      "description": "Payment category such as project income, labour, materials, rent, subcontractor, transport or other"
+    },
+    "project_name": {
+      "type": "string",
+      "description": "Related project name if applicable"
+    },
+    "client_or_vendor": {
+      "type": "string",
+      "description": "Client, supplier, subcontractor or vendor name"
+    },
+    "payment_method": {
+      "type": "string",
+      "description": "Cash, bank transfer, cheque or other payment method"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Additional admin notes"
+    }
+  },
+  "required": [
+    "record_type",
+    "amount",
+    "payment_date",
+    "description"
+  ]
+}

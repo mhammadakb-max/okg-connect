@@ -25,6 +25,7 @@ import Contact from './pages/Contact';
 import SubcontractorPortal from './pages/SubcontractorPortal';
 import AdminSubcontractors from './pages/AdminSubcontractors';
 import AdminContactSubmissions from './pages/AdminContactSubmissions';
+import AdminFinance from './pages/AdminFinance';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -65,6 +66,7 @@ const AuthenticatedApp = () => {
         <Route element={<ProtectedAdminRoute />}>
           <Route path="/admin/subcontractors" element={<AdminSubcontractors />} />
           <Route path="/admin/contact-submissions" element={<AdminContactSubmissions />} />
+          <Route path="/admin/finance" element={<AdminFinance />} />
         </Route>
         <Route path="/contact" element={<Contact />} />
       </Route>
