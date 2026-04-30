@@ -1,0 +1,86 @@
+{
+  "name": "MainContractor",
+  "type": "object",
+  "properties": {
+    "company_name": {
+      "type": "string",
+      "description": "Main contractor company name"
+    },
+    "contact_person": {
+      "type": "string",
+      "description": "Primary contact person"
+    },
+    "designation": {
+      "type": "string",
+      "description": "Contact designation"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Business email"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Phone number"
+    },
+    "office_location": {
+      "type": "string",
+      "description": "Office location"
+    },
+    "relationship_status": {
+      "type": "string",
+      "enum": [
+        "prospect",
+        "active",
+        "preferred",
+        "inactive"
+      ],
+      "default": "prospect",
+      "description": "Relationship status"
+    },
+    "payment_terms": {
+      "type": "string",
+      "description": "Typical payment terms"
+    },
+    "prequalification_status": {
+      "type": "string",
+      "enum": [
+        "not_started",
+        "submitted",
+        "approved",
+        "rejected"
+      ],
+      "default": "not_started",
+      "description": "Prequalification status"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Internal notes"
+    }
+  },
+  "required": [
+    "company_name"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

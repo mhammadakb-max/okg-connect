@@ -1,0 +1,92 @@
+{
+  "name": "ProjectRecord",
+  "type": "object",
+  "properties": {
+    "project_name": {
+      "type": "string",
+      "description": "Project name"
+    },
+    "client_name": {
+      "type": "string",
+      "description": "Client or employer name"
+    },
+    "main_contractor": {
+      "type": "string",
+      "description": "Main contractor name"
+    },
+    "location": {
+      "type": "string",
+      "description": "Project location"
+    },
+    "scope": {
+      "type": "string",
+      "description": "Scope of works"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "tender",
+        "awarded",
+        "mobilising",
+        "in_progress",
+        "on_hold",
+        "completed",
+        "closed"
+      ],
+      "default": "tender",
+      "description": "Project status"
+    },
+    "progress": {
+      "type": "number",
+      "default": 0,
+      "description": "Completion percentage from 0 to 100"
+    },
+    "start_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Project start date"
+    },
+    "target_completion": {
+      "type": "string",
+      "format": "date",
+      "description": "Target completion date"
+    },
+    "contract_value": {
+      "type": "number",
+      "description": "Project contract value"
+    },
+    "project_manager": {
+      "type": "string",
+      "description": "Responsible project manager"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Internal project notes"
+    }
+  },
+  "required": [
+    "project_name"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

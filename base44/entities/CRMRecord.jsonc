@@ -1,0 +1,89 @@
+{
+  "name": "CRMRecord",
+  "type": "object",
+  "properties": {
+    "company_name": {
+      "type": "string",
+      "description": "Client, lead or consultant company name"
+    },
+    "contact_person": {
+      "type": "string",
+      "description": "Main contact person"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Contact email"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Contact phone number"
+    },
+    "lead_source": {
+      "type": "string",
+      "description": "How the lead or client came in"
+    },
+    "stage": {
+      "type": "string",
+      "enum": [
+        "new",
+        "contacted",
+        "quoted",
+        "negotiation",
+        "won",
+        "lost"
+      ],
+      "default": "new",
+      "description": "CRM pipeline stage"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "urgent"
+      ],
+      "default": "medium",
+      "description": "Commercial priority"
+    },
+    "estimated_value": {
+      "type": "number",
+      "description": "Estimated contract or opportunity value"
+    },
+    "next_follow_up": {
+      "type": "string",
+      "format": "date",
+      "description": "Next follow-up date"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Internal CRM notes"
+    }
+  },
+  "required": [
+    "company_name"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

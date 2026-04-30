@@ -1,0 +1,77 @@
+{
+  "name": "AdminDocument",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Document title"
+    },
+    "document_type": {
+      "type": "string",
+      "enum": [
+        "subcontractor",
+        "project",
+        "contract",
+        "qHSE",
+        "finance",
+        "legal",
+        "other"
+      ],
+      "default": "other",
+      "description": "Document category"
+    },
+    "related_party": {
+      "type": "string",
+      "description": "Related subcontractor, contractor, client or project"
+    },
+    "expiry_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Document expiry date if applicable"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "active",
+        "expired",
+        "archived"
+      ],
+      "default": "active",
+      "description": "Document status"
+    },
+    "file_url": {
+      "type": "string",
+      "description": "Uploaded document file URL"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Internal document notes"
+    }
+  },
+  "required": [
+    "title"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

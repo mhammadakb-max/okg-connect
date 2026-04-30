@@ -26,6 +26,7 @@ import SubcontractorPortal from './pages/SubcontractorPortal';
 import AdminSubcontractors from './pages/AdminSubcontractors';
 import AdminContactSubmissions from './pages/AdminContactSubmissions';
 import AdminFinance from './pages/AdminFinance';
+import AdminOperations from './pages/AdminOperations';
 import AdminDashboard from './pages/AdminDashboard';
 import AdminPortalGate from './pages/AdminPortalGate';
 
@@ -71,6 +72,7 @@ const AuthenticatedApp = () => {
           <Route path="/admin/subcontractors" element={<AdminSubcontractors />} />
           <Route path="/admin/contact-submissions" element={<AdminContactSubmissions />} />
           <Route path="/admin/finance" element={<AdminFinance />} />
+          <Route path="/admin/operations" element={<AdminOperations />} />
         </Route>
         <Route path="/contact" element={<Contact />} />
       </Route>

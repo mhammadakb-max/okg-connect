@@ -1,10 +1,11 @@
 import React from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { BarChart3, Bot, FileText, HardHat, LayoutDashboard } from 'lucide-react';
+import { BarChart3, Bot, BriefcaseBusiness, FileText, HardHat, LayoutDashboard } from 'lucide-react';
 
 const links = [
   { to: '/admin/dashboard', label: 'Dashboard', Icon: LayoutDashboard },
   { to: '/admin/finance', label: 'Finance', Icon: BarChart3 },
+  { to: '/admin/operations', label: 'Operations', Icon: BriefcaseBusiness },
   { to: '/admin/contact-submissions', label: 'Enquiries', Icon: FileText },
   { to: '/admin/subcontractors', label: 'Subcontractors', Icon: HardHat },
 ];

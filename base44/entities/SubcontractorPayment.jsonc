@@ -1,0 +1,77 @@
+{
+  "name": "SubcontractorPayment",
+  "type": "object",
+  "properties": {
+    "subcontractor_name": {
+      "type": "string",
+      "description": "Subcontractor company name"
+    },
+    "project_name": {
+      "type": "string",
+      "description": "Related project"
+    },
+    "invoice_number": {
+      "type": "string",
+      "description": "Invoice or payment certificate number"
+    },
+    "amount": {
+      "type": "number",
+      "description": "Payment amount"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "paid",
+        "held"
+      ],
+      "default": "pending",
+      "description": "Payment status"
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Payment due date"
+    },
+    "paid_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Actual paid date"
+    },
+    "payment_method": {
+      "type": "string",
+      "description": "Payment method"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Internal payment notes"
+    }
+  },
+  "required": [
+    "subcontractor_name",
+    "amount"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

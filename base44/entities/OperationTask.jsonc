@@ -1,0 +1,88 @@
+{
+  "name": "OperationTask",
+  "type": "object",
+  "properties": {
+    "title": {
+      "type": "string",
+      "description": "Task title"
+    },
+    "department": {
+      "type": "string",
+      "enum": [
+        "management",
+        "commercial",
+        "projects",
+        "finance",
+        "procurement",
+        "qHSE",
+        "subcontractors"
+      ],
+      "default": "management",
+      "description": "Responsible department"
+    },
+    "related_project": {
+      "type": "string",
+      "description": "Related project if applicable"
+    },
+    "assigned_to": {
+      "type": "string",
+      "description": "Responsible person"
+    },
+    "priority": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "urgent"
+      ],
+      "default": "medium",
+      "description": "Task priority"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "todo",
+        "in_progress",
+        "waiting",
+        "done"
+      ],
+      "default": "todo",
+      "description": "Task status"
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Task due date"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Task notes"
+    }
+  },
+  "required": [
+    "title"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
