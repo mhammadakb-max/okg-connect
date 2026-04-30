@@ -33,7 +33,7 @@ export default function AdminPortalGate() {
         </div>
         <p className="text-xs font-bold uppercase tracking-widest text-text-secondary mb-2">Private Admin Access</p>
         <h1 className="text-2xl font-extrabold mb-3" style={{ color: '#001078' }}>Enter admin password</h1>
-        <p className="text-sm text-text-secondary mb-6">This area is restricted to OKG administrators.</p>
+        <p className="text-sm text-text-secondary mb-6">Sign in using omerkhalfangc@gmail.com, then enter the admin password.</p>
         <input
           type="password"
           value={password}
