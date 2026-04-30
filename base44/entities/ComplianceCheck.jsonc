@@ -1,0 +1,87 @@
+{
+  "name": "ComplianceCheck",
+  "type": "object",
+  "properties": {
+    "check_title": {
+      "type": "string",
+      "description": "Compliance check title"
+    },
+    "project_name": {
+      "type": "string",
+      "description": "Related construction project"
+    },
+    "party_name": {
+      "type": "string",
+      "description": "Subcontractor, supplier, worker or contractor"
+    },
+    "check_type": {
+      "type": "string",
+      "enum": [
+        "trade_license",
+        "insurance",
+        "hse",
+        "method_statement",
+        "risk_assessment",
+        "permit",
+        "training",
+        "other"
+      ],
+      "default": "hse",
+      "description": "Compliance type"
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Due or renewal date"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "submitted",
+        "approved",
+        "expired",
+        "rejected"
+      ],
+      "default": "pending",
+      "description": "Compliance status"
+    },
+    "responsible_person": {
+      "type": "string",
+      "description": "Responsible admin or manager"
+    },
+    "evidence_url": {
+      "type": "string",
+      "description": "Uploaded evidence document URL"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Compliance notes"
+    }
+  },
+  "required": [
+    "check_title"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

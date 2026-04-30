@@ -1,5 +1,5 @@
 import React from 'react';
-import { Building2, ClipboardList, FileCheck2, HandCoins, HardHat, Users } from 'lucide-react';
+import { AlertTriangle, Building2, CalendarDays, ClipboardCheck, ClipboardList, FileCheck2, HandCoins, HardHat, UserCheck, Users } from 'lucide-react';
 
 const config = [
   { key: 'crm', label: 'CRM Records', Icon: Users },
@@ -8,6 +8,10 @@ const config = [
   { key: 'subcontractors', label: 'Subcontractors', Icon: HardHat },
   { key: 'documents', label: 'Documents', Icon: FileCheck2 },
   { key: 'subcontractorPayments', label: 'Subcon Payments', Icon: HandCoins },
+  { key: 'shifts', label: 'Crew Schedules', Icon: CalendarDays },
+  { key: 'attendance', label: 'Attendance Logs', Icon: UserCheck },
+  { key: 'incidents', label: 'Site Incidents', Icon: AlertTriangle },
+  { key: 'compliance', label: 'Compliance Checks', Icon: ClipboardCheck },
 ];
 
 export default function OperationsStats({ data }) {

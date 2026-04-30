@@ -1,0 +1,82 @@
+{
+  "name": "TenderPipeline",
+  "type": "object",
+  "properties": {
+    "opportunity_name": {
+      "type": "string",
+      "description": "Tender, quotation or opportunity name"
+    },
+    "client_name": {
+      "type": "string",
+      "description": "Client or employer"
+    },
+    "main_contractor": {
+      "type": "string",
+      "description": "Main contractor if applicable"
+    },
+    "scope": {
+      "type": "string",
+      "description": "Construction scope being priced"
+    },
+    "stage": {
+      "type": "string",
+      "enum": [
+        "lead",
+        "site_visit",
+        "pricing",
+        "submitted",
+        "negotiation",
+        "awarded",
+        "lost"
+      ],
+      "default": "lead",
+      "description": "Tender pipeline stage"
+    },
+    "bid_due_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Submission due date"
+    },
+    "estimated_value": {
+      "type": "number",
+      "description": "Estimated tender value"
+    },
+    "probability": {
+      "type": "number",
+      "description": "Win probability percentage"
+    },
+    "next_action": {
+      "type": "string",
+      "description": "Next commercial action"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Pipeline notes"
+    }
+  },
+  "required": [
+    "opportunity_name"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

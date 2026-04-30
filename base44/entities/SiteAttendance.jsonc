@@ -1,0 +1,76 @@
+{
+  "name": "SiteAttendance",
+  "type": "object",
+  "properties": {
+    "worker_name": {
+      "type": "string",
+      "description": "Worker name"
+    },
+    "project_name": {
+      "type": "string",
+      "description": "Related construction project"
+    },
+    "subcontractor_name": {
+      "type": "string",
+      "description": "Subcontractor company if applicable"
+    },
+    "trade": {
+      "type": "string",
+      "description": "Worker trade"
+    },
+    "check_in_time": {
+      "type": "string",
+      "description": "Check-in time"
+    },
+    "check_out_time": {
+      "type": "string",
+      "description": "Check-out time"
+    },
+    "attendance_status": {
+      "type": "string",
+      "enum": [
+        "present",
+        "absent",
+        "late",
+        "left_early",
+        "overtime"
+      ],
+      "default": "present",
+      "description": "Attendance status"
+    },
+    "hours_worked": {
+      "type": "number",
+      "description": "Total hours worked"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Attendance notes"
+    }
+  },
+  "required": [
+    "worker_name",
+    "project_name"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

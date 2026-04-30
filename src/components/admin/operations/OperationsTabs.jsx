@@ -9,6 +9,11 @@ const tabs = [
   { key: 'subcontractorPayments', label: 'Subcon Payments' },
   { key: 'documents', label: 'Documents' },
   { key: 'tasks', label: 'Tasks' },
+  { key: 'shifts', label: 'Crew Scheduling' },
+  { key: 'attendance', label: 'Site Attendance' },
+  { key: 'incidents', label: 'Incidents' },
+  { key: 'compliance', label: 'Compliance' },
+  { key: 'tenders', label: 'Tender CRM' },
 ];
 
 export default function OperationsTabs({ activeTab, onChange }) {

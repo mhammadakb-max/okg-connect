@@ -4,6 +4,7 @@ import AdminShell from '@/components/admin/AdminShell';
 import OperationsStats from '@/components/admin/operations/OperationsStats';
 import OperationsTabs from '@/components/admin/operations/OperationsTabs';
 import OperationsOverview from '@/components/admin/operations/OperationsOverview';
+import ConstructionSuitePanel from '@/components/admin/operations/ConstructionSuitePanel';
 import OperationsForm from '@/components/admin/operations/OperationsForm';
 import OperationsTable from '@/components/admin/operations/OperationsTable';
 
@@ -15,9 +16,14 @@ const emptyData = {
   tasks: [],
   subcontractorPayments: [],
   subcontractors: [],
+  shifts: [],
+  attendance: [],
+  incidents: [],
+  compliance: [],
+  tenders: [],
 };
 
-const editableModules = ['crm', 'projects', 'contractors', 'documents', 'tasks', 'subcontractorPayments'];
+const editableModules = ['crm', 'projects', 'contractors', 'documents', 'tasks', 'subcontractorPayments', 'shifts', 'attendance', 'incidents', 'compliance', 'tenders'];
 
 export default function AdminOperations() {
   const [data, setData] = useState(emptyData);
@@ -69,6 +75,7 @@ export default function AdminOperations() {
       ) : (
         <>
           <OperationsStats data={data} />
+          <ConstructionSuitePanel onTabChange={setActiveTab} />
           <OperationsTabs activeTab={activeTab} onChange={setActiveTab} />
           {activeTab === 'overview' ? (
             <OperationsOverview data={data} onTabChange={setActiveTab} />

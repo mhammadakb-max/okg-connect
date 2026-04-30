@@ -1,0 +1,84 @@
+{
+  "name": "WorkforceShift",
+  "type": "object",
+  "properties": {
+    "shift_title": {
+      "type": "string",
+      "description": "Shift or deployment title"
+    },
+    "project_name": {
+      "type": "string",
+      "description": "Related construction project"
+    },
+    "site_location": {
+      "type": "string",
+      "description": "Site location"
+    },
+    "crew_type": {
+      "type": "string",
+      "description": "Civil, masonry, steel, finishing, MEP or other crew"
+    },
+    "supervisor": {
+      "type": "string",
+      "description": "Site supervisor"
+    },
+    "shift_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Shift date"
+    },
+    "start_time": {
+      "type": "string",
+      "description": "Shift start time"
+    },
+    "end_time": {
+      "type": "string",
+      "description": "Shift end time"
+    },
+    "manpower_required": {
+      "type": "number",
+      "description": "Required manpower count"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "planned",
+        "confirmed",
+        "active",
+        "completed",
+        "cancelled"
+      ],
+      "default": "planned",
+      "description": "Shift status"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Internal shift notes"
+    }
+  },
+  "required": [
+    "shift_title"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

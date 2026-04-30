@@ -9,6 +9,11 @@ const columns = {
   subcontractorPayments: ['subcontractor_name', 'project_name', 'invoice_number', 'amount', 'status', 'due_date'],
   documents: ['title', 'document_type', 'related_party', 'status', 'expiry_date'],
   tasks: ['title', 'department', 'assigned_to', 'priority', 'status', 'due_date'],
+  shifts: ['shift_title', 'project_name', 'site_location', 'crew_type', 'shift_date', 'status'],
+  attendance: ['worker_name', 'project_name', 'subcontractor_name', 'attendance_status', 'hours_worked'],
+  incidents: ['incident_title', 'project_name', 'incident_type', 'severity', 'status', 'incident_date'],
+  compliance: ['check_title', 'party_name', 'check_type', 'status', 'due_date'],
+  tenders: ['opportunity_name', 'client_name', 'main_contractor', 'stage', 'estimated_value', 'bid_due_date'],
 };
 
 const moduleLabels = {
@@ -19,6 +24,11 @@ const moduleLabels = {
   subcontractorPayments: 'Subcontractor Payments',
   documents: 'Documents',
   tasks: 'Tasks',
+  shifts: 'Crew Scheduling',
+  attendance: 'Site Attendance',
+  incidents: 'Site Incidents',
+  compliance: 'Construction Compliance',
+  tenders: 'Tender CRM Pipeline',
 };
 
 const prettify = (value) => value.replaceAll('_', ' ').replace(/\b\w/g, (letter) => letter.toUpperCase());

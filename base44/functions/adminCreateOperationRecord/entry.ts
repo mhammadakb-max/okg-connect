@@ -7,6 +7,11 @@ const allowedEntities = {
   documents: 'AdminDocument',
   tasks: 'OperationTask',
   subcontractorPayments: 'SubcontractorPayment',
+  shifts: 'WorkforceShift',
+  attendance: 'SiteAttendance',
+  incidents: 'SiteIncident',
+  compliance: 'ComplianceCheck',
+  tenders: 'TenderPipeline',
 };
 
 const canAccessAdmin = (user) => user?.role === 'admin' || user?.email === 'omerkhalfangc@gmail.com';

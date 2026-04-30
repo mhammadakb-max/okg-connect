@@ -6,11 +6,17 @@ export default function OperationsOverview({ data, onTabChange }) {
   const activeProjects = (data.projects || []).filter((p) => ['awarded', 'mobilising', 'in_progress'].includes(p.status)).length;
   const pendingTasks = (data.tasks || []).filter((t) => t.status !== 'done').length;
   const pendingPayments = (data.subcontractorPayments || []).filter((p) => p.status === 'pending' || p.status === 'approved').length;
+  const openIncidents = (data.incidents || []).filter((i) => i.status !== 'closed').length;
+  const pendingCompliance = (data.compliance || []).filter((c) => ['pending', 'submitted', 'expired'].includes(c.status)).length;
+  const activeTenders = (data.tenders || []).filter((t) => !['awarded', 'lost'].includes(t.stage)).length;
 
   const cards = [
     { label: 'Active project tracking', value: activeProjects, Icon: FolderKanban, tab: 'projects' },
     { label: 'Open operation tasks', value: pendingTasks, Icon: Clock3, tab: 'tasks' },
     { label: 'Pending subcontractor payments', value: pendingPayments, Icon: CheckCircle2, tab: 'subcontractorPayments' },
+    { label: 'Open site incidents', value: openIncidents, Icon: Clock3, tab: 'incidents' },
+    { label: 'Pending compliance checks', value: pendingCompliance, Icon: CheckCircle2, tab: 'compliance' },
+    { label: 'Active tender opportunities', value: activeTenders, Icon: FolderKanban, tab: 'tenders' },
   ];
 
   return (

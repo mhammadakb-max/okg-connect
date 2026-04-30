@@ -8,6 +8,11 @@ const fieldsByModule = {
   documents: ['title', 'document_type', 'related_party', 'expiry_date', 'status', 'file_url', 'notes'],
   tasks: ['title', 'department', 'related_project', 'assigned_to', 'priority', 'status', 'due_date', 'notes'],
   subcontractorPayments: ['subcontractor_name', 'project_name', 'invoice_number', 'amount', 'status', 'due_date', 'paid_date', 'payment_method', 'notes'],
+  shifts: ['shift_title', 'project_name', 'site_location', 'crew_type', 'supervisor', 'shift_date', 'start_time', 'end_time', 'manpower_required', 'status', 'notes'],
+  attendance: ['worker_name', 'project_name', 'subcontractor_name', 'trade', 'check_in_time', 'check_out_time', 'attendance_status', 'hours_worked', 'notes'],
+  incidents: ['incident_title', 'project_name', 'location', 'incident_type', 'severity', 'reported_by', 'incident_date', 'status', 'corrective_action', 'notes'],
+  compliance: ['check_title', 'project_name', 'party_name', 'check_type', 'due_date', 'status', 'responsible_person', 'evidence_url', 'notes'],
+  tenders: ['opportunity_name', 'client_name', 'main_contractor', 'scope', 'stage', 'bid_due_date', 'estimated_value', 'probability', 'next_action', 'notes'],
 };
 
 const selectOptions = {
@@ -22,6 +27,14 @@ const selectOptions = {
   'tasks.priority': ['low', 'medium', 'high', 'urgent'],
   'tasks.status': ['todo', 'in_progress', 'waiting', 'done'],
   'subcontractorPayments.status': ['pending', 'approved', 'paid', 'held'],
+  'shifts.status': ['planned', 'confirmed', 'active', 'completed', 'cancelled'],
+  'attendance.attendance_status': ['present', 'absent', 'late', 'left_early', 'overtime'],
+  'incidents.incident_type': ['safety', 'quality', 'damage', 'delay', 'security', 'near_miss', 'other'],
+  'incidents.severity': ['low', 'medium', 'high', 'critical'],
+  'incidents.status': ['open', 'investigating', 'corrective_action', 'closed'],
+  'compliance.check_type': ['trade_license', 'insurance', 'hse', 'method_statement', 'risk_assessment', 'permit', 'training', 'other'],
+  'compliance.status': ['pending', 'submitted', 'approved', 'expired', 'rejected'],
+  'tenders.stage': ['lead', 'site_visit', 'pricing', 'submitted', 'negotiation', 'awarded', 'lost'],
 };
 
 const prettify = (value) => value.replaceAll('_', ' ').replace(/\b\w/g, (letter) => letter.toUpperCase());
@@ -40,7 +53,7 @@ export default function OperationsForm({ moduleKey, onSubmit, saving }) {
     if (!file) return;
     setUploading(true);
     const { file_url } = await base44.integrations.Core.UploadFile({ file });
-    setForm((current) => ({ ...current, file_url }));
+    setForm((current) => ({ ...current, file_url, evidence_url: current.evidence_url !== undefined ? file_url : current.evidence_url }));
     setUploading(false);
   };
 
@@ -68,12 +81,12 @@ export default function OperationsForm({ moduleKey, onSubmit, saving }) {
               </select>
             );
           }
-          if (field === 'file_url') {
+          if (field === 'file_url' || field === 'evidence_url') {
             return (
               <div key={field} className="rounded-xl border border-gray-200 px-4 py-3 text-sm">
                 <input type="file" onChange={(e) => handleFileUpload(e.target.files?.[0])} className="w-full text-sm" />
                 {uploading && <p className="mt-2 text-xs text-text-secondary">Uploading...</p>}
-                {form.file_url && <a href={form.file_url} target="_blank" rel="noopener noreferrer" className="mt-2 block text-xs font-bold text-navy">Document uploaded</a>}
+                {(form.file_url || form.evidence_url) && <a href={form.file_url || form.evidence_url} target="_blank" rel="noopener noreferrer" className="mt-2 block text-xs font-bold text-navy">Document uploaded</a>}
               </div>
             );
           }

@@ -1,0 +1,96 @@
+{
+  "name": "SiteIncident",
+  "type": "object",
+  "properties": {
+    "incident_title": {
+      "type": "string",
+      "description": "Incident title"
+    },
+    "project_name": {
+      "type": "string",
+      "description": "Related construction project"
+    },
+    "location": {
+      "type": "string",
+      "description": "Exact incident location"
+    },
+    "incident_type": {
+      "type": "string",
+      "enum": [
+        "safety",
+        "quality",
+        "damage",
+        "delay",
+        "security",
+        "near_miss",
+        "other"
+      ],
+      "default": "safety",
+      "description": "Incident category"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "low",
+        "medium",
+        "high",
+        "critical"
+      ],
+      "default": "medium",
+      "description": "Incident severity"
+    },
+    "reported_by": {
+      "type": "string",
+      "description": "Person who reported the incident"
+    },
+    "incident_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Incident date"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "open",
+        "investigating",
+        "corrective_action",
+        "closed"
+      ],
+      "default": "open",
+      "description": "Incident status"
+    },
+    "corrective_action": {
+      "type": "string",
+      "description": "Corrective action required or completed"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Incident notes"
+    }
+  },
+  "required": [
+    "incident_title"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
