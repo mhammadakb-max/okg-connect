@@ -60,7 +60,7 @@ export default function Contact() {
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
             {[
               { Icon: Phone, label: 'Phone', value: '+971 54 217 1502' },
-              { Icon: Mail, label: 'Email', value: 'info@okgcontracting.com' },
+              { Icon: Mail, label: 'Email', value: 'info@okgbuild.com' },
               { Icon: MessageCircle, label: 'WhatsApp', value: '+971 54 217 1502', link: 'https://wa.me/971542171502' },
               { Icon: MapPin, label: 'Office', value: 'Warba Centre, Office 504, Al Muraqabat, Deira, Dubai, UAE' },
             ].map((contact, idx) => (

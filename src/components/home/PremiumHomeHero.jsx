@@ -28,7 +28,7 @@ export default function PremiumHomeHero({ image }) {
           <motion.div initial="hidden" animate="visible" transition={{ staggerChildren: 0.12 }}>
             <motion.div variants={fadeUp} transition={{ duration: 0.65, ease: 'easeOut' }}><SectionEyebrow label="UAE Construction Partner" /></motion.div>
             <motion.h1 variants={fadeUp} transition={{ duration: 0.75, ease: 'easeOut' }} className="text-5xl md:text-7xl font-extrabold mb-7 leading-[0.94] tracking-tight" style={{ color: '#001078' }}>
-              Premium contracting built on clarity and control.
+              OKG Build.
             </motion.h1>
             <motion.p variants={fadeUp} transition={{ duration: 0.75, ease: 'easeOut' }} className="text-lg md:text-xl text-text-secondary mb-9 leading-relaxed max-w-2xl">
               OKG Building Contracting supports UAE projects with disciplined civil works, finishing, manpower coordination, daily supervision, documentation control and accountable site delivery.
