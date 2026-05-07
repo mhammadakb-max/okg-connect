@@ -1,0 +1,77 @@
+{
+  "name": "BuildOpsAuditLog",
+  "type": "object",
+  "properties": {
+    "company_id": {
+      "type": "string",
+      "description": "Tenant/company ID"
+    },
+    "user_email": {
+      "type": "string",
+      "description": "User email"
+    },
+    "action": {
+      "type": "string",
+      "description": "Action performed"
+    },
+    "target_record": {
+      "type": "string",
+      "description": "Target record"
+    },
+    "target_entity": {
+      "type": "string",
+      "description": "Target entity"
+    },
+    "ip_placeholder": {
+      "type": "string",
+      "description": "IP placeholder"
+    },
+    "device_placeholder": {
+      "type": "string",
+      "description": "Device placeholder"
+    },
+    "old_value": {
+      "type": "string",
+      "description": "Old value"
+    },
+    "new_value": {
+      "type": "string",
+      "description": "New value"
+    },
+    "severity": {
+      "type": "string",
+      "enum": [
+        "info",
+        "warning",
+        "critical"
+      ],
+      "default": "info",
+      "description": "Audit severity"
+    }
+  },
+  "required": [
+    "action"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

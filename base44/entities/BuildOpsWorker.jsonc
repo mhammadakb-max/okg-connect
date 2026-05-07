@@ -1,0 +1,157 @@
+{
+  "name": "BuildOpsWorker",
+  "type": "object",
+  "properties": {
+    "company_id": {
+      "type": "string",
+      "description": "Tenant/company ID"
+    },
+    "full_name": {
+      "type": "string",
+      "description": "Worker full name"
+    },
+    "worker_id": {
+      "type": "string",
+      "description": "Worker ID"
+    },
+    "photo_url": {
+      "type": "string",
+      "description": "Worker photo URL"
+    },
+    "nationality": {
+      "type": "string",
+      "description": "Nationality"
+    },
+    "passport_number": {
+      "type": "string",
+      "description": "Passport number"
+    },
+    "emirates_id_number": {
+      "type": "string",
+      "description": "Emirates ID number"
+    },
+    "visa_status": {
+      "type": "string",
+      "description": "Visa status"
+    },
+    "labour_card_details": {
+      "type": "string",
+      "description": "Labour card details"
+    },
+    "visa_type": {
+      "type": "string",
+      "enum": [
+        "company_visa",
+        "third_party_visa"
+      ],
+      "default": "company_visa",
+      "description": "Visa type"
+    },
+    "trade_category": {
+      "type": "string",
+      "description": "Trade/category"
+    },
+    "skill_level": {
+      "type": "string",
+      "description": "Skill level"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Phone number"
+    },
+    "emergency_contact": {
+      "type": "string",
+      "description": "Emergency contact"
+    },
+    "assigned_project_id": {
+      "type": "string",
+      "description": "Assigned project ID"
+    },
+    "current_site": {
+      "type": "string",
+      "description": "Current site"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "available",
+        "assigned",
+        "on_leave",
+        "suspended",
+        "inactive"
+      ],
+      "default": "available",
+      "description": "Worker status"
+    },
+    "approval_status": {
+      "type": "string",
+      "enum": [
+        "not_submitted",
+        "submitted",
+        "under_review",
+        "missing_documents",
+        "approved",
+        "rejected",
+        "suspended",
+        "removed_from_site"
+      ],
+      "default": "not_submitted",
+      "description": "Worker approval status"
+    },
+    "joining_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Joining date"
+    },
+    "monthly_rate": {
+      "type": "number",
+      "description": "Monthly rate"
+    },
+    "daily_rate": {
+      "type": "number",
+      "description": "Daily rate"
+    },
+    "hourly_rate": {
+      "type": "number",
+      "description": "Hourly rate"
+    },
+    "accommodation_details": {
+      "type": "string",
+      "description": "Accommodation details"
+    },
+    "transport_details": {
+      "type": "string",
+      "description": "Transport details"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Worker notes"
+    }
+  },
+  "required": [
+    "company_id",
+    "full_name"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

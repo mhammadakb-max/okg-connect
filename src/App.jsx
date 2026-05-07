@@ -34,6 +34,13 @@ import AdminProjects from './pages/AdminProjects';
 import AdminQuotations from './pages/AdminQuotations';
 import AdminInvoices from './pages/AdminInvoices';
 import AdminPlaceholder from './pages/AdminPlaceholder';
+import BuildOpsPlatformDashboard from './pages/BuildOpsPlatformDashboard';
+import BuildOpsCompanyDashboard from './pages/BuildOpsCompanyDashboard';
+import BuildOpsPlaceholder from './pages/BuildOpsPlaceholder';
+import BuildOpsWorkerSharing from './pages/BuildOpsWorkerSharing';
+import BuildOpsMobileOps from './pages/BuildOpsMobileOps';
+import BuildOpsPlans from './pages/BuildOpsPlans';
+import BuildOpsSecurity from './pages/BuildOpsSecurity';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -73,26 +80,44 @@ const AuthenticatedApp = () => {
         <Route path="/subcontractor-portal" element={<SubcontractorPortal />} />
         <Route path="/okg-admin" element={<AdminPortalGate />} />
         <Route element={<ProtectedAdminRoute />}>
-          <Route path="/admin/dashboard" element={<AdminDashboard />} />
-          <Route path="/admin/subcontractors" element={<AdminSubcontractors />} />
+          <Route path="/admin/platform" element={<BuildOpsPlatformDashboard />} />
+          <Route path="/admin/dashboard" element={<BuildOpsCompanyDashboard />} />
+          <Route path="/admin/companies" element={<BuildOpsPlaceholder type="companies" />} />
+          <Route path="/admin/subscriptions" element={<BuildOpsPlans />} />
+          <Route path="/admin/support" element={<BuildOpsPlaceholder type="integrations" />} />
+          <Route path="/admin/subcontractors" element={<BuildOpsPlaceholder type="network" />} />
           <Route path="/admin/contact-submissions" element={<AdminContactSubmissions />} />
           <Route path="/admin/finance" element={<AdminFinance />} />
-          <Route path="/admin/operations" element={<AdminOperations />} />
-          <Route path="/admin/clients" element={<AdminClients />} />
-          <Route path="/admin/projects" element={<AdminProjects />} />
-          <Route path="/admin/quotations" element={<AdminQuotations />} />
-          <Route path="/admin/invoices" element={<AdminInvoices />} />
-          <Route path="/admin/documents" element={<AdminOperations />} />
-          <Route path="/admin/attendance" element={<AdminOperations />} />
-          <Route path="/admin/boq" element={<AdminPlaceholder type="reports" />} />
-          <Route path="/admin/photos" element={<AdminPlaceholder type="reports" />} />
-          <Route path="/admin/tasks" element={<AdminOperations />} />
-          <Route path="/admin/reports" element={<AdminPlaceholder type="reports" />} />
-          <Route path="/admin/roles" element={<AdminPlaceholder type="roles" />} />
-          <Route path="/admin/notifications" element={<AdminPlaceholder type="notifications" />} />
-          <Route path="/admin/settings" element={<AdminPlaceholder type="settings" />} />
-          <Route path="/admin/cms" element={<AdminPlaceholder type="cms" />} />
-          <Route path="/admin/seo" element={<AdminPlaceholder type="seo" />} />
+          <Route path="/admin/operations" element={<BuildOpsCompanyDashboard />} />
+          <Route path="/admin/clients" element={<BuildOpsPlaceholder type="companies" />} />
+          <Route path="/admin/projects" element={<BuildOpsPlaceholder type="documents" />} />
+          <Route path="/admin/quotations" element={<BuildOpsPlaceholder type="documents" />} />
+          <Route path="/admin/invoices" element={<BuildOpsPlaceholder type="documents" />} />
+          <Route path="/admin/workers" element={<BuildOpsPlaceholder type="workers" />} />
+          <Route path="/admin/worker-sharing" element={<BuildOpsWorkerSharing />} />
+          <Route path="/admin/attendance" element={<BuildOpsPlaceholder type="attendance" />} />
+          <Route path="/admin/timesheets" element={<BuildOpsPlaceholder type="attendance" />} />
+          <Route path="/admin/documents" element={<BuildOpsPlaceholder type="documents" />} />
+          <Route path="/admin/document-requests" element={<BuildOpsPlaceholder type="documents" />} />
+          <Route path="/admin/network" element={<BuildOpsPlaceholder type="network" />} />
+          <Route path="/admin/rfqs" element={<BuildOpsPlaceholder type="network" />} />
+          <Route path="/admin/work-orders" element={<BuildOpsPlaceholder type="network" />} />
+          <Route path="/admin/boq" element={<BuildOpsPlaceholder type="documents" />} />
+          <Route path="/admin/photos" element={<BuildOpsPlaceholder type="documents" />} />
+          <Route path="/admin/tasks" element={<BuildOpsPlaceholder type="attendance" />} />
+          <Route path="/admin/calendar" element={<BuildOpsMobileOps />} />
+          <Route path="/admin/reports" element={<BuildOpsPlaceholder type="integrations" />} />
+          <Route path="/admin/messages" element={<BuildOpsPlaceholder type="network" />} />
+          <Route path="/admin/settings" element={<BuildOpsSecurity />} />
+          <Route path="/admin/labour-marketplace" element={<BuildOpsPlaceholder type="marketplace" />} />
+          <Route path="/admin/lead-marketplace" element={<BuildOpsPlaceholder type="marketplace" />} />
+          <Route path="/admin/material-suppliers" element={<BuildOpsPlaceholder type="marketplace" />} />
+          <Route path="/admin/equipment-rental" element={<BuildOpsPlaceholder type="marketplace" />} />
+          <Route path="/admin/integrations" element={<BuildOpsPlaceholder type="integrations" />} />
+          <Route path="/admin/roles" element={<BuildOpsSecurity />} />
+          <Route path="/admin/notifications" element={<BuildOpsPlaceholder type="integrations" />} />
+          <Route path="/admin/cms" element={<BuildOpsPlaceholder type="companies" />} />
+          <Route path="/admin/seo" element={<BuildOpsPlaceholder type="companies" />} />
         </Route>
         <Route path="/contact" element={<Contact />} />
       </Route>

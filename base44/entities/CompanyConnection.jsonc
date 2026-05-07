@@ -1,0 +1,82 @@
+{
+  "name": "CompanyConnection",
+  "type": "object",
+  "properties": {
+    "owner_company_id": {
+      "type": "string",
+      "description": "Company sending or owning the connection"
+    },
+    "shared_with_company_id": {
+      "type": "string",
+      "description": "Connected company ID"
+    },
+    "request_type": {
+      "type": "string",
+      "enum": [
+        "collaboration",
+        "trusted_company",
+        "blocked_company",
+        "project_invite",
+        "rfq",
+        "manpower_request",
+        "document_request"
+      ],
+      "default": "collaboration",
+      "description": "Connection request type"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "sent",
+        "accepted",
+        "rejected",
+        "blocked",
+        "revoked"
+      ],
+      "default": "sent",
+      "description": "Connection status"
+    },
+    "shared_permissions": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Allowed shared permissions"
+    },
+    "related_project_id": {
+      "type": "string",
+      "description": "Related project if any"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Collaboration notes"
+    }
+  },
+  "required": [
+    "owner_company_id",
+    "shared_with_company_id"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

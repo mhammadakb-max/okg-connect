@@ -1,0 +1,153 @@
+{
+  "name": "WorkerDocumentVault",
+  "type": "object",
+  "properties": {
+    "company_id": {
+      "type": "string",
+      "description": "Tenant/company ID"
+    },
+    "worker_id": {
+      "type": "string",
+      "description": "Worker record ID"
+    },
+    "worker_name": {
+      "type": "string",
+      "description": "Worker name"
+    },
+    "file_name": {
+      "type": "string",
+      "description": "File name"
+    },
+    "document_type": {
+      "type": "string",
+      "enum": [
+        "passport_copy",
+        "emirates_id",
+        "visa_copy",
+        "labour_card",
+        "medical_insurance",
+        "workmen_compensation_insurance",
+        "trade_certificate",
+        "safety_certificate",
+        "site_induction_record",
+        "training_record",
+        "noc",
+        "contract",
+        "offer_letter",
+        "salary_record",
+        "attendance_record",
+        "warning_letter",
+        "incident_report",
+        "leave_record",
+        "exit_document"
+      ],
+      "default": "passport_copy",
+      "description": "Worker document type"
+    },
+    "file_url": {
+      "type": "string",
+      "description": "Private file URL or URI"
+    },
+    "upload_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Upload date"
+    },
+    "expiry_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Expiry date"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "valid",
+        "expiring_soon",
+        "expired",
+        "missing",
+        "under_review"
+      ],
+      "default": "under_review",
+      "description": "Document status"
+    },
+    "uploaded_by": {
+      "type": "string",
+      "description": "Uploaded by"
+    },
+    "verified_by": {
+      "type": "string",
+      "description": "Verified by"
+    },
+    "approval_status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "rejected"
+      ],
+      "default": "pending",
+      "description": "Approval status"
+    },
+    "version_history": {
+      "type": "string",
+      "description": "Version history"
+    },
+    "download_permission": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether download is allowed"
+    },
+    "sharing_permission": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether sharing is allowed"
+    },
+    "watermark_enabled": {
+      "type": "boolean",
+      "default": true,
+      "description": "Watermark option"
+    },
+    "expiry_reminder": {
+      "type": "boolean",
+      "default": true,
+      "description": "Expiry reminder"
+    },
+    "renewal_reminder": {
+      "type": "boolean",
+      "default": true,
+      "description": "Renewal reminder"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Document notes"
+    }
+  },
+  "required": [
+    "company_id",
+    "worker_id",
+    "file_name",
+    "document_type"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

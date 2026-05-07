@@ -1,0 +1,158 @@
+{
+  "name": "CompanyTenant",
+  "type": "object",
+  "properties": {
+    "company_name": {
+      "type": "string",
+      "description": "Company name"
+    },
+    "logo_url": {
+      "type": "string",
+      "description": "Company logo URL"
+    },
+    "trade_license_number": {
+      "type": "string",
+      "description": "Trade licence number"
+    },
+    "vat_trn": {
+      "type": "string",
+      "description": "VAT/TRN number"
+    },
+    "address": {
+      "type": "string",
+      "description": "Company address"
+    },
+    "emirate_country": {
+      "type": "string",
+      "description": "Emirate and country"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Company phone"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Company email"
+    },
+    "website": {
+      "type": "string",
+      "description": "Company website"
+    },
+    "bank_details": {
+      "type": "string",
+      "description": "Bank details"
+    },
+    "company_type": {
+      "type": "string",
+      "enum": [
+        "main_contractor",
+        "building_contractor",
+        "subcontractor",
+        "manpower_supplier",
+        "renovation_company",
+        "fit_out_contractor",
+        "civil_works_contractor",
+        "mep_contractor",
+        "painting_contractor",
+        "plastering_contractor",
+        "blockwork_contractor",
+        "steel_fixing_contractor",
+        "shuttering_contractor",
+        "transport_supplier",
+        "material_supplier",
+        "consultant",
+        "project_owner_developer"
+      ],
+      "default": "building_contractor",
+      "description": "Company type"
+    },
+    "services_offered": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Services offered"
+    },
+    "license_documents_url": {
+      "type": "string",
+      "description": "Licence documents URL"
+    },
+    "insurance_documents_url": {
+      "type": "string",
+      "description": "Insurance documents URL"
+    },
+    "subscription_plan": {
+      "type": "string",
+      "enum": [
+        "starter",
+        "professional",
+        "business_network",
+        "enterprise"
+      ],
+      "default": "business_network",
+      "description": "Subscription plan"
+    },
+    "subscription_status": {
+      "type": "string",
+      "enum": [
+        "trial",
+        "active",
+        "paid",
+        "suspended",
+        "cancelled"
+      ],
+      "default": "trial",
+      "description": "Subscription status"
+    },
+    "verified_status": {
+      "type": "string",
+      "enum": [
+        "unverified",
+        "under_review",
+        "verified"
+      ],
+      "default": "unverified",
+      "description": "Verification status"
+    },
+    "public_profile_enabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether public profile is enabled"
+    },
+    "portal_colour": {
+      "type": "string",
+      "description": "White-label portal colour"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Internal notes"
+    }
+  },
+  "required": [
+    "company_name",
+    "email"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

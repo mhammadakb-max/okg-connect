@@ -1,0 +1,127 @@
+{
+  "name": "WorkerDocumentShare",
+  "type": "object",
+  "properties": {
+    "owner_company_id": {
+      "type": "string",
+      "description": "Company sharing the worker documents"
+    },
+    "shared_with_company_id": {
+      "type": "string",
+      "description": "Receiving company ID"
+    },
+    "worker_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Shared worker IDs"
+    },
+    "document_ids": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Shared document IDs"
+    },
+    "share_type": {
+      "type": "string",
+      "enum": [
+        "individual_documents",
+        "full_compliance_pack",
+        "multiple_workers",
+        "selected_fields"
+      ],
+      "default": "full_compliance_pack",
+      "description": "Share type"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "sent",
+        "viewed",
+        "accepted",
+        "rejected",
+        "more_information_required",
+        "expired",
+        "revoked"
+      ],
+      "default": "draft",
+      "description": "Sharing status"
+    },
+    "consent_confirmed": {
+      "type": "boolean",
+      "default": false,
+      "description": "Consent checkbox before sharing employee documents"
+    },
+    "data_protection_notice_accepted": {
+      "type": "boolean",
+      "default": false,
+      "description": "Data protection notice acceptance"
+    },
+    "hide_sensitive_fields": {
+      "type": "boolean",
+      "default": true,
+      "description": "Hide sensitive fields if needed"
+    },
+    "read_only": {
+      "type": "boolean",
+      "default": true,
+      "description": "Read-only access"
+    },
+    "download_allowed": {
+      "type": "boolean",
+      "default": false,
+      "description": "Download allowed or blocked"
+    },
+    "watermark_enabled": {
+      "type": "boolean",
+      "default": true,
+      "description": "Watermarked documents"
+    },
+    "access_expiry_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Access expiry date"
+    },
+    "view_audit": {
+      "type": "string",
+      "description": "Who opened or viewed the document"
+    },
+    "download_audit": {
+      "type": "string",
+      "description": "Who downloaded the document"
+    },
+    "approval_notes": {
+      "type": "string",
+      "description": "Receiving company approval notes"
+    }
+  },
+  "required": [
+    "owner_company_id",
+    "shared_with_company_id"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}
