@@ -12,6 +12,12 @@ const allowedEntities = {
   incidents: 'SiteIncident',
   compliance: 'ComplianceCheck',
   tenders: 'TenderPipeline',
+  clients: 'ClientProfile',
+  quotations: 'QuotationRecord',
+  invoices: 'InvoiceRecord',
+  boq: 'BOQMeasurement',
+  workers: 'WorkerProfile',
+  photos: 'SiteProgressPhoto',
 };
 
 const canAccessAdmin = (user) => user?.role === 'admin' || user?.email === 'omerkhalfangc@gmail.com';

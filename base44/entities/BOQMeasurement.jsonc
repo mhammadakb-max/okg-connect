@@ -1,0 +1,88 @@
+{
+  "name": "BOQMeasurement",
+  "type": "object",
+  "properties": {
+    "project_name": {
+      "type": "string",
+      "description": "Project name"
+    },
+    "work_type": {
+      "type": "string",
+      "description": "Work type"
+    },
+    "quantity": {
+      "type": "number",
+      "description": "Area or quantity"
+    },
+    "unit": {
+      "type": "string",
+      "enum": [
+        "square_meter",
+        "running_meter",
+        "cubic_meter",
+        "lump_sum",
+        "day",
+        "worker_day",
+        "hour"
+      ],
+      "default": "square_meter",
+      "description": "Measurement unit"
+    },
+    "rate": {
+      "type": "number",
+      "description": "Rate"
+    },
+    "total": {
+      "type": "number",
+      "description": "Total"
+    },
+    "floor_zone_location": {
+      "type": "string",
+      "description": "Floor, zone or location"
+    },
+    "measurement_notes": {
+      "type": "string",
+      "description": "Measurement notes"
+    },
+    "approval_status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "rejected"
+      ],
+      "default": "pending",
+      "description": "Approval status"
+    },
+    "attachment_url": {
+      "type": "string",
+      "description": "Attachment upload URL"
+    }
+  },
+  "required": [
+    "project_name",
+    "work_type"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

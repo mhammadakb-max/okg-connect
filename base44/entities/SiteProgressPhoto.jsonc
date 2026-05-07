@@ -1,0 +1,71 @@
+{
+  "name": "SiteProgressPhoto",
+  "type": "object",
+  "properties": {
+    "project_name": {
+      "type": "string",
+      "description": "Project name"
+    },
+    "location_zone": {
+      "type": "string",
+      "description": "Location or zone"
+    },
+    "uploaded_by": {
+      "type": "string",
+      "description": "Uploaded by"
+    },
+    "caption": {
+      "type": "string",
+      "description": "Photo caption"
+    },
+    "photo_url": {
+      "type": "string",
+      "description": "Uploaded photo URL"
+    },
+    "photo_tag": {
+      "type": "string",
+      "enum": [
+        "before",
+        "during",
+        "after"
+      ],
+      "default": "during",
+      "description": "Progress photo tag"
+    },
+    "approval_status": {
+      "type": "string",
+      "enum": [
+        "pending",
+        "approved",
+        "rejected"
+      ],
+      "default": "pending",
+      "description": "Approval status"
+    }
+  },
+  "required": [
+    "project_name"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

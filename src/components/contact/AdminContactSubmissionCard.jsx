@@ -3,9 +3,16 @@ import { Mail, Phone, CalendarDays, Save } from 'lucide-react';
 
 const statusStyles = {
   new: 'bg-yellow-50 text-yellow-700 border-yellow-200',
+  contacted: 'bg-blue-50 text-blue-700 border-blue-200',
+  site_visit_required: 'bg-purple-50 text-purple-700 border-purple-200',
+  quotation_sent: 'bg-amber-50 text-amber-700 border-amber-200',
+  won: 'bg-green-50 text-green-700 border-green-200',
+  lost: 'bg-red-50 text-red-700 border-red-200',
   reviewed: 'bg-green-50 text-green-700 border-green-200',
   archived: 'bg-gray-100 text-gray-600 border-gray-200',
 };
+
+const formatStatus = (value) => String(value || '').replaceAll('_', ' ').replace(/\b\w/g, (letter) => letter.toUpperCase());
 
 export default function AdminContactSubmissionCard({ submission, onSave }) {
   const [status, setStatus] = useState(submission.status || 'new');
@@ -29,8 +36,8 @@ export default function AdminContactSubmissionCard({ submission, onSave }) {
             <span className="flex items-center gap-2"><CalendarDays className="w-4 h-4" /> {new Date(submission.created_date).toLocaleDateString()}</span>
           </div>
         </div>
-        <span className={`inline-flex w-fit px-3 py-1 rounded-full border text-xs font-bold uppercase ${statusStyles[status]}`}>
-          {status}
+        <span className={`inline-flex w-fit px-3 py-1 rounded-full border text-xs font-bold uppercase ${statusStyles[status] || statusStyles.new}`}>
+          {formatStatus(status)}
         </span>
       </div>
 
@@ -43,6 +50,11 @@ export default function AdminContactSubmissionCard({ submission, onSave }) {
           <label className="block text-sm font-semibold mb-2" style={{ color: '#001078' }}>Status</label>
           <select value={status} onChange={(e) => setStatus(e.target.value)} className="w-full px-4 py-2.5 border border-gray-200 rounded-md bg-white">
             <option value="new">New</option>
+            <option value="contacted">Contacted</option>
+            <option value="site_visit_required">Site Visit Required</option>
+            <option value="quotation_sent">Quotation Sent</option>
+            <option value="won">Won</option>
+            <option value="lost">Lost</option>
             <option value="reviewed">Reviewed</option>
             <option value="archived">Archived</option>
           </select>

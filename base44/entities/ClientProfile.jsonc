@@ -1,0 +1,84 @@
+{
+  "name": "ClientProfile",
+  "type": "object",
+  "properties": {
+    "client_name": {
+      "type": "string",
+      "description": "Client name"
+    },
+    "company_name": {
+      "type": "string",
+      "description": "Company name"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Phone number"
+    },
+    "email": {
+      "type": "string",
+      "format": "email",
+      "description": "Email address"
+    },
+    "location": {
+      "type": "string",
+      "description": "Client location"
+    },
+    "project_history": {
+      "type": "string",
+      "description": "Project history"
+    },
+    "documents": {
+      "type": "string",
+      "description": "Linked document notes or URLs"
+    },
+    "notes": {
+      "type": "string",
+      "description": "Client notes"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "lead",
+        "active_client",
+        "past_client",
+        "lost_lead"
+      ],
+      "default": "lead",
+      "description": "Client status"
+    },
+    "follow_up_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Follow-up reminder date"
+    },
+    "communication_history": {
+      "type": "string",
+      "description": "Communication history"
+    }
+  },
+  "required": [
+    "client_name"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

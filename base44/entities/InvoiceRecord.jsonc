@@ -1,0 +1,85 @@
+{
+  "name": "InvoiceRecord",
+  "type": "object",
+  "properties": {
+    "invoice_number": {
+      "type": "string",
+      "description": "Invoice number"
+    },
+    "client_name": {
+      "type": "string",
+      "description": "Client name"
+    },
+    "project_name": {
+      "type": "string",
+      "description": "Project name"
+    },
+    "invoice_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Invoice date"
+    },
+    "due_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Due date"
+    },
+    "line_items": {
+      "type": "string",
+      "description": "Invoice line items as text or JSON"
+    },
+    "vat_amount": {
+      "type": "number",
+      "description": "VAT amount"
+    },
+    "total_amount": {
+      "type": "number",
+      "description": "Total invoice amount"
+    },
+    "payment_status": {
+      "type": "string",
+      "enum": [
+        "unpaid",
+        "part_paid",
+        "paid",
+        "overdue"
+      ],
+      "default": "unpaid",
+      "description": "Payment status"
+    },
+    "payment_notes": {
+      "type": "string",
+      "description": "Payment notes"
+    },
+    "payment_proof_url": {
+      "type": "string",
+      "description": "Uploaded payment proof URL"
+    }
+  },
+  "required": [
+    "invoice_number",
+    "client_name"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

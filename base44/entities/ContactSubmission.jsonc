@@ -4,7 +4,7 @@
   "properties": {
     "name": {
       "type": "string",
-      "description": "Name of the person submitting the enquiry"
+      "description": "Customer name"
     },
     "email": {
       "type": "string",
@@ -15,6 +15,14 @@
       "type": "string",
       "description": "Phone number of the sender"
     },
+    "project_location": {
+      "type": "string",
+      "description": "Project location"
+    },
+    "service_required": {
+      "type": "string",
+      "description": "Required construction service"
+    },
     "message": {
       "type": "string",
       "description": "Project details or enquiry message"
@@ -23,11 +31,25 @@
       "type": "string",
       "enum": [
         "new",
+        "contacted",
+        "site_visit_required",
+        "quotation_sent",
+        "won",
+        "lost",
         "reviewed",
         "archived"
       ],
       "default": "new",
-      "description": "Review status of the enquiry"
+      "description": "Enquiry progress status"
+    },
+    "assigned_to": {
+      "type": "string",
+      "description": "Assigned team member"
+    },
+    "follow_up_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Next follow-up date"
     },
     "internal_notes": {
       "type": "string",
@@ -38,5 +60,23 @@
     "name",
     "email",
     "message"
-  ]
+  ],
+  "rls": {
+    "create": {},
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
 }

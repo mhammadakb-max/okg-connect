@@ -29,6 +29,11 @@ import AdminFinance from './pages/AdminFinance';
 import AdminOperations from './pages/AdminOperations';
 import AdminDashboard from './pages/AdminDashboard';
 import AdminPortalGate from './pages/AdminPortalGate';
+import AdminClients from './pages/AdminClients';
+import AdminProjects from './pages/AdminProjects';
+import AdminQuotations from './pages/AdminQuotations';
+import AdminInvoices from './pages/AdminInvoices';
+import AdminPlaceholder from './pages/AdminPlaceholder';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -73,6 +78,21 @@ const AuthenticatedApp = () => {
           <Route path="/admin/contact-submissions" element={<AdminContactSubmissions />} />
           <Route path="/admin/finance" element={<AdminFinance />} />
           <Route path="/admin/operations" element={<AdminOperations />} />
+          <Route path="/admin/clients" element={<AdminClients />} />
+          <Route path="/admin/projects" element={<AdminProjects />} />
+          <Route path="/admin/quotations" element={<AdminQuotations />} />
+          <Route path="/admin/invoices" element={<AdminInvoices />} />
+          <Route path="/admin/documents" element={<AdminOperations />} />
+          <Route path="/admin/attendance" element={<AdminOperations />} />
+          <Route path="/admin/boq" element={<AdminPlaceholder type="reports" />} />
+          <Route path="/admin/photos" element={<AdminPlaceholder type="reports" />} />
+          <Route path="/admin/tasks" element={<AdminOperations />} />
+          <Route path="/admin/reports" element={<AdminPlaceholder type="reports" />} />
+          <Route path="/admin/roles" element={<AdminPlaceholder type="roles" />} />
+          <Route path="/admin/notifications" element={<AdminPlaceholder type="notifications" />} />
+          <Route path="/admin/settings" element={<AdminPlaceholder type="settings" />} />
+          <Route path="/admin/cms" element={<AdminPlaceholder type="cms" />} />
+          <Route path="/admin/seo" element={<AdminPlaceholder type="seo" />} />
         </Route>
         <Route path="/contact" element={<Contact />} />
       </Route>

@@ -1,0 +1,131 @@
+{
+  "name": "QuotationRecord",
+  "type": "object",
+  "properties": {
+    "quotation_number": {
+      "type": "string",
+      "description": "Quotation reference number"
+    },
+    "client_name": {
+      "type": "string",
+      "description": "Client name"
+    },
+    "client_email": {
+      "type": "string",
+      "format": "email",
+      "description": "Client email"
+    },
+    "project_name": {
+      "type": "string",
+      "description": "Project name"
+    },
+    "project_details": {
+      "type": "string",
+      "description": "Project details"
+    },
+    "scope_of_work": {
+      "type": "string",
+      "description": "Scope of work"
+    },
+    "service_type": {
+      "type": "string",
+      "enum": [
+        "blockwork",
+        "plastering",
+        "concrete_works",
+        "shuttering",
+        "steel_fixing",
+        "painting",
+        "fit_out_works",
+        "renovation_works",
+        "manpower_supply",
+        "subcontracting_works",
+        "general_civil_works"
+      ],
+      "default": "general_civil_works",
+      "description": "Quotation service type"
+    },
+    "line_items": {
+      "type": "string",
+      "description": "Quotation line items as text or JSON"
+    },
+    "unit_type": {
+      "type": "string",
+      "enum": [
+        "sqm",
+        "running_meter",
+        "lump_sum",
+        "day_rate",
+        "manpower_rate"
+      ],
+      "default": "lump_sum",
+      "description": "Primary unit type"
+    },
+    "quantity": {
+      "type": "number",
+      "description": "Quantity"
+    },
+    "unit_price": {
+      "type": "number",
+      "description": "Unit price"
+    },
+    "vat_amount": {
+      "type": "number",
+      "description": "VAT amount if applicable"
+    },
+    "total_amount": {
+      "type": "number",
+      "description": "Total quotation amount"
+    },
+    "terms_conditions": {
+      "type": "string",
+      "description": "Terms and conditions"
+    },
+    "validity_period": {
+      "type": "string",
+      "description": "Quotation validity period"
+    },
+    "payment_terms": {
+      "type": "string",
+      "description": "Payment terms"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "draft",
+        "sent",
+        "approved",
+        "rejected",
+        "revised"
+      ],
+      "default": "draft",
+      "description": "Quotation status"
+    }
+  },
+  "required": [
+    "client_name",
+    "project_name"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

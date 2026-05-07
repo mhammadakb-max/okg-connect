@@ -1,0 +1,94 @@
+{
+  "name": "WorkerProfile",
+  "type": "object",
+  "properties": {
+    "worker_name": {
+      "type": "string",
+      "description": "Worker name"
+    },
+    "trade": {
+      "type": "string",
+      "enum": [
+        "mason",
+        "helper",
+        "steel_fixer",
+        "shuttering_carpenter",
+        "painter",
+        "supervisor",
+        "driver",
+        "other"
+      ],
+      "default": "helper",
+      "description": "Worker trade"
+    },
+    "phone": {
+      "type": "string",
+      "description": "Phone number"
+    },
+    "visa_status": {
+      "type": "string",
+      "description": "Visa status"
+    },
+    "visa_type": {
+      "type": "string",
+      "enum": [
+        "company_visa",
+        "third_party_visa"
+      ],
+      "default": "company_visa",
+      "description": "Visa type"
+    },
+    "assigned_project": {
+      "type": "string",
+      "description": "Assigned project"
+    },
+    "daily_rate": {
+      "type": "number",
+      "description": "Daily rate"
+    },
+    "monthly_salary": {
+      "type": "number",
+      "description": "Monthly salary"
+    },
+    "documents_url": {
+      "type": "string",
+      "description": "Worker documents URL"
+    },
+    "status": {
+      "type": "string",
+      "enum": [
+        "available",
+        "assigned",
+        "on_leave",
+        "inactive"
+      ],
+      "default": "available",
+      "description": "Worker status"
+    }
+  },
+  "required": [
+    "worker_name"
+  ],
+  "rls": {
+    "create": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "read": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "update": {
+      "user_condition": {
+        "role": "admin"
+      }
+    },
+    "delete": {
+      "user_condition": {
+        "role": "admin"
+      }
+    }
+  }
+}

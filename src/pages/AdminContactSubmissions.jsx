@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { base44 } from '@/api/base44Client';
-import PageHero from '@/components/shared/PageHero';
+import AdminShell from '@/components/admin/AdminShell';
 import AdminContactSubmissionCard from '@/components/contact/AdminContactSubmissionCard';
 
 export default function AdminContactSubmissions() {
@@ -18,7 +18,7 @@ export default function AdminContactSubmissions() {
     const init = async () => {
       const authed = await base44.auth.isAuthenticated();
       if (!authed) {
-        setError('Please sign in as an admin to view contact submissions.');
+        setError('Please sign in as an admin to view enquiries.');
         setLoading(false);
         return;
       }
@@ -43,10 +43,7 @@ export default function AdminContactSubmissions() {
   }, [submissions, filter]);
 
   return (
-    <>
-      <PageHero title="Admin Contact Dashboard" intro="View enquiries from the website, update their status and keep private internal notes." eyebrow="Admin" breadcrumb="Contact Submissions" />
-      <section className="bg-gray-50 border-t border-gray-200 py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <AdminShell title="Enquiry Management" intro="Manage website enquiries, follow-ups, assigned team members, internal notes and conversion flow.">
           {loading ? (
             <div className="flex justify-center py-16"><div className="w-8 h-8 border-4 border-gray-200 border-t-navy rounded-full animate-spin" /></div>
           ) : error ? (
@@ -61,6 +58,11 @@ export default function AdminContactSubmissions() {
                 <select value={filter} onChange={(e) => setFilter(e.target.value)} className="w-full md:w-56 px-4 py-2.5 border border-gray-200 rounded-md bg-white">
                   <option value="all">All statuses</option>
                   <option value="new">New</option>
+                  <option value="contacted">Contacted</option>
+                  <option value="site_visit_required">Site Visit Required</option>
+                  <option value="quotation_sent">Quotation Sent</option>
+                  <option value="won">Won</option>
+                  <option value="lost">Lost</option>
                   <option value="reviewed">Reviewed</option>
                   <option value="archived">Archived</option>
                 </select>
@@ -74,8 +76,6 @@ export default function AdminContactSubmissions() {
               )}
             </>
           )}
-        </div>
-      </section>
-    </>
+    </AdminShell>
   );
 }
