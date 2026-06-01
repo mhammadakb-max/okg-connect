@@ -18,7 +18,7 @@ export default function Home() {
     base44.functions.invoke('listPublicProjects', {}).then((res) => setProjects(res.data.projects || [])).catch(() => setProjects([]));
   }, []);
 
-  const displayProjects = projects.length ? projects.slice(0, 3) : [1, 2, 3].map((n) => ({ id: `placeholder-${n}`, project_name: 'Project Details Coming Soon', emirate: 'UAE', location: 'To be published', scope: 'Public project information will appear here once uploaded and marked public by OKG.', status: 'coming_soon', progress: 0 }));
+  const displayProjects = projects.filter((project) => project.status !== 'coming_soon').slice(0, 3);
 
   return (
     <>
@@ -78,14 +78,16 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="py-20 md:py-28">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="mb-12 flex flex-col justify-between gap-4 md:flex-row md:items-end"><div><SectionEyebrow label="Projects" /><h2 className="text-3xl font-black text-primary md:text-5xl">Featured project information.</h2><p className="mt-4 max-w-2xl text-muted-foreground">Only projects explicitly marked public by OKG administrators appear here.</p></div><Link to="/projects" className="font-bold text-primary">View all projects</Link></div>
-            <div className="grid gap-6 md:grid-cols-3">
-              {displayProjects.map((project) => <article key={project.id} className="overflow-hidden rounded-2xl border border-border bg-white shadow-sm"><div className="h-52 bg-secondary"><img src={project.site_photos_url || project.cover_image_url || 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=85'} alt={project.project_name} className="h-full w-full object-cover" loading="lazy" /></div><div className="p-6"><p className="mb-2 text-xs font-black uppercase tracking-widest text-accent">{project.status?.replaceAll('_', ' ') || 'Coming Soon'}</p><h3 className="mb-3 text-xl font-black text-primary">{project.project_name}</h3><p className="mb-4 flex items-center gap-2 text-sm text-muted-foreground"><MapPin className="h-4 w-4" />{project.emirate || project.location || 'UAE'}</p><p className="text-sm leading-relaxed text-muted-foreground">{project.scope || project.summary || 'Project Details Coming Soon'}</p><div className="mt-5 h-2 overflow-hidden rounded-full bg-secondary"><div className="h-full bg-primary" style={{ width: `${Number(project.progress || 0)}%` }} /></div></div></article>)}
+        {displayProjects.length > 0 && (
+          <section className="py-20 md:py-28">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <div className="mb-12 flex flex-col justify-between gap-4 md:flex-row md:items-end"><div><SectionEyebrow label="Projects" /><h2 className="text-3xl font-black text-primary md:text-5xl">Featured project information.</h2><p className="mt-4 max-w-2xl text-muted-foreground">Only verified public projects are shown here.</p></div><Link to="/projects" className="font-bold text-primary">View all projects</Link></div>
+              <div className="grid gap-6 md:grid-cols-3">
+                {displayProjects.map((project) => <article key={project.id} className="overflow-hidden rounded-2xl border border-border bg-white shadow-sm"><div className="h-52 bg-secondary"><img src={project.site_photos_url || project.cover_image_url || 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=85'} alt={project.project_name} className="h-full w-full object-cover" loading="lazy" /></div><div className="p-6">{project.status && <p className="mb-2 text-xs font-black uppercase tracking-widest text-accent">{project.status.replaceAll('_', ' ')}</p>}<h3 className="mb-3 text-xl font-black text-primary">{project.project_name}</h3><p className="mb-4 flex items-center gap-2 text-sm text-muted-foreground"><MapPin className="h-4 w-4" />{project.emirate || project.location || 'UAE'}</p><p className="text-sm leading-relaxed text-muted-foreground">{project.scope || project.summary}</p></div></article>)}
+              </div>
             </div>
-          </div>
-        </section>
+          </section>
+        )}
 
         <section className="border-y border-border bg-secondary py-20 md:py-28">
           <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:px-8">

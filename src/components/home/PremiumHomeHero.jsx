@@ -1,14 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, ShieldCheck, ClipboardCheck, HardHat } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
 import SectionEyebrow from '@/components/shared/SectionEyebrow';
-
-const heroStats = [
-  { value: 'UAE', label: 'Construction coverage', icon: HardHat },
-  { value: 'QHSE', label: 'Controlled delivery', icon: ShieldCheck },
-  { value: 'BOQ', label: 'Scope-led execution', icon: ClipboardCheck },
-];
 
 const fadeUp = {
   hidden: { opacity: 0, y: 28 },
@@ -56,20 +50,6 @@ export default function PremiumHomeHero({ image }) {
           </motion.div>
         </div>
 
-        <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.35, duration: 0.75, ease: 'easeOut' }} className="mt-16 grid md:grid-cols-3 gap-5">
-          {heroStats.map((item, index) => {
-            const Icon = item.icon;
-            return (
-              <motion.div key={item.label} whileHover={{ y: -8, scale: 1.02 }} transition={{ type: 'spring', stiffness: 260, damping: 18 }} className="premium-card rounded-2xl border border-gray-200 p-6 text-center">
-                <div className="mx-auto mb-4 flex h-12 w-12 items-center justify-center rounded-xl bg-gold/15 text-navy">
-                  <Icon className="h-5 w-5" />
-                </div>
-                <div className="text-3xl font-extrabold text-gold mb-2">{item.value}</div>
-                <p className="text-xs font-bold uppercase tracking-widest text-text-secondary">{item.label}</p>
-              </motion.div>
-            );
-          })}
-        </motion.div>
       </div>
     </section>
   );

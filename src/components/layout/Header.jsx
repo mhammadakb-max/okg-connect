@@ -62,8 +62,7 @@ export default function Header() {
           <Link to="/" className="flex min-w-0 items-center gap-3">
             <span className="flex h-11 w-11 shrink-0 items-center justify-center rounded-lg bg-primary text-lg font-black text-white">OKG</span>
             <span className="hidden text-sm font-extrabold leading-tight text-primary sm:block">
-              OKG Building Contracting L.L.C
-              <span className="block text-xs font-semibold text-muted-foreground">UAE Civil Works & Finishing Contractor</span>
+              OKG Build
             </span>
           </Link>
 

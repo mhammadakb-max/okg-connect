@@ -9,8 +9,8 @@ const serviceOptions = ['Blockwork & Masonry', 'Plastering', 'Concrete Works', '
 const emirateOptions = ['Dubai', 'Abu Dhabi', 'Sharjah', 'Ajman', 'Umm Al Quwain', 'Ras Al Khaimah', 'Fujairah'];
 
 const emptyForm = {
-  company_name: '', trade_license_number: '', license_expiry_date: '', vat_trn: '', contact_person: '', designation: '', email: '', phone: '', whatsapp: '', office_location: '',
-  emirates_covered: [], services: [], manpower_count: '', supervisor_count: '', equipment_available: '', previous_projects: '', client_references: '', insurance_status: '', hse_documents: '', quality_documents: '', bank_details_ready: 'no', notes: '', status: 'submitted',
+company_name: '', trade_license_number: '', license_expiry_date: '', vat_trn: '', contact_person: '', designation: '', email: '', phone: '', whatsapp: '', office_location: '',
+emirates_covered: [], services: [], equipment_available: '', previous_projects: '', client_references: '', insurance_status: '', hse_documents: '', quality_documents: '', bank_details_ready: 'no', notes: '', status: 'submitted',
 };
 
 export default function SubcontractorPortal() {
@@ -102,8 +102,6 @@ export default function SubcontractorPortal() {
               <MultiSelectGroup label="Services Offered *" options={serviceOptions} selected={formData.services} onToggle={(value) => toggleList('services', value)} />
               <MultiSelectGroup label="Emirates Covered" options={emirateOptions} selected={formData.emirates_covered} onToggle={(value) => toggleList('emirates_covered', value)} />
               <div className="grid md:grid-cols-2 gap-5">
-                <FieldInput label="Available Manpower Count" name="manpower_count" value={formData.manpower_count} onChange={handleChange} />
-                <FieldInput label="Available Supervisor Count" name="supervisor_count" value={formData.supervisor_count} onChange={handleChange} />
                 <FieldInput label="Equipment / Tools Available" name="equipment_available" value={formData.equipment_available} onChange={handleChange} multiline />
                 <FieldInput label="Previous Projects" name="previous_projects" value={formData.previous_projects} onChange={handleChange} multiline />
               </div>

@@ -18,7 +18,7 @@ export default function Footer() {
         <div>
           <Link to="/" className="mb-4 inline-flex items-center gap-3">
             <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-white text-lg font-black text-primary">OKG</span>
-            <span className="text-lg font-extrabold leading-tight">OKG Building Contracting L.L.C</span>
+            <span className="text-lg font-extrabold leading-tight">OKG Build</span>
           </Link>
           <p className="mb-6 text-sm leading-relaxed text-white/70">UAE-based building contracting company focused on civil works, finishing works, skilled workforce deployment, site supervision and documentation control.</p>
           <div className="flex gap-2" aria-label="Social media links">

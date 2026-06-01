@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { base44 } from '@/api/base44Client';
 
 const initialFormData = {
-  name: '', company: '', email: '', phone: '', whatsapp: '', projectName: '', projectLocation: '', emirate: '', service: '', expectedStartDate: '', workersRequired: '', estimatedQuantities: '', message: '', preferredCallbackTime: '', website: '',
+  name: '', company: '', email: '', phone: '', whatsapp: '', projectName: '', projectLocation: '', emirate: '', service: '', expectedStartDate: '', estimatedQuantities: '', message: '', preferredCallbackTime: '', website: '',
 };
 
 const inputClass = 'w-full rounded-md border border-border bg-white px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-accent';
@@ -75,7 +75,6 @@ export default function QuotationForm({ mode = 'quotation' }) {
         {isQuotation && <SelectField label="Emirate" name="emirate" value={formData.emirate} onChange={handleChange} options={['Dubai', 'Abu Dhabi', 'Sharjah', 'Ajman', 'Ras Al Khaimah', 'Fujairah', 'Umm Al Quwain']} />}
         <SelectField label={isQuotation ? 'Type of work' : 'Subject'} name="service" value={formData.service} onChange={handleChange} required options={['Civil Works', 'Plastering and Gypsum Works', 'Masonry and Blockwork', 'Concrete Works', 'Steel and Shuttering', 'Skilled Workforce Deployment', 'Site Supervision', 'Documentation Control', 'General Enquiry']} />
         {isQuotation && <Field label="Expected start date" name="expectedStartDate" type="date" value={formData.expectedStartDate} onChange={handleChange} />}
-        {isQuotation && <Field label="Required number of workers" name="workersRequired" type="number" value={formData.workersRequired} onChange={handleChange} />}
         {isQuotation && <Field label="Estimated quantities" name="estimatedQuantities" value={formData.estimatedQuantities} onChange={handleChange} />}
         <Field label="Preferred callback time" name="preferredCallbackTime" value={formData.preferredCallbackTime} onChange={handleChange} placeholder="Optional" />
       </div>
