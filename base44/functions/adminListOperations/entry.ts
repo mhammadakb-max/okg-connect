@@ -1,6 +1,7 @@
 import { createClientFromRequest } from 'npm:@base44/sdk@0.8.25';
 
-const canAccessAdmin = (user) => user?.role === 'admin' || user?.email === 'omerkhalfangc@gmail.com';
+const adminRoles = ['admin', 'Super Admin', 'Finance Admin', 'Operations Manager', 'Project Manager', 'HR Admin'];
+const canAccessAdmin = (user) => adminRoles.includes(user?.role) || user?.email === 'omerkhalfangc@gmail.com';
 
 Deno.serve(async (req) => {
   try {

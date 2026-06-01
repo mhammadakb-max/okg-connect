@@ -7,7 +7,7 @@ export default function CTABand({
   heading = "Ready to discuss a scope or request a quotation?",
   text = "Share drawings, BOQ, location and expected start date. OKG will review and respond with a clear, structured proposal.",
   buttonText = "Request Quotation",
-  buttonLink = "/contact",
+  buttonLink = "/request-quotation",
   secondaryText = "View Services",
   secondaryLink = "/services",
 }) {

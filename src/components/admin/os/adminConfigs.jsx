@@ -29,11 +29,13 @@ export const adminConfigs = {
       { label: 'Total Value', get: (r) => ({ label: 'Total Value', value: money(sumField(r, 'contract_value')), tone: 'gold' }) },
     ],
     fields: [
-      { name: 'project_name', required: true }, { name: 'client_name' }, { name: 'location' }, { name: 'scope', type: 'textarea' },
-      { name: 'start_date', type: 'date' }, { name: 'target_completion', type: 'date' }, { name: 'status', type: 'select', options: ['planning', 'mobilised', 'in_progress', 'on_hold', 'completed', 'cancelled'] },
-      { name: 'contract_value', type: 'number' }, { name: 'project_manager', label: 'Assigned Supervisor' }, { name: 'progress', type: 'number' }, { name: 'notes', type: 'textarea' },
+      { name: 'project_name', required: true }, { name: 'client_name' }, { name: 'emirate' }, { name: 'location' }, { name: 'project_type' },
+      { name: 'scope', type: 'textarea' }, { name: 'summary', type: 'textarea' },
+      { name: 'start_date', type: 'date' }, { name: 'target_completion', type: 'date' }, { name: 'status', type: 'select', options: ['planning', 'mobilised', 'in_progress', 'on_hold', 'completed', 'cancelled', 'coming_soon'] },
+      { name: 'contract_value', type: 'number' }, { name: 'workforce_deployed', type: 'number' }, { name: 'project_manager', label: 'Assigned Supervisor' }, { name: 'progress', type: 'number' },
+      { name: 'cover_image_url', type: 'file' }, { name: 'site_photos_url', type: 'file' }, { name: 'is_public', type: 'checkbox', label: 'Publish on public website' }, { name: 'notes', type: 'textarea' },
     ],
-    columns: [{ key: 'project_name', label: 'Project' }, { key: 'client_name', label: 'Client' }, { key: 'location', label: 'Location' }, { key: 'status', label: 'Status' }, { key: 'contract_value', label: 'Value', render: (r) => money(r.contract_value) }, { key: 'progress', label: 'Progress', render: (r) => `${r.progress || 0}%` }],
+    columns: [{ key: 'project_name', label: 'Project' }, { key: 'client_name', label: 'Client' }, { key: 'emirate', label: 'Emirate' }, { key: 'location', label: 'Location' }, { key: 'status', label: 'Status' }, { key: 'is_public', label: 'Public', render: (r) => r.is_public ? 'Yes' : 'No' }, { key: 'progress', label: 'Progress', render: (r) => `${r.progress || 0}%` }],
   },
   quotations: {
     moduleKey: 'quotations', title: 'Quotation Builder', tableTitle: 'Quotation Register', formTitle: 'Create Quotation', statusKey: 'status',

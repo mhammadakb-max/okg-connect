@@ -15,7 +15,7 @@ export default function MobileCTA() {
           Call Now
         </a>
         <Link
-          to="/contact"
+          to="/request-quotation"
           className="flex-1 flex items-center justify-center gap-2 py-4 text-sm font-semibold text-white"
           style={{ backgroundColor: '#001078' }}
         >

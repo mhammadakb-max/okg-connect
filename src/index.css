@@ -9,35 +9,34 @@
     --font-body: 'Manrope', sans-serif;
     --font-display: 'Manrope', sans-serif;
 
-    /* OKG Logo Palette — Navy + Gold */
-    --color-navy: 0 0% 4%;           /* #001078 */
-    --color-gold: 40 98% 56%;        /* #F8B858 */
+    /* OKG Building Contracting Palette */
+    --color-navy: 232 100% 24%;      /* #001078 */
+    --color-gold: 40 98% 66%;        /* #F8B858 */
     --color-white: 0 0% 100%;        /* #FFFFFF */
     --color-bg-light: 240 20% 98%;   /* #F7F8FB */
-    --color-bg-white: 0 0% 100%;     /* #FFFFFF */
+    --color-charcoal: 0 0% 12%;      /* #1E1E1E */
+    --color-steel: 220 9% 46%;       /* #6B7280 */
     --color-border: 220 15% 91%;     /* #E5E7EB */
-    --color-text-primary: 0 0% 12%;  /* #1E1E1E */
-    --color-text-secondary: 220 13% 42%;  /* #6B7280 */
 
-    --background: 240 20% 98%;
-    --foreground: 0 0% 12%;
-    --card: 0 0% 100%;
-    --card-foreground: 0 0% 12%;
-    --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 12%;
-    --primary: 0 0% 4%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 240 20% 98%;
-    --secondary-foreground: 0 0% 4%;
-    --muted: 220 15% 91%;
-    --muted-foreground: 220 13% 42%;
-    --accent: 40 98% 56%;
-    --accent-foreground: 0 0% 4%;
+    --background: var(--color-white);
+    --foreground: var(--color-charcoal);
+    --card: var(--color-white);
+    --card-foreground: var(--color-charcoal);
+    --popover: var(--color-white);
+    --popover-foreground: var(--color-charcoal);
+    --primary: var(--color-navy);
+    --primary-foreground: var(--color-white);
+    --secondary: var(--color-bg-light);
+    --secondary-foreground: var(--color-navy);
+    --muted: var(--color-bg-light);
+    --muted-foreground: var(--color-steel);
+    --accent: var(--color-gold);
+    --accent-foreground: var(--color-navy);
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
-    --border: 220 15% 91%;
-    --input: 220 15% 91%;
-    --ring: 0 0% 4%;
+    --border: var(--color-border);
+    --input: var(--color-border);
+    --ring: var(--color-navy);
     --radius: 0.5rem;
   }
 }
@@ -50,10 +49,7 @@
     font-family: 'Manrope', sans-serif;
     font-size: 16px;
     line-height: 1.6;
-    background:
-      radial-gradient(circle at top left, rgba(248, 184, 88, 0.10), transparent 28rem),
-      radial-gradient(circle at top right, rgba(0, 16, 120, 0.08), transparent 30rem),
-      linear-gradient(180deg, #FFFFFF 0%, #F7F8FB 42%, #FFFFFF 100%);
+    background: #FFFFFF;
     color: #1E1E1E;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

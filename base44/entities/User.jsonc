@@ -1,0 +1,28 @@
+{
+  "name": "User",
+  "type": "object",
+  "properties": {
+    "role": {
+      "type": "string",
+      "enum": [
+        "admin",
+        "user",
+        "Super Admin",
+        "Finance Admin",
+        "Operations Manager",
+        "Project Manager",
+        "HR Admin",
+        "Subcontractor",
+        "Worker",
+        "Employee"
+      ],
+      "default": "user",
+      "description": "User role for OKG Operations Portal permissions"
+    },
+    "mfa_enabled": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether MFA is enabled for this admin user"
+    }
+  }
+}

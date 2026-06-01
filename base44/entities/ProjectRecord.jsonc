@@ -14,6 +14,10 @@
       "type": "string",
       "description": "Main contractor name"
     },
+    "emirate": {
+      "type": "string",
+      "description": "Project emirate"
+    },
     "location": {
       "type": "string",
       "description": "Project location"
@@ -21,6 +25,14 @@
     "scope": {
       "type": "string",
       "description": "Scope of work"
+    },
+    "project_type": {
+      "type": "string",
+      "description": "Project type or category"
+    },
+    "summary": {
+      "type": "string",
+      "description": "Short public summary"
     },
     "status": {
       "type": "string",
@@ -34,7 +46,8 @@
         "tender",
         "awarded",
         "mobilising",
-        "closed"
+        "closed",
+        "coming_soon"
       ],
       "default": "planning",
       "description": "Project status"
@@ -58,6 +71,10 @@
       "type": "number",
       "description": "Project value"
     },
+    "workforce_deployed": {
+      "type": "number",
+      "description": "Number of workers deployed"
+    },
     "project_manager": {
       "type": "string",
       "description": "Assigned supervisor"
@@ -70,6 +87,10 @@
       "type": "string",
       "description": "Daily progress notes"
     },
+    "cover_image_url": {
+      "type": "string",
+      "description": "Public cover image URL"
+    },
     "site_photos_url": {
       "type": "string",
       "description": "Site photos URL"
@@ -77,6 +98,11 @@
     "documents_url": {
       "type": "string",
       "description": "Project documents URL"
+    },
+    "is_public": {
+      "type": "boolean",
+      "default": false,
+      "description": "Whether this project is visible on the public website"
     },
     "payment_status": {
       "type": "string",

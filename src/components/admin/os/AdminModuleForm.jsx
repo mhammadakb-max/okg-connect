@@ -40,6 +40,14 @@ export default function AdminModuleForm({ title, fields, onSubmit, saving }) {
           if (field.type === 'textarea') {
             return <textarea key={field.name} value={value} onChange={(e) => setForm({ ...form, [field.name]: e.target.value })} placeholder={field.label || prettify(field.name)} className={`${common} min-h-24 md:col-span-2 xl:col-span-3`} required={field.required} />;
           }
+          if (field.type === 'checkbox') {
+            return (
+              <label key={field.name} className="flex items-center gap-3 rounded-xl border border-gray-200 px-4 py-3 text-sm font-semibold text-navy">
+                <input type="checkbox" checked={!!form[field.name]} onChange={(e) => setForm({ ...form, [field.name]: e.target.checked })} />
+                {field.label || prettify(field.name)}
+              </label>
+            );
+          }
           if (field.type === 'file') {
             return (
               <div key={field.name} className="rounded-xl border border-gray-200 px-4 py-3 text-sm">

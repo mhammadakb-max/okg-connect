@@ -14,7 +14,7 @@ export default function AdminShell({ title, intro, children }) {
         <div className="mb-8 rounded-3xl bg-white border border-gray-200 p-6 md:p-8 shadow-sm">
           <div className="flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6">
             <div>
-              <p className="text-xs font-bold uppercase tracking-widest text-text-secondary mb-2">OKG Admin Portal</p>
+              <p className="text-xs font-bold uppercase tracking-widest text-text-secondary mb-2">OKG Operations Portal</p>
               <h1 className="text-3xl md:text-4xl font-extrabold" style={{ color: '#001078' }}>{title}</h1>
               {intro && <p className="mt-3 text-text-secondary max-w-2xl">{intro}</p>}
             </div>

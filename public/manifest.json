@@ -1,0 +1,12 @@
+{
+  "name": "OKG Building Contracting L.L.C",
+  "short_name": "OKG Contracting",
+  "description": "UAE-based civil works, finishing works, skilled workforce deployment, site supervision and documentation control.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#FFFFFF",
+  "theme_color": "#001078",
+  "icons": [
+    { "src": "/favicon.svg", "sizes": "64x64", "type": "image/svg+xml" }
+  ]
+}

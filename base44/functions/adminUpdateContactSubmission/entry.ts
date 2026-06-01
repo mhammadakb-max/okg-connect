@@ -5,12 +5,14 @@ Deno.serve(async (req) => {
     const base44 = createClientFromRequest(req);
     const user = await base44.auth.me();
 
-    if (user?.role !== 'admin' && user?.email !== 'omerkhalfangc@gmail.com') {
+    const adminRoles = ['admin', 'Super Admin', 'Finance Admin', 'Operations Manager', 'Project Manager', 'HR Admin'];
+    if (!adminRoles.includes(user?.role) && user?.email !== 'omerkhalfangc@gmail.com') {
       return Response.json({ error: 'Forbidden: Admin access required' }, { status: 403 });
     }
 
     const { id, status, internal_notes } = await req.json();
-    if (!id || !['new', 'reviewed', 'archived'].includes(status)) {
+    const allowedStatuses = ['new', 'under_review', 'site_visit_required', 'quotation_in_preparation', 'quoted', 'negotiating', 'awarded', 'lost', 'archived', 'contacted', 'quotation_sent', 'won', 'reviewed'];
+    if (!id || !allowedStatuses.includes(status)) {
       return Response.json({ error: 'Invalid submission update' }, { status: 400 });
     }
 

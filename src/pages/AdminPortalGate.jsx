@@ -17,14 +17,15 @@ export default function AdminPortalGate() {
     try {
       await base44.functions.invoke('verifyAdminPortalPassword', { password });
       sessionStorage.setItem('okg_admin_portal_unlocked', 'true');
+      sessionStorage.setItem('okg_admin_portal_unlocked_at', String(Date.now()));
 
       const isAuthenticated = await base44.auth.isAuthenticated();
       if (!isAuthenticated) {
-        base44.auth.redirectToLogin(`${window.location.origin}/admin/dashboard`);
+        base44.auth.redirectToLogin(`${window.location.origin}/portal/dashboard`);
         return;
       }
 
-      navigate('/admin/dashboard');
+      navigate('/portal/dashboard');
     } catch {
       setError('Incorrect password. Please try again.');
     }
@@ -39,9 +40,9 @@ export default function AdminPortalGate() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(248,184,88,0.28),transparent_22rem)]" />
           <div className="relative z-10">
             <div className="inline-flex items-center gap-2 rounded-full bg-white/10 border border-white/15 px-4 py-2 text-xs font-bold uppercase tracking-widest text-gold mb-8">
-              <ShieldCheck className="w-4 h-4" /> OKG Build Admin OS
+              <ShieldCheck className="w-4 h-4" /> OKG Operations Portal
             </div>
-            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-5">Command centre for enquiries, projects and finance.</h1>
+            <h1 className="text-4xl md:text-5xl font-extrabold leading-tight mb-5">Private operations portal for OKG authorised users.</h1>
             <p className="text-white/75 max-w-2xl leading-relaxed mb-8">A private operations portal built for enquiry tracking, client CRM, quotations, invoices, documents, labour attendance and construction reporting.</p>
             <div className="grid sm:grid-cols-3 gap-4">
               {[
@@ -64,7 +65,7 @@ export default function AdminPortalGate() {
             <Lock className="w-6 h-6 text-navy" />
           </div>
           <p className="text-xs font-bold uppercase tracking-widest text-text-secondary mb-2">Private Admin Access</p>
-          <h2 className="text-2xl font-extrabold mb-3 text-navy">Enter admin password</h2>
+          <h2 className="text-2xl font-extrabold mb-3 text-navy">Enter portal password</h2>
           <p className="text-sm text-text-secondary mb-6">Unlock the OKG admin portal, then sign in with an approved admin account.</p>
           <input
             type="password"

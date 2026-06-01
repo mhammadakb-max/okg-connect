@@ -58,12 +58,13 @@ export default function AdminContactSubmissions() {
                 <select value={filter} onChange={(e) => setFilter(e.target.value)} className="w-full md:w-56 px-4 py-2.5 border border-gray-200 rounded-md bg-white">
                   <option value="all">All statuses</option>
                   <option value="new">New</option>
-                  <option value="contacted">Contacted</option>
+                  <option value="under_review">Under Review</option>
                   <option value="site_visit_required">Site Visit Required</option>
-                  <option value="quotation_sent">Quotation Sent</option>
-                  <option value="won">Won</option>
+                  <option value="quotation_in_preparation">Quotation in Preparation</option>
+                  <option value="quoted">Quoted</option>
+                  <option value="negotiating">Negotiating</option>
+                  <option value="awarded">Awarded</option>
                   <option value="lost">Lost</option>
-                  <option value="reviewed">Reviewed</option>
                   <option value="archived">Archived</option>
                 </select>
               </div>

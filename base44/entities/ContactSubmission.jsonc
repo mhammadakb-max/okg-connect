@@ -6,6 +6,10 @@
       "type": "string",
       "description": "Customer name"
     },
+    "company_name": {
+      "type": "string",
+      "description": "Company name"
+    },
     "email": {
       "type": "string",
       "format": "email",
@@ -15,29 +19,88 @@
       "type": "string",
       "description": "Phone number of the sender"
     },
+    "whatsapp_number": {
+      "type": "string",
+      "description": "WhatsApp number"
+    },
+    "project_name": {
+      "type": "string",
+      "description": "Project name"
+    },
     "project_location": {
       "type": "string",
       "description": "Project location"
+    },
+    "emirate": {
+      "type": "string",
+      "description": "Project emirate"
     },
     "service_required": {
       "type": "string",
       "description": "Required construction service"
     },
+    "expected_start_date": {
+      "type": "string",
+      "format": "date",
+      "description": "Expected start date"
+    },
+    "workers_required": {
+      "type": "number",
+      "description": "Required number of workers"
+    },
+    "estimated_quantities": {
+      "type": "string",
+      "description": "Estimated quantities"
+    },
     "message": {
       "type": "string",
       "description": "Project details or enquiry message"
+    },
+    "form_type": {
+      "type": "string",
+      "enum": [
+        "contact",
+        "quotation"
+      ],
+      "default": "contact",
+      "description": "Submission form type"
+    },
+    "enquiry_reference": {
+      "type": "string",
+      "description": "Automatic enquiry reference number"
+    },
+    "boq_url": {
+      "type": "string",
+      "description": "Uploaded BOQ file URL"
+    },
+    "drawings_url": {
+      "type": "string",
+      "description": "Uploaded drawings file URL"
+    },
+    "scope_document_url": {
+      "type": "string",
+      "description": "Uploaded scope document URL"
+    },
+    "preferred_callback_time": {
+      "type": "string",
+      "description": "Preferred callback time"
     },
     "status": {
       "type": "string",
       "enum": [
         "new",
-        "contacted",
+        "under_review",
         "site_visit_required",
+        "quotation_in_preparation",
+        "quoted",
+        "negotiating",
+        "awarded",
+        "lost",
+        "archived",
+        "contacted",
         "quotation_sent",
         "won",
-        "lost",
-        "reviewed",
-        "archived"
+        "reviewed"
       ],
       "default": "new",
       "description": "Enquiry progress status"

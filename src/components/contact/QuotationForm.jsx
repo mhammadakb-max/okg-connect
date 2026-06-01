@@ -1,148 +1,100 @@
 import React, { useState } from 'react';
-import { motion } from 'framer-motion';
 import { base44 } from '@/api/base44Client';
 
 const initialFormData = {
-  name: '',
-  email: '',
-  phone: '',
-  company: '',
-  service: '',
-  projectLocation: '',
-  preferredStartDate: '',
-  budgetRange: '',
-  message: '',
+  name: '', company: '', email: '', phone: '', whatsapp: '', projectName: '', projectLocation: '', emirate: '', service: '', expectedStartDate: '', workersRequired: '', estimatedQuantities: '', message: '', preferredCallbackTime: '', website: '',
 };
 
-const inputClass = 'w-full px-4 py-2.5 border border-gray-200 rounded-md text-text-primary focus:outline-none focus:ring-2 bg-white';
+const inputClass = 'w-full rounded-md border border-border bg-white px-4 py-3 text-foreground focus:outline-none focus:ring-2 focus:ring-accent';
+const allowedTypes = ['application/pdf', 'image/png', 'image/jpeg', 'image/webp', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document', 'application/msword'];
+const maxFileSize = 8 * 1024 * 1024;
 
-export default function QuotationForm() {
+export default function QuotationForm({ mode = 'quotation' }) {
   const [formData, setFormData] = useState(initialFormData);
-  const [submitted, setSubmitted] = useState(false);
+  const [files, setFiles] = useState({ boq: null, drawings: null, scopeDocument: null });
+  const [submitted, setSubmitted] = useState(null);
   const [submitting, setSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const isQuotation = mode !== 'contact';
+  const handleChange = (e) => setFormData({ ...formData, [e.target.name]: e.target.value });
+
+  const handleFile = (name, file) => {
+    if (!file) return setFiles({ ...files, [name]: null });
+    if (!allowedTypes.includes(file.type) || file.size > maxFileSize) {
+      setErrorMessage('Please upload PDF, Word or image files only, with a maximum size of 8MB each.');
+      return;
+    }
+    setFiles({ ...files, [name]: file });
+  };
+
+  const uploadFiles = async () => {
+    const uploaded = {};
+    for (const [key, file] of Object.entries(files)) {
+      if (file) {
+        const result = await base44.integrations.Core.UploadFile({ file });
+        uploaded[key] = result.file_url;
+      }
+    }
+    return uploaded;
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setSubmitting(true);
     setErrorMessage('');
-
     try {
-      await base44.functions.invoke('sendContactForm', { ...formData, formType: 'quotation' });
+      const uploadedFiles = await uploadFiles();
+      const response = await base44.functions.invoke('sendContactForm', { ...formData, ...uploadedFiles, formType: isQuotation ? 'quotation' : 'contact' });
+      setSubmitted(response.data.reference || 'OKG enquiry received');
       setFormData(initialFormData);
-      setSubmitted(true);
-      setTimeout(() => setSubmitted(false), 5000);
-    } catch (error) {
-      setErrorMessage('Submission failed. Please try again or contact OKG directly.');
+      setFiles({ boq: null, drawings: null, scopeDocument: null });
+    } catch {
+      setErrorMessage('Submission failed. Please try again or contact OKG directly by phone or WhatsApp.');
     } finally {
       setSubmitting(false);
     }
   };
 
   if (submitted) {
-    return (
-      <div className="bg-green-50 border border-green-200 rounded-2xl p-8 text-center shadow-sm">
-        <p className="text-lg font-semibold mb-2" style={{ color: '#001078' }}>
-          Thank you for your quotation request!
-        </p>
-        <p className="text-text-secondary">
-          OKG has received your details and will respond shortly.
-        </p>
-      </div>
-    );
+    return <div className="rounded-2xl border border-green-200 bg-green-50 p-8 text-center shadow-sm"><p className="mb-2 text-lg font-black text-primary">Thank you. Your request has been received.</p><p className="text-muted-foreground">Reference: <span className="font-bold text-primary">{submitted}</span></p></div>;
   }
 
   return (
-    <motion.form
-      onSubmit={handleSubmit}
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{ delay: 0.1 }}
-      className="premium-card rounded-2xl border border-gray-200 p-6 md:p-8 space-y-5"
-    >
-      <div>
-        <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: '#F8B858' }}>Request Quotation</p>
-        <h3 className="text-2xl font-extrabold mb-2" style={{ color: '#001078' }}>Tell us about your project</h3>
-        <p className="text-sm text-text-secondary">Share the key details so OKG can prepare a clear and structured quotation.</p>
+    <form onSubmit={handleSubmit} className="rounded-2xl border border-border bg-white p-6 shadow-sm md:p-8">
+      <input type="text" name="website" value={formData.website} onChange={handleChange} className="hidden" tabIndex="-1" autoComplete="off" />
+      <div className="mb-6"><p className="mb-2 text-xs font-black uppercase tracking-widest text-accent">{isQuotation ? 'Request Quotation' : 'Contact Form'}</p><h2 className="text-2xl font-black text-primary">{isQuotation ? 'Tell us about your project' : 'Send OKG a message'}</h2></div>
+      <div className="grid gap-4 md:grid-cols-2">
+        <Field label="Contact person" name="name" value={formData.name} onChange={handleChange} required />
+        <Field label="Company name" name="company" value={formData.company} onChange={handleChange} />
+        <Field label="Email address" name="email" type="email" value={formData.email} onChange={handleChange} required />
+        <Field label="Phone number" name="phone" type="tel" value={formData.phone} onChange={handleChange} required />
+        {isQuotation && <Field label="WhatsApp number" name="whatsapp" type="tel" value={formData.whatsapp} onChange={handleChange} />}
+        {isQuotation && <Field label="Project name" name="projectName" value={formData.projectName} onChange={handleChange} />}
+        <Field label="Project location" name="projectLocation" value={formData.projectLocation} onChange={handleChange} required={isQuotation} />
+        {isQuotation && <SelectField label="Emirate" name="emirate" value={formData.emirate} onChange={handleChange} options={['Dubai', 'Abu Dhabi', 'Sharjah', 'Ajman', 'Ras Al Khaimah', 'Fujairah', 'Umm Al Quwain']} />}
+        <SelectField label={isQuotation ? 'Type of work' : 'Subject'} name="service" value={formData.service} onChange={handleChange} required options={['Civil Works', 'Plastering and Gypsum Works', 'Masonry and Blockwork', 'Concrete Works', 'Steel and Shuttering', 'Skilled Workforce Deployment', 'Site Supervision', 'Documentation Control', 'General Enquiry']} />
+        {isQuotation && <Field label="Expected start date" name="expectedStartDate" type="date" value={formData.expectedStartDate} onChange={handleChange} />}
+        {isQuotation && <Field label="Required number of workers" name="workersRequired" type="number" value={formData.workersRequired} onChange={handleChange} />}
+        {isQuotation && <Field label="Estimated quantities" name="estimatedQuantities" value={formData.estimatedQuantities} onChange={handleChange} />}
+        <Field label="Preferred callback time" name="preferredCallbackTime" value={formData.preferredCallbackTime} onChange={handleChange} placeholder="Optional" />
       </div>
-
-      <div className="grid md:grid-cols-2 gap-4">
-        <Field label="Full Name" name="name" value={formData.name} onChange={handleChange} required />
-        <Field label="Company Name" name="company" value={formData.company} onChange={handleChange} />
-        <Field label="Email" name="email" type="email" value={formData.email} onChange={handleChange} required />
-        <Field label="Phone / WhatsApp" name="phone" type="tel" value={formData.phone} onChange={handleChange} required />
-      </div>
-
-      <div className="grid md:grid-cols-2 gap-4">
-        <div>
-          <label className="block text-sm font-semibold mb-2" style={{ color: '#001078' }}>Required Service</label>
-          <select name="service" value={formData.service} onChange={handleChange} required className={inputClass} style={{ '--tw-ring-color': '#F8B858' }}>
-            <option value="">Select a service</option>
-            <option>Building Contracting Works</option>
-            <option>Blockwork & Masonry</option>
-            <option>Plastering Works</option>
-            <option>Concrete Works</option>
-            <option>Steel Fixing & Shuttering</option>
-            <option>Fit-Out & Finishing</option>
-            <option>Renovation & Maintenance</option>
-            <option>Subcontracting Support</option>
-          </select>
-        </div>
-        <Field label="Project Location" name="projectLocation" value={formData.projectLocation} onChange={handleChange} required />
-        <Field label="Preferred Start Date" name="preferredStartDate" type="date" value={formData.preferredStartDate} onChange={handleChange} />
-        <Field label="Estimated Budget / BOQ Value" name="budgetRange" value={formData.budgetRange} onChange={handleChange} placeholder="Optional" />
-      </div>
-
-      <div>
-        <label className="block text-sm font-semibold mb-2" style={{ color: '#001078' }}>Scope / Project Details</label>
-        <textarea
-          name="message"
-          value={formData.message}
-          onChange={handleChange}
-          rows={5}
-          required
-          placeholder="Describe scope, quantities, drawings/BOQ availability, timeline and any special site requirements."
-          className={`${inputClass} resize-none`}
-          style={{ '--tw-ring-color': '#F8B858' }}
-        />
-      </div>
-
-      {errorMessage && (
-        <p className="rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">
-          {errorMessage}
-        </p>
-      )}
-
-      <button type="submit" disabled={submitting} className="w-full py-3 text-white font-semibold rounded-md transition-opacity hover:opacity-90 disabled:opacity-60" style={{ backgroundColor: '#001078' }}>
-        {submitting ? 'Sending Request...' : 'Submit Quotation Request'}
-      </button>
-
-      <p className="text-xs text-text-secondary text-center">
-        Your request will be delivered directly to OKG by email.
-      </p>
-    </motion.form>
+      <div className="mt-4"><label className="mb-2 block text-sm font-bold text-primary">{isQuotation ? 'Scope of work / Additional message' : 'Message'}</label><textarea name="message" value={formData.message} onChange={handleChange} required rows={6} className={`${inputClass} resize-none`} /></div>
+      {isQuotation && <div className="mt-5 grid gap-4 md:grid-cols-3"><FileInput label="Upload BOQ" onChange={(file) => handleFile('boq', file)} /><FileInput label="Upload drawings" onChange={(file) => handleFile('drawings', file)} /><FileInput label="Upload scope document" onChange={(file) => handleFile('scopeDocument', file)} /></div>}
+      {errorMessage && <p className="mt-4 rounded-md border border-red-200 bg-red-50 px-4 py-3 text-sm text-red-700">{errorMessage}</p>}
+      <button type="submit" disabled={submitting} className="mt-6 w-full rounded-md bg-primary px-6 py-3.5 text-sm font-black text-white disabled:opacity-60">{submitting ? 'Submitting...' : isQuotation ? 'Submit Quotation Request' : 'Send Message'}</button>
+    </form>
   );
 }
 
 function Field({ label, name, value, onChange, type = 'text', required = false, placeholder = '' }) {
-  return (
-    <div>
-      <label className="block text-sm font-semibold mb-2" style={{ color: '#001078' }}>{label}</label>
-      <input
-        type={type}
-        name={name}
-        value={value}
-        onChange={onChange}
-        required={required}
-        placeholder={placeholder}
-        className={inputClass}
-        style={{ '--tw-ring-color': '#F8B858' }}
-      />
-    </div>
-  );
+  return <div><label className="mb-2 block text-sm font-bold text-primary">{label}</label><input type={type} name={name} value={value} onChange={onChange} required={required} placeholder={placeholder} className={inputClass} /></div>;
+}
+
+function SelectField({ label, name, value, onChange, options, required = false }) {
+  return <div><label className="mb-2 block text-sm font-bold text-primary">{label}</label><select name={name} value={value} onChange={onChange} required={required} className={inputClass}><option value="">Select</option>{options.map((option) => <option key={option} value={option}>{option}</option>)}</select></div>;
+}
+
+function FileInput({ label, onChange }) {
+  return <div><label className="mb-2 block text-sm font-bold text-primary">{label}</label><input type="file" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg,.webp" onChange={(e) => onChange(e.target.files?.[0] || null)} className="w-full rounded-md border border-border bg-secondary px-3 py-2 text-sm" /></div>;
 }

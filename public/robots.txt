@@ -1,0 +1,7 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /portal/
+Disallow: /okg-admin
+
+Sitemap: https://www.okgbuild.com/sitemap.xml

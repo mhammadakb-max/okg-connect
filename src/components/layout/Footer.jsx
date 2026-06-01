@@ -1,126 +1,61 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { MapPin, Phone, Mail } from 'lucide-react';
+import { Globe, Mail, MapPin, MessageCircle, Phone } from 'lucide-react';
 
-const quickLinks = [
-  { label: 'Home', path: '/' },
-  { label: 'About', path: '/about' },
-  { label: 'Services', path: '/services' },
-  { label: 'Capabilities', path: '/capabilities' },
-  { label: 'Projects', path: '/projects' },
-  { label: 'Careers', path: '/careers' },
-  { label: 'Subcontractors', path: '/subcontractor-portal' },
-  { label: 'Contact', path: '/contact' },
+const navigation = [
+  ['Home', '/'], ['About', '/about'], ['Services', '/services'], ['Capabilities', '/capabilities'],
+  ['Projects', '/projects'], ['Careers', '/careers'], ['Become a Subcontractor', '/subcontractor-portal'], ['Contact', '/contact'],
 ];
 
-const policyLinks = [
-  { label: 'QHSE Overview', path: '/qhse' },
-  { label: 'Quality Policy', path: '/quality-policy' },
-  { label: 'Health & Safety', path: '/health-safety-policy' },
-  { label: 'Environmental Policy', path: '/environmental-policy' },
-  { label: 'Social Commitment', path: '/social-commitment' },
-  { label: 'People Focus', path: '/people-focus' },
-];
-
-const serviceList = [
-  'Building Contracting Works',
-  'Blockwork & Masonry',
-  'Plastering Works',
-  'Concrete Works',
-  'Steel Fixing & Shuttering',
-  'Fit-Out & Finishing',
-  'Subcontracting Support',
-  'Manpower Mobilisation',
+const qhse = [
+  ['QHSE', '/qhse'], ['Quality Policy', '/quality-policy'], ['Health and Safety Policy', '/health-safety-policy'], ['Environmental Policy', '/environmental-policy'], ['Social Commitment', '/social-commitment'],
 ];
 
 export default function Footer() {
   return (
-    <footer className="relative overflow-hidden border-t border-white/10 shadow-[0_-18px_60px_rgba(0,16,120,0.12)]" style={{ backgroundColor: '#001078' }}>
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,rgba(248,184,88,0.20),transparent_30%),linear-gradient(135deg,rgba(255,255,255,0.08),transparent_42%)]" />
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
-
-          {/* Brand */}
-          <div>
-            <Link to="/" className="flex items-baseline gap-0 mb-4">
-              <span className="text-2xl font-bold text-white">OKG</span>
-              <span className="text-2xl font-bold" style={{ color: '#F8B858' }}>.</span>
-            </Link>
-
-            <p className="text-sm text-white/70 leading-relaxed mb-6">
-              OKG Building Contracting is a UAE-based contractor focused on disciplined construction support, site supervision, documentation, QHSE and transparent project delivery.
-            </p>
-
-            <ul className="space-y-3">
-              {[
-                { Icon: MapPin, val: 'Warba Centre, Office 504, Al Muraqabat, Deira, Dubai, UAE' },
-                { Icon: Phone, val: '+971 54 217 1502' },
-                { Icon: Mail, val: 'info@okgbuild.com' },
-              ].map(({ Icon, val }) => (
-                <li key={val} className="flex items-start gap-3 text-sm text-white/70">
-                  <Icon className="w-4 h-4 mt-0.5 flex-shrink-0" style={{ color: '#F8B858' }} />
-                  <span>{val}</span>
-                </li>
-              ))}
-            </ul>
+    <footer className="border-t border-white/10 bg-primary text-white">
+      <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-6 md:grid-cols-2 lg:grid-cols-4 lg:px-8">
+        <div>
+          <Link to="/" className="mb-4 inline-flex items-center gap-3">
+            <span className="flex h-11 w-11 items-center justify-center rounded-lg bg-white text-lg font-black text-primary">OKG</span>
+            <span className="text-lg font-extrabold leading-tight">OKG Building Contracting L.L.C</span>
+          </Link>
+          <p className="mb-6 text-sm leading-relaxed text-white/70">UAE-based building contracting company focused on civil works, finishing works, skilled workforce deployment, site supervision and documentation control.</p>
+          <div className="flex gap-2" aria-label="Social media links">
+            {['in', 'ig', 'fb'].map((item) => <span key={item} className="flex h-9 w-9 items-center justify-center rounded-full border border-white/20 text-xs font-bold uppercase text-white/80">{item}</span>)}
           </div>
+        </div>
 
-          {/* Navigation */}
-          <div>
-            <h4 className="text-xs font-bold tracking-widest uppercase mb-4 text-white">Navigation</h4>
-            <ul className="space-y-2">
-              {quickLinks.map((link) => (
-                <li key={link.path}>
-                  <Link
-                    to={link.path}
-                    className="text-sm text-white/70 hover:text-white transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div>
+          <h3 className="mb-4 text-xs font-black uppercase tracking-widest text-accent">Navigation</h3>
+          <ul className="space-y-2">
+            {navigation.map(([label, path]) => <li key={path}><Link to={path} className="text-sm text-white/70 transition-colors hover:text-white">{label}</Link></li>)}
+          </ul>
+        </div>
 
-          {/* Policies */}
-          <div>
-            <h4 className="text-xs font-bold tracking-widest uppercase mb-4 text-white">Policies</h4>
-            <ul className="space-y-2">
-              {policyLinks.map((link) => (
-                <li key={link.path}>
-                  <Link
-                    to={link.path}
-                    className="text-sm text-white/70 hover:text-white transition-colors"
-                  >
-                    {link.label}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
+        <div>
+          <h3 className="mb-4 text-xs font-black uppercase tracking-widest text-accent">QHSE & Policies</h3>
+          <ul className="space-y-2">
+            {qhse.map(([label, path]) => <li key={path}><Link to={path} className="text-sm text-white/70 transition-colors hover:text-white">{label}</Link></li>)}
+            <li><Link to="/privacy-policy" className="text-sm text-white/70 transition-colors hover:text-white">Privacy Policy</Link></li>
+            <li><Link to="/terms-and-conditions" className="text-sm text-white/70 transition-colors hover:text-white">Terms and Conditions</Link></li>
+          </ul>
+        </div>
 
-          {/* Services */}
-          <div>
-            <h4 className="text-xs font-bold tracking-widest uppercase mb-4 text-white">Services</h4>
-            <ul className="space-y-2">
-              {serviceList.map((s) => (
-                <li key={s} className="flex items-start gap-2 text-sm text-white/70">
-                  <span className="w-1 h-1 rounded-full mt-2 flex-shrink-0" style={{ backgroundColor: '#F8B858' }} />
-                  <span>{s}</span>
-                </li>
-              ))}
-            </ul>
-          </div>
-
+        <div>
+          <h3 className="mb-4 text-xs font-black uppercase tracking-widest text-accent">Contact</h3>
+          <ul className="space-y-3 text-sm text-white/70">
+            <li className="flex gap-3"><MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" />Warba Centre, Office 504, Al Muraqabat, Deira, Dubai, UAE</li>
+            <li className="flex gap-3"><Phone className="mt-0.5 h-4 w-4 shrink-0 text-accent" /><a href="tel:+971542171502" className="hover:text-white">+971 54 217 1502</a></li>
+            <li className="flex gap-3"><MessageCircle className="mt-0.5 h-4 w-4 shrink-0 text-accent" /><a href="https://wa.me/971542171502" target="_blank" rel="noopener noreferrer" className="hover:text-white">WhatsApp OKG</a></li>
+            <li className="flex gap-3"><Mail className="mt-0.5 h-4 w-4 shrink-0 text-accent" /><a href="mailto:info@okgbuild.com" className="hover:text-white">info@okgbuild.com</a></li>
+            <li className="flex gap-3"><Globe className="mt-0.5 h-4 w-4 shrink-0 text-accent" />www.okgbuild.com</li>
+          </ul>
+          <Link to="/request-quotation" className="mt-6 inline-flex rounded-md bg-white px-5 py-3 text-sm font-bold text-primary transition-opacity hover:opacity-90">Request a Quotation</Link>
         </div>
       </div>
-
-      {/* Bottom bar */}
-      <div className="relative border-t border-white/10 bg-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-white/60">
-          <p>© {new Date().getFullYear()} OKG Building Contracting LLC. All rights reserved. United Arab Emirates.</p>
-          <p>Constructing with clarity, discipline and accountability.</p>
-        </div>
+      <div className="border-t border-white/10 bg-black/10 px-4 py-5 text-center text-xs text-white/60">
+        © {new Date().getFullYear()} OKG Building Contracting L.L.C. All rights reserved. Civil works and finishing contractor in the UAE.
       </div>
     </footer>
   );

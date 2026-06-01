@@ -1,131 +1,45 @@
-import React from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
+import { base44 } from '@/api/base44Client';
+import { MapPin } from 'lucide-react';
+import SEO from '@/components/shared/SEO';
 import PageHero from '@/components/shared/PageHero';
 import CTABand from '@/components/shared/CTABand';
-import SectionEyebrow from '@/components/shared/SectionEyebrow';
-import ChecklistItem from '@/components/shared/ChecklistItem';
-import { motion } from 'framer-motion';
+
+const filters = ['All Projects', 'Active Projects', 'Completed Projects', 'Civil Works', 'Finishing Works', 'Plastering', 'Masonry', 'Concrete', 'Workforce Deployment'];
 
 export default function Projects() {
+  const [projects, setProjects] = useState([]);
+  const [activeFilter, setActiveFilter] = useState('All Projects');
+
+  useEffect(() => {
+    base44.functions.invoke('listPublicProjects', {}).then((res) => setProjects(res.data.projects || [])).catch(() => setProjects([]));
+  }, []);
+
+  const visibleProjects = useMemo(() => {
+    if (!projects.length) return [];
+    if (activeFilter === 'All Projects') return projects;
+    if (activeFilter === 'Active Projects') return projects.filter((p) => ['in_progress', 'mobilised', 'mobilising', 'awarded'].includes(p.status));
+    if (activeFilter === 'Completed Projects') return projects.filter((p) => ['completed', 'closed'].includes(p.status));
+    return projects.filter((p) => `${p.scope || ''} ${p.project_type || ''}`.toLowerCase().includes(activeFilter.toLowerCase().replace(' works', '').replace(' deployment', '')));
+  }, [projects, activeFilter]);
+
+  const placeholders = [1, 2, 3, 4, 5, 6];
+
   return (
     <>
-      <PageHero
-        title="Project Approach"
-        intro="OKG documents projects with clear scope, location, timeline, approvals and handover status to ensure transparent coordination."
-        eyebrow="Projects"
-        breadcrumb="Projects"
-      />
-
-      {/* Project Methodology */}
-      <section className="bg-white border-t border-gray-200 py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-2xl mb-12"
-          >
-            <SectionEyebrow label="Our Approach" />
-            <h2 className="text-3xl md:text-4xl font-bold mb-6" style={{ color: '#001078' }}>
-              Project approach built on clarity and accountability.
-            </h2>
-            <p className="text-lg text-text-secondary">
-              OKG presents project information through clear scope, location, quantity, timeline, approval status and documented handover details where available.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              whileHover={{ y: -6 }}
-              className="relative h-96 bg-gray-100 rounded-2xl overflow-hidden shadow-2xl ring-1 ring-black/5"
-            >
-              <img
-                src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=85"
-                alt="Project execution"
-                className="w-full h-full object-cover"
-              />
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-            >
-              <div className="space-y-6">
-                <div>
-                  <h3 className="text-lg font-bold mb-3" style={{ color: '#001078' }}>
-                    Project documentation standard
-                  </h3>
-                  <p className="text-base text-text-secondary mb-6 leading-relaxed">
-                    Each project package should be recorded with the details needed for transparent coordination and professional handover.
-                  </p>
-                </div>
-
-                <div className="space-y-3">
-                  {[
-                    'Project name and location',
-                    'Client or main contractor, where permitted',
-                    'Scope and quantity',
-                    'Workfront and timeline',
-                    'Progress photos where available',
-                    'Inspection and handover status',
-                  ].map((item, idx) => (
-                    <ChecklistItem key={idx} text={item} index={idx} />
-                  ))}
-                </div>
-              </div>
-            </motion.div>
-          </div>
+      <SEO title="Projects | OKG Building Contracting L.L.C" description="Public project information from OKG Contracting. Only projects marked public by administrators are displayed on the website." path="/projects" />
+      <PageHero title="Projects" intro="Public project information will appear here when OKG administrators upload verified details and mark projects as public." eyebrow="Projects" breadcrumb="Projects" />
+      <section className="bg-white py-16 md:py-24">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="mb-10 flex flex-wrap gap-2">{filters.map((filter) => <button key={filter} onClick={() => setActiveFilter(filter)} className={`rounded-full border px-4 py-2 text-sm font-bold ${activeFilter === filter ? 'border-primary bg-primary text-white' : 'border-border bg-white text-primary'}`}>{filter}</button>)}</div>
+          {visibleProjects.length ? <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">{visibleProjects.map((project) => <ProjectCard key={project.id} project={project} />)}</div> : <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">{placeholders.map((item) => <ProjectCard key={item} project={{ project_name: 'Project Details Coming Soon', status: 'coming_soon', emirate: 'UAE', location: 'To be published', scope: 'No fake project data is published. Verified project details will appear here once uploaded through the private portal.', progress: 0 }} />)}</div>}
         </div>
       </section>
-
-      {/* Project Categories */}
-      <section className="bg-gray-50 border-t border-gray-200 py-20 md:py-28">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="max-w-2xl mb-12"
-          >
-            <SectionEyebrow label="Work Packages" />
-            <h2 className="text-3xl md:text-4xl font-bold" style={{ color: '#001078' }}>
-              OKG project categories.
-            </h2>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {[
-              { title: 'Civil Works', desc: 'Structural, foundation and civil execution support.' },
-              { title: 'Masonry & Blockwork', desc: 'Brick, block and stone masonry work packages.' },
-              { title: 'Concrete Works', desc: 'Concrete casting, finishing and curing support.' },
-              { title: 'Steel & Shuttering', desc: 'Rebar, formwork and steel fixing coordination.' },
-              { title: 'Finishing Works', desc: 'Plastering, doors, windows and final finishes.' },
-              { title: 'Fit-Out Projects', desc: 'Interior fit-out and complete project finishing.' },
-            ].map((item, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.05 }}
-                className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
-              >
-                <h3 className="text-base font-bold mb-2" style={{ color: '#001078' }}>
-                  {item.title}
-                </h3>
-                <p className="text-sm text-text-secondary">
-                  {item.desc}
-                </p>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <CTABand />
+      <CTABand buttonLink="/request-quotation" />
     </>
   );
+}
+
+function ProjectCard({ project }) {
+  return <article className="overflow-hidden rounded-2xl border border-border bg-white shadow-sm"><div className="h-56 bg-secondary"><img src={project.site_photos_url || project.cover_image_url || 'https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=900&q=85'} alt={project.project_name} className="h-full w-full object-cover" loading="lazy" /></div><div className="p-6"><p className="mb-2 text-xs font-black uppercase tracking-widest text-accent">{project.status?.replaceAll('_', ' ')}</p><h2 className="mb-3 text-xl font-black text-primary">{project.project_name}</h2><p className="mb-4 flex items-center gap-2 text-sm text-muted-foreground"><MapPin className="h-4 w-4" />{project.emirate || project.location || 'UAE'}</p><p className="text-sm leading-relaxed text-muted-foreground">{project.scope || project.summary}</p><div className="mt-5 h-2 overflow-hidden rounded-full bg-secondary"><div className="h-full bg-primary" style={{ width: `${Number(project.progress || 0)}%` }} /></div></div></article>;
 }

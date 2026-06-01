@@ -9,12 +9,15 @@ module.exports = {
         display: ['Manrope', 'sans-serif'],
       },
       colors: {
-        /* OKG Palette — Navy + Gold only */
+        /* OKG Building Contracting Palette */
         'navy': '#001078',
         'gold': '#F8B858',
+        'charcoal': '#1E1E1E',
+        'steel-grey': '#6B7280',
         'text-primary': '#1E1E1E',
         'text-secondary': '#6B7280',
         'bg-light': '#F7F8FB',
+        'off-white': '#F7F8FB',
         background: 'hsl(var(--background))',
         foreground: 'hsl(var(--foreground))',
         card: {

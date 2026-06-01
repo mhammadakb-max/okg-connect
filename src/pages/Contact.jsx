@@ -1,97 +1,27 @@
 import React from 'react';
-import SectionEyebrow from '@/components/shared/SectionEyebrow';
+import { Link } from 'react-router-dom';
+import { Mail, MapPin, MessageCircle, Phone } from 'lucide-react';
+import SEO from '@/components/shared/SEO';
+import PageHero from '@/components/shared/PageHero';
 import QuotationForm from '@/components/contact/QuotationForm';
-import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, MessageCircle } from 'lucide-react';
 
 export default function Contact() {
   return (
     <>
-      {/* Quotation Section */}
+      <SEO title="Contact OKG Building Contracting L.L.C | UAE" description="Contact OKG Contracting for civil works, finishing works, skilled workforce deployment, site supervision and construction quotation enquiries in the UAE." path="/contact" />
+      <PageHero title="Contact OKG Contracting" intro="Speak with OKG Building Contracting L.L.C about project enquiries, quotation follow-ups, subcontractor coordination or company information." eyebrow="Contact" breadcrumb="Contact" />
       <section className="bg-white py-16 md:py-24">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid lg:grid-cols-[1.1fr_0.9fr] gap-16 items-start">
-            <QuotationForm />
-
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="rounded-2xl border border-gray-200 bg-gray-50 p-8"
-            >
-              <SectionEyebrow label="How We Respond" />
-              <h2 className="text-3xl font-bold mb-5" style={{ color: '#001078' }}>
-                Clear information helps us quote properly.
-              </h2>
-              <p className="text-text-secondary leading-relaxed mb-6">
-                Please include the work scope, location, drawings or BOQ status, expected start date and any site access requirements. This helps OKG review your request faster and respond with practical next steps.
-              </p>
-              <div className="grid gap-3">
-                {['Scope review and clarification', 'Practical delivery and mobilisation guidance', 'Commercial response based on provided details'].map((item) => (
-                  <div key={item} className="flex items-start gap-3 rounded-xl bg-white border border-gray-200 p-4">
-                    <span className="mt-2 h-1.5 w-1.5 rounded-full flex-shrink-0" style={{ backgroundColor: '#F8B858' }} />
-                    <span className="text-sm font-medium text-text-primary">{item}</span>
-                  </div>
-                ))}
-              </div>
-            </motion.div>
-          </div>
+        <div className="mx-auto grid max-w-7xl gap-8 px-4 sm:px-6 lg:grid-cols-4 lg:px-8">
+          {[{ Icon: Phone, label: 'Phone', value: '+971 54 217 1502', href: 'tel:+971542171502' }, { Icon: MessageCircle, label: 'WhatsApp', value: '+971 54 217 1502', href: 'https://wa.me/971542171502' }, { Icon: Mail, label: 'Email', value: 'info@okgbuild.com', href: 'mailto:info@okgbuild.com' }, { Icon: MapPin, label: 'Office', value: 'Warba Centre, Office 504, Al Muraqabat, Deira, Dubai, UAE' }].map(({ Icon, label, value, href }) => <div key={label} className="rounded-2xl border border-border bg-white p-6 shadow-sm"><Icon className="mb-4 h-7 w-7 text-accent" /><p className="mb-2 text-xs font-black uppercase tracking-widest text-primary">{label}</p>{href ? <a href={href} target={href.startsWith('http') ? '_blank' : undefined} rel="noopener noreferrer" className="text-sm font-semibold text-muted-foreground hover:text-primary">{value}</a> : <p className="text-sm font-semibold text-muted-foreground">{value}</p>}</div>)}
         </div>
       </section>
-
-      {/* Contact Details */}
-      <section className="bg-gray-50 border-t border-gray-200 py-16 md:py-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="mb-10 max-w-2xl"
-          >
-            <SectionEyebrow label="Contact Details" />
-            <h2 className="text-3xl font-bold mb-4" style={{ color: '#001078' }}>
-              Prefer to speak directly?
-            </h2>
-            <p className="text-text-secondary leading-relaxed">
-              Contact OKG for project enquiries, quotation follow-ups, subcontractor coordination or general company information.
-            </p>
-          </motion.div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-5">
-            {[
-              { Icon: Phone, label: 'Phone', value: '+971 54 217 1502' },
-              { Icon: Mail, label: 'Email', value: 'info@okgbuild.com' },
-              { Icon: MessageCircle, label: 'WhatsApp', value: '+971 54 217 1502', link: 'https://wa.me/971542171502' },
-              { Icon: MapPin, label: 'Office', value: 'Warba Centre, Office 504, Al Muraqabat, Deira, Dubai, UAE' },
-            ].map((contact, idx) => (
-              <motion.div
-                key={idx}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: idx * 0.08 }}
-                className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm"
-              >
-                <div className="w-10 h-10 rounded-lg flex items-center justify-center mb-4" style={{ backgroundColor: '#F8B858' }}>
-                  <contact.Icon className="w-5 h-5" style={{ color: '#001078' }} />
-                </div>
-                <p className="text-xs font-bold uppercase tracking-widest mb-2" style={{ color: '#001078' }}>
-                  {contact.label}
-                </p>
-                {contact.link ? (
-                  <a href={contact.link} target="_blank" rel="noopener noreferrer" className="text-sm text-text-secondary hover:text-navy transition-colors">
-                    {contact.value}
-                  </a>
-                ) : (
-                  <p className="text-sm text-text-secondary leading-relaxed">
-                    {contact.value}
-                  </p>
-                )}
-              </motion.div>
-            ))}
-          </div>
+      <section className="border-y border-border bg-secondary py-16 md:py-24">
+        <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[1.05fr_0.95fr] lg:px-8">
+          <QuotationForm mode="contact" />
+          <div className="overflow-hidden rounded-2xl border border-border bg-white shadow-sm"><iframe title="OKG office location map" src="https://www.google.com/maps?q=Warba%20Centre%20Al%20Muraqabat%20Deira%20Dubai%20UAE&output=embed" className="h-full min-h-[480px] w-full" loading="lazy" /></div>
         </div>
       </section>
+      <section className="bg-white px-4 py-12 text-center"><Link to="/request-quotation" className="inline-flex rounded-md bg-primary px-6 py-3 text-sm font-bold text-white">Request a Quotation</Link></section>
     </>
   );
 }
